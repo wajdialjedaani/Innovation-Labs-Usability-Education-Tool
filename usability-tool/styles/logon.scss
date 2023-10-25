@@ -1,4 +1,4 @@
-label {
+.registration-form-label {
   margin-bottom: 3px;
   display: block;
   color: #ffffff;
@@ -6,17 +6,17 @@ label {
   font-size: 1em;
 }
 
-small {
+.registration-account-check {
   color: #ffffff;
 }
 
-main {
+.registration-main {
   display: flex;
   width: 100%;
   height: 100%;
 }
 
-input {
+.registration-form-input {
   font-family: "Inter", sans-serif;
   padding: 7px 10px;
   width: 400px;
