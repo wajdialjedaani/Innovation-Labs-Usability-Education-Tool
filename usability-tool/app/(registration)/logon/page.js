@@ -1,11 +1,37 @@
+"use client";
 import "@/styles/logon.scss";
-
+import React from "react";
 export default function Logon() {
+  const [formData, setFormData] = React.useState({
+    email: "",
+    password: "",
+    passwordConf: "",
+  });
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (formData.password === formData.passwordConf) {
+      //Add to firebase
+    } else {
+      alert("Passwords do not match");
+    }
+  }
+
+  function handleFormChange(e) {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => {
+      return {
+        ...prevFormData,
+        [name]: value,
+      };
+    });
+  }
+
   return (
     <main className="registration-main">
       <article className="registration-container">
         <h1 className="registration-title">Register</h1>
-        <div>
+        <form className="registration-form" onSubmit={handleSubmit}>
           <label
             className="registration-form-label"
             htmlFor="registration-email-input"
@@ -14,13 +40,15 @@ export default function Logon() {
           </label>
           <input
             type="email"
+            name="email"
             className="registration-form-input"
             id="registration-email-input"
             placeholder="Enter Email"
+            onChange={handleFormChange}
+            value={formData.email}
+            required
           />
-        </div>
 
-        <div>
           <label
             className="registration-form-label"
             htmlFor="registration-password-input"
@@ -29,13 +57,15 @@ export default function Logon() {
           </label>
           <input
             type="password"
+            name="password"
             className="registration-form-input"
             id="registration-password-input"
             placeholder="Enter Password"
+            onChange={handleFormChange}
+            value={formData.password}
+            required
           />
-        </div>
 
-        <div>
           <label
             className="registration-form-label"
             htmlFor="registration-password-confirm-input"
@@ -44,13 +74,19 @@ export default function Logon() {
           </label>
           <input
             type="password"
+            name="passwordConf"
             className="registration-form-input"
             id="registration-password-confirm-input"
             placeholder="Confirm Password"
+            onChange={handleFormChange}
+            value={formData.passwordConf}
+            required
           />
-        </div>
 
-        <button className="registraion-confirm-btn">Confirm</button>
+          <button className="registraion-confirm-btn" type="submit">
+            Confirm
+          </button>
+        </form>
 
         <small className="registration-account-check">
           Already have an account?
