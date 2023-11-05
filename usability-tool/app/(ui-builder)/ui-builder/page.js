@@ -1,9 +1,7 @@
-import { Grid } from "@/components/ui-builder/Grid"
+import UIBuilder from "@/components/ui-builder/UIBuilder";
 
-export default function UIBuilder(){
+export default function UIBuilderPage(){
   return (
-    <div>
-      <Grid />
-    </div>
+    <UIBuilder />
   )
 }
