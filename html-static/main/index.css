@@ -40,9 +40,17 @@
   padding: 50px 0;
   margin: 0;
   font-size: 1.3em;
-  color: #ccc9dc;
-  background: #0c1821;
+  color: #ffffff;
+  background: #324a5f;
   border-radius: 15px;
+  cursor: pointer;
+  border: 1px solid black;
+  box-shadow: 0px 0px 3px black;
+  transition: 300ms;
+}
+
+.heuristic-btn:hover {
+  background-color: #0c1821;
 }
 
 /*Menu Popup*/

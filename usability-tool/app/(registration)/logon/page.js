@@ -1,8 +1,8 @@
 "use client";
 import "@/styles/logon.scss";
-import React from "react";
+import { useState } from "react";
 export default function Logon() {
-  const [formData, setFormData] = React.useState({
+  const [formData, setFormData] = useState({
     email: "",
     password: "",
     passwordConf: "",
