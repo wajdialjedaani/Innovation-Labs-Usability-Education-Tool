@@ -8,6 +8,7 @@
 /*Header*/
 
 .main-head {
+  position: relative;
   padding: 0 25px;
   display: flex;
   justify-content: space-between;
@@ -18,10 +19,6 @@
 }
 
 /*Main*/
-
-.main-main {
-  position: relative;
-}
 
 .heuristic-btn-container {
   padding: 150px;
@@ -49,6 +46,10 @@
   transition: 300ms;
 }
 
+.menu-title {
+  margin: 0;
+}
+
 .heuristic-btn:hover {
   background-color: #0c1821;
 }
@@ -56,7 +57,7 @@
 /*Menu Popup*/
 .menu-popup {
   position: absolute;
-  top: 0;
+  top: 100%;
   left: 0;
   background: #324a5f;
 }
@@ -83,7 +84,7 @@
 
 .account-popup {
   position: absolute;
-  top: 0;
+  top: 100%;
   right: 0;
   padding: 15px;
   background: #324a5f;
