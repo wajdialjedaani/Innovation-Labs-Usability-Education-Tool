@@ -12,20 +12,77 @@ import DraggableComponent from "./DraggableComponent";
 import styles from "@/styles/UIBuilder.module.scss";
 import { useState } from "react";
 
+//Sample array of widgets that tracks their dragging data.
+//Different "levels" can be designed by providing different lists of widgets. Needs a property to determine widget type
+const widgetData = [
+  {
+    id: "0",
+    style: 
+    {
+      position: "relative",
+      left: "0px",
+      top: "0px",
+    },
+  },
+  {
+    id: "1",
+    style: 
+    {
+      position: "relative",
+      left: "0px",
+      top: "0px",
+    },
+  },
+  {
+    id: "2",
+    style: 
+    {
+      position: "relative",
+      left: "0px",
+      top: "0px",
+    },
+  }
+];
+
+
 export default function UIBuilder(props){
+  //Used to track widget positioning
+  const [widgets, setWidgets] = useState(widgetData);
+
   function handleDragEnd(event) {
-    if (event.over && event.over.id === 'droppable') {
-      setIsDropped(true);
+    const widget = widgets.find((widget) => widget.id === event.active.id);
+
+    //Need to deep copy the nested style object so we can modify its properties
+    widget.style = {...widget.style};
+
+    if (event.over && event.over.id === 'UIBuilderGrid') {
+      //If widget is dragged over the grid, add the delta to the current position so that it sticks where it's dropped
+      const currentLeft = parseInt(widget.style.left);
+      const currentTop = parseInt(widget.style.top);
+      widget.style.left = `${currentLeft + event.delta.x}px`;
+      widget.style.top = `${currentTop + event.delta.y}px`
     }
+    else {
+      //Otherwise, if the widget was dragged back out of the grid, reset it back to its original position in the drawer
+      widget.style.left = "0px";
+      widget.style.top = "0px";
+    }
+
+    //Update the array and store it
+    const _widgets = widgets.map((element) => {
+      if(element.id === widget.id) return widget;
+      return element;
+    });
+    setWidgets(_widgets);
   }
   
   return (
-    <DndContext>
+    <DndContext onDragEnd={handleDragEnd}>
       <UIBuilderContextProvider>
         <div aria-label="UI Builder">
-
+    
           <MenuBar />
-          <UIBuilderBody />
+          <UIBuilderBody widgets={widgets}/>
 
         </div>
       </UIBuilderContextProvider>
@@ -37,7 +94,7 @@ function UIBuilderBody(props){
   return (
     <div className={styles.builderBody}>
       <Grid />
-      <ComponentDrawer />
+      <ComponentDrawer widgets={props.widgets}/>
     </div>
   )
 }
@@ -50,20 +107,20 @@ function MenuBar(props){
   )
 }
 
-function ComponentDrawer(props){
+function ComponentDrawer({widgets, ...props}){
   return (
-    <div className={styles.componentDrawer}>
-      <ExampleDrag />
+    <div className={styles.componentDrawer} style={props.style}>
+      {widgets.map((widget, index) => (<DraggableButton widget={widget} key={widget.id} id={widget.id}></DraggableButton>))}
     </div>
   )
 }
 
-function ExampleDrag(props){
+function DraggableButton(props){
   return (
-    <DraggableComponent>
-      <div>
-        drag me!
-      </div>
+    <DraggableComponent id={props.id} widget={props.widget}>
+      <button>
+        Click me!
+      </button>
     </DraggableComponent>
   )
 }

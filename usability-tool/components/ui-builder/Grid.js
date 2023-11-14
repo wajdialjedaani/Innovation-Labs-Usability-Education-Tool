@@ -9,7 +9,7 @@ export default function Grid(props){
   });
 
   const style = {
-    "background-color": isOver ? 'green' : undefined,
+    "backgroundColor": isOver ? 'green' : undefined,
   };
 
   return (
