@@ -1,24 +1,18 @@
 .menu-popup {
+  width: 200px;
   position: absolute;
   top: 100%;
   left: 0;
   background: #324a5f;
-}
-
-.menu-popup-list {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-
-.menu-popup-list-item {
-  padding: 20px 40px;
-}
-
-.menu-popup-list-item-link {
-  color: #ffffff;
-}
-.menu-popup-list-item-link:hover,
-.menu-popup-list-item-link:focus {
-  color: #ccc9dc;
+  text-align: center;
+  a {
+    padding: 20px 0px;
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+  }
+  a:hover,
+  a:focus {
+    background-color: #0c1821;
+  }
 }

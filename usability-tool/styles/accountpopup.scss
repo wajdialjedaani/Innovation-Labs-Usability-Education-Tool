@@ -1,38 +1,35 @@
 /*Account Popup*/
 
 .account-popup {
+  width: 200px;
   position: absolute;
   top: 100%;
   right: 0;
-  padding: 15px;
   background: #324a5f;
   color: #ffffff;
   text-align: center;
+
+  p {
+    margin: 0;
+    padding-top: 8px;
+    font-size: 16px;
+    span {
+      font-style: italic;
+    }
+  }
+
+  a {
+    display: block;
+    padding: 20px 0px;
+    text-decoration: none;
+    color: #ffffff;
+  }
+  a:hover,
+  a:focus {
+    background-color: #0c1821;
+  }
 }
 
-.account-popup-signedinas {
-  margin: 5px;
-}
-
-.account-popup-email {
-  font-style: italic;
-}
-
-.account-popup-list {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-
-.account-popup-list-item {
-  padding: 20px;
-}
-
-.account-popup-list-item-link {
-  color: #ffffff;
-}
-
-.account-popup-list-item-link:hover,
-.account-popup-list-item-link:focus {
-  color: #ccc9dc;
-}
+// .account-popup-email {
+//   font-style: italic;
+// }

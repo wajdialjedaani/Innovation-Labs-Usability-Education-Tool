@@ -12,3 +12,10 @@
 .menu-title {
   margin: 0;
 }
+
+.menu-img:hover,
+.menu-img:focus,
+.account-img:hover,
+.account-img:focus {
+  filter: contrast(0);
+}
