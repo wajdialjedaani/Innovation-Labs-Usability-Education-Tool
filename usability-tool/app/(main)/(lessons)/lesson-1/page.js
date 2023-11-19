@@ -3,7 +3,7 @@
 export default function Lesson1() {
   return (
     <main>
-      <h1>Visual Design of the System</h1>
+      <h1>Visual System Design</h1>
       <h3>Heuristic 1: Visibility of system status & Heuristic 8: Aesthetic and minimalist design</h3>
       <p>
         These two of Nielsen’s 10 Usability Heuristics both have to deal with the display of things that the users will
