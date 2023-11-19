@@ -1,4 +1,4 @@
-
+import "@/styles/page.module.scss";
 
 export default function LessonsPage() {
     return (
