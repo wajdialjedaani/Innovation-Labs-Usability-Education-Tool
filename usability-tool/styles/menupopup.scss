@@ -1,0 +1,18 @@
+.menu-popup {
+  width: 200px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #324a5f;
+  text-align: center;
+  a {
+    padding: 20px 0px;
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+  }
+  a:hover,
+  a:focus {
+    background-color: #0c1821;
+  }
+}

@@ -1,0 +1,21 @@
+.main-head {
+  position: relative;
+  padding: 0 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ccc9dc;
+  background: #0c1821;
+  font-size: 1.25em;
+}
+
+.menu-title {
+  margin: 0;
+}
+
+.menu-img:hover,
+.menu-img:focus,
+.account-img:hover,
+.account-img:focus {
+  filter: contrast(0);
+}
