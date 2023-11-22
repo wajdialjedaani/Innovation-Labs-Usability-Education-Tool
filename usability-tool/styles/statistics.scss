@@ -1,12 +1,23 @@
 main {
+  box-sizing: border-box;
   padding: 15px;
+  overflow: auto;
+}
+
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-stat-container {
+  height: 100%;
   display: flex;
   gap: 30px;
 }
 
 .stat-buttons {
-  max-height: 100vh;
-  flex: 25%;
+  flex: 0 0 25%;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -17,7 +28,7 @@ main {
     color: #ffffff;
     background-color: #324a5f;
     border-radius: 15px;
-    padding: 50px 70px;
+    padding: 50px 0;
     cursor: pointer;
     border: 1px solid black;
     box-shadow: 0px 0px 3px black;
@@ -29,7 +40,7 @@ main {
 }
 
 .stat-container {
-  flex: 75%;
+  flex: 0 1 75%;
   background-color: #324a5f;
   border-radius: 15px;
 }
