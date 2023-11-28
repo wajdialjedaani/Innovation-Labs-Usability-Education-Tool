@@ -1,9 +1,9 @@
-
+import "@/styles/lesson.scss";
 
 export default function Lesson5() {
   return (
-    <main>
-      <h1>Error Handling</h1>
+    <div className={"lesson"}>
+      <h1>Course 5: Error Handling</h1>
       <h3>Heuristic 5: Error prevention & Heuristic 9: Help users recognize, diagnose, and recover from errors</h3>
       <p>
         The aim of the “error prevention”, and “help users recognize, diagnose, and recover from errors” usability
@@ -20,6 +20,6 @@ export default function Lesson5() {
         understand what went wrong and what steps they can take to rectify it. This will help the user to not make the
         same error again in the future as well as to get them back to their task as soon as possible.
       </p>
-    </main>
+    </div>
   )
 }

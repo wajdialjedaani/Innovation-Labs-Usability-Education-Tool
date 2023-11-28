@@ -1,9 +1,9 @@
-
+import "@/styles/lesson.scss";
 
 export default function Lesson4() {
   return (
-    <main>
-      <h1>Providing Information to the User</h1>
+    <div className={"lesson"}>
+      <h1>Course 4: Providing Information to the User</h1>
       <h3>Heuristic 4: Consistency and standards & Heuristic 10: Help and documentation</h3>
       <p>
         Both the “consistency and standards” and “help and documentation” heuristics promote usability by encouraging
@@ -19,6 +19,6 @@ export default function Lesson4() {
         could include FAQs, tutorials, or more in-depth guides. If done correctly, “help and documentation” aids users
         in learning about the system as well as resolving any issues they might have.
       </p>
-    </main>
+    </div>
   )
 }

@@ -1,9 +1,9 @@
-
+import "@/styles/lesson.scss";
 
 export default function Lesson2() {
   return (
-    <main>
-      <h1>Making the System Intuitive</h1>
+    <div className={"lesson"}>
+      <h1>Course 2: Making the System Intuitive</h1>
       <h3>Heuristic 2: Match between system and the real world & Heuristic 6: Recognition rather than recall</h3>
       <p>
         The goal of these heuristics is to streamline user interactions by minimizing confusion and cognitive effort
@@ -20,6 +20,6 @@ export default function Lesson2() {
         facilitate smoother interactions between the user and system by prompting them with visible and easily
         recognizable cues instead of making users rely on their memory.
       </p>
-    </main>
+    </div>
   )
 }

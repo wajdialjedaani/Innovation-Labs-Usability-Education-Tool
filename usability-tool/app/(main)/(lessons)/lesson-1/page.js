@@ -1,9 +1,9 @@
-
+import "@/styles/lesson.scss";
 
 export default function Lesson1() {
   return (
-    <main>
-      <h1>Visual System Design</h1>
+    <div className={"lesson"}>
+      <h1>Course 1: Visual System Design</h1>
       <h3>Heuristic 1: Visibility of system status & Heuristic 8: Aesthetic and minimalist design</h3>
       <p>
         These two of Nielsen’s 10 Usability Heuristics both have to deal with the display of things that the users will
@@ -18,6 +18,6 @@ export default function Lesson1() {
         the user.  Unnecessary indicators will only serve to clutter the screen and draw attention away from what the
         user is looking for.
       </p>
-    </main>
+    </div>
   )
 }

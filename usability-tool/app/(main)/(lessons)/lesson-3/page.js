@@ -1,9 +1,9 @@
-
+import "@/styles/lesson.scss";
 
 export default function Lesson3() {
   return (
-    <main>
-      <h1>Ease of Use</h1>
+    <div className={"lesson"}>
+      <h1>Course 3: Ease of Use</h1>
       <h3>Heuristic 3: User control and freedom & Heuristic 7: Flexibility and efficiency of use</h3>
       <p>
         The “user control and freedom” and “flexibility and efficiency of use” heuristics both focus on allowing the
@@ -20,6 +20,6 @@ export default function Lesson3() {
         tasks on the system. This allows both frequent users and newcomers to optimize their work environment in a way
         that best suits them.
       </p>
-    </main>
+    </div>
   )
 }
