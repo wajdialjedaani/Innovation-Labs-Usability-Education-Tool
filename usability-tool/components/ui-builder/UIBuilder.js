@@ -8,9 +8,13 @@ import UIBuilderContextProvider from "./UIBuilderContextProvider";
 import Grid from "./Grid";
 import DraggableComponent from "./DraggableComponent";
 
+// util imports
+import { createSnapModifier } from "@dnd-kit/modifiers";
+
 // style imports
 import styles from "@/styles/UIBuilder.module.scss";
 import { useState } from "react";
+import SearchBar from "./bones/SearchBar";
 
 //Sample array of widgets that tracks their dragging data.
 //Different "levels" can be designed by providing different lists of widgets. Needs a property to determine widget type
@@ -46,9 +50,14 @@ const widgetData = [
 
 
 export default function UIBuilder(props){
+
+  const gridSize = 50; // default grid size of 30px (should be changable, will implement later)
+  const gridSnapModifier = createSnapModifier(gridSize);
+
   //Used to track widget positioning
   const [widgets, setWidgets] = useState(widgetData);
 
+  // function for handling post-drag placement
   function handleDragEnd(event) {
     const widget = widgets.find((widget) => widget.id === event.active.id);
 
@@ -77,7 +86,10 @@ export default function UIBuilder(props){
   }
   
   return (
-    <DndContext onDragEnd={handleDragEnd}>
+    <DndContext 
+      onDragEnd={handleDragEnd}
+      modifiers={[gridSnapModifier]}
+    >
       <UIBuilderContextProvider>
         <div aria-label="UI Builder">
     
@@ -118,9 +130,7 @@ function ComponentDrawer({widgets, ...props}){
 function DraggableButton(props){
   return (
     <DraggableComponent id={props.id} widget={props.widget}>
-      <button>
-        Click me!
-      </button>
+      <SearchBar />
     </DraggableComponent>
   )
 }
