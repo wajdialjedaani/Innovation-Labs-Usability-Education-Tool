@@ -2,7 +2,7 @@ import "@/styles/lesson.scss";
 
 export default function Lesson10() {
   return (
-    <div className={"lesson"}>
+    <div className={"main-text-container"}>
       <h1>Heuristic 10: Help and documentation</h1>
       <p>
         “Help and documentation” refers to the importance of providing assistance to the user when they need it. This

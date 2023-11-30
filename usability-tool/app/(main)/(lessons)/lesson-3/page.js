@@ -2,7 +2,7 @@ import "@/styles/lesson.scss";
 
 export default function Lesson3() {
   return (
-    <div className={"lesson"}>
+    <div className={"main-text-container"}>
       <h1>Heuristic 3: User control and freedom</h1>
       <p>
         “User control and freedom” puts an emphasis on giving the user options. This includes the ability to navigate

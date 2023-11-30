@@ -2,7 +2,7 @@ import "@/styles/lesson.scss";
 
 export default function Lesson6() {
   return (
-    <div className={"lesson"}>
+    <div className={"main-text-container"}>
       <h1>Heuristic 6: Recognition rather than recall</h1>
       <p>
         “Recognition rather than recall” refers to the need for systems to display information and actions explicitly

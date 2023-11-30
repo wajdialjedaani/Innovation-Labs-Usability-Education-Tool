@@ -2,7 +2,7 @@ import "@/styles/lesson.scss";
 
 export default function Lesson5() {
   return (
-    <div className={"lesson"}>
+    <div className={"main-text-container"}>
       <h1>Heuristic 5: Error prevention</h1>
       <p>
         “Error prevention” emphasizes designing interfaces such that user errors are anticipated and avoided. This can

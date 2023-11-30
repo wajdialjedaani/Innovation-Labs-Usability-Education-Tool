@@ -2,7 +2,7 @@ import "@/styles/lesson.scss";
 
 export default function Lesson7() {
   return (
-    <div className={"lesson"}>
+    <div className={"main-text-container"}>
       <h1>Heuristic 7: Flexibility and efficiency of use</h1>
       <p>
         On the other hand, “flexibility and efficiency of use” encourages designing interfaces that cater to both new

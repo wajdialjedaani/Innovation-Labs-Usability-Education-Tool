@@ -2,7 +2,7 @@ import "@/styles/lesson.scss";
 
 export default function Lesson9() {
   return (
-    <div className={"lesson"}>
+    <div className={"main-text-container"}>
       <h1>Heuristic 9: Help users recognize, diagnose, and recover from errors</h1>
       <p>
         In contrast, the “help users recognize, diagnose, and recover from errors” usability heuristic acknowledges

@@ -2,7 +2,7 @@ import "@/styles/lesson.scss";
 
 export default function Lesson1() {
   return (
-    <div className={"lesson"}>
+    <div className={"main-text-container"}>
       <h1>Heuristic 1: Visibility of system status</h1>
       <p>
         “Visibility of system status” refers to information presented to the user describing the system’s current

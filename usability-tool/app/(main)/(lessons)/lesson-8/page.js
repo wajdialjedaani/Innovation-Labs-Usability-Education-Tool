@@ -2,7 +2,7 @@ import "@/styles/lesson.scss";
 
 export default function Lesson8() {
   return (
-    <div className={"lesson"}>
+    <div className={"main-text-container"}>
       <h1>Heuristic 8: Aesthetic and minimalist design</h1>
       <p>
         Since these indicators will be visible at almost all times, it is important that they follow an aesthetic and

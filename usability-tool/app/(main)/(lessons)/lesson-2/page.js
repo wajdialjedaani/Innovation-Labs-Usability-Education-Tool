@@ -2,7 +2,7 @@ import "@/styles/lesson.scss";
 
 export default function Lesson2() {
   return (
-    <div className={"lesson"}>
+    <div className={"main-text-container"}>
       <h1>Heuristic 2: Match between system and the real world</h1>
       <p>
         “Matching between the system and the real world” entails creating interfaces that speak the user’s language and
