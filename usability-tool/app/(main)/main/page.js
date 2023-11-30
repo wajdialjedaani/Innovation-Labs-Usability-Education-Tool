@@ -19,6 +19,21 @@ export default function mainPage() {
         <a className="heuristic-btn" href="/lesson-5" target="_blank">
           <h3>Course 5</h3>
         </a>
+        <a className="heuristic-btn" href="/lesson-6" target="_blank">
+          <h3>Course 6</h3>
+        </a>
+        <a className="heuristic-btn" href="/lesson-7" target="_blank">
+          <h3>Course 7</h3>
+        </a>
+        <a className="heuristic-btn" href="/lesson-8" target="_blank">
+          <h3>Course 8</h3>
+        </a>
+        <a className="heuristic-btn" href="/lesson-9" target="_blank">
+          <h3>Course 9</h3>
+        </a>
+        <a className="heuristic-btn" href="/lesson-10" target="_blank">
+          <h3>Course 10</h3>
+        </a>
       </div>
     </main>
   );
