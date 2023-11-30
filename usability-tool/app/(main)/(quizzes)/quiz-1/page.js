@@ -1,3 +1,7 @@
+//TODO: Fix not being able to drag back
+//Add a file to hold the statistics
+//Update that file everytime the button is clicked
+
 "use client";
 import "@/styles/quiz.scss";
 
@@ -8,23 +12,49 @@ import Answer from "../components/Answer";
 import QuizDrop from "../components/QuizDrop";
 import quiz1Data from "../data/quiz1data";
 
-const draggableAnswerElements = quiz1Data.map((data, i) =>
-  data.A.map((answer, j) => (
-    <Answer
-      text={answer.Text}
-      correct={answer.Correct}
-      quizID={i}
-      answerID={j}
-      key={j}
-    />
-  ))
-);
-
 export default function Quiz1() {
   //Holds the answers dragged onto each question
   const [isDropped, setIsDropped] = useState(
     Array(quiz1Data.length).fill(null)
   );
+
+  //Holds if the answer is correct
+  const [isCorrect, setIsCorrect] = useState(
+    Array(quiz1Data.length).fill(false)
+  );
+
+  //Array of draggable answer elements
+  const draggableAnswerElements = quiz1Data.map((data, i) =>
+    data.A.map((answer, j) => (
+      <Answer
+        text={answer.Text}
+        correct={answer.Correct}
+        isCorrect={isCorrect[i]}
+        quizID={i}
+        answerID={j}
+        key={j}
+      />
+    ))
+  );
+
+  function handleSubmit() {
+    let correctCount = 0;
+    const newIsCorrect = [...isCorrect];
+    isDropped.forEach((a, i) => {
+      const draggableElement = draggableAnswerElements[i][a];
+      console.log(draggableElement);
+      if (draggableElement?.props.correct) {
+        newIsCorrect[i] = true;
+        ++correctCount;
+      }
+    });
+    setIsCorrect(newIsCorrect);
+    alert(
+      `You got ${correctCount} Question${
+        correctCount > 1 ? "s" : ""
+      } correct out of ${quiz1Data.length} Questions`
+    );
+  }
 
   function handleDragEnd(e) {
     const quiz = e.active.data.current.quiz;
@@ -59,7 +89,12 @@ export default function Quiz1() {
 
         <section className="answers">
           {quiz1Data.map((_, i) => (
-            <QuizDrop dropId={i} text={i + 1} key={i}>
+            <QuizDrop
+              dropId={i}
+              text={i + 1}
+              key={i}
+              holdsCorrect={isCorrect[i]}
+            >
               {isDropped[i] !== null
                 ? draggableAnswerElements[i][isDropped[i]]
                 : ""}
@@ -67,6 +102,7 @@ export default function Quiz1() {
           ))}
         </section>
       </DndContext>
+      <button onClick={handleSubmit}>Click me</button>
     </main>
   );
 }

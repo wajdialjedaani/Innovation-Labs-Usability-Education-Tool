@@ -4,7 +4,12 @@ const quiz1Data = [
     A: [
       { Text: "Correct Answer", Correct: true },
       { Text: "Wrong Answer", Correct: false },
+      { Text: "Correct Answer", Correct: true },
+      { Text: "Wrong Answer", Correct: false },
+      { Text: "Correct Answer", Correct: true },
+      { Text: "Wrong Answer", Correct: false },
     ],
+    heuristicID: 1,
   },
   {
     Q: "What is match between system and the real world?",
@@ -12,6 +17,7 @@ const quiz1Data = [
       { Text: "Correct Answer", Correct: true },
       { Text: "Wrong Answer", Correct: false },
     ],
+    heuristicID: 1,
   },
   {
     Q: "What is match between system and the real world?",
@@ -19,6 +25,7 @@ const quiz1Data = [
       { Text: "Correct Answer", Correct: true },
       { Text: "Wrong Answer", Correct: false },
     ],
+    heuristicID: 1,
   },
   {
     Q: "Example Question",
@@ -26,6 +33,7 @@ const quiz1Data = [
       { Text: "Correct Answer", Correct: true },
       { Text: "Wrong Answer", Correct: false },
     ],
+    heuristicID: 1,
   },
   {
     Q: "Example Question",
@@ -33,6 +41,7 @@ const quiz1Data = [
       { Text: "Correct Answer", Correct: true },
       { Text: "Wrong Answer", Correct: false },
     ],
+    heuristicID: 1,
   },
   {
     Q: "Example Question",
@@ -40,6 +49,39 @@ const quiz1Data = [
       { Text: "Correct Answer", Correct: true },
       { Text: "Wrong Answer", Correct: false },
     ],
+    heuristicID: 1,
+  },
+  {
+    Q: "Example Question",
+    A: [
+      { Text: "Correct Answer", Correct: true },
+      { Text: "Wrong Answer", Correct: false },
+    ],
+    heuristicID: 1,
+  },
+  {
+    Q: "Example Question",
+    A: [
+      { Text: "Correct Answer", Correct: true },
+      { Text: "Wrong Answer", Correct: false },
+    ],
+    heuristicID: 1,
+  },
+  {
+    Q: "Example Question",
+    A: [
+      { Text: "Correct Answer", Correct: true },
+      { Text: "Wrong Answer", Correct: false },
+    ],
+    heuristicID: 1,
+  },
+  {
+    Q: "Example Question",
+    A: [
+      { Text: "Correct Answer", Correct: true },
+      { Text: "Wrong Answer", Correct: false },
+    ],
+    heuristicID: 1,
   },
 ];
 
