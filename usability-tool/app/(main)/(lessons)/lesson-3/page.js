@@ -1,4 +1,4 @@
-
+import '@/styles/lesson.scss'
 
 export default function Lesson3() {
   return (
