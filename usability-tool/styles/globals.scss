@@ -8,6 +8,10 @@
   width: 100vw;
 }
 
+main {
+  height: calc(100% - 65px);
+}
+
 #__next {
   background: blue;
   position: absolute;

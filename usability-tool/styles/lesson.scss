@@ -1,3 +1,14 @@
-.lesson {
-  margin: 0 240px;
-}
+  /*Main Text*/
+  .main-text-container {
+    width: 70%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    display: block;
+  }
+
+  .main-text-img {
+    float: right;
+    margin: 5px;
+  }
