@@ -1,6 +1,6 @@
 "use client";
 import "@/styles/statistics.scss";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
   ResponsiveContainer,
   PieChart,
@@ -10,30 +10,30 @@ import {
   Bar,
 } from "recharts";
 
+import { userContext } from "../../UserData/UserData";
+
 const heuristics = Array.from({ length: 10 }, (x, i) => `Heuristic ${i + 1}`);
 
-const exampleData = heuristics.map(() => [
-  {
-    name: `Number of Questions Right`,
-    value: Math.floor(Math.random() * 10),
-  },
-  {
-    name: `Number of Questions Wrong`,
-    value: Math.floor(Math.random() * 10),
-  },
-  {
-    name: `Example`,
-    value: Math.floor(Math.random() * 25),
-  },
-]);
+// const exampleData = heuristics.map(() => [
+//   {
+//     name: `Number of Questions Right`,
+//     value: Math.floor(Math.random() * 10),
+//   },
+//   {
+//     name: `Number of Questions Wrong`,
+//     value: Math.floor(Math.random() * 10),
+//   },
+// ]);
 
-const numCorrect = [
-  { name: "Completed", value: 10 },
-  { name: "Incomplete", value: 4 },
-];
+// const numCorrect = [
+//   { name: "Completed", value: 10 },
+//   { name: "Incomplete", value: 4 },
+// ];
 
 export default function Statistics() {
   const [currHeuristic, setCurrHeuristic] = useState(0);
+
+  const importedUserData = useContext(userContext);
 
   return (
     <main>
@@ -44,7 +44,7 @@ export default function Statistics() {
             <Pie
               dataKey="value"
               isAnimationActive={false}
-              data={numCorrect}
+              data={importedUserData.progressData}
               cx="50%"
               cy="50%"
               outerRadius={100}
@@ -64,17 +64,17 @@ export default function Statistics() {
           ))}
         </section>
         <section className="stat-container">
-          <ResponsiveContainer width="50%" height="50%">
+          {/* <ResponsiveContainer width="50%" height="50%">
             <BarChart width={150} height={40} data={exampleData[currHeuristic]}>
               <Bar dataKey="value" fill="#8884d8" />
             </BarChart>
-          </ResponsiveContainer>
+          </ResponsiveContainer> */}
           <ResponsiveContainer width="50%" height="50%">
             <PieChart width={350} height={450}>
               <Pie
                 dataKey="value"
                 isAnimationActive={false}
-                data={exampleData[currHeuristic]}
+                data={importedUserData.heuristicData[currHeuristic].data}
                 cx="50%"
                 cy="50%"
                 outerRadius={100}

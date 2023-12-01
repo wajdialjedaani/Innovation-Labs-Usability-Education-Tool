@@ -5,14 +5,19 @@
 "use client";
 import "@/styles/quiz.scss";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { DndContext, DragOverlay } from "@dnd-kit/core";
+
+import { userContext } from "../../UserData/UserData";
 
 import Answer from "../components/Answer";
 import QuizDrop from "../components/QuizDrop";
 import quiz1Data from "../data/quiz1data";
 
 export default function Quiz1() {
+  const userData = useContext(userContext);
+  console.log(userData);
+
   //Holds the answers dragged onto each question
   const [isDropped, setIsDropped] = useState(
     Array(quiz1Data.length).fill(null)
