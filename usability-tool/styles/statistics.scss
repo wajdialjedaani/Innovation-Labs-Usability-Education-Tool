@@ -1,0 +1,46 @@
+main {
+  box-sizing: border-box;
+  padding: 15px;
+  overflow: auto;
+}
+
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-stat-container {
+  height: 100%;
+  display: flex;
+  gap: 30px;
+}
+
+.stat-buttons {
+  flex: 0 0 25%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  button {
+    box-sizing: border-box;
+    flex: 0 0 calc(50% - 5px);
+    font-size: 25px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #324a5f;
+    border-radius: 15px;
+    cursor: pointer;
+    border: 1px solid black;
+    box-shadow: 0px 0px 3px black;
+    transition: 300ms;
+  }
+  button:hover {
+    background-color: #0c1821;
+  }
+}
+
+.stat-container {
+  flex: 0 1 75%;
+  background-color: #324a5f;
+  border-radius: 15px;
+}
