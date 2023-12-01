@@ -34,6 +34,7 @@ export default function Statistics() {
   const [currHeuristic, setCurrHeuristic] = useState(0);
 
   const importedUserData = useContext(userContext);
+  console.log(importedUserData);
 
   return (
     <main>

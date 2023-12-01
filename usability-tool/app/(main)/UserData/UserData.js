@@ -15,11 +15,11 @@ const userData = {
       data: [
         {
           name: "Number of Questions Right",
-          value: 0,
+          value: 1,
         },
         {
           name: "Number of Questions Wrong",
-          value: 0,
+          value: 3,
         },
       ],
       questionsWrong: ["First Question Wrong", "Second Question Wrong"],
