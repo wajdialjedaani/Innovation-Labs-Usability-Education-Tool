@@ -28,11 +28,11 @@ const userData = {
       data: [
         {
           name: "Number of Questions Right",
-          value: 0,
+          value: 6,
         },
         {
           name: "Number of Questions Wrong",
-          value: 0,
+          value: 2,
         },
       ],
       questionsWrong: ["First Question Wrong", "Second Question Wrong"],
@@ -41,11 +41,11 @@ const userData = {
       data: [
         {
           name: "Number of Questions Right",
-          value: 0,
+          value: 3,
         },
         {
           name: "Number of Questions Wrong",
-          value: 0,
+          value: 9,
         },
       ],
       questionsWrong: ["First Question Wrong", "Second Question Wrong"],
@@ -54,11 +54,11 @@ const userData = {
       data: [
         {
           name: "Number of Questions Right",
-          value: 0,
+          value: 5,
         },
         {
           name: "Number of Questions Wrong",
-          value: 0,
+          value: 3,
         },
       ],
       questionsWrong: ["First Question Wrong", "Second Question Wrong"],
@@ -67,7 +67,7 @@ const userData = {
       data: [
         {
           name: "Number of Questions Right",
-          value: 0,
+          value: 3,
         },
         {
           name: "Number of Questions Wrong",
@@ -80,11 +80,11 @@ const userData = {
       data: [
         {
           name: "Number of Questions Right",
-          value: 0,
+          value: 2,
         },
         {
           name: "Number of Questions Wrong",
-          value: 0,
+          value: 1,
         },
       ],
       questionsWrong: ["First Question Wrong", "Second Question Wrong"],
@@ -97,7 +97,7 @@ const userData = {
         },
         {
           name: "Number of Questions Wrong",
-          value: 0,
+          value: 3,
         },
       ],
       questionsWrong: ["First Question Wrong", "Second Question Wrong"],
@@ -106,11 +106,11 @@ const userData = {
       data: [
         {
           name: "Number of Questions Right",
-          value: 0,
+          value: 9,
         },
         {
           name: "Number of Questions Wrong",
-          value: 0,
+          value: 5,
         },
       ],
       questionsWrong: ["First Question Wrong", "Second Question Wrong"],
@@ -119,11 +119,11 @@ const userData = {
       data: [
         {
           name: "Number of Questions Right",
-          value: 0,
+          value: 2,
         },
         {
           name: "Number of Questions Wrong",
-          value: 0,
+          value: 4,
         },
       ],
       questionsWrong: ["First Question Wrong", "Second Question Wrong"],
@@ -136,7 +136,7 @@ const userData = {
         },
         {
           name: "Number of Questions Wrong",
-          value: 0,
+          value: 2,
         },
       ],
       questionsWrong: ["First Question Wrong", "Second Question Wrong"],
