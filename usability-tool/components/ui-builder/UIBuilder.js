@@ -2,60 +2,34 @@
 
 // context provider import
 import { DndContext } from "@dnd-kit/core";
-import UIBuilderContextProvider from "./UIBuilderContextProvider";
+import UIBuilderContextProvider, {getContextSuite} from "./UIBuilderContextProvider";
 
 // component imports
 import Grid from "./Grid";
 import DraggableComponent from "./DraggableComponent";
+import { DragOverlay } from "@dnd-kit/core";
+import BoneSelector from "./BoneSelector";
 
 // util imports
 import { createSnapModifier } from "@dnd-kit/modifiers";
 
 // style imports
 import styles from "@/styles/UIBuilder.module.scss";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import SearchBar from "./bones/SearchBar";
+import { smartSnapToGrid } from "@/lib/UIBuilder/smartSnapToGrid";
 
-//Sample array of widgets that tracks their dragging data.
-//Different "levels" can be designed by providing different lists of widgets. Needs a property to determine widget type
-const widgetData = [
-  {
-    id: "0",
-    style: 
-    {
-      position: "relative",
-      left: "0px",
-      top: "0px",
-    },
-  },
-  {
-    id: "1",
-    style: 
-    {
-      position: "relative",
-      left: "0px",
-      top: "0px",
-    },
-  },
-  {
-    id: "2",
-    style: 
-    {
-      position: "relative",
-      left: "0px",
-      top: "0px",
-    },
-  }
-];
+export default function UIBuilder(){
+  return (
+    <UIBuilderContextProvider>
+      <UIBuilderDNDContainer />
+    </UIBuilderContextProvider>
+  )
+}
 
 
-export default function UIBuilder(props){
-
-  const gridSize = 50; // default grid size of 30px (should be changable, will implement later)
-  const gridSnapModifier = createSnapModifier(gridSize);
-
-  //Used to track widget positioning
-  const [widgets, setWidgets] = useState(widgetData);
+function UIBuilderDNDContainer(props){
+  const {widgets, setWidgets} = getContextSuite();
 
   // function for handling post-drag placement
   function handleDragEnd(event) {
@@ -78,26 +52,24 @@ export default function UIBuilder(props){
     }
 
     //Update the array and store it
-    const _widgets = widgets.map((element) => {
+    const updatedWidgets = widgets.map((element) => {
       if(element.id === widget.id) return widget;
       return element;
     });
-    setWidgets(_widgets);
+    setWidgets(updatedWidgets);
   }
   
   return (
     <DndContext 
       onDragEnd={handleDragEnd}
-      modifiers={[gridSnapModifier]}
+      modifiers={[smartSnapToGrid]}
     >
-      <UIBuilderContextProvider>
         <div aria-label="UI Builder">
     
           <MenuBar />
           <UIBuilderBody widgets={widgets}/>
 
         </div>
-      </UIBuilderContextProvider>
     </DndContext>
   )
 }
@@ -122,15 +94,7 @@ function MenuBar(props){
 function ComponentDrawer({widgets, ...props}){
   return (
     <div className={styles.componentDrawer} style={props.style}>
-      {widgets.map((widget, index) => (<DraggableButton widget={widget} key={widget.id} id={widget.id}></DraggableButton>))}
+      {widgets.map((widget, index) => (<BoneSelector widget={widget} key={widget.id} id={widget.id} type={widget.bone}/>))}
     </div>
-  )
-}
-
-function DraggableButton(props){
-  return (
-    <DraggableComponent id={props.id} widget={props.widget}>
-      <SearchBar />
-    </DraggableComponent>
   )
 }
