@@ -5,6 +5,7 @@ import {
   ResponsiveContainer,
   PieChart,
   Pie,
+  Cell,
   Tooltip,
   BarChart,
   Bar,
@@ -50,7 +51,11 @@ export default function Statistics() {
               outerRadius={100}
               fill="#8884d8"
               label
-            />
+            >
+                {importedUserData.progressData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+            </Pie>
             <Tooltip />
           </PieChart>
         </ResponsiveContainer>
@@ -81,7 +86,11 @@ export default function Statistics() {
                 outerRadius={100}
                 fill="#8884d8"
                 label
-              />
+              >
+                {importedUserData.heuristicData[currHeuristic].data.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Pie>
               <Tooltip />
             </PieChart>
           </ResponsiveContainer>
@@ -97,7 +106,11 @@ export default function Statistics() {
                 outerRadius={100}
                 fill="#8884d8"
                 label
-              />
+              >
+                {importedUserData.heuristicData[currHeuristic].data.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Pie>
               <Tooltip />
             </PieChart>
           </ResponsiveContainer>

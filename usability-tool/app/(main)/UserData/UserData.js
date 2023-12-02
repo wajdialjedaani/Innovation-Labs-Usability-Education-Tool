@@ -15,11 +15,13 @@ const userData = {
       data: [
         {
           name: "Number of Questions Right",
-          value: 0,
+          value: 10,
+          color: '#4BAE4F',
         },
         {
           name: "Number of Questions Wrong",
-          value: 0,
+          value: 5,
+          color: '#F24336',
         },
       ],
       questionsWrong: ["First Question Wrong", "Second Question Wrong"],
@@ -29,10 +31,12 @@ const userData = {
         {
           name: "Number of Questions Right",
           value: 0,
+          color: '#4BAE4F',
         },
         {
           name: "Number of Questions Wrong",
           value: 0,
+          color: '#F24336',
         },
       ],
       questionsWrong: ["First Question Wrong", "Second Question Wrong"],
@@ -42,10 +46,12 @@ const userData = {
         {
           name: "Number of Questions Right",
           value: 0,
+          color: '#4BAE4F',
         },
         {
           name: "Number of Questions Wrong",
           value: 0,
+          color: '#F24336',
         },
       ],
       questionsWrong: ["First Question Wrong", "Second Question Wrong"],
@@ -55,10 +61,12 @@ const userData = {
         {
           name: "Number of Questions Right",
           value: 0,
+          color: '#4BAE4F',
         },
         {
           name: "Number of Questions Wrong",
           value: 0,
+          color: '#F24336',
         },
       ],
       questionsWrong: ["First Question Wrong", "Second Question Wrong"],
@@ -68,10 +76,12 @@ const userData = {
         {
           name: "Number of Questions Right",
           value: 0,
+          color: '#4BAE4F',
         },
         {
           name: "Number of Questions Wrong",
           value: 10,
+          color: '#F24336',
         },
       ],
       questionsWrong: ["First Question Wrong", "Second Question Wrong"],
@@ -81,10 +91,12 @@ const userData = {
         {
           name: "Number of Questions Right",
           value: 0,
+          color: '#4BAE4F',
         },
         {
           name: "Number of Questions Wrong",
           value: 0,
+          color: '#F24336',
         },
       ],
       questionsWrong: ["First Question Wrong", "Second Question Wrong"],
@@ -94,10 +106,12 @@ const userData = {
         {
           name: "Number of Questions Right",
           value: 10,
+          color: '#4BAE4F',
         },
         {
           name: "Number of Questions Wrong",
           value: 0,
+          color: '#F24336',
         },
       ],
       questionsWrong: ["First Question Wrong", "Second Question Wrong"],
@@ -107,10 +121,12 @@ const userData = {
         {
           name: "Number of Questions Right",
           value: 0,
+          color: '#4BAE4F',
         },
         {
           name: "Number of Questions Wrong",
           value: 0,
+          color: '#F24336',
         },
       ],
       questionsWrong: ["First Question Wrong", "Second Question Wrong"],
@@ -120,10 +136,12 @@ const userData = {
         {
           name: "Number of Questions Right",
           value: 0,
+          color: '#4BAE4F',
         },
         {
           name: "Number of Questions Wrong",
           value: 0,
+          color: '#F24336',
         },
       ],
       questionsWrong: ["First Question Wrong", "Second Question Wrong"],
@@ -133,10 +151,12 @@ const userData = {
         {
           name: "Number of Questions Right",
           value: 20,
+          color: '#4BAE4F',
         },
         {
           name: "Number of Questions Wrong",
           value: 0,
+          color: '#F24336',
         },
       ],
       questionsWrong: ["First Question Wrong", "Second Question Wrong"],
@@ -146,10 +166,12 @@ const userData = {
     {
       name: "Total completed",
       value: 10,
+      color: '#4BAE4F',
     },
     {
       name: "Total incomplete",
       value: 20,
+      color: '#F24336',
     },
   ],
 };
