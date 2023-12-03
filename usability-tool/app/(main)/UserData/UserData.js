@@ -1,4 +1,4 @@
-import { createContext } from "react";
+// import { createContext, useContext } from "react";
 
 //userData is an object
 
@@ -9,149 +9,149 @@ import { createContext } from "react";
 //The 'data' key in each userData element holds the data for that heuristic that will be display in a graph
 //Anything not displayed as a graph is outside of that key
 
-const userData = {
+export const userData = {
   heuristicData: [
     {
       data: [
         {
           name: "Number of Questions Right",
-          value: 1,
+          value: 0,
         },
         {
           name: "Number of Questions Wrong",
-          value: 3,
+          value: 0,
         },
       ],
-      questionsWrong: ["First Question Wrong", "Second Question Wrong"],
+      questionsWrong: [],
     },
     {
       data: [
         {
           name: "Number of Questions Right",
-          value: 6,
+          value: 0,
         },
         {
           name: "Number of Questions Wrong",
-          value: 2,
+          value: 0,
         },
       ],
-      questionsWrong: ["First Question Wrong", "Second Question Wrong"],
+      questionsWrong: [],
     },
     {
       data: [
         {
           name: "Number of Questions Right",
-          value: 3,
+          value: 0,
         },
         {
           name: "Number of Questions Wrong",
-          value: 9,
+          value: 0,
         },
       ],
-      questionsWrong: ["First Question Wrong", "Second Question Wrong"],
+      questionsWrong: [],
     },
     {
       data: [
         {
           name: "Number of Questions Right",
-          value: 5,
+          value: 0,
         },
         {
           name: "Number of Questions Wrong",
-          value: 3,
+          value: 0,
         },
       ],
-      questionsWrong: ["First Question Wrong", "Second Question Wrong"],
+      questionsWrong: [],
     },
     {
       data: [
         {
           name: "Number of Questions Right",
-          value: 3,
+          value: 0,
         },
         {
           name: "Number of Questions Wrong",
-          value: 10,
+          value: 0,
         },
       ],
-      questionsWrong: ["First Question Wrong", "Second Question Wrong"],
+      questionsWrong: [],
     },
     {
       data: [
         {
           name: "Number of Questions Right",
-          value: 2,
+          value: 0,
         },
         {
           name: "Number of Questions Wrong",
-          value: 1,
+          value: 0,
         },
       ],
-      questionsWrong: ["First Question Wrong", "Second Question Wrong"],
+      questionsWrong: [],
     },
     {
       data: [
         {
           name: "Number of Questions Right",
-          value: 10,
+          value: 0,
         },
         {
           name: "Number of Questions Wrong",
-          value: 3,
+          value: 0,
         },
       ],
-      questionsWrong: ["First Question Wrong", "Second Question Wrong"],
+      questionsWrong: [],
     },
     {
       data: [
         {
           name: "Number of Questions Right",
-          value: 9,
+          value: 0,
         },
         {
           name: "Number of Questions Wrong",
-          value: 5,
+          value: 0,
         },
       ],
-      questionsWrong: ["First Question Wrong", "Second Question Wrong"],
+      questionsWrong: [],
     },
     {
       data: [
         {
           name: "Number of Questions Right",
-          value: 2,
+          value: 0,
         },
         {
           name: "Number of Questions Wrong",
-          value: 4,
+          value: 0,
         },
       ],
-      questionsWrong: ["First Question Wrong", "Second Question Wrong"],
+      questionsWrong: [],
     },
     {
       data: [
         {
           name: "Number of Questions Right",
-          value: 20,
+          value: 0,
         },
         {
           name: "Number of Questions Wrong",
-          value: 2,
+          value: 0,
         },
       ],
-      questionsWrong: ["First Question Wrong", "Second Question Wrong"],
+      questionsWrong: [],
     },
   ],
   progressData: [
     {
       name: "Total completed",
-      value: 10,
+      value: 0,
     },
     {
       name: "Total incomplete",
-      value: 20,
+      value: 0,
     },
   ],
 };
 
-export const userContext = createContext(userData);
+//Pass state variable with function to change it.

@@ -8,15 +8,15 @@ import "@/styles/quiz.scss";
 import { useState, useContext } from "react";
 import { DndContext, DragOverlay } from "@dnd-kit/core";
 
-import { userContext } from "../../UserData/UserData";
+import { getDataSuite } from "../../components/ContextProvider";
 
 import Answer from "../components/Answer";
 import QuizDrop from "../components/QuizDrop";
 import quiz1Data from "../data/quiz1data";
 
 export default function Quiz1() {
-  const userData = useContext(userContext);
-  console.log(userData);
+  const { dataState: userData, updateDataState: updateUserData } =
+    getDataSuite();
 
   //Holds the answers dragged onto each question
   const [isDropped, setIsDropped] = useState(
@@ -45,14 +45,36 @@ export default function Quiz1() {
   function handleSubmit() {
     let correctCount = 0;
     const newIsCorrect = [...isCorrect];
+    const newData = { ...userData };
+    const newHeuristicData = userData.heuristicData;
+    const newProgressData = userData.progressData;
+
     isDropped.forEach((a, i) => {
+      //Get the heuristic of the current question
+      const heuristicIndex = quiz1Data[i].heuristicID - 1;
+      const questionTitle = quiz1Data[i].Q;
       const draggableElement = draggableAnswerElements[i][a];
-      console.log(draggableElement);
+
+      const currentDataIndex = newHeuristicData[heuristicIndex];
+
+      //If the answer is correct
       if (draggableElement?.props.correct) {
+        newHeuristicData[heuristicIndex].data[0].value += 1;
+        //Get the index of the question in the wrong question list
+        const correctQuestionIndex =
+          currentDataIndex.questionsWrong.indexOf(questionTitle);
+        //Remove the question from the incorrect question list, if it's on there
+        if (correctQuestionIndex !== -1)
+          currentDataIndex.questionsWrong =
+            currentDataIndex.questionsWrong.splice(correctQuestionIndex, 1);
         newIsCorrect[i] = true;
         ++correctCount;
+      } else {
+        newHeuristicData[heuristicIndex].data[1].value += 1;
+        newHeuristicData[heuristicIndex].questionsWrong.push(questionTitle);
       }
     });
+    updateUserData(newData);
     setIsCorrect(newIsCorrect);
     alert(
       `You got ${correctCount} Question${
