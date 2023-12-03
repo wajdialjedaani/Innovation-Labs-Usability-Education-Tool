@@ -7,8 +7,9 @@ import DraggableComponent from "./DraggableComponent";
 import SearchBar from "./bones/SearchBar";
 import NavBar from "./bones/NavBar";
 import LogoBox from "./bones/LogoBox";
+import PostContent from "./bones/PostContent";
 
-export default function BoneSelector({widget, id, type}){
+export default function BoneSelector({type}){
 
   let BoneComponent;
 
@@ -22,13 +23,12 @@ export default function BoneSelector({widget, id, type}){
     case "logobox":
       BoneComponent = <LogoBox />
       break;
+    case "postcontent":
+      BoneComponent = <PostContent />
+      break;
     default:
       BoneComponent = null;
   }
 
-  return (
-    <DraggableComponent id={id} widget={widget}>
-      {BoneComponent}
-    </DraggableComponent>
-  )
+  return BoneComponent
 }

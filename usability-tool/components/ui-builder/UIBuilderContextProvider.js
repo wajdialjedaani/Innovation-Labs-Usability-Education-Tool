@@ -18,6 +18,7 @@ const widgetData = [
       position: "relative",
       left: "0px",
       top: "0px",
+      zIndex: 12,
     },
   },
   {
@@ -33,6 +34,16 @@ const widgetData = [
   {
     id: "2",
     bone: "logobox",
+    style: 
+    {
+      position: "relative",
+      left: "0px",
+      top: "0px",
+    },
+  },
+  {
+    id: "3",
+    bone: "postcontent",
     style: 
     {
       position: "relative",

@@ -74,3 +74,42 @@
   width: 100px;
   height: 100px;
 }
+
+// post
+.postBody {
+  width: 500px;
+  height: 775px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.5em;
+
+  background-color: white;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+
+}
+
+.postBody img {
+  width: 500px;
+  height: auto;
+}
+
+.postUser {
+  display: flex;
+  font-size: 1.6em;
+  align-items: center;
+  gap: 0.6em;
+}
+
+.postUser img {
+  height: 50px;
+  width: auto;
+}
+
+.postDescription {
+  font-size: 1.6em;
+  padding-left: 0.6em;
+}

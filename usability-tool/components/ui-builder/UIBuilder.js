@@ -30,6 +30,17 @@ export default function UIBuilder(){
 
 function UIBuilderDNDContainer(props){
   const {widgets, setWidgets} = getContextSuite();
+  const [activeInfo, setActiveInfo] = useState(null);
+
+  function handleDragStart(event) {
+    const widget = widgets.find((widget) => widget.id === event.active.id);
+    
+    setActiveInfo({
+      bone: widget.bone,
+      id: widget.id,
+      widget
+    });
+  }
 
   // function for handling post-drag placement
   function handleDragEnd(event) {
@@ -57,19 +68,25 @@ function UIBuilderDNDContainer(props){
       return element;
     });
     setWidgets(updatedWidgets);
+    setActiveInfo(null);
   }
   
   return (
     <DndContext 
+      onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
       modifiers={[smartSnapToGrid]}
     >
-        <div aria-label="UI Builder">
-    
-          <MenuBar />
-          <UIBuilderBody widgets={widgets}/>
+      <div aria-label="UI Builder">
+        <MenuBar />
+        <UIBuilderBody widgets={widgets}/>
+      </div>
 
-        </div>
+      <DragOverlay>
+        {activeInfo ? (
+          <BoneSelector type={activeInfo.bone} />
+        ) : null}
+      </DragOverlay>
     </DndContext>
   )
 }
@@ -94,7 +111,11 @@ function MenuBar(props){
 function ComponentDrawer({widgets, ...props}){
   return (
     <div className={styles.componentDrawer} style={props.style}>
-      {widgets.map((widget, index) => (<BoneSelector widget={widget} key={widget.id} id={widget.id} type={widget.bone}/>))}
+      {widgets.map((widget, index) => (
+        <DraggableComponent id={widget.id} widget={widget}>
+          <BoneSelector type={widget.bone}/>
+        </DraggableComponent>
+      ))}
     </div>
   )
 }

@@ -1,6 +1,6 @@
 @use './mixins/colorscheme.scss' as *;
 
-$gridSize: 50px;
+$gridSize: 15px;
 $gridColor: #888888;
 
 .menuBar {
@@ -42,4 +42,5 @@ $gridColor: #888888;
   width: 25vw;
 
   background-color: $dark;
+  overflow-y: auto;
 }
