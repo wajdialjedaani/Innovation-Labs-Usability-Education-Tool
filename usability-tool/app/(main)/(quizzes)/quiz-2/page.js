@@ -35,6 +35,7 @@ export default function matchQuiz() {
   const [correctAnswers, setCorrectAnswers] = useState(0);  // Keeps track of the number of correct answers
   const [quizCompleteWithAllCorrect, setQuizCompleteWithAllCorrect] = useState(false);  // Tracks whether all questions have been answered correctly
   const [stopCounterUpdate, setStopCounterUpdate] = useState(false);// Stops counter update when the quiz is complete or all answers are correct
+  const [finalScore, setFinalScore] = useState(0);  // State variable to store the final score
   // Manages an array to track which questions have been answered
   const [currentQuestionAnswered, setCurrentQuestionAnswered] = useState(
     new Array(quizMatchData.length).fill(false)
@@ -150,4 +151,3 @@ export default function matchQuiz() {
     </div>
   );
 }
-
