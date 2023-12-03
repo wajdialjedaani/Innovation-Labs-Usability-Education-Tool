@@ -1,4 +1,7 @@
+// util imports
 import { useContext, createContext, useState, useEffect } from "react";
+import gradingRoutine from "@/lib/UIBuilder/gradingRoutine";
+
 
 // ContextSuite
 const ContextSuite = createContext();
@@ -56,6 +59,8 @@ const widgetData = {
   grid: []
 };
 
+const gradingObjectImport = require("/lib/UIBuilder/gradingObject-3-11-2023-163823.json");
+
 export default function UIBuilderContextProvider(props){
 
   // widget state, for editing position and selecting bone
@@ -95,10 +100,20 @@ export default function UIBuilderContextProvider(props){
 
     },
 
-    downloadGridJSON: () => {
+    downloadGridJSON: (positioningWeight, bonesUsedWeight) => {
+      let gradingObject = {
+        solutionGrid: widgets.grid,
+        positioningWeight: (positioningWeight / 100),
+        bonesUsedWeight: (bonesUsedWeight / 100)
+      }
+
       const date = new Date();
       const dateDisp = `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}-${date.getHours()}${date.getMinutes()}${date.getSeconds()}`;
-      downloadJSON(widgets.grid, `grid-${dateDisp}`);
+      downloadJSON(gradingObject, `gradingObject-${dateDisp}`);
+    },
+
+    startGrading: () => {
+      gradingRoutine(gradingObjectImport, widgets.grid);
     }
   }
 

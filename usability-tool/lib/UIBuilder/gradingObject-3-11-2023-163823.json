@@ -1,0 +1,43 @@
+{
+  "solutionGrid": [
+    {
+      "id": "2",
+      "bone": "logobox",
+      "style": {
+        "position": "absolute",
+        "left": 64.75,
+        "top": 65.59375
+      }
+    },
+    {
+      "id": "1",
+      "bone": "navbar",
+      "style": {
+        "position": "absolute",
+        "left": 75,
+        "top": 181.59375
+      }
+    },
+    {
+      "id": "0",
+      "bone": "searchbar",
+      "style": {
+        "zIndex": 12,
+        "position": "absolute",
+        "left": 75,
+        "top": 573.59375
+      }
+    },
+    {
+      "id": "3",
+      "bone": "postcontent",
+      "style": {
+        "position": "absolute",
+        "left": 520,
+        "top": 89.59375
+      }
+    }
+  ],
+  "positioningWeight": 0.5,
+  "bonesUsedWeight": 0.5
+}
