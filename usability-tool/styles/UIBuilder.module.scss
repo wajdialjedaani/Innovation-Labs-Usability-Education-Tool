@@ -19,6 +19,9 @@ $gridColor: #888888;
   height: 95vh;
   width: 75vw;
 
+  display: flex;
+  overflow: auto;
+
   background-image: repeating-linear-gradient(
     0deg,
     transparent,

@@ -15,9 +15,9 @@ const widgetData = [
     bone: "searchbar",
     style: 
     {
-      position: "relative",
-      left: "0px",
-      top: "0px",
+      //position: "relative",
+      //left: "0px",
+      //top: "0px",
       zIndex: 12,
     },
   },
@@ -26,9 +26,9 @@ const widgetData = [
     bone: "navbar",
     style: 
     {
-      position: "relative",
+      /* position: "relative",
       left: "0px",
-      top: "0px",
+      top: "0px", */
     },
   },
   {
@@ -36,9 +36,9 @@ const widgetData = [
     bone: "logobox",
     style: 
     {
-      position: "relative",
+      /* position: "relative",
       left: "0px",
-      top: "0px",
+      top: "0px", */
     },
   },
   {
@@ -46,9 +46,9 @@ const widgetData = [
     bone: "postcontent",
     style: 
     {
-      position: "relative",
+      /* position: "relative",
       left: "0px",
-      top: "0px",
+      top: "0px", */
     },
   }
 ];
@@ -57,13 +57,25 @@ export default function UIBuilderContextProvider(props){
 
   // widget state, for editing position and selecting bone
   const [widgets, setWidgets] = useState(widgetData);
+  const [gridWidgets, setGridWidgets] = useState([]);
 
   const contextSuite = {
+    // general widgets
     widgets,
     setWidgets: (newWidgets) => {
       setWidgets(newWidgets);
+    },
+
+    // grid widgets
+    gridWidgets,
+    setGridWidgets: (newGridWidgets) => {
+      setGridWidgets(newGridWidgets);
     }
   }
+
+  useEffect(() => {
+    console.log(gridWidgets);
+  }, [gridWidgets]);
 
   return (
     <ContextSuite.Provider value={contextSuite}>

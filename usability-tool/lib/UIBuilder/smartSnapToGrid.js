@@ -3,7 +3,7 @@ export function smartSnapToGrid(args) {
   const gridSize = 50;
   const {transform} = args;
 
-  console.log(transform);
+  //console.log(transform);
 
   // const xOffset = args.windowRect ? getFiftyOffset(args.windowRect.right) : 0;
   // const yOffset = args.windowRect ? getFiftyOffset(args.windowRect.bottom) : 0;

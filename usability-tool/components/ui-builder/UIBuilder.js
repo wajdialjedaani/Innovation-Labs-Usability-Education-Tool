@@ -6,6 +6,7 @@ import UIBuilderContextProvider, {getContextSuite} from "./UIBuilderContextProvi
 
 // component imports
 import Grid from "./Grid";
+import ComponentDrawer from "../ComponentDrawer";
 import DraggableComponent from "./DraggableComponent";
 import { DragOverlay } from "@dnd-kit/core";
 import BoneSelector from "./BoneSelector";
@@ -18,6 +19,7 @@ import styles from "@/styles/UIBuilder.module.scss";
 import { useMemo, useState } from "react";
 import SearchBar from "./bones/SearchBar";
 import { smartSnapToGrid } from "@/lib/UIBuilder/smartSnapToGrid";
+import { CSS } from "@dnd-kit/utilities";
 
 export default function UIBuilder(){
   return (
@@ -29,7 +31,7 @@ export default function UIBuilder(){
 
 
 function UIBuilderDNDContainer(props){
-  const {widgets, setWidgets} = getContextSuite();
+  const {widgets, setWidgets, gridWidgets, setGridWidgets} = getContextSuite();
   const [activeInfo, setActiveInfo] = useState(null);
 
   function handleDragStart(event) {
@@ -44,30 +46,44 @@ function UIBuilderDNDContainer(props){
 
   // function for handling post-drag placement
   function handleDragEnd(event) {
-    const widget = widgets.find((widget) => widget.id === event.active.id);
+    console.log(event);
 
-    //Need to deep copy the nested style object so we can modify its properties
-    widget.style = {...widget.style};
+    if (event.over.id === "UIBuilderGrid"){
+      const widget = widgets.find((widget) => widget.id === event.active.id);
 
-    if (event.over && event.over.id === 'UIBuilderGrid') {
-      //If widget is dragged over the grid, add the delta to the current position so that it sticks where it's dropped
-      const currentLeft = parseInt(widget.style.left);
-      const currentTop = parseInt(widget.style.top);
-      widget.style.left = `${currentLeft + event.delta.x}px`;
-      widget.style.top = `${currentTop + event.delta.y}px`
+      //Need to deep copy the nested style object so we can modify its properties
+      widget.style = {...widget.style};
+  
+/*       if (event.over && event.over.id === 'UIBuilderGrid') {
+        //If widget is dragged over the grid, add the delta to the current position so that it sticks where it's dropped
+        const currentLeft = parseInt(widget.style.left);
+        const currentTop = parseInt(widget.style.top);
+        widget.style.left = `${currentLeft + event.delta.x}px`;
+        widget.style.top = `${currentTop + event.delta.y}px`
+      }
+      else {
+        //Otherwise, if the widget was dragged back out of the grid, reset it back to its original position in the drawer
+        widget.style.left = "0px";
+        widget.style.top = "0px";
+      } */
+
+      //widget.style.transform = CSS.Translate.toString(event.delta);
+  
+/*       //Update the array and store it
+      const updatedWidgets = widgets.map((element) => {
+        // if(element.id === widget.id) return widget;
+        // return element;
+        return;
+      }); */
+
+      const updatedWidgets = widgets.filter(element => element.id !== widget.id);
+
+      const updatedGridWidgets = [...gridWidgets, widget];
+
+      setGridWidgets(updatedGridWidgets);
+      setWidgets(updatedWidgets);
     }
-    else {
-      //Otherwise, if the widget was dragged back out of the grid, reset it back to its original position in the drawer
-      widget.style.left = "0px";
-      widget.style.top = "0px";
-    }
 
-    //Update the array and store it
-    const updatedWidgets = widgets.map((element) => {
-      if(element.id === widget.id) return widget;
-      return element;
-    });
-    setWidgets(updatedWidgets);
     setActiveInfo(null);
   }
   
@@ -108,14 +124,4 @@ function MenuBar(props){
   )
 }
 
-function ComponentDrawer({widgets, ...props}){
-  return (
-    <div className={styles.componentDrawer} style={props.style}>
-      {widgets.map((widget, index) => (
-        <DraggableComponent id={widget.id} widget={widget}>
-          <BoneSelector type={widget.bone}/>
-        </DraggableComponent>
-      ))}
-    </div>
-  )
-}
+
