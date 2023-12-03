@@ -1,0 +1,78 @@
+/* matchquiz.scss */
+
+/* Container for the quiz layout */
+.quiz-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/* Column for the questions */
+.question-column {
+  width: 50%; /* Adjust as needed */
+}
+
+/* Column for the answers */
+.answer-column {
+  width: 20%; /* Adjust as needed */
+}
+
+/* Styles for individual questions */
+.question {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #1B2A41;
+  color: #FFFFFF;
+  cursor: pointer; /* Add cursor pointer */
+  transition: background-color 0.3s ease;
+}
+
+/* Hover styles for questions */
+.question:hover {
+  background-color: #324A5F; /* Change background color on hover */
+}
+
+/* Styles for individual answer boxes */
+.answer-box {
+  padding: 10px;
+  margin-bottom: 70px; /* Add margin between answer boxes */
+  background-color: #324A5F;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #FFFFFF;
+}
+
+/* Hover styles for answer boxes */
+.answer-box:hover {
+  background-color: #d0d0d0;
+}
+
+/* Styles for text within answer boxes */
+.answer-box p {
+  margin: 0;
+}
+
+/* Highlighted styles for active question */
+.question.active {
+  background-color: #324A5F; /* Active question background color */
+}
+
+/* Highlighted styles for correct answer */
+.answer-box.highlighted {
+  background-color: #d0d0d0; /* Highlighted answer background color */
+  color: #000000; /* Change the text color for the highlighted answer */
+  /* Add any other styles to differentiate the highlighted answer */
+}
+
+/* Styles for the score box */
+.score-box {
+  width: 20%;
+  height: 100px; /* Set the desired height */
+  padding: 10px;
+  background-color: #324A5F;
+  border-radius: 5px;
+  color: #FFFFFF;
+  text-align: center;
+  margin-bottom: 20px;
+}
