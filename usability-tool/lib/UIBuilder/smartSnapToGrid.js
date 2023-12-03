@@ -1,6 +1,6 @@
 export function smartSnapToGrid(args) {
 
-  const gridSize = 50;
+  const gridSize = 5;
   const {transform} = args;
 
   //console.log(transform);

@@ -8,7 +8,7 @@ import BoneSelector from "./BoneSelector";
 
 export default function Grid(props){
 
-  const {gridWidgets} = getContextSuite();
+  const {widgets} = getContextSuite();
 
   const {isOver, setNodeRef} = useDroppable({
     id: 'UIBuilderGrid',
@@ -16,7 +16,7 @@ export default function Grid(props){
 
   return (
     <div ref={setNodeRef} className={styles.gridBody}>
-      {gridWidgets.length > 0 && gridWidgets.map((widget, index) => (
+      {widgets.grid.length > 0 && widgets.grid.map((widget, index) => (
         <DraggableComponent id={widget.id} widget={widget}>
           <BoneSelector type={widget.bone}/>
         </DraggableComponent>

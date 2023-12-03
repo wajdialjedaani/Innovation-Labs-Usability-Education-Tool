@@ -3,11 +3,43 @@
 $gridSize: 15px;
 $gridColor: #888888;
 
-.menuBar {
+// menu bar stylings
+.menuBarContainer {
   background-color: $darkest;
 
   width: 100vw;
   height: 5vh;
+
+  display: flex;
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menuBarTitle {
+  font-size: 3vh;
+  user-select: none;
+}
+
+.menuBarButton {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.menuBarButton img {
+  justify-content: center;
+  height: 4vh;
+  width: auto;
+  filter: $whiteSvg;
+}
+
+.menuBarGroup {
+  display: flex;
+  gap: 0.5em;
 }
 
 .builderBody {
@@ -15,6 +47,7 @@ $gridColor: #888888;
   flex-direction: row;
 }
 
+// grid
 .gridBody {
   height: 95vh;
   width: 75vw;
@@ -40,10 +73,29 @@ $gridColor: #888888;
   background-size: $gridSize $gridSize;
 }
 
+// component drawer stuff
 .componentDrawer {
   height: 95vh;
   width: 25vw;
 
   background-color: $dark;
   overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.componentDrawerHeader {
+  height: 5vh;
+  background-color: $black;
+  color: white;
+
+  font-size: 3vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: sticky;
+  top: 0;
+
+  user-select: none;
 }

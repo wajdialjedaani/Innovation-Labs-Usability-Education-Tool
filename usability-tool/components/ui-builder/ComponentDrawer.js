@@ -2,8 +2,8 @@ import styles from "@/styles/UIBuilder.module.scss";
 
 import { useDroppable } from "@dnd-kit/core"
 
-import DraggableComponent from "./ui-builder/DraggableComponent"
-import BoneSelector from "./ui-builder/BoneSelector"
+import DraggableComponent from "./DraggableComponent"
+import BoneSelector from "./BoneSelector"
 
 export default function ComponentDrawer({widgets, ...props}){
   const {isOver, setNodeRef} = useDroppable({
@@ -12,9 +12,13 @@ export default function ComponentDrawer({widgets, ...props}){
 
   return (
     <div ref={setNodeRef} className={styles.componentDrawer} style={props.style}>
-      {widgets.map((widget, index) => (
+      <div className={styles.componentDrawerHeader} role="header">
+        Components
+      </div>
+
+      {widgets.drawer.map((widget, index) => (
         <DraggableComponent id={widget.id} widget={widget}>
-          <BoneSelector type={widget.bone}/>
+          <BoneSelector type={widget.bone} drawerMode={true}/>
         </DraggableComponent>
       ))}
     </div>
