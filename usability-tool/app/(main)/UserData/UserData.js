@@ -15,12 +15,12 @@ export const userData = {
       data: [
         {
           name: "Number of Questions Right",
-          value: 0,
+          value: 1,
           color: "#4BAE4F",
         },
         {
           name: "Number of Questions Wrong",
-          value: 0,
+          value: 3,
           color: "#F24336",
         },
       ],
