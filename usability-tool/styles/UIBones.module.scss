@@ -1,0 +1,115 @@
+// Search bar
+.searchBarContainer {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  
+  width: 350px;
+  height: 47px;
+  background-color: white;
+
+  gap: 10px;
+
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+
+
+  touch-action: none;
+}
+
+.searchBarContainer img {
+  height: 2.5em;
+  user-select: none;
+}
+
+.searchBarText {
+  align-items: center;
+  font-size: 1.8em;
+  color: #969696;
+  user-select: none;
+}
+
+// Navbar
+.navBarContainer {
+  background-color: white;
+
+  width: 350px;
+  height: 375px;
+
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+
+  //justify-content: center;
+}
+
+.navBarButtonsContainer {
+  display: flex;
+  flex-direction: column;
+  //justify-content: center;
+  gap: 1em;
+
+  //justify-self: center;
+  padding: 1.8em;
+}
+
+.navBarButton {
+  display: flex;
+  align-items: center;
+
+  gap: 1em;
+
+  font-size: 1.8em;
+}
+
+.navBarButton img {
+  height: 1.8em;
+  width: auto;
+}
+
+// logo box
+.logoBox img {
+  width: 100px;
+  height: 100px;
+}
+
+// post
+.postBody {
+  width: 500px;
+  height: 775px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.5em;
+
+  background-color: white;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+
+}
+
+.postBody img {
+  width: 500px;
+  height: auto;
+}
+
+.postUser {
+  display: flex;
+  font-size: 1.6em;
+  align-items: center;
+  gap: 0.6em;
+}
+
+.postUser img {
+  height: 50px;
+  width: auto;
+}
+
+.postDescription {
+  font-size: 1.6em;
+  padding-left: 0.6em;
+}

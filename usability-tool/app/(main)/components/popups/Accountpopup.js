@@ -1,4 +1,5 @@
 import "@/styles/accountpopup.scss";
+import Link from "next/link";
 
 export default function Accountpopup() {
   return (
@@ -6,12 +7,12 @@ export default function Accountpopup() {
       <p className="account-popup-signedinas">
         Signed in: <span className="account-popup-email">Email</span>
       </p>
-      <a href="#" className="account-popup-list-item-link">
+      <Link href="#" className="account-popup-list-item-link">
         Statistics
-      </a>
-      <a href="#" className="account-popup-list-item-link">
+      </Link>
+      <Link href="#" className="account-popup-list-item-link">
         Sign Out
-      </a>
+      </Link>
     </div>
   );
 }

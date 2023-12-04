@@ -3,14 +3,13 @@ import "@/styles/lesson.scss";
 export default function Lesson1() {
   return (
     <div className={"main-text-container"}>
-      <h1>Lesson 1: Visual System Design</h1>
+      <h1>Heuristic 1: Visibility of system status</h1>
       <p>
         The visual presentation of a system is the first impression a user will have. A first impression is a lasting 
         impression, therefore, the visuals must be a primary focus. The main way that users interact with technology is 
         with visuals, typically through a graphical user interface (GUI), so it is vital that thought is put into the 
         visual design of the system, not just towards making the system look visually appealing.
       </p>
-      <h1>Heuristic 1: Visibility of system status</h1>
       <p>
         “Visibility of system status” refers to information that is presented to the user, describing the system’s 
         current state. The user communicates with the system by interacting with it, therefore the system must 

@@ -1,4 +1,4 @@
-import { createContext } from "react";
+// import { createContext, useContext } from "react";
 
 //userData is an object
 
@@ -9,7 +9,7 @@ import { createContext } from "react";
 //The 'data' key in each userData element holds the data for that heuristic that will be display in a graph
 //Anything not displayed as a graph is outside of that key
 
-const userData = {
+export const userData = {
   heuristicData: [
     {
       data: [
@@ -24,7 +24,7 @@ const userData = {
           color: '#F24336',
         },
       ],
-      questionsWrong: ["First Question Wrong", "Second Question Wrong"],
+      questionsWrong: [],
     },
     {
       data: [
@@ -39,7 +39,7 @@ const userData = {
           color: '#F24336',
         },
       ],
-      questionsWrong: ["First Question Wrong", "Second Question Wrong"],
+      questionsWrong: [],
     },
     {
       data: [
@@ -54,7 +54,7 @@ const userData = {
           color: '#F24336',
         },
       ],
-      questionsWrong: ["First Question Wrong", "Second Question Wrong"],
+      questionsWrong: [],
     },
     {
       data: [
@@ -69,7 +69,7 @@ const userData = {
           color: '#F24336',
         },
       ],
-      questionsWrong: ["First Question Wrong", "Second Question Wrong"],
+      questionsWrong: [],
     },
     {
       data: [
@@ -84,7 +84,7 @@ const userData = {
           color: '#F24336',
         },
       ],
-      questionsWrong: ["First Question Wrong", "Second Question Wrong"],
+      questionsWrong: [],
     },
     {
       data: [
@@ -99,7 +99,7 @@ const userData = {
           color: '#F24336',
         },
       ],
-      questionsWrong: ["First Question Wrong", "Second Question Wrong"],
+      questionsWrong: [],
     },
     {
       data: [
@@ -114,7 +114,7 @@ const userData = {
           color: '#F24336',
         },
       ],
-      questionsWrong: ["First Question Wrong", "Second Question Wrong"],
+      questionsWrong: [],
     },
     {
       data: [
@@ -129,7 +129,7 @@ const userData = {
           color: '#F24336',
         },
       ],
-      questionsWrong: ["First Question Wrong", "Second Question Wrong"],
+      questionsWrong: [],
     },
     {
       data: [
@@ -144,7 +144,7 @@ const userData = {
           color: '#F24336',
         },
       ],
-      questionsWrong: ["First Question Wrong", "Second Question Wrong"],
+      questionsWrong: [],
     },
     {
       data: [
@@ -159,7 +159,7 @@ const userData = {
           color: '#F24336',
         },
       ],
-      questionsWrong: ["First Question Wrong", "Second Question Wrong"],
+      questionsWrong: [],
     },
   ],
   progressData: [
@@ -176,4 +176,4 @@ const userData = {
   ],
 };
 
-export const userContext = createContext(userData);
+//Pass state variable with function to change it.

@@ -11,36 +11,20 @@ import {
   Bar,
 } from "recharts";
 
-import { userContext } from "../../UserData/UserData";
+import { getDataSuite } from "../../components/ContextProvider";
 
 const heuristics = Array.from({ length: 10 }, (x, i) => `Heuristic ${i + 1}`);
-
-// const exampleData = heuristics.map(() => [
-//   {
-//     name: `Number of Questions Right`,
-//     value: Math.floor(Math.random() * 10),
-//   },
-//   {
-//     name: `Number of Questions Wrong`,
-//     value: Math.floor(Math.random() * 10),
-//   },
-// ]);
-
-// const numCorrect = [
-//   { name: "Completed", value: 10 },
-//   { name: "Incomplete", value: 4 },
-// ];
 
 export default function Statistics() {
   const [currHeuristic, setCurrHeuristic] = useState(0);
 
-  const importedUserData = useContext(userContext);
-
+  const { dataState: importedUserData } = getDataSuite();
+  // console.log(importedUserData);
   return (
     <main>
       <div className="progress-container">
         <h2>Current Progress:</h2>
-        <ResponsiveContainer width="100%" height={250}>
+        <ResponsiveContainer width="50%" height={250}>
           <PieChart width={100} height={100}>
             <Pie
               dataKey="value"
