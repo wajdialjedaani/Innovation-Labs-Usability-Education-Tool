@@ -13,7 +13,7 @@ export default function DraggableComponent({id, widget, ...props}){
   } : widget.style;
 
   return (
-    <div ref={setNodeRef} style={style} {...listeners} {...attributes}>
+    <div ref={setNodeRef} style={{...style, zIndex: 100}} {...listeners} {...attributes}>
       {props.children}
     </div>
   );

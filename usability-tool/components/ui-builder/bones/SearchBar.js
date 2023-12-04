@@ -4,7 +4,7 @@ export default function SearchBar(){
   return (
     <div className={styles.searchBarContainer}>
       <img src="/icons/search.svg"/>
-      <div className={styles.searchBarText}>Search for something...</div>
+      <div className={styles.searchBarText}>Search...</div>
     </div>
   )
 }

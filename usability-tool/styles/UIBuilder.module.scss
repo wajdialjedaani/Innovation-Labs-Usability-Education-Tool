@@ -1,13 +1,48 @@
 @use './mixins/colorscheme.scss' as *;
 
-$gridSize: 50px;
+$gridSize: 15px;
 $gridColor: #888888;
+$highestZ: 10000;
 
-.menuBar {
+// menu bar stylings
+.menuBarContainer {
   background-color: $darkest;
 
   width: 100vw;
   height: 5vh;
+
+  display: flex;
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+
+  z-index: $highestZ;
+}
+
+.menuBarTitle {
+  font-size: 3vh;
+  user-select: none;
+}
+
+.menuBarButton {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.menuBarButton img {
+  justify-content: center;
+  height: 4vh;
+  width: auto;
+  filter: $whiteSvg;
+}
+
+.menuBarGroup {
+  display: flex;
+  gap: 0.5em;
 }
 
 .builderBody {
@@ -15,9 +50,13 @@ $gridColor: #888888;
   flex-direction: row;
 }
 
+// grid
 .gridBody {
   height: 95vh;
   width: 75vw;
+
+  display: flex;
+  overflow: auto;
 
   background-image: repeating-linear-gradient(
     0deg,
@@ -37,9 +76,73 @@ $gridColor: #888888;
   background-size: $gridSize $gridSize;
 }
 
+// component drawer stuff
 .componentDrawer {
   height: 95vh;
   width: 25vw;
 
   background-color: $dark;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.componentDrawerHeader {
+  height: 5vh;
+  background-color: $black;
+  color: white;
+
+  font-size: 3vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: sticky;
+  top: 0;
+
+  user-select: none;
+  z-index: $highestZ;
+}
+
+// grading panel
+
+.gradingPanelProgressBarContainer {
+  position: relative; /* Set the container to a relative position */
+
+  width: 100%; /* Set the width of the progress bar */
+  height: 4vh; /* Set the height of the progress bar */
+  border: 1px solid #ffffff; /* Optional: Add a border */
+  border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+.gradingPanelProgressBar {
+  height: 100%;
+  background-color: #699367; /* Set the color of the progress bar */
+  border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+.gradingPanelScoreDisplay {
+  position: relative;
+  top: -2.70em;
+  left: 45%;
+  color: #fff; /* Set the color of the score */
+  font-weight: bold; /* Optional: Adjust the font weight */
+}
+
+// info panel
+.infoPanelContainer p {
+  white-space: pre-wrap;
+}
+
+// bone discarder
+.boneDiscarder {
+  width: 100%;
+  background-color: red;
+  height: 85vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  resize: both;
 }
