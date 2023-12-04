@@ -1,7 +1,7 @@
 {
   "scenarioInformation": {
     "title": "developer mode",
-    "description": "make some scenarios!\n\nany components left in the component drawer will be delivered to user."
+    "description": "make some scenarios!\n\nany components left in the component drawer will be delivered to user.\n\nbe careful! any components discarded cannot be regenerated!"
   },
   "solutionGrid": [],
   "positioningWeight": 0.55,
