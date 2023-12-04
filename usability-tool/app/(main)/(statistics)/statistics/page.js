@@ -1,6 +1,6 @@
 "use client";
 import "@/styles/statistics.scss";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import {
   ResponsiveContainer,
   PieChart,
@@ -53,13 +53,8 @@ export default function Statistics() {
           ))}
         </section>
         <section className="stat-container">
-          {/* <ResponsiveContainer width="50%" height="50%">
-            <BarChart width={150} height={40} data={exampleData[currHeuristic]}>
-              <Bar dataKey="value" fill="#8884d8" />
-            </BarChart>
-          </ResponsiveContainer> */}
           <h2 className="heuristic-title">Heuristic Data</h2>
-          <ResponsiveContainer width="33%" height="33%">
+          <ResponsiveContainer width="50%" height="50%">
             <PieChart width={350} height={450}>
               <Pie
                 dataKey="value"
