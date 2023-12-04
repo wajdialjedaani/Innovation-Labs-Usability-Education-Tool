@@ -36,9 +36,9 @@ export default function Statistics() {
               fill="#8884d8"
               label
             >
-                {importedUserData.progressData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                ))}
+              {importedUserData.progressData.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={entry.color} />
+              ))}
             </Pie>
             <Tooltip />
           </PieChart>
@@ -71,9 +71,11 @@ export default function Statistics() {
                 fill="#8884d8"
                 label
               >
-                {importedUserData.heuristicData[currHeuristic].data.map((entry, index) => (
+                {importedUserData.heuristicData[currHeuristic].data.map(
+                  (entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
-                ))}
+                  )
+                )}
               </Pie>
               <Tooltip />
             </PieChart>
@@ -91,9 +93,11 @@ export default function Statistics() {
                 fill="#8884d8"
                 label
               >
-                {importedUserData.heuristicData[currHeuristic].data.map((entry, index) => (
+                {importedUserData.heuristicData[currHeuristic].data.map(
+                  (entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
-                ))}
+                  )
+                )}
               </Pie>
               <Tooltip />
             </PieChart>
