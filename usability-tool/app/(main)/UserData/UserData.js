@@ -15,11 +15,13 @@ export const userData = {
       data: [
         {
           name: "Number of Questions Right",
-          value: 0,
+          value: 10,
+          color: '#4BAE4F',
         },
         {
           name: "Number of Questions Wrong",
-          value: 0,
+          value: 5,
+          color: '#F24336',
         },
       ],
       questionsWrong: [],
@@ -29,10 +31,12 @@ export const userData = {
         {
           name: "Number of Questions Right",
           value: 0,
+          color: '#4BAE4F',
         },
         {
           name: "Number of Questions Wrong",
           value: 0,
+          color: '#F24336',
         },
       ],
       questionsWrong: [],
@@ -42,10 +46,12 @@ export const userData = {
         {
           name: "Number of Questions Right",
           value: 0,
+          color: '#4BAE4F',
         },
         {
           name: "Number of Questions Wrong",
           value: 0,
+          color: '#F24336',
         },
       ],
       questionsWrong: [],
@@ -55,10 +61,12 @@ export const userData = {
         {
           name: "Number of Questions Right",
           value: 0,
+          color: '#4BAE4F',
         },
         {
           name: "Number of Questions Wrong",
           value: 0,
+          color: '#F24336',
         },
       ],
       questionsWrong: [],
@@ -68,10 +76,12 @@ export const userData = {
         {
           name: "Number of Questions Right",
           value: 0,
+          color: '#4BAE4F',
         },
         {
           name: "Number of Questions Wrong",
-          value: 0,
+          value: 10,
+          color: '#F24336',
         },
       ],
       questionsWrong: [],
@@ -81,10 +91,27 @@ export const userData = {
         {
           name: "Number of Questions Right",
           value: 0,
+          color: '#4BAE4F',
         },
         {
           name: "Number of Questions Wrong",
           value: 0,
+          color: '#F24336',
+        },
+      ],
+      questionsWrong: [],
+    },
+    {
+      data: [
+        {
+          name: "Number of Questions Right",
+          value: 10,
+          color: '#4BAE4F',
+        },
+        {
+          name: "Number of Questions Wrong",
+          value: 0,
+          color: '#F24336',
         },
       ],
       questionsWrong: [],
@@ -94,10 +121,12 @@ export const userData = {
         {
           name: "Number of Questions Right",
           value: 0,
+          color: '#4BAE4F',
         },
         {
           name: "Number of Questions Wrong",
           value: 0,
+          color: '#F24336',
         },
       ],
       questionsWrong: [],
@@ -107,10 +136,12 @@ export const userData = {
         {
           name: "Number of Questions Right",
           value: 0,
+          color: '#4BAE4F',
         },
         {
           name: "Number of Questions Wrong",
           value: 0,
+          color: '#F24336',
         },
       ],
       questionsWrong: [],
@@ -119,24 +150,13 @@ export const userData = {
       data: [
         {
           name: "Number of Questions Right",
-          value: 0,
+          value: 20,
+          color: '#4BAE4F',
         },
         {
           name: "Number of Questions Wrong",
           value: 0,
-        },
-      ],
-      questionsWrong: [],
-    },
-    {
-      data: [
-        {
-          name: "Number of Questions Right",
-          value: 0,
-        },
-        {
-          name: "Number of Questions Wrong",
-          value: 0,
+          color: '#F24336',
         },
       ],
       questionsWrong: [],
@@ -145,11 +165,13 @@ export const userData = {
   progressData: [
     {
       name: "Total completed",
-      value: 0,
+      value: 10,
+      color: '#4BAE4F',
     },
     {
       name: "Total incomplete",
-      value: 0,
+      value: 20,
+      color: '#F24336',
     },
   ],
 };

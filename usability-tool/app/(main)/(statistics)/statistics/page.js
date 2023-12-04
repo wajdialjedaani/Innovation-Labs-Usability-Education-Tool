@@ -5,6 +5,7 @@ import {
   ResponsiveContainer,
   PieChart,
   Pie,
+  Cell,
   Tooltip,
   BarChart,
   Bar,
@@ -34,7 +35,11 @@ export default function Statistics() {
               outerRadius={100}
               fill="#8884d8"
               label
-            />
+            >
+                {importedUserData.progressData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+            </Pie>
             <Tooltip />
           </PieChart>
         </ResponsiveContainer>
@@ -53,7 +58,8 @@ export default function Statistics() {
               <Bar dataKey="value" fill="#8884d8" />
             </BarChart>
           </ResponsiveContainer> */}
-          <ResponsiveContainer width="50%" height="50%">
+          <h2 className="heuristic-title">Heuristic Data</h2>
+          <ResponsiveContainer width="33%" height="33%">
             <PieChart width={350} height={450}>
               <Pie
                 dataKey="value"
@@ -64,7 +70,31 @@ export default function Statistics() {
                 outerRadius={100}
                 fill="#8884d8"
                 label
-              />
+              >
+                {importedUserData.heuristicData[currHeuristic].data.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Pie>
+              <Tooltip />
+            </PieChart>
+          </ResponsiveContainer>
+          <h2 className="heuristic-title">UI Builder Data</h2>
+          <ResponsiveContainer width="33%" height="33%">
+            <PieChart width={350} height={450}>
+              <Pie
+                dataKey="value"
+                isAnimationActive={false}
+                data={importedUserData.heuristicData[currHeuristic].data}
+                cx="50%"
+                cy="50%"
+                outerRadius={100}
+                fill="#8884d8"
+                label
+              >
+                {importedUserData.heuristicData[currHeuristic].data.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Pie>
               <Tooltip />
             </PieChart>
           </ResponsiveContainer>
