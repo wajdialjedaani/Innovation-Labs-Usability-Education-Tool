@@ -10,64 +10,52 @@ export function getContextSuite(){
   return useContext(ContextSuite);
 }
 
+//////// STUFF THAT SHOULD BE IMPORTED DYNAMICALLY FROM THE PAGE.JS
+
 //Sample array of widgets that tracks their dragging data.
 //Different "levels" can be designed by providing different lists of widgets. Needs a property to determine widget type
-const widgetData = {
+/* const widgetData = {
   drawer: [
     {
       id: "0",
       bone: "searchbar",
       style: 
-      {
-        //position: "relative",
-        //left: "0px",
-        //top: "0px",
-        zIndex: 12,
-      },
+      {},
     },
     {
       id: "1",
       bone: "navbar",
       style: 
-      {
-        /* position: "relative",
-        left: "0px",
-        top: "0px", */
-      },
+      {},
     },
     {
       id: "2",
       bone: "logobox",
       style: 
-      {
-        /* position: "relative",
-        left: "0px",
-        top: "0px", */
-      },
+      {},
     },
     {
       id: "3",
       bone: "postcontent",
       style: 
-      {
-        /* position: "relative",
-        left: "0px",
-        top: "0px", */
-      },
+      {},
     }
   ],
   grid: []
-};
+}; */
 
-const gradingObjectImport = require("/lib/UIBuilder/gradingObject-3-11-2023-163823.json");
+//const gradingObjectImport = require("/lib/UIBuilder/scenario-ExampleScenario.json");
 
-export default function UIBuilderContextProvider(props){
+export default function UIBuilderContextProvider({scenario, widgetData, children}){
 
   // widget state, for editing position and selecting bone
   const [widgets, setWidgets] = useState(widgetData);
   const [gridWidgets, setGridWidgets] = useState([]);
 
   const contextSuite = {
+    // scenario info:
+    scenarioInformation: scenario.scenarioInformation,
+
     // general widgets accessors
     widgets,
     setWidgets: (newWidgets) => {
@@ -75,7 +63,7 @@ export default function UIBuilderContextProvider(props){
     },
     
     // function for replacing widget in js object in the appropriate wrapper
-    replaceWidget: (newWidget, toGrid) => {
+    replaceWidget: (newWidget, toGrid, shouldDelete) => {
       const widgetIdToRemove = newWidget.id;
 
       // remove widget from both drawer and grid
@@ -83,10 +71,11 @@ export default function UIBuilderContextProvider(props){
       const updatedGrid = widgets.grid.filter(widget => widget.id !== widgetIdToRemove);
 
       // push widget to appropriate array in widgets
+
       if (toGrid) {
         updatedGrid.push(newWidget);
       }
-      else {
+      else if (!shouldDelete) {
         updatedDrawer.push(newWidget);
       }
 
@@ -100,26 +89,37 @@ export default function UIBuilderContextProvider(props){
 
     },
 
-    downloadGridJSON: (positioningWeight, bonesUsedWeight) => {
+    downloadGridJSON: (positioningWeight, bonesUsedWeight, scenario) => {
       let gradingObject = {
+        scenarioInformation: scenario,
         solutionGrid: widgets.grid,
+        widgetData: {
+          drawer: widgets.drawer.concat(widgets.grid.map(item => ({ ...item, style: {}}))),
+          grid: []
+        },
         positioningWeight: (positioningWeight / 100),
         bonesUsedWeight: (bonesUsedWeight / 100)
       }
 
       const date = new Date();
-      const dateDisp = `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}-${date.getHours()}${date.getMinutes()}${date.getSeconds()}`;
-      downloadJSON(gradingObject, `gradingObject-${dateDisp}`);
+      downloadJSON(gradingObject, `scenario-${scenario.title.replace(/\s/g, "")}`);
     },
 
     startGrading: () => {
-      gradingRoutine(gradingObjectImport, widgets.grid);
+      // get score
+      const score = gradingRoutine(scenario, widgets.grid);
+
+      // put score in database....
+        // do stuff
+      
+      // ...return for display to user
+      return score;
     }
   }
 
   return (
     <ContextSuite.Provider value={contextSuite}>
-      {props.children}
+      {children}
     </ContextSuite.Provider>
   )
 }

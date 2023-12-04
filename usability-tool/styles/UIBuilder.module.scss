@@ -2,6 +2,7 @@
 
 $gridSize: 15px;
 $gridColor: #888888;
+$highestZ: 10000;
 
 // menu bar stylings
 .menuBarContainer {
@@ -14,6 +15,8 @@ $gridColor: #888888;
   color: white;
   justify-content: space-between;
   align-items: center;
+
+  z-index: $highestZ;
 }
 
 .menuBarTitle {
@@ -98,4 +101,48 @@ $gridColor: #888888;
   top: 0;
 
   user-select: none;
+  z-index: $highestZ;
+}
+
+// grading panel
+
+.gradingPanelProgressBarContainer {
+  position: relative; /* Set the container to a relative position */
+
+  width: 100%; /* Set the width of the progress bar */
+  height: 4vh; /* Set the height of the progress bar */
+  border: 1px solid #ffffff; /* Optional: Add a border */
+  border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+.gradingPanelProgressBar {
+  height: 100%;
+  background-color: #699367; /* Set the color of the progress bar */
+  border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+.gradingPanelScoreDisplay {
+  position: relative;
+  top: -2.70em;
+  left: 45%;
+  color: #fff; /* Set the color of the score */
+  font-weight: bold; /* Optional: Adjust the font weight */
+}
+
+// info panel
+.infoPanelContainer p {
+  white-space: pre-wrap;
+}
+
+// bone discarder
+.boneDiscarder {
+  width: 100%;
+  background-color: red;
+  height: 85vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  resize: both;
 }

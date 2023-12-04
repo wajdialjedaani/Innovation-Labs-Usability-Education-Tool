@@ -19,9 +19,9 @@ import { restrictToWindowEdges } from "@dnd-kit/modifiers";
 import { useState } from "react";
 import { smartSnapToGrid } from "@/lib/UIBuilder/smartSnapToGrid";
 
-export default function UIBuilder(){
+export default function UIBuilder({scenario, widgetData}){
   return (
-    <UIBuilderContextProvider>
+    <UIBuilderContextProvider scenario={scenario} widgetData={widgetData}>
       <UIBuilderDNDContainer />
     </UIBuilderContextProvider>
   )
@@ -65,9 +65,7 @@ function UIBuilderDNDContainer(props){
 
       // replace in widgets context in grid
       replaceWidget(updatedWidget, true);      
-    }
-
-    else if (event.over.id === "ComponentDrawer"){
+    } else if (event.over.id === "ComponentDrawer"){
       updatedWidget.style = {
         ...updatedWidget.style,
         position: "relative",
@@ -76,6 +74,8 @@ function UIBuilderDNDContainer(props){
       };
       // replace in widgets context in drawer
       replaceWidget(updatedWidget, false);      
+    } else if (event.over.id === "BoneDiscarder"){
+      replaceWidget(updatedWidget, false, true);
     }
 
     setactiveWidget(null);
@@ -92,7 +92,7 @@ function UIBuilderDNDContainer(props){
         <UIBuilderBody widgets={widgets}/>
       </div>
 
-      <DragOverlay>
+      <DragOverlay zIndex={100}>
         {activeWidget ? (
           <BoneSelector type={activeWidget.widget.bone} />
         ) : null}

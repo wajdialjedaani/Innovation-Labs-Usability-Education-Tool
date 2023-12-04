@@ -13,8 +13,6 @@ export default function gradingRoutine(gradingObject, userGrid){
   // scale to points out of 10 and return. round up!
   console.log("total score", Math.round((totalRawScore / 100) * 10));
   return Math.round((totalRawScore / 100) * 10);
-
-  
 }
 
 function getBonesUsedScore(solutionGrid, userGrid){

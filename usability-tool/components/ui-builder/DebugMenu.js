@@ -14,7 +14,7 @@ export default function DebugMenu(){
 
   return (
     <div>
-      <GradingJSONGenerator />
+      <ScenarioGenerator />
 
       <div>
         <br />
@@ -24,21 +24,43 @@ export default function DebugMenu(){
   )
 }
 
-function GradingJSONGenerator(props){
+function ScenarioGenerator(props){
   const {downloadGridJSON} = getContextSuite();
 
-  const [positionWeight, setPositionWeight] = useState();
-  const [bonesWeight, setBonesWeight] = useState();
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [positionWeight, setPositionWeight] = useState(55);
+  const [bonesWeight, setBonesWeight] = useState(45);
 
   function handleSubmit() {
-    downloadGridJSON(positionWeight, bonesWeight);
+    const scenarioInformation = {
+      title,
+      description
+    }
+
+    downloadGridJSON(positionWeight, bonesWeight, scenarioInformation);
   }
 
   return (
     <div>
-      <h2>generate grading object</h2>
-      <h3>weights should add up to 100</h3>
+      <h2>generate ui builder scenario</h2>
+      title:<br/>
+      <input 
+        type="text" 
+        value={title}
+        onChange={(event) => {
+          setTitle(event.target.value)
+        }}
+      /><br/><br/>
+       description:<br/>
+      <textarea  
+        value={description}
+        onChange={(event) => {
+          setDescription(event.target.value)
+        }}
+      />
 
+      <h3>choose grading weights (weights should add up to 100)</h3>
       position weight:<br />
       <input 
         type="number"
@@ -55,7 +77,7 @@ function GradingJSONGenerator(props){
           setBonesWeight(event.target.value);
         }}
       /><br /><br />
-      <button onClick={handleSubmit}>download grid json</button>
+      <button onClick={handleSubmit}>download scenario json</button>
     </div>
   )
 }

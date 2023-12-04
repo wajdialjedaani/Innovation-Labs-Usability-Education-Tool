@@ -38,6 +38,6 @@
       }
     }
   ],
-  "positioningWeight": 0.5,
-  "bonesUsedWeight": 0.5
+  "positioningWeight": 0.55,
+  "bonesUsedWeight": 0.45
 }

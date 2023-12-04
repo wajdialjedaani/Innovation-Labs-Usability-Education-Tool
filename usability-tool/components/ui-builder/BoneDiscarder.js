@@ -6,21 +6,17 @@ import { getContextSuite } from "./UIBuilderContextProvider";
 import DraggableComponent from "./DraggableComponent";
 import BoneSelector from "./BoneSelector";
 
-export default function Grid(props){
+export default function BoneDiscarder(props){
 
   const {widgets} = getContextSuite();
 
   const {isOver, setNodeRef} = useDroppable({
-    id: 'UIBuilderGrid',
+    id: 'BoneDiscarder',
   });
 
   return (
-    <div ref={setNodeRef} className={styles.gridBody}>
-      {widgets.grid.length > 0 && widgets.grid.map((widget, index) => (
-        <DraggableComponent id={widget.id} widget={widget} key={`gridKey--${widget.id}`}>
-          <BoneSelector type={widget.bone}/>
-        </DraggableComponent>
-      ))}
+    <div ref={setNodeRef} className={styles.boneDiscarder} style={{backgroundColor: isOver ? "green" : "red"}}>
+      discard components here
     </div>
   )
 }

@@ -1,0 +1,71 @@
+{
+  "scenarioInformation": {
+    "title": "Example Scenario",
+    "description": "Bearcrawl LLC, a new social media tech startup, has assigned to you the task of building the post rendering page for their new social media platform! They want you to create something that fits in with the standards of modern social media websites.\\\\n\\\\nRemember to utilize the 10 Nielson usability heuristics when designing their website!"
+  },
+  "solutionGrid": [
+    {
+      "id": "0",
+      "bone": "searchbar",
+      "style": {
+        "position": "absolute",
+        "left": 45,
+        "top": 164.59375
+      }
+    },
+    {
+      "id": "2",
+      "bone": "logobox",
+      "style": {
+        "position": "absolute",
+        "left": 35,
+        "top": 53.59375
+      }
+    },
+    {
+      "id": "1",
+      "bone": "navbar",
+      "style": {
+        "position": "absolute",
+        "left": 45,
+        "top": 234.59375
+      }
+    },
+    {
+      "id": "3",
+      "bone": "postcontent",
+      "style": {
+        "position": "absolute",
+        "left": 465,
+        "top": 74.59375
+      }
+    }
+  ],
+  "widgetData": {
+    "drawer": [
+      {
+        "id": "0",
+        "bone": "searchbar",
+        "style": {}
+      },
+      {
+        "id": "2",
+        "bone": "logobox",
+        "style": {}
+      },
+      {
+        "id": "1",
+        "bone": "navbar",
+        "style": {}
+      },
+      {
+        "id": "3",
+        "bone": "postcontent",
+        "style": {}
+      }
+    ],
+    "grid": []
+  },
+  "positioningWeight": 0.55,
+  "bonesUsedWeight": 0.45
+}

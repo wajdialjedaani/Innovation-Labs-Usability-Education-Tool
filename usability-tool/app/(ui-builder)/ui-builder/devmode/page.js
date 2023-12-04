@@ -1,5 +1,7 @@
 import UIBuilder from "@/components/ui-builder/UIBuilder";
 
+const scenario = require("/lib/UIBuilder/scenario-developermode.json");
+
 const widgetData = {
   drawer: [
     {
@@ -33,6 +35,6 @@ const widgetData = {
 
 export default function UIBuilderPage(){
   return (
-    <UIBuilder />
+    <UIBuilder scenario={scenario} widgetData={widgetData}/>
   )
 }
