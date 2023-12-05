@@ -54,6 +54,30 @@ main {
 }
 
 .heuristic-title {
-  font-size: 25px;
+  font-size: 30px;
   color: #ffffff;
+}
+
+.wrong-questions-container {
+  width: 50%;
+  height: 75%;
+  padding: 50px;
+  margin: auto;
+  overflow-y: auto;
+  color: #ffffff;
+  background-color: #0c1821;
+  border-radius: 15px;
+  h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 40px;
+  }
+  ul {
+    padding: 0;
+  }
+  li {
+    line-height: 35px;
+    font-size: 25px;
+    margin: 25px;
+  }
 }

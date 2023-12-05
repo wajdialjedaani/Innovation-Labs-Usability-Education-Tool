@@ -54,7 +54,7 @@ export default function Statistics() {
         <section className="stat-container">
           <ResponsiveContainer
             width="33%"
-            height="43%"
+            height="40%"
             className="stat-graph-container"
           >
             <h2 className="heuristic-title">Heuristic Data</h2>
@@ -96,7 +96,17 @@ export default function Statistics() {
               <Tooltip />
             </PieChart>
           </ResponsiveContainer>
-          <h3>Textbox goes here</h3>
+          <div className="wrong-questions-container">
+            <h1>Questions Wrong</h1>
+            <hr></hr>
+            <ul>
+              {importedUserData.heuristicData[currHeuristic].questionsWrong.map(
+                (Q, i) => (
+                  <li>{Q}</li>
+                )
+              )}
+            </ul>
+          </div>
         </section>
       </div>
     </main>
