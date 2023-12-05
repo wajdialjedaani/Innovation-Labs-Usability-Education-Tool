@@ -2,7 +2,6 @@
   .main-text-container {
     width: 70%;
     margin: 20px auto;
-    display: flex;
     justify-content: center;
     flex-wrap: wrap;
     display: block;
@@ -11,4 +10,18 @@
   .main-text-img {
     float: right;
     margin: 5px;
+  }
+
+  .previous-heuristic {
+    flex: 0 0 calc(50% - 50px);
+    float: left;
+    margin-right: auto;
+    padding: 0;
+  }
+
+  .next-heuristic {
+    flex: 0 0 calc(50% - 50px);
+    float: right;
+    margin-left: auto;
+    padding: 0;
   }
