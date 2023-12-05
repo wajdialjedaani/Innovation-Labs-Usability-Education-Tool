@@ -47,6 +47,7 @@ export default function Lesson1() {
           <h3>Heuristic 2</h3>
         </a>
       </div>
+
     </div>
   )
 }

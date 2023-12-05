@@ -5,52 +5,40 @@ import {
   ResponsiveContainer,
   PieChart,
   Pie,
+  Cell,
   Tooltip,
-  BarChart,
-  Bar,
+  Text,
 } from "recharts";
 
+import { getDataSuite } from "../../components/ContextProvider";
+
 const heuristics = Array.from({ length: 10 }, (x, i) => `Heuristic ${i + 1}`);
-
-const exampleData = heuristics.map(() => [
-  {
-    name: `Number of Questions Right`,
-    value: Math.floor(Math.random() * 10),
-  },
-  {
-    name: `Number of Questions Wrong`,
-    value: Math.floor(Math.random() * 10),
-  },
-  {
-    name: `Example`,
-    value: Math.floor(Math.random() * 25),
-  },
-]);
-
-const numCorrect = [
-  { name: "Completed", value: 10 },
-  { name: "Incomplete", value: 4 },
-];
 
 export default function Statistics() {
   const [currHeuristic, setCurrHeuristic] = useState(0);
 
+  const { dataState: importedUserData } = getDataSuite();
+  console.log(importedUserData);
   return (
     <main>
       <div className="progress-container">
         <h2>Current Progress:</h2>
-        <ResponsiveContainer width="100%" height={250}>
+        <ResponsiveContainer width="50%" height={250}>
           <PieChart width={100} height={100}>
             <Pie
               dataKey="value"
               isAnimationActive={false}
-              data={numCorrect}
+              data={importedUserData.progressData}
               cx="50%"
               cy="50%"
               outerRadius={100}
               fill="#8884d8"
               label
-            />
+            >
+              {importedUserData.progressData.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={entry.color} />
+              ))}
+            </Pie>
             <Tooltip />
           </PieChart>
         </ResponsiveContainer>
@@ -64,26 +52,61 @@ export default function Statistics() {
           ))}
         </section>
         <section className="stat-container">
-          <ResponsiveContainer width="50%" height="50%">
-            <BarChart width={150} height={40} data={exampleData[currHeuristic]}>
-              <Bar dataKey="value" fill="#8884d8" />
-            </BarChart>
-          </ResponsiveContainer>
-          <ResponsiveContainer width="50%" height="50%">
+          <ResponsiveContainer
+            width="33%"
+            height="40%"
+            className="stat-graph-container"
+          >
+            <h2 className="heuristic-title">Heuristic Data</h2>
             <PieChart width={350} height={450}>
               <Pie
                 dataKey="value"
                 isAnimationActive={false}
-                data={exampleData[currHeuristic]}
+                data={importedUserData.heuristicData[currHeuristic].data}
                 cx="50%"
                 cy="50%"
-                outerRadius={100}
                 fill="#8884d8"
                 label
-              />
+              >
+                {importedUserData.heuristicData[currHeuristic].data.map(
+                  (entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.color} />
+                  )
+                )}
+              </Pie>
+              <Tooltip />
+            </PieChart>
+            <h2 className="heuristic-title">UI Builder Data</h2>
+            <PieChart width={350} height={450}>
+              <Pie
+                dataKey="value"
+                isAnimationActive={false}
+                data={importedUserData.heuristicData[currHeuristic].data}
+                cx="50%"
+                cy="50%"
+                fill="#8884d8"
+                label
+              >
+                {importedUserData.heuristicData[currHeuristic].data.map(
+                  (entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.color} />
+                  )
+                )}
+              </Pie>
               <Tooltip />
             </PieChart>
           </ResponsiveContainer>
+          <div className="wrong-questions-container">
+            <h1>Questions Wrong</h1>
+            <hr></hr>
+            <ul>
+              {importedUserData.heuristicData[currHeuristic].questionsWrong.map(
+                (Q, i) => (
+                  <li>{Q}</li>
+                )
+              )}
+            </ul>
+          </div>
         </section>
       </div>
     </main>

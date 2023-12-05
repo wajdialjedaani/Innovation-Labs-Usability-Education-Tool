@@ -12,18 +12,31 @@
 }
 
 .heuristic-btn {
+  text-decoration: none;
   flex: 0 0 calc(20% - 50px);
   text-align: center;
   padding: 0 0;
   margin: 0;
-  font-size: 1.3em;
-  color: #ffffff;
+
   background: #324a5f;
   border-radius: 15px;
   cursor: pointer;
   border: 1px solid black;
   box-shadow: 0px 0px 3px black;
   transition: 300ms;
+  .heuristic-btn-title {
+    color: #ffffff;
+    text-decoration: underline;
+    font-size: 28px;
+  }
+}
+
+.heuristic-btn-name {
+  color: rgba(255, 255, 255, 0.817);
+  font-weight: normal;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  margin: 0;
 }
 
 .heuristic-btn:hover {

@@ -17,7 +17,7 @@ const quiz1Data = [
       { Text: "Correct Answer", Correct: true },
       { Text: "Wrong Answer", Correct: false },
     ],
-    heuristicID: 1,
+    heuristicID: 2,
   },
   {
     Q: "What is match between system and the real world?",
@@ -25,7 +25,7 @@ const quiz1Data = [
       { Text: "Correct Answer", Correct: true },
       { Text: "Wrong Answer", Correct: false },
     ],
-    heuristicID: 1,
+    heuristicID: 3,
   },
   {
     Q: "Example Question",
@@ -33,7 +33,7 @@ const quiz1Data = [
       { Text: "Correct Answer", Correct: true },
       { Text: "Wrong Answer", Correct: false },
     ],
-    heuristicID: 1,
+    heuristicID: 4,
   },
   {
     Q: "Example Question",
@@ -41,7 +41,7 @@ const quiz1Data = [
       { Text: "Correct Answer", Correct: true },
       { Text: "Wrong Answer", Correct: false },
     ],
-    heuristicID: 1,
+    heuristicID: 5,
   },
   {
     Q: "Example Question",
@@ -49,7 +49,7 @@ const quiz1Data = [
       { Text: "Correct Answer", Correct: true },
       { Text: "Wrong Answer", Correct: false },
     ],
-    heuristicID: 1,
+    heuristicID: 6,
   },
   {
     Q: "Example Question",
@@ -57,7 +57,7 @@ const quiz1Data = [
       { Text: "Correct Answer", Correct: true },
       { Text: "Wrong Answer", Correct: false },
     ],
-    heuristicID: 1,
+    heuristicID: 7,
   },
   {
     Q: "Example Question",
@@ -65,7 +65,7 @@ const quiz1Data = [
       { Text: "Correct Answer", Correct: true },
       { Text: "Wrong Answer", Correct: false },
     ],
-    heuristicID: 1,
+    heuristicID: 8,
   },
   {
     Q: "Example Question",
@@ -73,7 +73,7 @@ const quiz1Data = [
       { Text: "Correct Answer", Correct: true },
       { Text: "Wrong Answer", Correct: false },
     ],
-    heuristicID: 1,
+    heuristicID: 9,
   },
   {
     Q: "Example Question",
@@ -81,7 +81,7 @@ const quiz1Data = [
       { Text: "Correct Answer", Correct: true },
       { Text: "Wrong Answer", Correct: false },
     ],
-    heuristicID: 1,
+    heuristicID: 10,
   },
 ];
 

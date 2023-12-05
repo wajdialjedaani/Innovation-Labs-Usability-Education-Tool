@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "public": "build",
+    "site":"my-new-react-quiz",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
