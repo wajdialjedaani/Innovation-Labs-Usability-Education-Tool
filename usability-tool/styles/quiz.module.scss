@@ -14,7 +14,9 @@
 
 .quizContainer {
   display: flex;
-  align-items: start;
+  //align-items: start;
+  flex-direction: column;
+
   gap: 20px;
   padding: 25vw;
   padding-top: 5vh;
@@ -25,6 +27,7 @@
   flex: 50%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .questions {
@@ -40,14 +43,18 @@
   width: 100%;
   background-color: #0c1821;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
+  font-size: 1em;
+  box-shadow: rgb(144, 144, 144) 5px 5px 5px;
 }
 
 .answer {
   //box-sizing: border-box;
-  // /flex: 0 0 calc(50% - 5px);
-  //font-weight: bold;
-  //letter-spacing: 0.5px;
+  //flex: 0 0 calc(50% - 5px);
+  width: 48%;
+  //height: fit-content;
+  font-weight: bold;
+  letter-spacing: 0.5px;
   //height: 40px;
   border: 2px solid #ccc;
   display: flex;
@@ -57,11 +64,20 @@
   background-color: #324a5f;
   border-radius: 5px;
   color: #FFFFFF;
+  font-size: 1.3em;
+  transition: background-color 0.1s;
+}
+
+.answer:hover {
+  background-color: #405f79;
 }
 
 .answersContainer {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 0.6em
 }
 
 .correct {
