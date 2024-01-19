@@ -2,6 +2,7 @@
 // Quiz.js - The root renderer of the Usability Tool quiz engine
 
 import QuizContextProvider, {getQuizSuite} from "./QuizContextProvider"
+import NavFooter from "../nav/NavFooter";
 
 import styles from "@/styles/quiz.module.scss";
 
@@ -9,7 +10,8 @@ import styles from "@/styles/quiz.module.scss";
 export default function Quiz({quizObj}){
   return (
     <QuizContextProvider quiz={quizObj}>
-      <QuizBody />
+      <QuizBody /> 
+      <NavFooter />
     </QuizContextProvider>
   )
 }
@@ -23,45 +25,54 @@ function QuizBody(){
         return (
           <Question
             question={obj.question}
+            questionIndex={index}
             answers={obj.answers}
-            answerIndex={obj.answerIndex}
             key={`questionkey-${index}`}
           />
         )
       })}
 
-      <Question 
-        question="What color is the sky?"
-        answers={[
-          "#32a844",
-          "#749190",
-          "#7d658a",
-          "#367bc9",
-        ]}
-        answerIndex={4}
-      />
+      <button className={styles.submitButton} onClick={() => {console.log("gink!")}}>Submit</button>
     </div>
   )
 }
 
-function Question({question, answers}){
+function Question({question, answers, questionIndex}){
   return (
     <div className={styles.question}>
-      <h1>
-        {question}
-      </h1>
-      <div className={styles.answersContainer}>
-        {answers.map((text, index) => {
-          return <Answer content={text} index={index} key={`ANSWER--index-${question}${index}`}/>
-        })}
+      <h1 className={styles.questionHeader}>Question {questionIndex + 1}</h1>
+
+      <div className={styles.questionBody}>
+        <h1 className={styles.questionContent}>
+          {question}
+        </h1>
+        <div className={styles.answersContainer}>
+          {answers.map((text, index) => {
+            return <Answer content={text} questionIndex={questionIndex} answerIndex={index} key={`ANSWER--index-${question}${index}`}/>
+          })}
+        </div>
       </div>
     </div>
   )
 }
 
-function Answer({content, index}){
+function Answer({content, answerIndex, questionIndex}){
+  const {quizObj, setSelectedAnswer} = getQuizSuite();
+
+  let className;
+
+  if (quizObj[questionIndex].selectedAnswer == answerIndex){
+    className = `${styles.answer} ${styles.selectedAnswer}`
+  } else {
+    className = `${styles.answer}`;
+  }
+
+  function handleSelect() {
+    setSelectedAnswer(questionIndex, answerIndex);
+  }
+
   return (
-    <button class={styles.answer}>
+    <button className={className} onClick={handleSelect}>
       {content}
     </button>
   )

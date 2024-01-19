@@ -3,15 +3,63 @@ import Quiz from "@/components/quiz/Quiz";
 // will be imported from json later
 const quiz = [
   {
-    question: "Which description best fits heuristic 9: Help users recognize, diagnose, and recover from errors?",
+    question: "What is a suitable format for having a user provide answers to a quiz on a website?",
     answers: [
-      "Acknowledges that even after implementing error mitigation techniques, errors will still occur",
-      "Anticipates and avoids potential errors before they occur.",
-      "Encourages designs that appeal to both new and experienced users",
-      "Allows the users to navigate and use the system easily",
+      "Have the user mail in the answers on a paper to the company headquarters.",
+      "Create a google doc in which the users can add their answers.",
+      "Create a quiz mailing list that users can use to receive questions in their email and them respond to them.",
+      "Have the user host an RSS feed that they can use to broadcast their answers to the test proctor.",
     ],
-    answerIndex: 4
-  }
+    correctAnswerIndex: 4,
+    selectedAnswer: null
+  },
+  {
+    question: "What is a suitable format for having a user provide answers to a quiz on a website?",
+    answers: [
+      "Have the user mail in the answers on a paper to the company headquarters.",
+      "Create a google doc in which the users can add their answers.",
+      "Create a quiz mailing list that users can use to receive questions in their email and them respond to them.",
+      "Have the user host an RSS feed that they can use to broadcast their answers to the test proctor.",
+    ],
+    correctAnswerIndex: 4,
+    selectedAnswer: null
+  },
+  {
+    question: "What is a suitable format for having a user provide answers to a quiz on a website?",
+    answers: [
+      "Have the user mail in the answers on a paper to the company headquarters.",
+      "Create a google doc in which the users can add their answers.",
+      "Create a quiz mailing list that users can use to receive questions in their email and them respond to them.",
+      "Have the user host an RSS feed that they can use to broadcast their answers to the test proctor.",
+    ],
+    correctAnswerIndex: 4,
+    selectedAnswer: null
+  },
+  {
+    question: "What is a suitable format for having a user provide answers to a quiz on a website?",
+    answers: [
+      "Have the user mail in the answers on a paper to the company headquarters.",
+      "Create a google doc in which the users can add their answers.",
+      "Create a quiz mailing list that users can use to receive questions in their email and them respond to them.",
+      "Have the user host an RSS feed that they can use to broadcast their answers to the test proctor.",
+    ],
+    correctAnswerIndex: 4,
+    selectedAnswer: null
+  },
+  {
+    question: "What is a suitable format for having a user provide answers to a quiz on a website?",
+    answers: [
+      "Have the user mail in the answers on a paper to the company headquarters.",
+      "Create a google doc in which the users can add their answers.",
+      "Create a quiz mailing list that users can use to receive questions in their email and them respond to them.",
+      "Have the user host an RSS feed that they can use to broadcast their answers to the test proctor.",
+    ],
+    correctAnswerIndex: 4,
+    selectedAnswer: null
+  },
+  
+  
+  
 ]
 
 export default function Quiz1(){

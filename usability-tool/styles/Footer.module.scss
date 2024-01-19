@@ -1,0 +1,71 @@
+@use './mixins/colorscheme.scss' as *;
+
+.navContainer {
+  position: fixed;
+
+  bottom: 3vh;
+
+  padding: 2vh;
+  user-select: none;
+  cursor: pointer;
+  transition: box-shadow 0.2s, background-color 0.2s;
+
+  font-size: 1.2em;
+
+  color: white;
+  border: solid 2px black;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  height: 7vh;
+
+  background-color: $darkest;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+
+.navContainer:hover {
+  background-color: #152a3b;
+  box-shadow: black inset 1px 1px 1px 1px;
+}
+
+.contentTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.contentTitle img {
+  height: 1em !important;
+  width: auto;
+}
+
+.locked {
+  background-color: #747577;
+}
+
+.locked:hover {
+  cursor: not-allowed;
+  background-color: #747577;
+  box-shadow: none;
+}
+
+.imageHolder {
+
+}
+
+.navContainer img{
+  filter: brightness(0) invert(1);
+  width: 2em;
+  height: auto;
+}

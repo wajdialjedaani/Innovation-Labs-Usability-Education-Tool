@@ -9,8 +9,25 @@ export function getQuizSuite(){
 export default function QuizContextProvider({quiz, children}){
   const [quizObj, setQuizObj] = useState(quiz);
 
+  useEffect(() => {
+    console.log(quizObj);
+  }, [quizObj]);
+
   const quizSuite = {
-    quizObj
+    quizObj,
+
+    setSelectedAnswer: (questionIndex, answerIndex) => {
+      let updatedObj = [...quizObj];
+
+      if (updatedObj[questionIndex].selectedAnswer == answerIndex){
+        updatedObj[questionIndex].selectedAnswer = null;
+      } else {
+        updatedObj[questionIndex].selectedAnswer = answerIndex;
+
+      }
+
+      setQuizObj(updatedObj);
+    }
   }
 
   return (
