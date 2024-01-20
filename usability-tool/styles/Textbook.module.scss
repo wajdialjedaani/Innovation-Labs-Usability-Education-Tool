@@ -1,0 +1,40 @@
+@use './mixins/colorscheme.scss' as *;
+
+.textbookContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.markdownBody {
+  width: 50%;
+  background-color: $top;
+
+  color: white;
+
+  padding: 3em;
+  padding-top: 3em;
+
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  align-items: center;
+}
+
+.markdownBody p {
+  font-size: 1.2em;
+  margin-top: 0.3em;
+}
+
+.markdownBody img {
+
+}
+
+.markdownBody h1 {
+  margin: 0;
+  align-self: left !important;
+  justify-self: left !important;
+}
