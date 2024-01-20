@@ -1,27 +1,24 @@
 import styles from "@/styles/Textbook.module.scss"
-import Markdown from 'react-markdown';
-const fs = require('fs');
 
-export default function Textbook({ markdownSrc }) {
-  let markdown;
+import TextbookBody from "@/components/textbook/TextbookBody";
+import { Fragment } from "react";
 
-  try {
-    markdown = fs.readFileSync(`${process.env.BASE_PATH}${markdownSrc}`, 'utf-8');
-    console.log(markdown);
-  } catch (error) {
-    console.error(error);
-  }
+import NavFooter from "../nav/NavFooter";
 
-  if (markdown) {
-    console.log('erm');
-    return (
-      <Markdown className={styles.markdownBody}>{markdown}</Markdown>
-    );
-  } else {
-    return (
-      <div>
-        <p>Loading...</p>
+export default function Textbook({filepath}){
+  return (
+    <Fragment>
+      <div className={styles.textbookContainer}>
+        <TextbookBody markdownSrc={filepath}/>
       </div>
-    );
-  }
+
+      <NavFooter 
+        options={{
+          prev: null,
+          next: {title: "Hueristic 1 Quiz", href:"/quiz/1"},
+          nextLock: false
+        }}
+      />
+    </Fragment>
+  )
 }

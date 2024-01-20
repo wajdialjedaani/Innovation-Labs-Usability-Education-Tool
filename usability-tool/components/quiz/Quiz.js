@@ -7,11 +7,11 @@ import NavFooter from "../nav/NavFooter";
 import styles from "@/styles/quiz.module.scss";
 
 
-export default function Quiz({quizObj}){
+export default function Quiz({quizObj, meta}){
   return (
     <QuizContextProvider quiz={quizObj}>
       <QuizBody /> 
-      <NavFooter />
+      <NavFooter options={meta.navFooterOptions} />
     </QuizContextProvider>
   )
 }
