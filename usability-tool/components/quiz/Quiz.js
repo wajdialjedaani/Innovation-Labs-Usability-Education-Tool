@@ -1,79 +1,150 @@
 "use client";
 // Quiz.js - The root renderer of the Usability Tool quiz engine
-
-import QuizContextProvider, {getQuizSuite} from "./QuizContextProvider"
+import { useRef, useState, useContext, createContext } from "react";
+import { IconContext } from "react-icons";
+import { FaCircleCheck, FaCircleXmark } from "react-icons/fa6";
+import { IoMdCloseCircle } from "react-icons/io";
+import QuizContextProvider, { getQuizSuite } from "./QuizContextProvider";
 import NavFooter from "../nav/NavFooter";
 
 import styles from "@/styles/quiz.module.scss";
 
+const SubmitContext = createContext();
 
-export default function Quiz({quizObj}){
+export default function Quiz({ quizObj }) {
   return (
     <QuizContextProvider quiz={quizObj}>
-      <QuizBody /> 
+      <QuizBody />
       <NavFooter />
     </QuizContextProvider>
-  )
+  );
 }
 
-function QuizBody(){
-  const {quizObj} = getQuizSuite();
+function QuizBody() {
+  const { quizObj } = getQuizSuite();
+
+  //Has the submit button been pressed
+  const [submit, setSubmit] = useState(false);
+
+  //Holds the score
+  const correctCount = useRef(0);
 
   return (
-    <div className={styles.quizContainer}>
-      {quizObj.map((obj, index) => {
-        return (
-          <Question
-            question={obj.question}
-            questionIndex={index}
-            answers={obj.answers}
-            key={`questionkey-${index}`}
-          />
-        )
-      })}
+    <SubmitContext.Provider value={submit}>
+      <div className={styles.quizContainer}>
+        {quizObj.map((obj, index) => {
+          return (
+            <Question
+              question={obj.question}
+              questionIndex={index}
+              answers={obj.answers}
+              isCorrect={obj.selectedAnswer === obj.correctAnswerIndex}
+              key={`questionkey-${index}`}
+            />
+          );
+        })}
+        {!submit ? (
+          <button
+            className={styles.submitButton}
+            onClick={() => {
+              //Calculate score
+              quizObj.forEach((obj) => {
+                if (obj.selectedAnswer === obj.correctAnswerIndex) {
+                  correctCount.current++;
+                }
+              });
+              setSubmit(true);
+            }}
+          >
+            Submit
+          </button>
+        ) : //Don't show the button after it's clicked
+        null}
+      </div>
 
-      <button className={styles.submitButton} onClick={() => {console.log("gink!")}}>Submit</button>
-    </div>
-  )
+      {/* WIP - Shows a popup of the score when the submit button is clicked
+      {submit ? (
+        <div className={styles.blur}>
+          <div className={styles.scorePopup}>
+            <IoMdCloseCircle size={30} className={styles.closePopup} />
+
+            <h1>
+              Score: {correctCount.current} / {quizObj.length}
+            </h1>
+          </div>
+        </div>
+      ) : null}
+      */}
+    </SubmitContext.Provider>
+  );
 }
 
-function Question({question, answers, questionIndex}){
+function Question({ question, answers, questionIndex, isCorrect }) {
+  //Has the submit button been pressed?
+  const submit = useContext(SubmitContext);
   return (
     <div className={styles.question}>
       <h1 className={styles.questionHeader}>Question {questionIndex + 1}</h1>
 
       <div className={styles.questionBody}>
-        <h1 className={styles.questionContent}>
-          {question}
-        </h1>
+        <h1 className={styles.questionContent}>{question}</h1>
         <div className={styles.answersContainer}>
           {answers.map((text, index) => {
-            return <Answer content={text} questionIndex={questionIndex} answerIndex={index} key={`ANSWER--index-${question}${index}`}/>
+            return (
+              <Answer
+                content={text}
+                questionIndex={questionIndex}
+                answerIndex={index}
+                key={`ANSWER--index-${question}${index}`}
+              />
+            );
           })}
         </div>
       </div>
+      {submit ? ( //Put a check mark or an X mark if the question is right / wrong
+        <IconContext.Provider
+          value={{ size: 30, className: `${styles.checkMark}` }}
+        >
+          {isCorrect ? (
+            <FaCircleCheck color="green" />
+          ) : (
+            <FaCircleXmark color="red" />
+          )}
+        </IconContext.Provider>
+      ) : null}
     </div>
-  )
+  );
 }
 
-function Answer({content, answerIndex, questionIndex}){
-  const {quizObj, setSelectedAnswer} = getQuizSuite();
+function Answer({ content, answerIndex, questionIndex }) {
+  const { quizObj, setSelectedAnswer } = getQuizSuite();
 
-  let className;
+  const submit = useContext(SubmitContext);
 
-  if (quizObj[questionIndex].selectedAnswer == answerIndex){
-    className = `${styles.answer} ${styles.selectedAnswer}`
+  const currentQuestionObj = quizObj[questionIndex];
+
+  let className = `${styles.answer}`;
+
+  if (submit) {
+    className += ` ${styles.disable}`;
+    if (currentQuestionObj.correctAnswerIndex === answerIndex) {
+      className += ` ${styles.correctAnswer}`;
+    } else if (currentQuestionObj.selectedAnswer === answerIndex) {
+      className += ` ${styles.incorrectAnswer}`;
+    }
   } else {
-    className = `${styles.answer}`;
+    if (currentQuestionObj.selectedAnswer == answerIndex) {
+      className += ` ${styles.selectedAnswer}`;
+    }
   }
 
   function handleSelect() {
-    setSelectedAnswer(questionIndex, answerIndex);
+    !submit ? setSelectedAnswer(questionIndex, answerIndex) : null;
   }
 
   return (
     <button className={className} onClick={handleSelect}>
       {content}
     </button>
-  )
+  );
 }
