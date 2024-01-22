@@ -1,7 +1,9 @@
-main {
-  box-sizing: border-box;
-  padding: 15px;
-}
+@use './mixins/colorscheme.scss' as *;
+
+// main {
+//   box-sizing: border-box;
+//   padding: 15px;
+// }
 
 .d-flex {
   display: flex;
@@ -10,10 +12,12 @@ main {
   gap: 5px;
 }
 
-.quiz-container {
+.quizContainer {
   display: flex;
   align-items: start;
   gap: 20px;
+  padding: 25vw;
+  padding-top: 5vh;
 }
 
 .questions,
@@ -40,18 +44,24 @@ main {
 }
 
 .answer {
-  box-sizing: border-box;
-  flex: 0 0 calc(50% - 5px);
-  font-weight: bold;
-  letter-spacing: 0.5px;
-  height: 40px;
+  //box-sizing: border-box;
+  // /flex: 0 0 calc(50% - 5px);
+  //font-weight: bold;
+  //letter-spacing: 0.5px;
+  //height: 40px;
   border: 2px solid #ccc;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: grab;
+  cursor: pointer;
   background-color: #324a5f;
   border-radius: 5px;
+  color: #FFFFFF;
+}
+
+.answersContainer {
+  display: flex;
+  flex-direction: row;
 }
 
 .correct {
@@ -84,12 +94,12 @@ main {
   margin-right: 5px;
 }
 
-button {
-  margin-top: 10px;
-  padding: 10px;
-  font-size: 16px;
-  cursor: pointer;
-}
+// button {
+//   margin-top: 10px;
+//   padding: 10px;
+//   font-size: 16px;
+//   cursor: pointer;
+// }
 
 /* Message styling */
 .message {

@@ -1,12 +1,32 @@
+@use './mixins/colorscheme.scss' as *;
+
 .main-head {
-  position: relative;
-  padding: 0 25px;
   display: flex;
+
   justify-content: space-between;
   align-items: center;
+  
+  position: fixed;
+
   color: #ccc9dc;
-  background: #0c1821;
+  background: $darkest;
   font-size: 1.25em;
+  height: 65px;
+
+  border-bottom: 2px rgba(0,0,0,0.2) solid;
+  box-shadow: 0px 0px 15px rgb(89, 94, 114);
+  padding: 0;
+
+  top: 0;
+
+  box-sizing: border-box;
+  
+  padding-left: 10px; padding-right: 10px;
+
+  width: 100%;
+}
+
+.generalSpacer {
   height: 65px;
 }
 
