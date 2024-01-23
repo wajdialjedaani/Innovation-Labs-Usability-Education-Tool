@@ -15,8 +15,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="global">
-        <Navbar />
-        <ContextProvider>{children}</ContextProvider>
+        <ContextProvider>
+          <Navbar />
+          {children}
+        </ContextProvider>
       </body>
     </html>
   );

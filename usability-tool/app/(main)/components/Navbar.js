@@ -22,7 +22,7 @@ export default function Navbar() {
           alt="Menu Button"
           onClick={() => setMenu((prevMenu) => !prevMenu)}
         />
-        
+
         <h1 className="menu-title">Usability Education Tool</h1>
 
         <Image
@@ -35,7 +35,7 @@ export default function Navbar() {
         {account && <Accountpopup />}
       </header>
 
-      <div className="generalSpacer"/>
+      <div className="generalSpacer" />
     </Fragment>
   );
 }

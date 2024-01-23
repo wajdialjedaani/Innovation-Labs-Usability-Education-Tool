@@ -10,7 +10,6 @@ export function getDataSuite() {
 
 export function ContextProvider({ children }) {
   const [dataState, setDataState] = useState(userData);
-  console.log(dataState);
   const dataSuite = {
     dataState,
     updateDataState: (newData) => {

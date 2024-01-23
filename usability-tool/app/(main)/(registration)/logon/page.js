@@ -1,6 +1,14 @@
+//348551046442
+
 "use client";
 import "@/styles/logon.scss";
 import { useState } from "react";
+
+import { createAccount } from "@/lib/firebase/auth";
+import { nav } from "@/lib/tools/redirect";
+
+import { info } from "sass";
+
 export default function Logon() {
   const [formData, setFormData] = useState({
     email: "",
@@ -11,7 +19,10 @@ export default function Logon() {
   function handleSubmit(e) {
     e.preventDefault();
     if (formData.password === formData.passwordConf) {
-      //Add to firebase
+      //Call firebase
+      createAccount(formData.email, formData.password);
+      //Go to main page
+      nav("/main");
     } else {
       alert("Passwords do not match");
     }
