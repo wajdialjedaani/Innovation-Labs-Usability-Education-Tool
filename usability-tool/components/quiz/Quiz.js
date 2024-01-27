@@ -11,11 +11,11 @@ import styles from "@/styles/quiz.module.scss";
 
 const SubmitContext = createContext();
 
-export default function Quiz({ quizObj }) {
+export default function Quiz({quizObj, meta}){
   return (
     <QuizContextProvider quiz={quizObj}>
-      <QuizBody />
-      <NavFooter />
+      <QuizBody /> 
+      <NavFooter options={meta.navFooterOptions}/>
     </QuizContextProvider>
   );
 }
