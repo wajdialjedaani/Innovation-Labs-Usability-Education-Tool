@@ -1,4 +1,9 @@
-@use './mixins/colorscheme.scss' as *;
+@use "./mixins/colorscheme.scss" as *;
+
+.disable {
+  pointer-events: none;
+}
+
 .quizContainer {
   display: flex;
   flex-direction: column;
@@ -8,7 +13,8 @@
   justify-content: center;
   align-items: center;
 
-  margin-top: 15px; margin-bottom: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
   gap: 15px;
 }
 
@@ -21,6 +27,7 @@
 }
 
 .question {
+  position: relative;
   color: white;
   background-color: #0c1821;
   //padding: 0;
@@ -34,7 +41,6 @@
 
   //width: calc(50vw - 1000px);  /* Adjust based on padding and borders */
 
-
   width: 50vw;
 }
 
@@ -44,7 +50,8 @@
   margin-bottom: 0;
   background-color: #324a5f;
 
-  border-top-right-radius: 5px; border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
 
   padding: 14px;
 }
@@ -67,16 +74,16 @@
   //letter-spacing: 0.5px;
   //height: 40px;
   border: 2px solid #ffffff;
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   cursor: pointer;
-  
+
   background-color: #324a5f;
   border-radius: 5px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 1.3em;
   transition: background-color 0.1s;
   padding: 10px;
@@ -90,12 +97,20 @@
   background-color: #638cae !important;
 }
 
+.correctAnswer {
+  background-color: green;
+}
+
+.incorrectAnswer {
+  background-color: red;
+}
+
 .answersContainer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  row-gap: 0.6em
+  row-gap: 0.6em;
 }
 
 .submitButton {
@@ -112,5 +127,37 @@
 .submitButton:hover {
   background-color: #405f79;
   transition: background-color 0.1s;
+}
 
+.checkMark {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+}
+
+.scorePopup {
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  font-size: 1.3em;
+  transform: translate(-50%, 50%);
+  z-index: 2;
+  background-color: #0c1821;
+  color: #ffffff;
+}
+.blur {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(2px);
+}
+
+.closePopup {
+  position: absolute;
+  top: -10px;
+  left: -10px;
 }
