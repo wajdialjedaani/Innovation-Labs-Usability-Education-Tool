@@ -18,7 +18,7 @@ export default function mainPage() {
     <main className="main-main">
       <div className="heuristic-btn-container">
         {heuristicNames.map((name, i) => (
-          <Link className="heuristic-btn" href={`/lesson-${i + 1}`} key={i}>
+          <Link className="heuristic-btn" href={i == 0 ? "/lessons/1" : `/lesson-${i + 1}`} key={i}>
             <h3 className="heuristic-btn-title">Heuristic {i + 1}</h3>
             <h5 className="heuristic-btn-name">{name}</h5>
           </Link>
