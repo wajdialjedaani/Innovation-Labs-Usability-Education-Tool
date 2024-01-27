@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Debug() {
   return (
     <nav>
-      <h1>debug homepage</h1>
+      <h1>development homepage</h1>
 
       <h2>main stuff</h2>
       <Link href="/logon">logon page</Link><br />
