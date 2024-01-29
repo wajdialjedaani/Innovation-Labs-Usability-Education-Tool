@@ -19,12 +19,14 @@ export default function Navbar() {
   return (
     <Fragment>
       <header className="main-head">
-        <Image
-          src={menuIcon}
-          className="menu-img"
-          alt="Menu Button"
-          onClick={() => setMenu((prevMenu) => !prevMenu)}
-        />
+        {user && (
+          <Image
+            src={menuIcon}
+            className="menu-img"
+            alt="Menu Button"
+            onClick={() => setMenu((prevMenu) => !prevMenu)}
+          />
+        )}
 
         <h1 className="menu-title">Usability Education Tool</h1>
         {user && (
@@ -35,7 +37,7 @@ export default function Navbar() {
             onClick={() => setAccount((prevAccount) => !prevAccount)}
           />
         )}
-        {menu && <Menupopup />}
+        {user && menu && <Menupopup />}
         {user && account && <Accountpopup />}
       </header>
 

@@ -17,9 +17,6 @@ export default function Menupopup() {
         </Link>
       ))}
 
-      <Link href="/statistics" className="menu-popup-list-item-link">
-        Statistics
-      </Link>
     </div>
   );
 }
