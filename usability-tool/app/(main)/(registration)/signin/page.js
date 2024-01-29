@@ -13,7 +13,10 @@ import { info } from "sass";
 import { IconContext } from "react-icons";
 import Link from "next/link";
 
+import { useRouter } from "next/navigation";
+
 export default function Logon() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -31,7 +34,7 @@ export default function Logon() {
       setLogOnError(error);
     } else {
       console.log(result);
-      nav("/main");
+      router.push("/main");
     }
   }
 

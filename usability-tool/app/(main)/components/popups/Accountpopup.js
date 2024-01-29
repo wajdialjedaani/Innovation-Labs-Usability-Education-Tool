@@ -4,15 +4,30 @@ import Link from "next/link";
 import { auth } from "@/lib/firebase/firebase";
 import { logOut } from "@/lib/firebase/auth";
 
+import { getAuthContext } from "../AuthContextProvider";
+
 import { nav } from "@/lib/tools/redirect";
 
+import { useRouter } from "next/navigation";
+
 export default function Accountpopup() {
-  const email = auth.currentUser?.toJSON().email;
+  const router = useRouter();
+  const { user } = getAuthContext();
+
+  async function handleSignout() {
+    const { result, error } = await logOut();
+    if (error) {
+      console.error(error);
+    } else {
+      router.push("/");
+    }
+  }
+
   return (
     <div className="account-popup">
-      {email ? (
+      {user ? (
         <p className="account-popup-signedinas">
-          Signed in: <span className="account-popup-email">{email}</span>
+          Signed in: <span className="account-popup-email">{user.email}</span>
         </p>
       ) : null}
       <Link href="#" className="account-popup-list-item-link">
@@ -22,8 +37,7 @@ export default function Accountpopup() {
         href="#"
         className="account-popup-list-item-link"
         onClick={() => {
-          logOut();
-          nav("/");
+          handleSignout();
         }}
       >
         Sign Out

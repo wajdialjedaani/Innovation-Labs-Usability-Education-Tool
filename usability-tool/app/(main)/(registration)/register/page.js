@@ -13,7 +13,10 @@ import Link from "next/link";
 import { info } from "sass";
 import { IconContext } from "react-icons";
 
+import { useRouter } from "next/navigation";
+
 export default function Logon() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -38,7 +41,7 @@ export default function Logon() {
       } else {
         console.error(result);
         //Go to main page
-        nav("/main");
+        router.push("/main");
       }
     } else {
       alert("Passwords do not match");

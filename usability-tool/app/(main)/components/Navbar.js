@@ -2,6 +2,8 @@
 import "@/styles/header.scss";
 import { useState, Fragment } from "react";
 
+import { getAuthContext } from "./AuthContextProvider";
+
 import Image from "next/image";
 
 import menuIcon from "/public/images/menu.png";
@@ -11,6 +13,7 @@ import Menupopup from "./popups/Menupopup";
 import Accountpopup from "./popups/Accountpopup";
 
 export default function Navbar() {
+  const { user } = getAuthContext();
   const [menu, setMenu] = useState(false);
   const [account, setAccount] = useState(false);
   return (
@@ -24,15 +27,16 @@ export default function Navbar() {
         />
 
         <h1 className="menu-title">Usability Education Tool</h1>
-
-        <Image
-          src={accountIcon}
-          className="account-img"
-          alt="Account Button"
-          onClick={() => setAccount((prevAccount) => !prevAccount)}
-        />
+        {user && (
+          <Image
+            src={accountIcon}
+            className="account-img"
+            alt="Account Button"
+            onClick={() => setAccount((prevAccount) => !prevAccount)}
+          />
+        )}
         {menu && <Menupopup />}
-        {account && <Accountpopup />}
+        {user && account && <Accountpopup />}
       </header>
 
       <div className="generalSpacer" />
