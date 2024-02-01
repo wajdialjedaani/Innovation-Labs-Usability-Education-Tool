@@ -30,7 +30,7 @@ export default function Accountpopup() {
           Signed in: <span className="account-popup-email">{user.email}</span>
         </p>
       ) : null}
-      <Link href="#" className="account-popup-list-item-link">
+      <Link href="/statistics" className="account-popup-list-item-link">
         Statistics
       </Link>
       <Link

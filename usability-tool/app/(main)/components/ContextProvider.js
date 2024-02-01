@@ -9,6 +9,9 @@ export function getDataSuite() {
 }
 
 export function ContextProvider({ children }) {
+  //First check if there's any data for the user in the database.
+  //Next check if it's the most up to date data (cookies / localstorage?)
+  //Set the first value to the most up to date user data
   const [dataState, setDataState] = useState(userData);
   const dataSuite = {
     dataState,
