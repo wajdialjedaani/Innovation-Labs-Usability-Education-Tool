@@ -3,6 +3,7 @@ import "@/styles/globals.scss";
 import Navbar from "./components/Navbar";
 
 import { ContextProvider } from "./components/ContextProvider";
+import { AuthContextProvider } from "./components/AuthContextProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,11 +14,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className="global">
-        <Navbar />
-        <ContextProvider>{children}</ContextProvider>
-      </body>
-    </html>
+    <>
+      <Navbar />
+      {children}
+    </>
   );
 }

@@ -7,20 +7,24 @@ import { IoMdCloseCircle } from "react-icons/io";
 import QuizContextProvider, { getQuizSuite } from "./QuizContextProvider";
 import NavFooter from "../nav/NavFooter";
 
+import { getAuthContext } from "@/app/(main)/components/AuthContextProvider";
+import { addHeuristicData } from "@/lib/firebase/firestore";
+
 import styles from "@/styles/quiz.module.scss";
 
 const SubmitContext = createContext();
 
-export default function Quiz({quizObj, meta}){
+export default function Quiz({ quizObj, meta }) {
   return (
     <QuizContextProvider quiz={quizObj}>
-      <QuizBody /> 
-      <NavFooter options={meta.navFooterOptions}/>
+      <QuizBody />
+      <NavFooter options={meta.navFooterOptions} />
     </QuizContextProvider>
   );
 }
 
 function QuizBody() {
+  const { user } = getAuthContext();
   const { quizObj } = getQuizSuite();
 
   //Has the submit button been pressed
@@ -29,6 +33,10 @@ function QuizBody() {
   //Holds the score
   const correctCount = useRef(0);
 
+  async function writeToDB(data) {
+    //Replace 1 with the id of the quiz
+    const { result, error } = await addHeuristicData(1, user.uid, data);
+  }
   return (
     <SubmitContext.Provider value={submit}>
       <div className={styles.quizContainer}>
@@ -54,6 +62,10 @@ function QuizBody() {
                 }
               });
               setSubmit(true);
+              writeToDB({
+                correct: correctCount.current,
+                incorrect: quizObj.length - correctCount.current,
+              });
             }}
           >
             Submit

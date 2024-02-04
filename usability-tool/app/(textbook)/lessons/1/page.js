@@ -1,7 +1,5 @@
-import Textbook from "@/components/textbook/Textbook"
+import Textbook from "@/components/textbook/Textbook";
 
-export default function Lesson1(){
-  return (
-    <Textbook filepath="/public/lessons/Lesson1.md"/>
-  )
+export default function Lesson1() {
+  return <Textbook filepath="/public/lessons/Lesson1.md" />;
 }

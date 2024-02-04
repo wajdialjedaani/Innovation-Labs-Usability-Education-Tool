@@ -1,5 +1,6 @@
 import "@/styles/mainpage.scss";
 import Link from "next/link";
+
 export default function mainPage() {
   const heuristicNames = [
     "Visibility of system status",

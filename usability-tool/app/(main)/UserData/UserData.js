@@ -15,163 +15,131 @@ export const userData = {
       data: [
         {
           name: "Number of Questions Right",
-          value: 1,
-          color: "#4BAE4F",
+          value: 0,
         },
         {
           name: "Number of Questions Wrong",
-          value: 3,
-          color: "#F24336",
+          value: 0,
         },
       ],
-      questionsWrong: [],
     },
     {
       data: [
         {
           name: "Number of Questions Right",
           value: 0,
-          color: "#4BAE4F",
         },
         {
           name: "Number of Questions Wrong",
           value: 0,
-          color: "#F24336",
         },
       ],
-      questionsWrong: [],
     },
     {
       data: [
         {
           name: "Number of Questions Right",
           value: 0,
-          color: "#4BAE4F",
         },
         {
           name: "Number of Questions Wrong",
           value: 0,
-          color: "#F24336",
         },
       ],
-      questionsWrong: [],
     },
     {
       data: [
         {
           name: "Number of Questions Right",
           value: 0,
-          color: "#4BAE4F",
         },
         {
           name: "Number of Questions Wrong",
           value: 0,
-          color: "#F24336",
         },
       ],
-      questionsWrong: [],
     },
     {
       data: [
         {
           name: "Number of Questions Right",
           value: 0,
-          color: "#4BAE4F",
         },
         {
           name: "Number of Questions Wrong",
           value: 0,
-          color: "#F24336",
         },
       ],
-      questionsWrong: [],
     },
     {
       data: [
         {
           name: "Number of Questions Right",
           value: 0,
-          color: "#4BAE4F",
         },
         {
           name: "Number of Questions Wrong",
           value: 0,
-          color: "#F24336",
         },
       ],
-      questionsWrong: [],
-    },
-    {
-      data: [
-        {
-          name: "Number of Questions Right",
-          value: 10,
-          color: "#4BAE4F",
-        },
-        {
-          name: "Number of Questions Wrong",
-          value: 0,
-          color: "#F24336",
-        },
-      ],
-      questionsWrong: [],
     },
     {
       data: [
         {
           name: "Number of Questions Right",
           value: 0,
-          color: "#4BAE4F",
         },
         {
           name: "Number of Questions Wrong",
           value: 0,
-          color: "#F24336",
         },
       ],
-      questionsWrong: [],
     },
     {
       data: [
         {
           name: "Number of Questions Right",
           value: 0,
-          color: "#4BAE4F",
         },
         {
           name: "Number of Questions Wrong",
           value: 0,
-          color: "#F24336",
         },
       ],
-      questionsWrong: [],
     },
     {
       data: [
         {
           name: "Number of Questions Right",
           value: 0,
-          color: "#4BAE4F",
         },
         {
           name: "Number of Questions Wrong",
           value: 0,
-          color: "#F24336",
         },
       ],
-      questionsWrong: [],
+    },
+    {
+      data: [
+        {
+          name: "Number of Questions Right",
+          value: 0,
+        },
+        {
+          name: "Number of Questions Wrong",
+          value: 0,
+        },
+      ],
     },
   ],
   progressData: [
     {
       name: "Total completed",
       value: 0,
-      color: "#4BAE4F",
     },
     {
       name: "Total incomplete",
       value: 0,
-      color: "#F24336",
     },
   ],
 };
