@@ -16,6 +16,9 @@ export default function Navbar() {
   const { user } = getAuthContext();
   const [menu, setMenu] = useState(false);
   const [account, setAccount] = useState(false);
+
+  console.log(user);
+
   return (
     <Fragment>
       <header className="main-head">

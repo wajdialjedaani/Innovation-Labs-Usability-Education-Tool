@@ -14,15 +14,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className="global">
-        <AuthContextProvider>
-          <ContextProvider>
-            <Navbar />
-            {children}
-          </ContextProvider>
-        </AuthContextProvider>
-      </body>
-    </html>
+    <>
+      <Navbar />
+      {children}
+    </>
   );
 }

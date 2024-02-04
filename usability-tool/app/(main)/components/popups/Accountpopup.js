@@ -19,7 +19,7 @@ export default function Accountpopup() {
     if (error) {
       console.error(error);
     } else {
-      router.push("/");
+      // router.push("/");
     }
   }
 
