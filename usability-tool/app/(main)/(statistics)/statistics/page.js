@@ -17,6 +17,7 @@ import { IoAlertCircle } from "react-icons/io5";
 import { IconContext } from "react-icons";
 
 import { getDataSuite } from "../../components/ContextProvider";
+import { Enriqueta } from "next/font/google";
 
 const heuristics = Array.from({ length: 10 }, (x, i) => `Heuristic ${i + 1}`);
 /*
@@ -41,7 +42,7 @@ export default function Statistics() {
   const { user } = getAuthContext();
   const [currHeuristic, setCurrHeuristic] = useState(0);
   const [currData, setCurrData] = useState(null);
-  const colors = ["#F24336", "#4BAE4F"];
+  const colors = { incorrect: "#F24336", correct: "#4BAE4F" };
 
   // const { dataState: importedUserData } = getDataSuite();
 
@@ -53,13 +54,17 @@ export default function Statistics() {
         user.uid
       );
 
+      // console.log(data);
+
       if (!data) {
         setCurrData(null);
       } else {
         let i = 0;
         const newData = [];
         for (const [key, value] of Object.entries(data)) {
+          console.log(key, value);
           newData[i] = {
+            type: key === "correct" ? 1 : 0,
             name: `Number of questions ${key}`,
             value,
           };
@@ -119,7 +124,10 @@ export default function Statistics() {
                       label
                     >
                       {currData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={colors[index]} />
+                        <Cell
+                          key={`cell-${index}`}
+                          fill={entry.type ? colors.correct : colors.incorrect}
+                        />
                       ))}
                     </Pie>
 
@@ -143,7 +151,10 @@ export default function Statistics() {
                       label
                     >
                       {currData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={colors[index]} />
+                        <Cell
+                          key={`cell-${index}`}
+                          fill={entry.type ? colors.correct : colors.incorrect}
+                        />
                       ))}
                     </Pie>
                     <Tooltip />
