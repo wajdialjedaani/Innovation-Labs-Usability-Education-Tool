@@ -52,50 +52,52 @@ export default function Statistics() {
           ))}
         </section>
         <section className="stat-container">
-          <ResponsiveContainer
-            width="33%"
-            height="40%"
-            className="stat-graph-container"
-          >
-            <h2 className="heuristic-title">Heuristic Data</h2>
-            <PieChart width={350} height={450}>
-              <Pie
-                dataKey="value"
-                isAnimationActive={false}
-                data={importedUserData.heuristicData[currHeuristic].data}
-                cx="50%"
-                cy="50%"
-                fill="#8884d8"
-                label
-              >
-                {importedUserData.heuristicData[currHeuristic].data.map(
-                  (entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                  )
-                )}
-              </Pie>
-              <Tooltip />
-            </PieChart>
-            <h2 className="heuristic-title">UI Builder Data</h2>
-            <PieChart width={350} height={450}>
-              <Pie
-                dataKey="value"
-                isAnimationActive={false}
-                data={importedUserData.heuristicData[currHeuristic].data}
-                cx="50%"
-                cy="50%"
-                fill="#8884d8"
-                label
-              >
-                {importedUserData.heuristicData[currHeuristic].data.map(
-                  (entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                  )
-                )}
-              </Pie>
-              <Tooltip />
-            </PieChart>
-          </ResponsiveContainer>
+          <div className="stats-container">
+            <ResponsiveContainer
+              width="100%"
+              height="40%"
+              className="stat-graph-container"
+            >
+              <h2 className="heuristic-title">Heuristic Data</h2>
+              <PieChart width="50%" height="50%">
+                <Pie
+                  dataKey="value"
+                  isAnimationActive={false}
+                  data={importedUserData.heuristicData[currHeuristic].data}
+                  cx="50%"
+                  cy="50%"
+                  fill="#8884d8"
+                  label
+                >
+                  {importedUserData.heuristicData[currHeuristic].data.map(
+                    (entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    )
+                  )}
+                </Pie>
+                <Tooltip />
+              </PieChart>
+              <h2 className="heuristic-title">UI Builder Data</h2>
+              <PieChart width="50%" height="50%">
+                <Pie
+                  dataKey="value"
+                  isAnimationActive={false}
+                  data={importedUserData.heuristicData[currHeuristic].data}
+                  cx="50%"
+                  cy="50%"
+                  fill="#8884d8"
+                  label
+                >
+                  {importedUserData.heuristicData[currHeuristic].data.map(
+                    (entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    )
+                  )}
+                </Pie>
+                <Tooltip />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
           <div className="wrong-questions-container">
             <h1>Questions Wrong</h1>
             <hr></hr>
