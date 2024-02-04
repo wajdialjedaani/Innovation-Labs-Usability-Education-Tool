@@ -1,9 +1,18 @@
 import { app } from "./firebase";
-import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  getDoc,
+  initializeFirestore,
+  persistentLocalCache,
+  getDocFromCache,
+} from "firebase/firestore";
 import errCodeToMessage from "../tools/errCodeToMsg";
 //Cloud Firestore stores data in Documents, which are stored in Collections
 //const x = await addToDB("users", user.uid, {...})
-const db = getFirestore(app);
+const db = initializeFirestore(app, { localCache: persistentLocalCache() });
+// const db = getFirestore(app);
 
 // export async function addToDB(collection, id, data) {
 //   let result, error;
@@ -42,6 +51,7 @@ export async function readHeuristicData(heuristicID, userID) {
     result = await getDoc(
       doc(db, "users", userID, "HeuristicData", `Heuristic${heuristicID}`)
     );
+    console.log(result);
     data = result.data();
   } catch (e) {
     error = errCodeToMessage(e.code);

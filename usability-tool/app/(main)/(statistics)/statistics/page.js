@@ -62,7 +62,6 @@ export default function Statistics() {
         let i = 0;
         const newData = [];
         for (const [key, value] of Object.entries(data)) {
-          console.log(key, value);
           newData[i] = {
             type: key === "correct" ? 1 : 0,
             name: `Number of questions ${key}`,
