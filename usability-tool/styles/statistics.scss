@@ -20,13 +20,13 @@ main {
 }
 
 .stat-buttons {
-  flex: 0 0 25%;
+  flex: 0 0 15%;
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
   button {
     box-sizing: border-box;
-    flex: 0 0 calc(50% - 5px);
+    flex: 0 0 calc(100% - 5px);
     font-size: 25px;
     font-weight: bold;
     color: #ffffff;
@@ -44,7 +44,7 @@ main {
 
 .stat-container {
   padding: 15px;
-  flex: 0 1 75%;
+  flex: 0 0 80%;
   display: flex;
   flex-direction: row;
   background-color: #324a5f;
@@ -56,6 +56,11 @@ main {
   flex-direction: column;
   width: 33%;
   height: 100%;
+}
+.stat-graph-container {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
   // border: 1px solid black;
 }
 
@@ -78,7 +83,24 @@ main {
 
 .heuristic-title {
   font-size: 30px;
+  text-align: center;
+  margin: 0;
   color: #ffffff;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: center;
+  //align-items: center;
+  //flex-wrap: wrap;
+  width: 30%;
+  height: 80%;
+  padding: 40px;
+  margin: auto;
+  //overflow-y: auto;
+  color: #ffffff;
+  background-color: #0c1821;
+  border-radius: 15px;
 }
 
 .wrong-questions-container {
