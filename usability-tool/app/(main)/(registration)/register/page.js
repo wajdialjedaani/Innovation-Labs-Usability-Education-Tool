@@ -12,6 +12,7 @@ import Link from "next/link";
 
 import { info } from "sass";
 import { IconContext } from "react-icons";
+import { FaArrowCircleLeft } from "react-icons/fa";
 
 import { useRouter } from "next/navigation";
 
@@ -136,6 +137,11 @@ export default function Logon() {
             Log in
           </Link>
         </small>
+        <IconContext.Provider
+          value={{ color: "white", size: "7%", className: "back-arrow" }}
+        >
+          <FaArrowCircleLeft onClick={() => router.push("/home")} />
+        </IconContext.Provider>
       </article>
     </main>
   );
