@@ -1,15 +1,17 @@
 /*Containers*/
 .registration-main {
-  margin-top: 50px;
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
+  // margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   // flex: 1 1 auto;
-  // height: 100%;
+  height: calc(100vh - 65px);
   // width: 100%;
 }
 
 .registration-container {
+  position: relative;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -118,4 +120,16 @@
 .registration-login-link:hover,
 .registration-login-link:focus {
   color: #ccc9dc;
+}
+
+.back-arrow {
+  position: absolute;
+  margin: 15px;
+  top: 0;
+  left: 0;
+}
+
+.back-arrow:hover,
+.back-arrow:focus {
+  filter: contrast(0);
 }

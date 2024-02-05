@@ -6,12 +6,13 @@ import { useState } from "react";
 
 import { signIn } from "@/lib/firebase/auth";
 import { nav } from "@/lib/tools/redirect";
+import Link from "next/link";
 
 import { IoClose } from "react-icons/io5";
+import { FaArrowCircleLeft } from "react-icons/fa";
+import { IconContext } from "react-icons";
 
 import { info } from "sass";
-import { IconContext } from "react-icons";
-import Link from "next/link";
 
 import { useRouter } from "next/navigation";
 
@@ -109,6 +110,11 @@ export default function Logon() {
             Sign Up
           </Link>
         </small>
+        <IconContext.Provider
+          value={{ color: "white", size: "7%", className: "back-arrow" }}
+        >
+          <FaArrowCircleLeft onClick={() => router.push("/home")} />
+        </IconContext.Provider>
       </article>
     </main>
   );
