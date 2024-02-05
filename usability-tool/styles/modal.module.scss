@@ -1,5 +1,6 @@
 @use './mixins/colorscheme.scss' as *;
 
+$borderRadius: 16px;
 
 .modalBody {
   display: flex;
@@ -30,6 +31,13 @@
   justify-content: space-between;
 
   align-items: center;
+
+  box-sizing: border-box;
+
+  background-color: $darkest;
+  padding: 1em;
+  
+  border-top-left-radius: $borderRadius; border-top-right-radius: $borderRadius;
 }
 
 .modalHeadingText {
@@ -38,9 +46,17 @@
 
 .modalPanel {
   background-color: $top;
-  padding: 1em;
+  //padding: 1em;
   color: white;
-  width: 20vw;
+  width: 25vw;
+
+  box-sizing: bor;
+  border-radius: 20px;
+  border: 2px solid $darkest;
+}
+
+.modalChildrenContainer {
+  padding: 1em;
 }
 
 .modalButton {
@@ -50,7 +66,21 @@
   padding: 0;
   margin: 0;
 
+  box-sizing: border-box;
   cursor: pointer;
+  //padding: 0.1em;
+  background-color: rgb(129, 64, 64);
+  border-radius: 5px;
+  border: 2px rgb(169, 169, 169) solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: background-color 0.1s;
+}
+
+.modalButton:hover {
+  background-color: rgb(199, 100, 100);
 }
 
 .modalButton img {
