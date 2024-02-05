@@ -41,8 +41,14 @@ const AlertIcon = (
 export default function Statistics() {
   const { user } = getAuthContext();
   const [currHeuristic, setCurrHeuristic] = useState(0);
+  const [activeButton, setActiveButton] = useState(null);
   const [currData, setCurrData] = useState(null);
   const colors = { incorrect: "#F24336", correct: "#4BAE4F" };
+
+  function handleClick(index) {
+    setCurrHeuristic(index);
+    setActiveButton(index);
+  }
 
   // const { dataState: importedUserData } = getDataSuite();
 
@@ -103,66 +109,66 @@ export default function Statistics() {
       <div className="main-stat-container">
         <section className="stat-buttons">
           {heuristics.map((heuristic, index) => (
-            <button key={index} onClick={() => setCurrHeuristic(index)}>
+            <button key={index} onClick={() => handleClick(index)} className={activeButton === index ? "active" : ""}>
               {heuristic}
             </button>
           ))}
         </section>
         <section className="stat-container">
           <div className="stat-graphs">
-            <div className="stat-graph-container">
-              <h2 className="heuristic-title">Heuristic Data</h2>
-              {currData ? (
-                <ResponsiveContainer>
-                  <PieChart>
-                    <Pie
-                      dataKey="value"
-                      isAnimationActive={false}
-                      data={currData}
-                      fill="#8884d8"
-                      label
-                    >
-                      {currData.map((entry, index) => (
-                        <Cell
-                          key={`cell-${index}`}
-                          fill={entry.type ? colors.correct : colors.incorrect}
-                        />
-                      ))}
-                    </Pie>
+            <ResponsiveContainer
+              width="100%"
+              height="100%"
+              className="stats-container"
+            >
+              <div className="stat-graph-container">
+                <h2 className="heuristic-title">Heuristic Data</h2>
+                {currData ? (
+                  <ResponsiveContainer>
+                    <PieChart>
+                      <Pie
+                        dataKey="value"
+                        isAnimationActive={false}
+                        data={currData}
+                        fill="#8884d8"
+                        label
+                      >
+                        {currData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={colors[index]} />
+                        ))}
+                      </Pie>
 
-                    <Tooltip />
-                  </PieChart>
-                </ResponsiveContainer>
-              ) : (
-                AlertIcon
-              )}
-            </div>
-            <div className="stat-graph-container">
-              <h2 className="heuristic-title">UI Builder Data</h2>
-              {currData ? (
-                <ResponsiveContainer>
-                  <PieChart>
-                    <Pie
-                      dataKey="value"
-                      isAnimationActive={false}
-                      data={currData}
-                      fill="#8884d8"
-                      label
-                    >
-                      {currData.map((entry, index) => (
-                        <Cell
-                          key={`cell-${index}`}
-                          fill={entry.type ? colors.correct : colors.incorrect}
-                        />
-                      ))}
-                    </Pie>
-                    <Tooltip />
-                  </PieChart>
-                </ResponsiveContainer>
-              ) : (
-                AlertIcon
-              )}
-            </div>
+                      <Tooltip />
+                    </PieChart>
+                  </ResponsiveContainer>
+                ) : (
+                  AlertIcon
+                )}
+              </div>
+              <div className="stat-graph-container">
+                <h2 className="heuristic-title">UI Builder Data</h2>
+                {currData ? (
+                  <ResponsiveContainer>
+                    <PieChart>
+                      <Pie
+                        dataKey="value"
+                        isAnimationActive={false}
+                        data={currData}
+                        fill="#8884d8"
+                        label
+                      >
+                        {currData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={colors[index]} />
+                        ))}
+                      </Pie>
+                      <Tooltip />
+                    </PieChart>
+                  </ResponsiveContainer>
+                ) : (
+                  AlertIcon
+                )}
+                </div>
+            </ResponsiveContainer>
           </div>
 
           {/* <div className="wrong-questions-container">

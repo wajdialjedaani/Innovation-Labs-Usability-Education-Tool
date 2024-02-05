@@ -42,6 +42,11 @@ main {
   }
 }
 
+button.active {
+  background-color: #0c1821;
+  color: white;
+}
+
 .stat-container {
   padding: 15px;
   flex: 0 0 80%;
@@ -52,12 +57,12 @@ main {
 }
 
 .stat-graphs {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   width: 33%;
   height: 100%;
 }
-.stat-graph-container {
+.stats-graph-container {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
@@ -90,9 +95,10 @@ main {
 
 .stats-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   //align-items: center;
-  //flex-wrap: wrap;
+  flex-wrap: wrap;
   width: 30%;
   height: 80%;
   padding: 40px;
