@@ -15,17 +15,17 @@ export function AuthContextProvider({ children }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    return () => {
-      onAuthStateChanged((user) => {
-        if (user) {
-          setUser(user);
-        } else {
-          setUser(null);
-          router.push("/home");
-        }
-        setLoading(false);
-      });
-    };
+    const unsub = onAuthStateChanged((user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+        router.push("/home");
+      }
+      setLoading(false);
+    });
+
+    return () => unsub();
   }, [user]);
 
   return (
