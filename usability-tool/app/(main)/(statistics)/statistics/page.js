@@ -109,7 +109,11 @@ export default function Statistics() {
       <div className="main-stat-container">
         <section className="stat-buttons">
           {heuristics.map((heuristic, index) => (
-            <button key={index} onClick={() => handleClick(index)} className={activeButton === index ? "active" : ""}>
+            <button
+              key={index}
+              onClick={() => handleClick(index)}
+              className={activeButton === index ? "active" : ""}
+            >
               {heuristic}
             </button>
           ))}
@@ -134,7 +138,12 @@ export default function Statistics() {
                         label
                       >
                         {currData.map((entry, index) => (
-                          <Cell key={`cell-${index}`} fill={colors[index]} />
+                          <Cell
+                            key={`cell-${index}`}
+                            fill={
+                              entry.type ? colors.correct : colors.incorrect
+                            }
+                          />
                         ))}
                       </Pie>
 
@@ -158,7 +167,12 @@ export default function Statistics() {
                         label
                       >
                         {currData.map((entry, index) => (
-                          <Cell key={`cell-${index}`} fill={colors[index]} />
+                          <Cell
+                            key={`cell-${index}`}
+                            fill={
+                              entry.type ? colors.correct : colors.incorrect
+                            }
+                          />
                         ))}
                       </Pie>
                       <Tooltip />
@@ -167,7 +181,7 @@ export default function Statistics() {
                 ) : (
                   AlertIcon
                 )}
-                </div>
+              </div>
             </ResponsiveContainer>
           </div>
 
