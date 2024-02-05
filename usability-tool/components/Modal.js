@@ -30,7 +30,10 @@ export default function Modal({toggleFunction, children, heading}){
               <img src="/icons/x.svg" alt="exit"/>
             </button>
           </div>
-          {children}
+
+          <div className={styles.modalChildrenContainer}>
+            {children}
+          </div>
         </div>
       </div>
     </div>

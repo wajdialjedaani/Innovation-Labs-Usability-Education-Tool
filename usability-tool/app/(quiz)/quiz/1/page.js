@@ -69,7 +69,7 @@ const quiz = [
 const meta = {
   navFooterOptions: {
     prev: {title: "Hueristic 1 Lesson", href: "/lessons/1"},
-    next: {title: "UI Builder Activity", href: "/ui-builder/example"},
+    next: {title: "UI Builder Activity", href: "/ui-builder/activity/1"},
     nextLock: false
   }
 }

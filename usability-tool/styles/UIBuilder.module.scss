@@ -9,29 +9,53 @@ $highestZ: 10000;
   background-color: $darkest;
 
   width: 100vw;
-  height: 5vh;
+  height: 65px;
 
   display: flex;
   color: white;
   justify-content: space-between;
   align-items: center;
 
+  box-sizing: border-box;
+
+  padding-left: 1em;   padding-right: 1em;
+
   z-index: $highestZ;
 }
 
 .menuBarTitle {
-  font-size: 3vh;
+  font-size: 30px;
+  margin-right: 8em;
   user-select: none;
+  font-weight: bold;
 }
 
 .menuBarButton {
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  box-sizing: border-box;
   appearance: none;
   background-color: transparent;
   border: none;
-  padding: 0;
+  padding: 0.3em;
   margin: 0;
   cursor: pointer;
+  border-radius: 8px;
+  transition: 0.2s;
 }
+
+.gradingPanelHeader {
+  margin-top: 0;
+}
+
+.menuBarButton:hover {
+  background-color: $darkestHover;
+}
+
+
 
 .menuBarButton img {
   justify-content: center;
@@ -42,7 +66,7 @@ $highestZ: 10000;
 
 .menuBarGroup {
   display: flex;
-  gap: 0.5em;
+  gap: 2em;
 }
 
 .builderBody {
@@ -52,7 +76,7 @@ $highestZ: 10000;
 
 // grid
 .gridBody {
-  height: 95vh;
+  height: calc(100vh - 65px);
   width: 75vw;
 
   display: flex;
@@ -78,12 +102,16 @@ $highestZ: 10000;
 
 // component drawer stuff
 .componentDrawer {
-  height: 95vh;
+  height: calc(100vh - 65px);
   width: 25vw;
 
   background-color: $dark;
   overflow-y: auto;
   overflow-x: hidden;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .componentDrawerHeader {

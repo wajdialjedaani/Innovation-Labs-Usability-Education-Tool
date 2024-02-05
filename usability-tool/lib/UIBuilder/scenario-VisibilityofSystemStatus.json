@@ -1,0 +1,113 @@
+{
+  "scenarioInformation": {
+    "title": "Visibility of System Status",
+    "description": "As you have learned in the previous lesson, the visibility of system status is an important heuristic to follow when designing user interfaces.\n\nFor this activity, you will be building a simple user interface for a web based music player. You do not need to use all of the components provided to successfully complete the activity. Remember to follow the guidelines of the visibility of system status heuristic while completing this activity."
+  },
+  "solutionGrid": [
+    {
+      "id": "h1y",
+      "bone": "AlbumBox",
+      "style": {
+        "position": "absolute",
+        "left": 199.07666015625,
+        "top": 167.25851440429688
+      }
+    },
+    {
+      "id": "h1t",
+      "bone": "TopBar",
+      "style": {
+        "position": "absolute",
+        "left": 199.0625,
+        "top": 82.2301025390625
+      }
+    },
+    {
+      "id": "h1e",
+      "bone": "NowPlaying",
+      "style": {
+        "position": "absolute",
+        "left": 449.04827880859375,
+        "top": 82.24430847167969
+      }
+    },
+    {
+      "id": "h1r",
+      "bone": "PlaybackSlider",
+      "style": {
+        "position": "absolute",
+        "left": 449.04827880859375,
+        "top": 157.4857940673828
+      }
+    },
+    {
+      "id": "h1w",
+      "bone": "VolumeControls",
+      "style": {
+        "position": "absolute",
+        "left": 219.07666015625,
+        "top": 100.25567626953125
+      }
+    },
+    {
+      "id": "h1q",
+      "bone": "PlaybackControls",
+      "style": {
+        "position": "absolute",
+        "left": 889.07666015625,
+        "top": 100.6960220336914
+      }
+    },
+    {
+      "id": "h1u",
+      "bone": "PlaybackBump",
+      "style": {
+        "position": "absolute",
+        "left": 844.07666015625,
+        "top": 374.80113220214844
+      }
+    }
+  ],
+  "widgetData": {
+    "drawer": [
+      {
+        "id": "h1y",
+        "bone": "AlbumBox",
+        "style": {}
+      },
+      {
+        "id": "h1t",
+        "bone": "TopBar",
+        "style": {}
+      },
+      {
+        "id": "h1e",
+        "bone": "NowPlaying",
+        "style": {}
+      },
+      {
+        "id": "h1r",
+        "bone": "PlaybackSlider",
+        "style": {}
+      },
+      {
+        "id": "h1w",
+        "bone": "VolumeControls",
+        "style": {}
+      },
+      {
+        "id": "h1q",
+        "bone": "PlaybackControls",
+        "style": {}
+      },
+      {
+        "id": "h1u",
+        "bone": "PlaybackBump",
+        "style": {}
+      }
+    ],
+    "grid": []
+  },
+  "positioningWeight": 0.7,
+  "bonesUsedWeight": 0.3
+}
