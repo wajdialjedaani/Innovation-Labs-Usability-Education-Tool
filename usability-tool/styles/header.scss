@@ -1,5 +1,5 @@
 @use "./mixins/colorscheme.scss" as *;
-
+@use "./mixins/breakpoints.scss" as *;
 .main-head {
   display: flex;
   flex: 0 1 auto;
@@ -35,6 +35,16 @@
 
 .menu-title {
   margin: auto;
+  @include sm {
+    font-size: 1em;
+  }
+  @include xsm {
+    font-size: 0.8em;
+  }
+}
+
+.menu-img {
+  font-size: 10px;
 }
 
 .menu-img:hover,

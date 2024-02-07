@@ -1,13 +1,24 @@
+@use "./mixins/breakpoints.scss" as *;
+
 .menu-popup {
-  width: 200px;
+  max-height: calc(100vh - 65px);
+  height: 75vh;
+  display: grid;
+  // grid-template: repeat(11, 1fr) / 1fr;
+  // width: 200px;
+  width: 10%;
+  min-width: 150px;
+
   position: absolute;
   top: 65px;
   left: 0;
   background: #324a5f;
   text-align: center;
   a {
-    padding: 20px 0px;
-    display: block;
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #ffffff;
     text-decoration: none;
   }

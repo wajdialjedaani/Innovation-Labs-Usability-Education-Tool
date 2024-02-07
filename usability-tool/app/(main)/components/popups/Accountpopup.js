@@ -25,11 +25,12 @@ export default function Accountpopup() {
 
   return (
     <div className="account-popup">
-      {user ? (
+      <div>
         <p className="account-popup-signedinas">
           Signed in: <span className="account-popup-email">{user.email}</span>
         </p>
-      ) : null}
+        <hr />
+      </div>
       <Link href="/statistics" className="account-popup-list-item-link">
         Statistics
       </Link>

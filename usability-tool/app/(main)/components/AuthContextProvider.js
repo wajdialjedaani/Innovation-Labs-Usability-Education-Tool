@@ -26,7 +26,7 @@ export function AuthContextProvider({ children }) {
     });
 
     return () => unsub();
-  }, [user]);
+  }, []);
 
   return (
     <AuthContext.Provider value={{ user }}>

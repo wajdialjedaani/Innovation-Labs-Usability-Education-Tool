@@ -1,12 +1,39 @@
 /*Main*/
 
+@use "./mixins/breakpoints.scss" as *;
+
+.main-main {
+  // padding: 10%;
+  padding-inline: 10%;
+  height: calc(100% - 65px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
 .heuristic-btn-container {
-  width: 75%;
-  margin: 5% auto;
+  // width: 75%;
+  margin-top: 10%;
+  // margin-inline: 10%;
 
   display: grid;
   gap: 25px;
   grid-template: repeat(2, 1fr) / repeat(5, 1fr);
+
+  @include lg {
+    grid-template: repeat(5, 1fr) / repeat(2, 1fr);
+    // background-color: green;
+  }
+  @include md {
+    // background-color: yellow;
+  }
+  @include sm {
+    grid-template: repeat(10, 1fr) / 1fr;
+    // background-color: blue;
+  }
+  @include xsm {
+    // background-color: red;
+  }
 }
 
 .heuristic-btn {
