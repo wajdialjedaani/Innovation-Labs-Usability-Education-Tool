@@ -26,26 +26,25 @@ export default function Logon() {
 
   const [logonError, setLogOnError] = useState(null);
   const [errorDismissed, setErrorDismissed] = useState(false);
+  const [status, setStatus] = useState("idle");
 
   async function handleSubmit(e) {
     e.preventDefault();
     if (formData.password === formData.passwordConf) {
+      setStatus("submitting");
       //Call firebase
-      const { result, error } = await createAccount(
-        formData.email,
-        formData.password
-      );
-      if (error) {
+      try {
+        await createAccount(formData.email, formData.password);
+        router.replace("/main");
+      } catch (error) {
         console.error(error);
         setErrorDismissed(false);
         setLogOnError(error);
-      } else {
-        console.error(result);
-        //Go to main page
-        router.push("/main");
+      } finally {
+        setStatus("idle");
       }
     } else {
-      alert("Passwords do not match");
+      setLogOnError("Passwords do not match");
     }
   }
 
@@ -126,8 +125,12 @@ export default function Logon() {
             required
           />
 
-          <button className="registraion-confirm-btn" type="submit">
-            Confirm
+          <button
+            className="registraion-confirm-btn"
+            type="submit"
+            disabled={status === "submitting"}
+          >
+            {status === "idle" ? "Register" : "Registering"}
           </button>
         </form>
 

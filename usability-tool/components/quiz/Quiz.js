@@ -33,9 +33,13 @@ function QuizBody() {
   //Holds the score
   const correctCount = useRef(0);
 
+  //Get the start time
+  const startTime = useRef(Math.floor(Date.now() / 1000));
+
   async function writeToDB(data) {
-    //Replace 1 with the id of the quiz
+    //Replace "1" with the id of the quiz
     const { result, error } = await addHeuristicData(1, user.uid, data);
+    //TODO: handle errors
   }
   return (
     <SubmitContext.Provider value={submit}>
@@ -55,6 +59,9 @@ function QuizBody() {
           <button
             className={styles.submitButton}
             onClick={() => {
+              //Calculate the time it took
+              const timeTaken =
+                Math.floor(Date.now() / 1000) - startTime.current;
               //Calculate score
               quizObj.forEach((obj) => {
                 if (obj.selectedAnswer === obj.correctAnswerIndex) {
@@ -65,6 +72,7 @@ function QuizBody() {
               writeToDB({
                 correct: correctCount.current,
                 incorrect: quizObj.length - correctCount.current,
+                time: timeTaken,
               });
             }}
           >

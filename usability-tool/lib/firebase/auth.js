@@ -17,9 +17,7 @@ export async function createAccount(email, password) {
   try {
     result = await createUserWithEmailAndPassword(auth, email, password);
   } catch (e) {
-    // error = e;
-    error = errCodeToMessage(e.code);
-    console.error(`Error Creating Account ${e.errorCode}`);
+    throw errCodeToMessage(e.code);
   }
   return { result, error };
 }
@@ -30,9 +28,7 @@ export async function signIn(email, password) {
   try {
     result = await signInWithEmailAndPassword(auth, email, password);
   } catch (e) {
-    // error = e;
-    error = errCodeToMessage(e.code);
-    console.error(`Error Creating Account ${e.errorCode}`);
+    throw errCodeToMessage(e.code);
   }
   return { result, error };
 }
@@ -43,9 +39,7 @@ export async function logOut() {
   try {
     result = await signOut(auth);
   } catch (e) {
-    // error = e;
-    error = errCodeToMessage(e.code);
-    console.error(`Error Signing Out ${e.errorCode}`);
+    throw errCodeToMessage(e.code);
   }
   return { result, error };
 }

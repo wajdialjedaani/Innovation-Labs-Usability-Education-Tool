@@ -15,11 +15,10 @@ export default function Accountpopup() {
   const { user } = getAuthContext();
 
   async function handleSignout() {
-    const { result, error } = await logOut();
-    if (error) {
+    try {
+      await logOut();
+    } catch (error) {
       console.error(error);
-    } else {
-      // router.push("/");
     }
   }
 
@@ -34,7 +33,7 @@ export default function Accountpopup() {
       <Link href="/statistics" className="account-popup-list-item-link">
         Statistics
       </Link>
-      <Link
+      <button
         href="#"
         className="account-popup-list-item-link"
         onClick={() => {
@@ -42,7 +41,7 @@ export default function Accountpopup() {
         }}
       >
         Sign Out
-      </Link>
+      </button>
     </div>
   );
 }

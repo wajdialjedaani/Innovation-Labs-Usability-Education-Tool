@@ -20,7 +20,7 @@ export function AuthContextProvider({ children }) {
         setUser(user);
       } else {
         setUser(null);
-        router.push("/home");
+        router.replace("/home");
       }
       setLoading(false);
     });

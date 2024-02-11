@@ -25,17 +25,20 @@ export default function Logon() {
 
   const [logonError, setLogOnError] = useState(null);
   const [errorDismissed, setErrorDismissed] = useState(false);
+  const [status, setStatus] = useState("idle");
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const { result, error } = await signIn(formData.email, formData.password);
-    if (error) {
-      console.error(error);
+    setStatus("submitting");
+    try {
+      await signIn(formData.email, formData.password);
+      //Go to main if successful
+      router.replace("/main");
+    } catch (error) {
       setErrorDismissed(false);
       setLogOnError(error);
-    } else {
-      console.log(result);
-      router.push("/main");
+    } finally {
+      setStatus("idle");
     }
   }
 
@@ -99,8 +102,12 @@ export default function Logon() {
             required
           />
 
-          <button className="registraion-confirm-btn" type="submit">
-            Confirm
+          <button
+            className="registraion-confirm-btn"
+            type="submit"
+            disabled={status === "submitting"}
+          >
+            {status === "idle" ? "Log in" : "Logging in..."}
           </button>
         </form>
 

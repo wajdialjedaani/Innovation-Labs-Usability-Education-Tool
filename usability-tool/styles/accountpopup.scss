@@ -20,7 +20,6 @@
     align-items: center;
     justify-content: center;
     margin: 0;
-    // padding-top: 8px;
     padding: 8px 8px 0 8px;
     font-size: 16px;
     span {
@@ -37,7 +36,8 @@
     width: 100%;
   }
 
-  a {
+  a,
+  button {
     font-size: 1em;
     display: flex;
     justify-content: center;
@@ -45,9 +45,14 @@
     padding: 20px 0px;
     text-decoration: none;
     color: #ffffff;
+    background: #324a5f;
+    border: none;
+    cursor: pointer;
   }
   a:hover,
-  a:focus {
+  a:focus,
+  button:hover,
+  button:focus {
     background-color: #0c1821;
   }
 }
