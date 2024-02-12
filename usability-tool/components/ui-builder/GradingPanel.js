@@ -8,14 +8,26 @@ import ReactHowler from "react-howler";
 
 // util imports
 import { getContextSuite } from "./UIBuilderContextProvider";
+import { getAuthContext } from "@/app/(main)/components/AuthContextProvider";
 import { useEffect, useState } from "react";
 
-export default function GradingPanel(){
-  const {startGrading} = getContextSuite();
+import { addUIData } from "@/lib/firebase/firestore";
 
-  const [score, setScore] = useState()
+export default function GradingPanel() {
+  const { user } = getAuthContext();
+  const { startGrading, heuristic } = getContextSuite();
+
+  const [score, setScore] = useState();
 
   const [howlerSrc, setHowlerSrc] = useState();
+
+  async function addUIDataToDB(scoreData) {
+    try {
+      await addUIData(heuristic, user.uid, scoreData);
+    } catch (e) {
+      console.error(e);
+    }
+  }
 
   useEffect(() => {
     // get score
@@ -23,11 +35,14 @@ export default function GradingPanel(){
     setScore(score);
 
     // initiate score sound
-    if (score >= 7){
+    if (score >= 7) {
       setHowlerSrc("/UIBuilder/pass.mp3");
     } else {
       setHowlerSrc("/UIBuilder/failure.mp3");
     }
+
+    //Add score to firebase
+    addUIDataToDB({ correct: score, incorrect: 10 - score });
   }, []);
 
   return (
@@ -37,23 +52,25 @@ export default function GradingPanel(){
       </h3>
 
       <div className={styles.gradingPanelProgressBarContainer}>
-        <div 
-          className={styles.gradingPanelProgressBar} 
-          style={{width: `${score}0%`}}
+        <div
+          className={styles.gradingPanelProgressBar}
+          style={{ width: `${score}0%` }}
         />
         <p className={styles.gradingPanelScoreDisplay}>{score}/10</p>
       </div>
 
-      {howlerSrc && 
-        <ReactHowler 
+      {howlerSrc && (
+        <ReactHowler
           src={howlerSrc}
-          playing={() => {return howlerSrc ? true : false}}
+          playing={() => {
+            return howlerSrc ? true : false;
+          }}
           volume={0.2}
           onEnd={() => {
             setHowlerSrc(false);
           }}
         />
-      }
+      )}
     </article>
-  )
+  );
 }

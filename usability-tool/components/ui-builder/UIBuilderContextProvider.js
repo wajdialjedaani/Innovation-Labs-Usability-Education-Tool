@@ -2,11 +2,10 @@
 import { useContext, createContext, useState, useEffect } from "react";
 import gradingRoutine from "@/lib/UIBuilder/gradingRoutine";
 
-
 // ContextSuite
 const ContextSuite = createContext();
 
-export function getContextSuite(){
+export function getContextSuite() {
   return useContext(ContextSuite);
 }
 
@@ -46,13 +45,19 @@ export function getContextSuite(){
 
 //const gradingObjectImport = require("/lib/UIBuilder/scenario-ExampleScenario.json");
 
-export default function UIBuilderContextProvider({scenario, widgetData, children}){
-
+export default function UIBuilderContextProvider({
+  scenario,
+  widgetData,
+  heuristic,
+  children,
+}) {
   // widget state, for editing position and selecting bone
   const [widgets, setWidgets] = useState(widgetData);
   const [gridWidgets, setGridWidgets] = useState([]);
 
   const contextSuite = {
+    // The heuristic (for db)
+    heuristic,
     // scenario info:
     scenarioInformation: scenario.scenarioInformation,
 
@@ -61,32 +66,32 @@ export default function UIBuilderContextProvider({scenario, widgetData, children
     setWidgets: (newWidgets) => {
       setWidgets(newWidgets);
     },
-    
+
     // function for replacing widget in js object in the appropriate wrapper
     replaceWidget: (newWidget, toGrid, shouldDelete) => {
       const widgetIdToRemove = newWidget.id;
 
       // remove widget from both drawer and grid
-      const updatedDrawer = widgets.drawer.filter(widget => widget.id !== widgetIdToRemove);
-      const updatedGrid = widgets.grid.filter(widget => widget.id !== widgetIdToRemove);
+      const updatedDrawer = widgets.drawer.filter(
+        (widget) => widget.id !== widgetIdToRemove
+      );
+      const updatedGrid = widgets.grid.filter(
+        (widget) => widget.id !== widgetIdToRemove
+      );
 
       // push widget to appropriate array in widgets
 
       if (toGrid) {
         updatedGrid.push(newWidget);
-      }
-      else if (!shouldDelete) {
+      } else if (!shouldDelete) {
         updatedDrawer.push(newWidget);
       }
 
       // update state
-      setWidgets(
-        {
-          drawer: updatedDrawer,
-          grid: updatedGrid
-        }
-      );
-
+      setWidgets({
+        drawer: updatedDrawer,
+        grid: updatedGrid,
+      });
     },
 
     downloadGridJSON: (positioningWeight, bonesUsedWeight, scenario) => {
@@ -94,15 +99,20 @@ export default function UIBuilderContextProvider({scenario, widgetData, children
         scenarioInformation: scenario,
         solutionGrid: widgets.grid,
         widgetData: {
-          drawer: widgets.drawer.concat(widgets.grid.map(item => ({ ...item, style: {}}))),
-          grid: []
+          drawer: widgets.drawer.concat(
+            widgets.grid.map((item) => ({ ...item, style: {} }))
+          ),
+          grid: [],
         },
-        positioningWeight: (positioningWeight / 100),
-        bonesUsedWeight: (bonesUsedWeight / 100)
-      }
+        positioningWeight: positioningWeight / 100,
+        bonesUsedWeight: bonesUsedWeight / 100,
+      };
 
       const date = new Date();
-      downloadJSON(gradingObject, `scenario-${scenario.title.replace(/\s/g, "")}`);
+      downloadJSON(
+        gradingObject,
+        `scenario-${scenario.title.replace(/\s/g, "")}`
+      );
     },
 
     startGrading: () => {
@@ -110,29 +120,29 @@ export default function UIBuilderContextProvider({scenario, widgetData, children
       const score = gradingRoutine(scenario, widgets.grid);
 
       // put score in database....
-        // do stuff
-      
+      // do stuff
+
       // ...return for display to user
       return score;
-    }
-  }
+    },
+  };
 
   return (
     <ContextSuite.Provider value={contextSuite}>
       {children}
     </ContextSuite.Provider>
-  )
+  );
 }
 
-function downloadJSON(object, filename){
+function downloadJSON(object, filename) {
   const jsonData = JSON.stringify(object, null, 2); // Convert object to JSON string
 
-  const blob = new Blob([jsonData], { type: 'application/json' }); // Create a Blob
+  const blob = new Blob([jsonData], { type: "application/json" }); // Create a Blob
 
   const url = URL.createObjectURL(blob); // Create an object URL from the Blob
 
   // Create a link element
-  const link = document.createElement('a');
+  const link = document.createElement("a");
   link.href = url;
   link.download = `${filename}.json`; // Set the file name
 

@@ -2,10 +2,7 @@ import { Inter } from "next/font/google";
 import "@/styles/globals.scss";
 import Navbar from "./components/Navbar";
 
-import { ContextProvider } from "./components/ContextProvider";
-import { AuthContextProvider } from "./components/AuthContextProvider";
-
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata = {
   title: "Usability Education Tool",

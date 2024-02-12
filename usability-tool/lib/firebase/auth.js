@@ -1,3 +1,5 @@
+//toastify
+
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -28,6 +30,7 @@ export async function signIn(email, password) {
   try {
     result = await signInWithEmailAndPassword(auth, email, password);
   } catch (e) {
+    console.log(e.message, e.name, e.code);
     throw errCodeToMessage(e.code);
   }
   return { result, error };

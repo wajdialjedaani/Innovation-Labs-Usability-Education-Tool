@@ -11,7 +11,7 @@ import {
 } from "recharts";
 
 import { getAuthContext } from "../../components/AuthContextProvider";
-import { readHeuristicData } from "@/lib/firebase/firestore";
+import { readHeuristicData, readUIData } from "@/lib/firebase/firestore";
 
 import { IoAlertCircle } from "react-icons/io5";
 import { IconContext } from "react-icons";
@@ -59,6 +59,7 @@ export default function Statistics() {
         currHeuristic + 1,
         user.uid
       );
+      //TODO: Get UI builder data
 
       // console.log(data);
 

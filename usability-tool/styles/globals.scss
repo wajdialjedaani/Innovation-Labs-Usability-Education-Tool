@@ -5,17 +5,13 @@ body {
   box-sizing: border-box;
 }
 
-.global {
+body {
   // display: flex;
   // flex-direction: column;
   margin: 0;
   padding: 0;
   background: #ccc9dc;
   font-family: "Inter", sans-serif;
-}
-
-main {
-  // height: calc(100% - 65px);
 }
 
 #__next {

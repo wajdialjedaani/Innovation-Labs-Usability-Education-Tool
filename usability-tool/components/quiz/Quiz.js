@@ -39,7 +39,7 @@ function QuizBody() {
   async function writeToDB(data) {
     //Replace "1" with the id of the quiz
     const { result, error } = await addHeuristicData(1, user.uid, data);
-    //TODO: handle errors
+    //TODO: handle potential errors (sad path)
   }
   return (
     <SubmitContext.Provider value={submit}>

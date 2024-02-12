@@ -11,9 +11,5 @@ export const metadata = {
 export default function RootLayout({ children, pageProps }) {
   const bodyClass = pageProps.bodyClass ? pageProps.bodyClass : null;
 
-  return (
-    <html lang="en">
-      <body className={`${bodyClass}`}>{children}</body>
-    </html>
-  );
+  return <>{children}</>;
 }

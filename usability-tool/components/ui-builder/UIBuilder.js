@@ -5,7 +5,9 @@ import styles from "@/styles/UIBuilder.module.scss";
 
 // context provider import
 import { DndContext } from "@dnd-kit/core";
-import UIBuilderContextProvider, {getContextSuite} from "./UIBuilderContextProvider";
+import UIBuilderContextProvider, {
+  getContextSuite,
+} from "./UIBuilderContextProvider";
 
 // component imports
 import Grid from "./Grid";
@@ -19,30 +21,37 @@ import { restrictToWindowEdges } from "@dnd-kit/modifiers";
 import { useState } from "react";
 import { smartSnapToGrid } from "@/lib/UIBuilder/smartSnapToGrid";
 
-export default function UIBuilder({scenario, widgetData}){
+export default function UIBuilder({ scenario, widgetData, heuristic }) {
   return (
-    <UIBuilderContextProvider scenario={scenario} widgetData={widgetData}>
+    <UIBuilderContextProvider
+      scenario={scenario}
+      widgetData={widgetData}
+      heuristic={heuristic}
+    >
       <UIBuilderDNDContainer />
     </UIBuilderContextProvider>
-  )
+  );
 }
 
-
-function UIBuilderDNDContainer(props){
-  const {widgets, replaceWidget} = getContextSuite();
+function UIBuilderDNDContainer(props) {
+  const { widgets, replaceWidget } = getContextSuite();
   const [activeWidget, setactiveWidget] = useState(null);
 
   function handleDragStart(event) {
     // find widget. get info about it.
-    const widget = widgets.drawer.concat(widgets.grid).find(widget => widget.id === event.active.id);
+    const widget = widgets.drawer
+      .concat(widgets.grid)
+      .find((widget) => widget.id === event.active.id);
 
     // check if its in drawer to start.
-    const isInDrawer = widgets.drawer.some(widget => widget.id === event.active.id);
+    const isInDrawer = widgets.drawer.some(
+      (widget) => widget.id === event.active.id
+    );
 
     // set state accordingly
     setactiveWidget({
       widget,
-      isInDrawer
+      isInDrawer,
     });
   }
 
@@ -54,7 +63,7 @@ function UIBuilderDNDContainer(props){
     // get activeWidget for editing
     let updatedWidget = activeWidget.widget;
 
-    if (event.over.id === "UIBuilderGrid"){
+    if (event.over.id === "UIBuilderGrid") {
       // switching to absolute styling for final grid placement
       updatedWidget.style = {
         ...updatedWidget.style,
@@ -64,8 +73,8 @@ function UIBuilderDNDContainer(props){
       };
 
       // replace in widgets context in grid
-      replaceWidget(updatedWidget, true);      
-    } else if (event.over.id === "ComponentDrawer"){
+      replaceWidget(updatedWidget, true);
+    } else if (event.over.id === "ComponentDrawer") {
       updatedWidget.style = {
         ...updatedWidget.style,
         position: "relative",
@@ -73,41 +82,39 @@ function UIBuilderDNDContainer(props){
         top: 0,
       };
       // replace in widgets context in drawer
-      replaceWidget(updatedWidget, false);      
-    } else if (event.over.id === "BoneDiscarder"){
+      replaceWidget(updatedWidget, false);
+    } else if (event.over.id === "BoneDiscarder") {
       replaceWidget(updatedWidget, false, true);
     }
 
     setactiveWidget(null);
   }
-  
+
   return (
-    <DndContext 
+    <DndContext
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
       modifiers={[smartSnapToGrid, restrictToWindowEdges]}
     >
       <div aria-label="UI Builder">
         <MenuBar />
-        <UIBuilderBody widgets={widgets}/>
+        <UIBuilderBody widgets={widgets} />
       </div>
 
       <DragOverlay zIndex={100}>
-        {activeWidget ? (
-          <BoneSelector type={activeWidget.widget.bone} />
-        ) : null}
+        {activeWidget ? <BoneSelector type={activeWidget.widget.bone} /> : null}
       </DragOverlay>
     </DndContext>
-  )
+  );
 }
 
-function UIBuilderBody(props){
+function UIBuilderBody(props) {
   return (
     <div className={styles.builderBody}>
       <Grid />
-      <ComponentDrawer widgets={props.widgets}/>
+      <ComponentDrawer widgets={props.widgets} />
     </div>
-  )
+  );
 }
 
 //     if (event.over.id === "UIBuilderGrid"){
@@ -115,7 +122,7 @@ function UIBuilderBody(props){
 
 //       //Need to deep copy the nested style object so we can modify its properties
 //       widget.style = {...widget.style};
-  
+
 // /*       if (event.over && event.over.id === 'UIBuilderGrid') {
 //         //If widget is dragged over the grid, add the delta to the current position so that it sticks where it's dropped
 //         const currentLeft = parseInt(widget.style.left);
@@ -130,7 +137,7 @@ function UIBuilderBody(props){
 //       } */
 
 //       //widget.style.transform = CSS.Translate.toString(event.delta);
-  
+
 // /*       //Update the array and store it
 //       const updatedWidgets = widgets.map((element) => {
 //         // if(element.id === widget.id) return widget;
@@ -145,5 +152,3 @@ function UIBuilderBody(props){
 //       setGridWidgets(updatedGridWidgets);
 //       setWidgets(updatedWidgets);
 //     }
-
-

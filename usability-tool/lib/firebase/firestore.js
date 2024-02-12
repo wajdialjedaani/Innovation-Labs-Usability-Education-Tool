@@ -77,3 +77,41 @@ export async function readDB(collection, id) {
   }
   return { result, error, data };
 }
+
+export async function addUIData(heuristicID, userID, data) {
+  let result, error;
+  result = error = null;
+  const docRef = doc(
+    db,
+    "users",
+    userID,
+    "UIBuilderData",
+    `Heuristic${heuristicID}`
+  );
+  try {
+    result = await setDoc(docRef, data, { merge: true });
+  } catch (e) {
+    throw errCodeToMessage(e.code);
+  }
+  return result;
+}
+
+export async function readUIData(heuristicID, userID) {
+  let result, error, data;
+  result = error = data = null;
+  const docRef = doc(
+    db,
+    "users",
+    userID,
+    "UIBuilderData",
+    `Heuristic${heuristicID}`
+  );
+  try {
+    result = await getDoc(docRef);
+    data = result.data();
+  } catch (e) {
+    throw errCodeToMessage(e.code);
+  }
+
+  return { data };
+}
