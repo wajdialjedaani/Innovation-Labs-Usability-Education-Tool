@@ -8,7 +8,9 @@ export default function Home() {
   const { user } = getAuthContext();
   return (
     <main>
-      <h1 className={styles.homeTitle}>Welcome to Usability Education Tool</h1>
+      <h1 className={styles.homeTitle}>
+        Learn and Practice Nielsen's 10 Usability Heuristics
+      </h1>
       <div className={styles.homeButtonsContainer}>
         {!user ? (
           <>

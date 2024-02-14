@@ -43,14 +43,25 @@ export default function Statistics() {
   const [currHeuristic, setCurrHeuristic] = useState(0);
   const [activeButton, setActiveButton] = useState(null);
   const [currData, setCurrData] = useState(null);
+
+  const [isMobile, setIsMobile] = useState(false);
+
   const colors = { incorrect: "#F24336", correct: "#4BAE4F" };
+
+  function handleScreenResize() {
+    if (window.innerWidth <= 768) setIsMobile(true);
+    else setIsMobile(false);
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", handleScreenResize);
+    return () => window.removeEventListener("resize", handleScreenResize);
+  }, []);
 
   function handleClick(index) {
     setCurrHeuristic(index);
     setActiveButton(index);
   }
-
-  // const { dataState: importedUserData } = getDataSuite();
 
   useEffect(() => {
     async function getData() {
@@ -85,6 +96,20 @@ export default function Statistics() {
 
   return (
     <main>
+      {isMobile ? (
+        <label className="mobile-dropdown">
+          Select a Heuristic:
+          <select
+            name="selectedHeuristic"
+            value={currHeuristic}
+            onChange={(e) => handleClick(Number(e.target.value))}
+          >
+            {heuristics.map((_, i) => (
+              <option value={i}>{i + 1}</option>
+            ))}
+          </select>
+        </label>
+      ) : null}
       {/* <div className="progress-container">
         <h2>Current Progress:</h2>
         <ResponsiveContainer width="50%" height={250}>
@@ -107,96 +132,94 @@ export default function Statistics() {
           </PieChart>
         </ResponsiveContainer>
       </div> */}
+
       <div className="main-stat-container">
-        <section className="stat-buttons">
-          {heuristics.map((heuristic, index) => (
-            <button
-              key={index}
-              onClick={() => handleClick(index)}
-              className={activeButton === index ? "active" : ""}
-            >
-              {heuristic}
-            </button>
-          ))}
-        </section>
+        {
+          !isMobile ? (
+            <section className="stat-buttons">
+              {heuristics.map((heuristic, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleClick(index)}
+                  className={activeButton === index ? "active" : ""}
+                >
+                  {heuristic}
+                </button>
+              ))}
+            </section>
+          ) : null
+          // <label className="mobile-dropdown">
+          //   Select a Heuristic:
+          //   <select
+          //     name="selectedHeuristic"
+          //     value={currHeuristic}
+          //     onChange={(e) => handleClick(Number(e.target.value))}
+          //   >
+          //     {heuristics.map((_, i) => (
+          //       <option value={i}>{i + 1}</option>
+          //     ))}
+          //   </select>
+          // </label>
+        }
         <section className="stat-container">
           <div className="stat-graphs">
-            <ResponsiveContainer
-              width="100%"
-              height="100%"
-              className="stats-container"
-            >
-              <div className="stat-graph-container">
-                <h2 className="heuristic-title">Heuristic Data</h2>
-                {currData ? (
-                  <ResponsiveContainer>
-                    <PieChart>
-                      <Pie
-                        dataKey="value"
-                        isAnimationActive={false}
-                        data={currData}
-                        fill="#8884d8"
-                        label
-                      >
-                        {currData.map((entry, index) => (
-                          <Cell
-                            key={`cell-${index}`}
-                            fill={
-                              entry.type ? colors.correct : colors.incorrect
-                            }
-                          />
-                        ))}
-                      </Pie>
+            {/* <ResponsiveContainer className="stats-container"> */}
+            <div className="stat-graph-container">
+              <h2 className="heuristic-title">Heuristic Data</h2>
+              {currData ? (
+                <ResponsiveContainer>
+                  <PieChart>
+                    <Pie
+                      dataKey="value"
+                      isAnimationActive={false}
+                      data={currData}
+                      fill="#8884d8"
+                      label
+                    >
+                      {currData.map((entry, index) => (
+                        <Cell
+                          key={`cell-${index}`}
+                          fill={entry.type ? colors.correct : colors.incorrect}
+                        />
+                      ))}
+                    </Pie>
 
-                      <Tooltip />
-                    </PieChart>
-                  </ResponsiveContainer>
-                ) : (
-                  AlertIcon
-                )}
-              </div>
-              <div className="stat-graph-container">
-                <h2 className="heuristic-title">UI Builder Data</h2>
-                {currData ? (
-                  <ResponsiveContainer>
-                    <PieChart>
-                      <Pie
-                        dataKey="value"
-                        isAnimationActive={false}
-                        data={currData}
-                        fill="#8884d8"
-                        label
-                      >
-                        {currData.map((entry, index) => (
-                          <Cell
-                            key={`cell-${index}`}
-                            fill={
-                              entry.type ? colors.correct : colors.incorrect
-                            }
-                          />
-                        ))}
-                      </Pie>
-                      <Tooltip />
-                    </PieChart>
-                  </ResponsiveContainer>
-                ) : (
-                  AlertIcon
-                )}
-              </div>
-            </ResponsiveContainer>
-          </div>
-
-          {/* <div className="wrong-questions-container">
-            <h1>Questions Wrong</h1>
-            <hr></hr>
-            <ul>
-              {importedUserData.heuristicData[currHeuristic].questionsWrong.map(
-                (Q, i) => (
-                  <li>{Q}</li>
-                )
+                    <Tooltip />
+                  </PieChart>
+                </ResponsiveContainer>
+              ) : (
+                AlertIcon
               )}
-            </ul>
-          </div> */}
+            </div>
+            <div className="stat-graph-container">
+              <h2 className="heuristic-title">UI Builder Data</h2>
+              {currData ? (
+                <ResponsiveContainer>
+                  <PieChart>
+                    <Pie
+                      dataKey="value"
+                      isAnimationActive={false}
+                      data={currData}
+                      fill="#8884d8"
+                      label
+                    >
+                      {currData.map((entry, index) => (
+                        <Cell
+                          key={`cell-${index}`}
+                          fill={entry.type ? colors.correct : colors.incorrect}
+                        />
+                      ))}
+                    </Pie>
+                    <Tooltip />
+                  </PieChart>
+                </ResponsiveContainer>
+              ) : (
+                AlertIcon
+              )}
+            </div>
+            {/* </ResponsiveContainer> */}
+          </div>
+          {/* <h1>SUP</h1> */}
         </section>
       </div>
     </main>

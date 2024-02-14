@@ -5,14 +5,11 @@ import "@/styles/logon.scss";
 import { useState } from "react";
 
 import { signIn } from "@/lib/firebase/auth";
-import { nav } from "@/lib/tools/redirect";
 import Link from "next/link";
 
 import { IoClose } from "react-icons/io5";
 import { FaArrowCircleLeft } from "react-icons/fa";
 import { IconContext } from "react-icons";
-
-import { info } from "sass";
 
 import { useRouter } from "next/navigation";
 
