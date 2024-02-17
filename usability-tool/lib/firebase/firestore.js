@@ -7,6 +7,7 @@ import {
   persistentLocalCache,
   updateDoc,
   increment,
+  getDocFromCache,
 } from "firebase/firestore";
 import errCodeToMessage from "../tools/errCodeToMsg";
 //Cloud Firestore stores data in Documents, which are stored in Collections
@@ -52,7 +53,7 @@ export async function readHeuristicData(heuristicID, userID) {
   let result, error, data;
   result = error = data = null;
   try {
-    result = await getDoc(
+    result = await getDocFromCache(
       doc(db, "users", userID, "HeuristicData", `Heuristic${heuristicID}`)
     );
     console.log(result);

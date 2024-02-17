@@ -219,7 +219,6 @@ export default function Statistics() {
             </div>
             {/* </ResponsiveContainer> */}
           </div>
-          {/* <h1>SUP</h1> */}
         </section>
       </div>
     </main>
