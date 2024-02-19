@@ -10,7 +10,7 @@ import { nav } from "@/lib/tools/redirect";
 
 import { useRouter } from "next/navigation";
 
-export default function Accountpopup() {
+export default function Accountpopup({ id }) {
   const router = useRouter();
   const { user } = getAuthContext();
 
@@ -23,7 +23,7 @@ export default function Accountpopup() {
   }
 
   return (
-    <div className="account-popup">
+    <div className="account-popup" role="menu" id={id}>
       <div>
         <p className="account-popup-signedinas">
           Signed in: <span className="account-popup-email">{user.email}</span>
