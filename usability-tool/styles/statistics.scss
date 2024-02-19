@@ -60,6 +60,11 @@ button.active {
   color: white;
 }
 
+button.disabled {
+  background-color: #0c1821;
+  color: white;
+}
+
 .stat-container {
   padding: 15px;
   flex: 0 0 80%;

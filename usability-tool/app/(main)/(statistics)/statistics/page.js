@@ -138,13 +138,23 @@ export default function Statistics() {
           !isMobile ? (
             <section className="stat-buttons">
               {heuristics.map((heuristic, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleClick(index)}
-                  className={activeButton === index ? "active" : ""}
-                >
-                  {heuristic}
-                </button>
+                currData ? (
+                  <button
+                    key={index}
+                    onClick={() => handleClick(index)}
+                    className={activeButton === index ? "active" : ""}
+                  >
+                    {heuristic}
+                  </button>
+                ) : (
+                  <button
+                    key={index}
+                    disabled
+                    className="disabled"
+                  >
+                    Complete {heuristic} to unlock
+                  </button>
+                )
               ))}
             </section>
           ) : null
