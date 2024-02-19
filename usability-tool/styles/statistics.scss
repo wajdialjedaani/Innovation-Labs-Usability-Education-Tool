@@ -33,14 +33,12 @@ main {
 }
 
 .stat-buttons {
+  display: grid;
+  grid-template: repeat(10, 1fr) / 1fr;
   flex: 0 0 15%;
-  display: flex;
-  flex-wrap: wrap;
   gap: 5px;
   button {
     box-sizing: border-box;
-    flex: 0 0 calc(100% - 5px);
-    font-size: 25px;
     font-weight: bold;
     color: #ffffff;
     background-color: #324a5f;

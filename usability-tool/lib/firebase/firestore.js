@@ -8,6 +8,8 @@ import {
   updateDoc,
   increment,
   getDocFromCache,
+  collection,
+  getDocsFromCache,
 } from "firebase/firestore";
 import errCodeToMessage from "../tools/errCodeToMsg";
 //Cloud Firestore stores data in Documents, which are stored in Collections
@@ -56,7 +58,6 @@ export async function readHeuristicData(heuristicID, userID) {
     result = await getDocFromCache(
       doc(db, "users", userID, "HeuristicData", `Heuristic${heuristicID}`)
     );
-    console.log(result);
     data = result.data();
   } catch (e) {
     error = errCodeToMessage(e.code);
@@ -66,18 +67,33 @@ export async function readHeuristicData(heuristicID, userID) {
   return { result, error, data };
 }
 
-export async function readDB(collection, id) {
-  let result, error, data;
-  result = error = data = null;
+export async function readAllHeuristicData(userId) {
+  const collectionRef = collection(db, "users", userId, "HeuristicData")
+  let result
   try {
-    result = await getDoc(doc(db, collection, id));
-    data = result.data();
-  } catch (e) {
-    error = errCodeToMessage(e.code);
-    console.error(error);
+    result = await getDocsFromCache(collectionRef)
+    console.log(result)
+    result.forEach(doc => (
+      console.log(doc.data())
+    ))
+  } catch(e) {
+    throw errCodeToMessage(e.code)
   }
-  return { result, error, data };
+  return result
 }
+
+// export async function readDB(collection, id) {
+//   let result, error, data;
+//   result = error = data = null;
+//   try {
+//     result = await getDoc(doc(db, collection, id));
+//     data = result.data();
+//   } catch (e) {
+//     error = errCodeToMessage(e.code);
+//     console.error(error);
+//   }
+//   return { result, error, data };
+// }
 
 export async function addUIData(heuristicID, userID, data) {
   let result, error;
