@@ -254,7 +254,7 @@ export default function Statistics() {
                     <Pie
                       dataKey="value"
                       isAnimationActive={false}
-                      data={currData}
+                      data={currData.filter(entry => entry.type === 0 || entry.type === 1)}
                       fill="#8884d8"
                       label
                     >
