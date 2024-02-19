@@ -140,11 +140,13 @@ export default function Logon() {
             Log in
           </Link>
         </small>
-        <IconContext.Provider
-          value={{ color: "white", size: "7%", className: "back-arrow" }}
+        <Link
+          href="/home"
+          className="back-arrow-button"
+          aria-label="Go back to home page"
         >
-          <FaArrowCircleLeft onClick={() => router.push("/home")} />
-        </IconContext.Provider>
+          <FaArrowCircleLeft className="back-arrow" size="2em" />
+        </Link>
       </article>
     </main>
   );

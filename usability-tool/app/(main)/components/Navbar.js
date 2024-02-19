@@ -1,6 +1,6 @@
 "use client";
 import "@/styles/header.scss";
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect, Fragment, useId } from "react";
 
 import { getAuthContext } from "./AuthContextProvider";
 import { IoMenuOutline } from "react-icons/io5";
@@ -18,6 +18,9 @@ export default function Navbar() {
   const [menu, setMenu] = useState(false);
   const [account, setAccount] = useState(false);
 
+  const menuId = useId();
+  const accountId = useId();
+
   //Close the popups when the page changes
   useEffect(() => {
     setMenu(false);
@@ -28,23 +31,33 @@ export default function Navbar() {
     <Fragment>
       <header className="main-head">
         {user && (
-          <IconContext.Provider value={{ className: "menu-img", size: "50" }}>
-            <IoMenuOutline onClick={() => setMenu((prevMenu) => !prevMenu)} />
-          </IconContext.Provider>
+          <button
+            className="navbar-button"
+            onClick={() => setMenu((prevMenu) => !prevMenu)}
+            aria-label="Open the menu dropdown"
+            aria-expanded={menu}
+            aria-haspopup
+            aria-controls={menuId}
+          >
+            <IoMenuOutline className="menu-img" size="50" />
+          </button>
         )}
 
         <h1 className="menu-title">Usability Education Tool</h1>
         {user && (
-          <IconContext.Provider
-            value={{ className: "account-img", size: "50" }}
+          <button
+            className="navbar-button"
+            onClick={() => setAccount((prevAccount) => !prevAccount)}
+            aria-label="Open the account dropdown"
+            aria-expanded={account}
+            aria-haspopup
+            aria-controls={accountId}
           >
-            <IoPersonCircleOutline
-              onClick={() => setAccount((prevAccount) => !prevAccount)}
-            />
-          </IconContext.Provider>
+            <IoPersonCircleOutline className="account-img" size="50" />
+          </button>
         )}
-        {user && menu && <Menupopup />}
-        {user && account && <Accountpopup />}
+        {user && menu && <Menupopup id={menuId} />}
+        {user && account && <Accountpopup id={accountId} />}
       </header>
 
       <div className="generalSpacer" />
