@@ -9,7 +9,7 @@ export default function Menupopup({ id }) {
       </Link>
       {new Array(10).fill(0).map((_, i) => (
         <Link
-          href={`/lesson-${i + 1}`}
+          href={`/lessons/${i + 1}`}
           className="menu-popup-list-item-link"
           key={i}
         >
