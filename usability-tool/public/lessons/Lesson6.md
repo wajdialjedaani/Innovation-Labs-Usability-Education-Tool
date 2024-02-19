@@ -10,7 +10,11 @@ recognizable cues instead of making users rely on their memory.
 Providing **visual cues** and **icons** can instantly create recognition and instantly convey their meaning causing
 the user to spend less time memorizing what the icon accomplishes. This will drastically reduce the amount of
 **mental effort**, since users have an easier time recognizing rather than recalling, users will recall less and
-recognize more, the more icons and visual cues that are used.
+recognize more, the more icons and visual cues that are used. For example the Google Drive sidebar provides icons that 
+a user can recognize. Such as a house for home, a computer for computer, and a cloud for cloud storage.
+
+
+![The icons provide an easy way for users to rely off of visual cues](/lessons/lesson6-graphics/googledrive.PNG)
 
 
 There are many ways in which recall can be reduced such as a **consistent design pattern**, giving **contextual hints**,
@@ -22,4 +26,8 @@ become familiar with the layout and when they encounter a new part of the system
 of the layout and how to interact with it. Finally having filters can help a user pinpoint what they want in
 a search by instead of them remembering the exact details, they can give a broad generalization of what they
 want, allowing the user to then look through those options. This decreases recall and allows the user to
-search based on recognition.
+search based on recognition. For example the Lego store page allows users to customize and filter their search 
+query by ticking boxes that will filter the search.
+
+
+![There are filters on the left to specify the search](/lessons/lesson6-graphics/legostore.png)

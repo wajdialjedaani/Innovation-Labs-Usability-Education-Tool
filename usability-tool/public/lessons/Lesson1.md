@@ -9,7 +9,7 @@
   feedback** regarding their actions. For example, if a user clicks on an icon, something should visually
   indicate that an action was performed. 
 
-  ![Clicking a button notifies the user of the state of the program](/lessons/visibility1.gif)
+  ![Clicking a button notifies the user of the state of the program](/lessons/lesson1-graphics/visibility1.gif)
   
   If not, the user will likely keep clicking the icon, leading to
   potentially unwanted behavior. Even if the result of an action is still being computed, or can not be
