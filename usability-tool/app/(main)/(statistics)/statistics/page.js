@@ -43,8 +43,11 @@ export default function Statistics() {
   const [currHeuristic, setCurrHeuristic] = useState(0);
   const [activeButton, setActiveButton] = useState(null);
   const [currData, setCurrData] = useState(null);
-
   const [isMobile, setIsMobile] = useState(false);
+  const length = 10;
+  const [currentHeuristic, setCurrentHeuristic] = useState(0);
+  //const dataArray = [];
+  const [dataArray, setDataArray] = useState(Array(10).fill(null));
 
   const colors = { incorrect: "#F24336", correct: "#4BAE4F" };
 
@@ -62,6 +65,49 @@ export default function Statistics() {
     setCurrHeuristic(index);
     setActiveButton(index);
   }
+
+  // function setData(data, prevData) {
+  //   setDataArray((prevData) => [...prevData, data]);
+  // }
+
+    async function getAllData() {
+      //Figure out a caching mechanism
+      const { result, error, data } = await readHeuristicData(
+        currentHeuristic + 1,
+        user.uid
+      );
+      //TODO: Get UI builder data
+
+      // console.log(data);
+
+      if (!data) {
+        //setDataArray(prevArray => [...prevArray, null]);
+      } else {
+        let i = 0;
+        const newData = [];
+        for (const [key, value] of Object.entries(data)) {
+          newData[i] = {
+            type: key === "correct" ? 1 : 0,
+            name: `Number of questions ${key}`,
+            value,
+          };
+          i++;
+        }
+        setDataArray(prevArray => {
+          const updatedArray = [...prevArray];
+          updatedArray[currentHeuristic] = newData;
+          return updatedArray;
+        });
+      }
+      console.log(dataArray);
+    }
+
+    getAllData();
+
+    if(currentHeuristic < 10) {
+      setCurrentHeuristic(currentHeuristic + 1);
+      getAllData();
+    }
 
   useEffect(() => {
     async function getData() {
@@ -137,27 +183,53 @@ export default function Statistics() {
         {
           !isMobile ? (
             <section className="stat-buttons">
-              {heuristics.map((heuristic, index) => (
-                currData ? (
+              {dataArray.map((data, i) => (
+                 !data ? (
                   <button
-                    key={index}
-                    onClick={() => handleClick(index)}
-                    className={activeButton === index ? "active" : ""}
+                  key={i}
+                  disabled
+                  className="disabled"
                   >
-                    {heuristic}
+                    Complete Heuristic {i + 1} to Unlock
                   </button>
-                ) : (
+                 ) : (
                   <button
-                    key={index}
-                    disabled
-                    className="disabled"
+                  key={i}
+                  onClick={() => handleClick(i)}
+                  className={activeButton === i ? "active" : ""}
                   >
-                    Complete {heuristic} to unlock
+                    Heuristic {i + 1}
                   </button>
-                )
+                 )
               ))}
             </section>
           ) : null
+          // !isMobile ? (
+          //   <section className="stat-buttons">
+          //     {heuristics.map((heuristic, index) => (
+          //         {dataArray.map((data, i) => (
+          //           if (data[i] === null) {
+          //             <button
+          //             key={index}
+          //             disabled
+          //             className="disabled"
+          //           >
+          //             Complete {heuristic} to unlock
+          //           </button>
+          //           }
+          //           else {
+          //             <button
+          //             key={index}
+          //             onClick={() => handleClick(index)}
+          //             className={activeButton === index ? "active" : ""}
+          //           >
+          //             {heuristic}
+          //           </button>
+          //           }
+          //       ))}
+          //     ))}
+          //   </section>
+          // ) : null
           // <label className="mobile-dropdown">
           //   Select a Heuristic:
           //   <select
