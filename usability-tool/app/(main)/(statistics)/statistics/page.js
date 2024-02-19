@@ -182,7 +182,7 @@ export default function Statistics() {
                     <Pie
                       dataKey="value"
                       isAnimationActive={false}
-                      data={currData}
+                      data={currData.filter(entry => entry.name === "Number of questions correct" || entry.name === "Number of questions incorrect")}
                       fill="#8884d8"
                       label
                     >
