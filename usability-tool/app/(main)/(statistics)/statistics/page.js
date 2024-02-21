@@ -11,11 +11,15 @@ import {
 } from "recharts";
 
 import { getAuthContext } from "../../components/AuthContextProvider";
-import { readHeuristicData, readUIData, readAllHeuristicData } from "@/lib/firebase/firestore";
+import {
+  readHeuristicData,
+  readUIData,
+  readAllHeuristicData,
+} from "@/lib/firebase/firestore";
 
 import { IoAlertCircle } from "react-icons/io5";
+import { FaLock } from "react-icons/fa";
 import { IconContext } from "react-icons";
-
 
 const heuristics = Array.from({ length: 10 }, (x, i) => `Heuristic ${i + 1}`);
 /*
@@ -24,7 +28,7 @@ const heuristics = Array.from({ length: 10 }, (x, i) => `Heuristic ${i + 1}`);
     { name: "incorrect", value: 2 },
   ]
   */
- function AlertIcon()  {
+function AlertIcon() {
   return (
     <IconContext.Provider
       value={{
@@ -35,8 +39,8 @@ const heuristics = Array.from({ length: 10 }, (x, i) => `Heuristic ${i + 1}`);
       <IoAlertCircle />
       <h3>No Data</h3>
     </IconContext.Provider>
-  )
-};
+  );
+}
 
 export default function Statistics() {
   const { user } = getAuthContext();
@@ -46,7 +50,7 @@ export default function Statistics() {
   const [isMobile, setIsMobile] = useState(false);
   const [dataArray, setDataArray] = useState([]);
 
-  const colors = { incorrect: "#F24336", correct: "#4BAE4F" };
+  const colors = { Incorrect: "#F24336", Correct: "#4BAE4F" };
 
   function handleScreenResize() {
     if (window.innerWidth <= 768) setIsMobile(true);
@@ -55,14 +59,14 @@ export default function Statistics() {
 
   //Returns the data in a form that the graph can read
   function getDataForGraph() {
-      return Object.keys(currData)
-      .filter(key => key ==="correct" || key === "incorrect")
-      .map(key => {
+    return Object.keys(currData)
+      .filter((key) => key === "correct" || key === "incorrect")
+      .map((key) => {
         return {
-          name: key,
-          value: currData[key]
-        }
-      })
+          name: key.charAt(0).toUpperCase() + key.slice(1),
+          value: currData[key],
+        };
+      });
   }
 
   useEffect(() => {
@@ -74,28 +78,28 @@ export default function Statistics() {
   useEffect(() => {
     async function getAllHeuristicData() {
       //The new state array
-      const heuristicDataArray = []
+      const heuristicDataArray = [];
       try {
         //Loop through all 10 heurisics
         for (let i = 0; i < 10; i++) {
           //Get the data or put null if there isn't any
-          const heuristicData = await readHeuristicData(i + 1, user.uid)
-          heuristicDataArray[i] = heuristicData.data || null
+          const heuristicData = await readHeuristicData(i + 1, user.uid);
+          heuristicDataArray[i] = heuristicData.data || null;
         }
         //Set the state
-        setDataArray(heuristicDataArray)
-        setCurrData(heuristicDataArray[0])
-      } catch(e) {
-        console.error(e)
+        setDataArray(heuristicDataArray);
+        setCurrData(heuristicDataArray[0]);
+      } catch (e) {
+        console.error(e);
       }
     }
-    getAllHeuristicData()
-  }, [])
+    getAllHeuristicData();
+  }, []);
 
   //Set the currData to the new heuristic's data
   useEffect(() => {
-    setCurrData(dataArray[currHeuristic])
-  }, [currHeuristic])
+    setCurrData(dataArray[currHeuristic]);
+  }, [currHeuristic]);
 
   function handleClick(index) {
     setCurrHeuristic(index);
@@ -119,31 +123,26 @@ export default function Statistics() {
       ) : null}
 
       <div className="main-stat-container">
-        {
-          !isMobile ? (
-            <section className="stat-buttons">
-              {dataArray.map((data, i) => (
-                 !data ? (
-                  <button
-                  key={i}
-                  disabled
-                  className="disabled"
-                  >
-                    Complete Heuristic {i + 1} to Unlock
-                  </button>
-                 ) : (
-                  <button
+        {!isMobile ? (
+          <section className="stat-buttons">
+            {dataArray.map((data, i) =>
+              !data ? (
+                <button key={i} disabled className="disabled">
+                  <FaLock />
+                  Complete Heuristic {i + 1} to Unlock
+                </button>
+              ) : (
+                <button
                   key={i}
                   onClick={() => handleClick(i)}
                   className={activeButton === i ? "active" : ""}
-                  >
-                    Heuristic {i + 1}
-                  </button>
-                 )
-              ))}
-            </section>
-          ) : null
-        }
+                >
+                  Heuristic {i + 1}
+                </button>
+              )
+            )}
+          </section>
+        ) : null}
         <section className="stat-container">
           <div className="stat-graphs">
             {/* <ResponsiveContainer className="stats-container"> */}
@@ -160,10 +159,7 @@ export default function Statistics() {
                       label
                     >
                       {getDataForGraph().map((entry, index) => (
-                        <Cell
-                          key={`cell-${index}`}
-                          fill={colors[entry.name]}
-                        />
+                        <Cell key={`cell-${index}`} fill={colors[entry.name]} />
                       ))}
                     </Pie>
 

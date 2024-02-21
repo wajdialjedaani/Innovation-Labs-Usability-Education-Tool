@@ -38,6 +38,7 @@ main {
   flex: 0 0 15%;
   gap: 5px;
   button {
+    font-size: 2vw;
     box-sizing: border-box;
     font-weight: bold;
     color: #ffffff;
@@ -50,6 +51,19 @@ main {
   }
   button:hover {
     background-color: #0c1821;
+  }
+  button:disabled {
+    display: flex;
+    font-size: medium;
+    align-items: center;
+    justify-content: center;
+    cursor: not-allowed;
+    color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(50, 74, 95, 0.5);
+    svg {
+      margin-right: 10px;
+      flex-shrink: 0.5;
+    }
   }
 }
 
