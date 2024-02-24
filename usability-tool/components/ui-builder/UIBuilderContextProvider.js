@@ -1,5 +1,5 @@
 // util imports
-import { useContext, createContext, useState, useEffect } from "react";
+import { useContext, createContext, useState, useRef } from "react";
 import gradingRoutine from "@/lib/UIBuilder/gradingRoutine";
 
 // ContextSuite
@@ -54,10 +54,13 @@ export default function UIBuilderContextProvider({
   // widget state, for editing position and selecting bone
   const [widgets, setWidgets] = useState(widgetData);
   const [gridWidgets, setGridWidgets] = useState([]);
+  const startTime = useRef(Math.floor(Date.now() / 1000));
 
   const contextSuite = {
     // The heuristic (for db)
     heuristic,
+    //The start time
+    startTime,
     // scenario info:
     scenarioInformation: scenario.scenarioInformation,
 

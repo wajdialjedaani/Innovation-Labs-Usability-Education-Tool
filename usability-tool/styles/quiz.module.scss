@@ -1,4 +1,5 @@
 @use "./mixins/colorscheme.scss" as *;
+@use "./mixins/breakpoints.scss" as *;
 
 .disable {
   pointer-events: none;
@@ -44,6 +45,12 @@
   //width: calc(50vw - 1000px);  /* Adjust based on padding and borders */
 
   width: 50vw;
+  @include sm {
+    width: 75vw;
+  }
+  @include xsm {
+    width: 90vw;
+  }
 }
 
 .questionHeader {

@@ -42,11 +42,10 @@ export async function addHeuristicData(heuristicID, userID, data) {
     result = await setDoc(docRef, data, { merge: true });
     await updateDoc(docRef, { attempts: increment(1) });
   } catch (e) {
-    error = errCodeToMessage(e.code);
-    console.error(error);
+    throw errCodeToMessage(e.code);
   }
 
-  return { result, error };
+  return result;
 }
 
 export async function readHeuristicData(heuristicID, userID) {
@@ -91,6 +90,7 @@ export async function addUIData(heuristicID, userID, data) {
   );
   try {
     result = await setDoc(docRef, data, { merge: true });
+    await updateDoc(docRef, { attempts: increment(1) });
   } catch (e) {
     throw errCodeToMessage(e.code);
   }

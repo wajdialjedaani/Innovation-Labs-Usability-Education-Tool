@@ -1,4 +1,4 @@
-@use './mixins/colorscheme.scss' as *;
+@use "./mixins/colorscheme.scss" as *;
 
 $borderRadius: 16px;
 
@@ -16,7 +16,7 @@ $borderRadius: 16px;
   background-color: rgba(0, 0, 0, 0.4);
   /* width: 100%;
   height: 100%; */
-/*   justify-content: center;
+  /*   justify-content: center;
   align-items: center; */
   z-index: 10005;
   animation: fadeIn 0.1s ease-in-out;
@@ -36,8 +36,9 @@ $borderRadius: 16px;
 
   background-color: $darkest;
   padding: 1em;
-  
-  border-top-left-radius: $borderRadius; border-top-right-radius: $borderRadius;
+
+  border-top-left-radius: $borderRadius;
+  border-top-right-radius: $borderRadius;
 }
 
 .modalHeadingText {

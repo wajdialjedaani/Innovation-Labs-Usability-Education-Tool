@@ -7,6 +7,8 @@ import { IoMdCloseCircle } from "react-icons/io";
 import QuizContextProvider, { getQuizSuite } from "./QuizContextProvider";
 import NavFooter from "../nav/NavFooter";
 
+import Modal from "../Modal";
+
 import { getAuthContext } from "@/app/(main)/components/AuthContextProvider";
 import { addHeuristicData } from "@/lib/firebase/firestore";
 
@@ -30,19 +32,56 @@ function QuizBody() {
   //Has the submit button been pressed
   const [submit, setSubmit] = useState(false);
 
-  //Holds the score
-  const correctCount = useRef(0);
+  //Modal for displaying the score
+  const [modal, setModal] = useState(null);
 
   //Get the start time
   const startTime = useRef(Math.floor(Date.now() / 1000));
 
+  function renderModal(component, heading) {
+    setModal(
+      <Modal toggleFunction={() => setModal(null)} heading={heading}>
+        {component}
+      </Modal>
+    );
+  }
+
+  function calculateScore() {
+    //Calculate the time it took
+    const timeTaken = Math.floor(Date.now() / 1000) - startTime.current;
+    let score = 0;
+    //Calculate score
+    quizObj.forEach((obj) => {
+      if (obj.selectedAnswer === obj.correctAnswerIndex) {
+        score++;
+      }
+    });
+    setSubmit(true);
+    writeToDB({
+      correct: score,
+      incorrect: quizObj.length - score,
+      time: timeTaken,
+    });
+    renderModal(
+      <h1>
+        {score} / {quizObj.length}
+      </h1>,
+      "Score"
+    );
+  }
+
   async function writeToDB(data) {
     //Replace "1" with the id of the quiz
-    const { result, error } = await addHeuristicData(1, user.uid, data);
+    try {
+      const result = await addHeuristicData(1, user.uid, data);
+    } catch (e) {
+      console.error("Error adding data. Please try again");
+    }
     //TODO: handle potential errors (sad path)
   }
   return (
     <SubmitContext.Provider value={submit}>
+      {modal}
       <div className={styles.quizContainer}>
         {quizObj.map((obj, index) => {
           return (
@@ -58,43 +97,13 @@ function QuizBody() {
         {!submit ? (
           <button
             className={styles.submitButton}
-            onClick={() => {
-              //Calculate the time it took
-              const timeTaken =
-                Math.floor(Date.now() / 1000) - startTime.current;
-              //Calculate score
-              quizObj.forEach((obj) => {
-                if (obj.selectedAnswer === obj.correctAnswerIndex) {
-                  correctCount.current++;
-                }
-              });
-              setSubmit(true);
-              writeToDB({
-                correct: correctCount.current,
-                incorrect: quizObj.length - correctCount.current,
-                time: timeTaken,
-              });
-            }}
+            onClick={() => calculateScore()}
           >
             Submit
           </button>
         ) : //Don't show the button after it's clicked
         null}
       </div>
-
-      {/* WIP - Shows a popup of the score when the submit button is clicked
-      {submit ? (
-        <div className={styles.blur}>
-          <div className={styles.scorePopup}>
-            <IoMdCloseCircle size={30} className={styles.closePopup} />
-
-            <h1>
-              Score: {correctCount.current} / {quizObj.length}
-            </h1>
-          </div>
-        </div>
-      ) : null}
-      */}
     </SubmitContext.Provider>
   );
 }

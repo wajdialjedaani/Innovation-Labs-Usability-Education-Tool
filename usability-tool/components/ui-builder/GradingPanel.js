@@ -15,7 +15,7 @@ import { addUIData } from "@/lib/firebase/firestore";
 
 export default function GradingPanel() {
   const { user } = getAuthContext();
-  const { startGrading, heuristic } = getContextSuite();
+  const { startGrading, heuristic, startTime } = getContextSuite();
 
   const [score, setScore] = useState();
 
@@ -32,6 +32,8 @@ export default function GradingPanel() {
   useEffect(() => {
     // get score
     const score = startGrading();
+    //Get the time taken
+    const timeTaken = Math.floor(Date.now() / 1000) - startTime.current;
     setScore(score);
 
     // initiate score sound
@@ -42,7 +44,7 @@ export default function GradingPanel() {
     }
 
     //Add score to firebase
-    addUIDataToDB({ correct: score, incorrect: 10 - score });
+    addUIDataToDB({ correct: score, incorrect: 10 - score, time: timeTaken });
   }, []);
 
   return (
