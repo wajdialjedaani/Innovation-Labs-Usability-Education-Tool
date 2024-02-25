@@ -65,6 +65,17 @@ export default function Statistics() {
       })
   }
 
+  function getDataForTable() {
+    return Object.keys(currData)
+    .filter(key => key ==="time" || key === "attempts")
+    .map(key => {
+      return {
+        name: key,
+        value: currData[key]
+      }
+    })
+  }
+
   useEffect(() => {
     window.addEventListener("resize", handleScreenResize);
     return () => window.removeEventListener("resize", handleScreenResize);
@@ -201,6 +212,27 @@ export default function Statistics() {
               )}
             </div>
             {/* </ResponsiveContainer> */}
+          </div>
+          <div className="space"></div>
+          <div className="stat-graphs">
+            {currData ? (
+              <table className="stat-table">
+                <thead>
+                  <tr>
+                    <th>Attempt Number</th>
+                    <th>Time Taken (min)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {getDataForTable().map((data, index) => (
+                    <tr key={index}>
+                      <td>{index}</td>
+                      <td>{data.value}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            ) : null}
           </div>
         </section>
       </div>
