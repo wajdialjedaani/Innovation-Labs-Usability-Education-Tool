@@ -49,6 +49,7 @@ export default function Statistics() {
   const [currData, setCurrData] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const [dataArray, setDataArray] = useState([]);
+  const [bestTime, setBestTime] = useState(100000000);
 
   const colors = { Incorrect: "#F24336", Correct: "#4BAE4F" };
 
@@ -71,7 +72,29 @@ export default function Statistics() {
 
   function getDataForTable() {
     return Object.keys(currData)
-    .filter(key => key ==="time" || key === "attempts")
+    .filter(key => key ==="time")
+    .map(key => {
+      return {
+        name: key,
+        value: currData[key]
+      }
+    })
+  }
+
+  function getDataForTime() {
+    return Object.keys(currData)
+    .filter(key => key==="time")
+    .map(key => {
+      return {
+        name: key,
+        value:currData[key]
+      }
+    })
+  }
+
+  function getDataForAttempts() {
+    return Object.keys(currData)
+    .filter(key => key==="attempts")
     .map(key => {
       return {
         name: key,
@@ -107,9 +130,19 @@ export default function Statistics() {
     getAllHeuristicData();
   }, []);
 
+  function calculateBestTime(data) {
+    console.log({data})
+    //setBestTime(data.value[0]);
+    if(data.value < bestTime) {
+      setBestTime(data.value);
+    }
+    return bestTime;
+  }
+
   //Set the currData to the new heuristic's data
   useEffect(() => {
     setCurrData(dataArray[currHeuristic]);
+    //calculateBestTime(getDataForTime());
   }, [currHeuristic]);
 
   function handleClick(index) {
@@ -212,22 +245,36 @@ export default function Statistics() {
           <div className="space"></div>
           <div className="stat-graphs">
             {currData ? (
-              <table className="stat-table">
-                <thead>
-                  <tr>
-                    <th>Attempt Number</th>
-                    <th>Time Taken (min)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {getDataForTable().map((data, index) => (
-                    <tr key={index}>
-                      <td>{index}</td>
-                      <td>{data.value}</td>
+              <>
+                <table className="stat-table">
+                  <thead>
+                    <tr>
+                      <th className="table-heading">Attempt Number</th>
+                      <th className="table-heading">Time Taken (min)</th>
                     </tr>
+                  </thead>
+                  <tbody>
+                    {getDataForTable().map((data, index) => (
+                      <tr key={index}>
+                        <td>{index + 1}</td>
+                        <td>{data.value}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                <div className="additional-info">
+                  {getDataForAttempts().map((data, index) => (
+                    <div key={index}>
+                      <p className="number-of-attempts">Number of Attempts: {data.value}</p>
+                    </div>
                   ))}
-                </tbody>
-              </table>
+                  {getDataForTable().map((data, index) => (
+                    <div key={index}>
+                      <p className="number-of-attempts">Best Time Taken: {calculateBestTime(data)}</p>
+                    </div>
+                  ))}
+                </div>
+              </>
             ) : null}
           </div>
         </section>

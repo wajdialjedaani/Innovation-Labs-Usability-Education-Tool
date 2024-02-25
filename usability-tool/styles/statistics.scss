@@ -108,11 +108,20 @@ button.disabled {
 
 .stat-table {
   color: #ffffff;
-  margin: 5vw;
+  margin: 2vw;
+}
+
+.table-heading {
+  text-align: left; 
 }
 
 .table-row {
   
+}
+
+.number-of-attempts {
+  color: #ffffff;
+  padding-left: 2vw;
 }
 
 .stat-graph-container {
