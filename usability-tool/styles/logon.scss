@@ -38,6 +38,7 @@
 }
 
 .registration-error-popup {
+  z-index: 10000;
   margin-top: 25px;
   padding: 25px;
   border-radius: 15px;
@@ -83,6 +84,9 @@
   color: #ffffff;
   font-weight: bold;
   font-size: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .registration-form-input {
@@ -98,6 +102,9 @@
 
 .registration-account-check {
   color: #ffffff;
+  a {
+    margin-left: 5px;
+  }
 }
 
 /*Buttons - links*/
@@ -121,11 +128,11 @@
   border: 1px solid #ffffff;
 }
 
-.registration-login-link {
+.registration-link {
   color: #ffffff;
 }
-.registration-login-link:hover,
-.registration-login-link:focus {
+.registration-link:hover,
+.registration-link:focus {
   color: #ccc9dc;
 }
 
@@ -141,4 +148,18 @@
 .back-arrow:hover,
 .back-arrow:focus {
   filter: contrast(0);
+}
+
+.reset-link {
+  padding: 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-decoration: underline;
+  font-weight: normal;
+  font-size: 0.75em;
+  letter-spacing: 0.25px;
+  @include xsm {
+    font-size: 0.7em;
+  }
 }
