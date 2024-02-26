@@ -26,6 +26,24 @@ website. These familiar experiences are what improve general usability and encou
 engagement across all platforms.
 
 
+A bad example of consistency accross devices and platforms would be Discord mobile and the Discord web app. 
+While to access the direct messages on the web app you click the logo in the top left, on mobile it is 
+another page at the bottom of the screen. Here is an example of the difference between web and mobile.
+
+
+![Discord Logo Button on web](/lessons/lesson4-graphics/discweb.png)
+
+
+Above is the web app where the servers are below the direct messages.
+
+
+![Discord tabs on mobile](/lessons/lesson4-graphics/discmobile.png)
+
+
+Above is the mobile app which has tabs for servers and messages. Meaning that consistency across devices is not 
+preserved.
+
+
 **Compliance with Accessibility Standards:** Comply with accessibility standards to ensure everyone has 
 consistent access to information and functionality for users with disabilities. The interface should 
 be designed to accommodate a variety of needs, such as screen readers, keyboard navigation, and 
