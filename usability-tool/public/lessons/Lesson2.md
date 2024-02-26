@@ -12,6 +12,12 @@ meaning. Using **symbols** that users are familiar with in the real world can al
 serves without having to directly tell the user.
 
 
+These symbols can be found on most sites and are a very clear representation of what they lead to. For example 
+having a gear or a wrench for settings, or having a piece of paper icon for documents.
+
+![Icons that relate to real world objects](/lessons/lesson2-graphics/icons.png)
+
+
 Connecting the system and the real world can also create **intuitive navigation**. Organizing information similarly 
 to how users would organize the same information in the real world can create an intuitive navigational flow. 
 Mirroring the order that people naturally complete tasks can also create an intuitive flow from one task to 
@@ -29,6 +35,9 @@ Providing users with appropriate **feedback** that matches their expectations fo
 important in a system. For example if a user presses a button, the user is expecting some sort of visual 
 color change with the button, however if the button does not provide a visual color change, the user might 
 be confused and will likely perform unwanted additional presses.
+
+
+![Button that changes color when clicked](/lessons/lesson2-graphics/hover.gif)
 
 
 **User testing** and **user feedback** are crucial when it comes to understanding the users’ expectations. Without 

@@ -22,6 +22,12 @@ Design interfaces that guide users toward potential solutions or other actions t
 a straightforward path to undo or correct mistakes allows users to regain control and continue their
 interactions with the system.
 
+An example that shows all the steps would be when YouTube cannot load. It first recognizes the problem 
+by stating it had an error. Then it diagnoses the error and gives the user context as to what error occured. 
+Finally it guides the user to refresh the screen, which is the final recovery step.
+
+![YouTube Error](/lessons/lesson9-graphics/error.png)
+
 Error recovery should be intuitive and well-integrated into the interface. The goal is to minimize
 frustration and enable users to continue interacting with the system. Whenever errors do happen, prioritize
 user-centered solutions that empower users to feel confident and in control throughout the recovery process.
