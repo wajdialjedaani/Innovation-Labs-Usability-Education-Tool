@@ -94,6 +94,17 @@ export default function Statistics() {
     })
   }
 
+  function getDataForUITable() {
+    return Object.keys(currUIData)
+    .filter(key => key ==="time")
+    .map(key => {
+      return {
+        name: key,
+        value: currUIData[key]
+      }
+    })
+  }
+
   function getDataForAttempts() {
     return Object.keys(currQuizData)
     .filter(key => key==="attempts")
@@ -104,6 +115,18 @@ export default function Statistics() {
       }
     })
   }
+
+  function getDataForUIAttempts() {
+    return Object.keys(currUIData)
+    .filter(key => key==="attempts")
+    .map(key => {
+      return {
+        name: key,
+        value: currUIData[key]
+      }
+    })
+  }
+
 
   useEffect(() => {
     window.addEventListener("resize", handleScreenResize);
@@ -150,7 +173,7 @@ export default function Statistics() {
   //Set the currData to the new heuristic's data
   useEffect(() => {
     setCurrQuizData(quizDataArray[currHeuristic]);
-    
+    setCurrUIData(uiDataArray[currHeuristic]);
   }, [currHeuristic]);
 
   function handleClick(index) {
@@ -289,7 +312,7 @@ export default function Statistics() {
                 </div>
               ) : null}
 
-              {currQuizData ? (
+              {currUIData ? (
                 <div className="panel">
                   <h2 className="heuristic-title">UI Builder</h2>
                   <div className="content">
@@ -301,7 +324,7 @@ export default function Statistics() {
                         </tr>
                       </thead>
                       <tbody>
-                        {getDataForTable().map((data, index) => (
+                        {getDataForUITable().map((data, index) => (
                           <tr key={index}>
                             <td>{index + 1}</td>
                             <td>{data.value}</td>
@@ -310,12 +333,12 @@ export default function Statistics() {
                       </tbody>
                     </table>
                     <div className="additional-info">
-                      {getDataForAttempts().map((data, index) => (
+                      {getDataForUIAttempts().map((data, index) => (
                         <div key={index}>
                           <p className="number-of-attempts">Number of Attempts: {data.value}</p>
                         </div>
                       ))}
-                      {getDataForTable().map((data, index) => (
+                      {getDataForUITable().map((data, index) => (
                         <div key={index}>
                           <p className="number-of-attempts">Best Time Taken: {calculateBestTime(data)}</p>
                         </div>
