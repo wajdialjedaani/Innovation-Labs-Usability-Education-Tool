@@ -4,7 +4,7 @@
 import "@/styles/logon.scss";
 import { useState } from "react";
 
-import { signIn } from "@/lib/firebase/auth";
+import { signIn, sendPasswordResetEmail } from "@/lib/firebase/auth";
 import Link from "next/link";
 
 import { IoClose } from "react-icons/io5";
@@ -16,28 +16,32 @@ import { useRouter } from "next/navigation";
 import Modal from "@/components/Modal";
 
 function ResetPassword() {
+  const [status, setStatus] = useState("idle");
+  const [emailSent, setEmailSent] = useState(false);
   const [passwordData, setPasswordData] = useState({
-    password: "",
     email: "",
   });
 
   function handleFormChange(e) {
-    const { name, value } = e.target;
-    setPasswordData((prevFormData) => {
-      return {
-        ...prevFormData,
-        [name]: value,
-      };
-    });
+    const { value } = e.target;
+    setPasswordData({ email: value });
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    //Reset password
+    setStatus("submitting");
+    try {
+      await sendPasswordResetEmail(passwordData.email);
+      setEmailSent(true);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setStatus("idle");
+    }
   }
 
   return (
-    <form className="registration-form">
+    <form className="registration-form" onSubmit={handleSubmit}>
       <label className="registration-form-label" htmlFor="reset-password-email">
         Email
       </label>
@@ -51,21 +55,13 @@ function ResetPassword() {
         value={passwordData.email}
         required
       />
-      <label className="registration-form-label" htmlFor="reset-password">
-        New Password
-      </label>
-      <input
-        type="password"
-        name="password"
-        className="registration-form-input"
-        id="reset-password"
-        placeholder="Enter Password"
-        onChange={handleFormChange}
-        value={passwordData.password}
-        required
-      />
+      {emailSent ? (
+        <p className="email-sent-popup">
+          An email was sent with instructions for resetting your password.
+        </p>
+      ) : null}
       <button className="registraion-confirm-btn" type="submit">
-        Reset Password
+        {status === "idle" ? "Send Reset Link" : "Sending..."}
       </button>
     </form>
   );
