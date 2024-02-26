@@ -81,17 +81,6 @@ export default function Statistics() {
     })
   }
 
-  function getDataForTime() {
-    return Object.keys(currData)
-    .filter(key => key==="time")
-    .map(key => {
-      return {
-        name: key,
-        value:currData[key]
-      }
-    })
-  }
-
   function getDataForAttempts() {
     return Object.keys(currData)
     .filter(key => key==="attempts")
@@ -191,7 +180,7 @@ export default function Statistics() {
           <div className="stat-graphs">
             {/* <ResponsiveContainer className="stats-container"> */}
             <div className="stat-graph-container">
-              <h2 className="heuristic-title">Heuristic Data</h2>
+              <h2 className="heuristic-title">Quiz Data</h2>
               {currData ? (
                 <ResponsiveContainer>
                   <PieChart>
@@ -244,38 +233,79 @@ export default function Statistics() {
           </div>
           <div className="space"></div>
           <div className="stat-graphs">
-            {currData ? (
-              <>
-                <table className="stat-table">
-                  <thead>
-                    <tr>
-                      <th className="table-heading">Attempt Number</th>
-                      <th className="table-heading">Time Taken (min)</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {getDataForTable().map((data, index) => (
-                      <tr key={index}>
-                        <td>{index + 1}</td>
-                        <td>{data.value}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-                <div className="additional-info">
-                  {getDataForAttempts().map((data, index) => (
-                    <div key={index}>
-                      <p className="number-of-attempts">Number of Attempts: {data.value}</p>
+            <div className="panel-container">
+              {currData ? (
+                <div className="panel">
+                  <h2 className="heuristic-title">Quiz</h2>
+                  <div className="content">
+                    <table className="stat-table">
+                      <thead>
+                        <tr>
+                          <th>Attempt Number</th>
+                          <th>Time Taken (min)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {getDataForTable().map((data, index) => (
+                          <tr key={index}>
+                            <td>{index + 1}</td>
+                            <td>{data.value}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                    <div className="additional-info">
+                      {getDataForAttempts().map((data, index) => (
+                        <div key={index}>
+                          <p className="number-of-attempts">Number of Attempts: {data.value}</p>
+                        </div>
+                      ))}
+                      {getDataForTable().map((data, index) => (
+                        <div key={index}>
+                          <p className="number-of-attempts">Best Time Taken: {calculateBestTime(data)}</p>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                  {getDataForTable().map((data, index) => (
-                    <div key={index}>
-                      <p className="number-of-attempts">Best Time Taken: {calculateBestTime(data)}</p>
-                    </div>
-                  ))}
+                  </div>
                 </div>
-              </>
-            ) : null}
+              ) : null}
+
+              {currData ? (
+                <div className="panel">
+                  <h2 className="heuristic-title">UI Builder</h2>
+                  <div className="content">
+                    <table className="stat-table">
+                      <thead>
+                        <tr>
+                          <th className="table-heading">Attempt Number</th>
+                          <th className="table-heading">Time Taken (min)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {getDataForTable().map((data, index) => (
+                          <tr key={index}>
+                            <td>{index + 1}</td>
+                            <td>{data.value}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                    <div className="additional-info">
+                      {getDataForAttempts().map((data, index) => (
+                        <div key={index}>
+                          <p className="number-of-attempts">Number of Attempts: {data.value}</p>
+                        </div>
+                      ))}
+                      {getDataForTable().map((data, index) => (
+                        <div key={index}>
+                          <p className="number-of-attempts">Best Time Taken: {calculateBestTime(data)}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : null}
+            </div>
           </div>
         </section>
       </div>

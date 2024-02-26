@@ -106,22 +106,14 @@ button.disabled {
   padding-right: 5vw;
 }
 
-.stat-table {
-  color: #ffffff;
-  margin: 2vw;
-}
-
 .table-heading {
   text-align: left; 
-}
-
-.table-row {
-  
 }
 
 .number-of-attempts {
   color: #ffffff;
   padding-left: 2vw;
+  font-size: 20px;
 }
 
 .stat-graph-container {
@@ -145,6 +137,7 @@ button.disabled {
   font-size: 30px;
   text-align: center;
   margin: 0;
+  padding-top: 1vw;
   color: #ffffff;
 }
 
@@ -186,4 +179,36 @@ button.disabled {
     font-size: 25px;
     margin: 25px;
   }
+}
+
+.panel-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.panel {
+  flex: 1;
+}
+
+.content {
+  height: 50%;
+  overflow-y: auto;
+}
+
+.stat-table {
+  border-collapse: collapse;
+  width: 80%;
+  color: #ffffff;
+  margin: 2vw;
+}
+
+.stat-table th,
+.stat-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.stat-table th {
+  background-color: #000000;
 }
