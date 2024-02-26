@@ -13,6 +13,7 @@ import { getAuthContext } from "@/app/(main)/components/AuthContextProvider";
 import { addHeuristicData } from "@/lib/firebase/firestore";
 
 import styles from "@/styles/quiz.module.scss";
+import borrowed from "@/styles/UIBuilder.module.scss"
 
 const SubmitContext = createContext();
 
@@ -63,9 +64,19 @@ function QuizBody() {
       time: timeTaken,
     });
     renderModal(
-      <h1>
-        {score} / {quizObj.length}
-      </h1>,
+      <div>
+        <h3 role="header" className={borrowed.gradingPanelHeader}>
+          You have {score >= 7 ? "passed!" : "failed."}
+        </h3>
+
+        <div className={borrowed.gradingPanelProgressBarContainer}>
+          <div
+            className={borrowed.gradingPanelProgressBar}
+            style={{ width: `${score}0%` }}
+          />
+          <p className={borrowed.gradingPanelScoreDisplay}>{score}/{quizObj.length}</p>
+        </div>
+      </div>,
       "Score"
     );
   }
