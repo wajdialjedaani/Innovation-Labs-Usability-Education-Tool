@@ -89,6 +89,7 @@ function QuizBody() {
               question={obj.question}
               questionIndex={index}
               answers={obj.answers}
+              image={obj.image}
               isCorrect={obj.selectedAnswer === obj.correctAnswerIndex}
               key={`questionkey-${index}`}
             />
@@ -108,7 +109,7 @@ function QuizBody() {
   );
 }
 
-function Question({ question, answers, questionIndex, isCorrect }) {
+function Question({ question, answers, questionIndex, isCorrect, image }) {
   //Has the submit button been pressed?
   const submit = useContext(SubmitContext);
   return (
@@ -117,6 +118,7 @@ function Question({ question, answers, questionIndex, isCorrect }) {
 
       <div className={styles.questionBody}>
         <h1 className={styles.questionContent}>{question}</h1>
+        {image ? <img className={styles.questionImage} src={image} /> : null}
         <div className={styles.answersContainer}>
           {answers.map((text, index) => {
             return (

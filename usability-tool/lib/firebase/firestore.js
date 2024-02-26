@@ -10,6 +10,7 @@ import {
   getDocFromCache,
   collection,
   getDocsFromCache,
+  arrayUnion,
 } from "firebase/firestore";
 import errCodeToMessage from "../tools/errCodeToMsg";
 //Cloud Firestore stores data in Documents, which are stored in Collections
@@ -41,8 +42,13 @@ export async function addHeuristicData(heuristicID, userID, data) {
     `Heuristic${heuristicID}`
   );
   try {
+    const { time: newTime } = data;
+    delete data.time;
     result = await setDoc(docRef, data, { merge: true });
-    await updateDoc(docRef, { attempts: increment(1) });
+    await updateDoc(docRef, {
+      attempts: increment(1),
+      time: arrayUnion(newTime),
+    });
   } catch (e) {
     throw errCodeToMessage(e.code);
   }
@@ -67,18 +73,16 @@ export async function readHeuristicData(heuristicID, userID) {
 }
 
 export async function readAllHeuristicData(userId) {
-  const collectionRef = collection(db, "users", userId, "HeuristicData")
-  let result
+  const collectionRef = collection(db, "users", userId, "HeuristicData");
+  let result;
   try {
-    result = await getDocsFromCache(collectionRef)
-    console.log(result)
-    result.forEach(doc => (
-      console.log(doc.data())
-    ))
-  } catch(e) {
-    throw errCodeToMessage(e.code)
+    result = await getDocsFromCache(collectionRef);
+    console.log(result);
+    result.forEach((doc) => console.log(doc.data()));
+  } catch (e) {
+    throw errCodeToMessage(e.code);
   }
-  return result
+  return result;
 }
 
 // export async function readDB(collection, id) {
@@ -105,8 +109,13 @@ export async function addUIData(heuristicID, userID, data) {
     `Heuristic${heuristicID}`
   );
   try {
+    const { time: newTime } = data;
+    delete data.time;
     result = await setDoc(docRef, data, { merge: true });
-    await updateDoc(docRef, { attempts: increment(1) });
+    await updateDoc(docRef, {
+      attempts: increment(1),
+      time: arrayUnion(newTime),
+    });
   } catch (e) {
     throw errCodeToMessage(e.code);
   }

@@ -122,4 +122,50 @@ export const heuristic1Questions = [
     correctAnswerIndex: 2,
     selectedAnswer: null,
   },
+  {
+    question:
+      "A system allows a user to upload a file and convert it to a number of various file formats. The process of converting the file can take some time. At what time should the system provide feedback of the file conversion to the user?",
+    answers: [
+      "When the file finishes being converted.",
+      "Sometime in the middle of the file conversion.",
+      "When the system starts the file conversion.",
+      "Sometime after the file is done being converted.",
+    ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Which of the following in the below image is not an example of visibility of system status?",
+    image: "/quiz/quiz1-graphics/quiz1_refrigerator.png",
+    answers: [
+      "The color button is highlighted to the selected color.",
+      "The delivery button is highlighted when selected by the user.",
+      "The system is alerting the user that pickup for this item is unavailable.",
+      "The color of the Add to Cart button",
+    ],
+    correctAnswerIndex: 3,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "The website for a stadium allows users to see the availability of seats per section. In what way is this an example of the visibility of system status?",
+    image: "/quiz/quiz1-graphics/quiz1_stadium.png",
+    answers: [
+      "The system is providing the user with a status that is relevant to the scenario and will help them in their decision-making.",
+      "The system is providing all of its status information to the user.",
+      "The system is providing some status information to the user, but it isn’t relevant for this scenario.",
+      "The system is waiting for user input first to show its status.",
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "An e-commerce website always displays the following icon. The number next to the cart shows how many items are in the cart and gets updated every time the cart changes. Is this an example of situational or persistent system status?",
+    image: "/quiz/quiz1-graphics/quiz1_cart.png",
+    answers: ["Situational", "Persistent"],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
 ];
