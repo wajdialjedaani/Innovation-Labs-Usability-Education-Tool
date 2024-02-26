@@ -51,7 +51,8 @@ export default function Statistics() {
   const [isMobile, setIsMobile] = useState(false);
   const [quizDataArray, setQuizDataArray] = useState([]);
   const [uiDataArray, setUIDataArray] = useState([]);
-  const [bestTime, setBestTime] = useState(100000000);
+  const [bestQuizTime, setBestQuizTime] = useState(100000000);
+  const [bestUITime, setBestUITime] = useState(10000000);
 
   const colors = { Incorrect: "#F24336", Correct: "#4BAE4F" };
 
@@ -161,13 +162,22 @@ export default function Statistics() {
     getAllHeuristicData();
   }, []);
 
-  function calculateBestTime(data) {
+  function calculateBestQuizTime(data) {
     console.log({data})
     //setBestTime(data.value[0]);
-    if(data.value < bestTime) {
-      setBestTime(data.value);
+    if(data.value < bestQuizTime) {
+      setBestQuizTime(data.value);
     }
-    return bestTime;
+    return bestQuizTime;
+  }
+
+  function calculateBestUITime(data) {
+    console.log({data})
+    //setBestTime(data.value[0]);
+    if(data.value < bestUITime) {
+      setBestUITime(data.value);
+    }
+    return bestUITime;
   }
 
   //Set the currData to the new heuristic's data
@@ -304,7 +314,7 @@ export default function Statistics() {
                       ))}
                       {getDataForTable().map((data, index) => (
                         <div key={index}>
-                          <p className="number-of-attempts">Best Time Taken: {calculateBestTime(data)}</p>
+                          <p className="number-of-attempts">Best Time Taken: {calculateBestQuizTime(data)}</p>
                         </div>
                       ))}
                     </div>
@@ -340,7 +350,7 @@ export default function Statistics() {
                       ))}
                       {getDataForUITable().map((data, index) => (
                         <div key={index}>
-                          <p className="number-of-attempts">Best Time Taken: {calculateBestTime(data)}</p>
+                          <p className="number-of-attempts">Best Time Taken: {calculateBestUITime(data)}</p>
                         </div>
                       ))}
                     </div>
