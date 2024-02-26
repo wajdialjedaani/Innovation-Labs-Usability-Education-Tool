@@ -284,7 +284,7 @@ export default function Statistics() {
                       <thead>
                         <tr>
                           <th>Attempt Number</th>
-                          <th>Time Taken (min)</th>
+                          <th>Time Taken (sec)</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -320,7 +320,7 @@ export default function Statistics() {
                       <thead>
                         <tr>
                           <th className="table-heading">Attempt Number</th>
-                          <th className="table-heading">Time Taken (min)</th>
+                          <th className="table-heading">Time Taken (sec)</th>
                         </tr>
                       </thead>
                       <tbody>
