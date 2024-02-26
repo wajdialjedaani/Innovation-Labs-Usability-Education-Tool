@@ -31,6 +31,8 @@ A **persistent** system status is displayed constantly and does not depend on us
 battery percentage icon on a phone. Typically, information that is relevant to the user in most, if not all, scenarios
 should be displayed as persistent.
 
+![Battery Icon](/lessons/lesson1-graphics/battery.png)
+
 There are many elements of a system’s state that are of interest to the user, but there are many more
 the user has no interest in. Generally, elements that may affect a user’s decision-making are highly important
 to include, and all others should be excluded. This often includes general system information like battery life
