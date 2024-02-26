@@ -132,7 +132,7 @@ $highestZ: 10000;
   z-index: $highestZ;
 }
 
-// grading panel
+// ================================ grading panel ======================================
 
 .gradingPanelProgressBarContainer {
   position: relative; /* Set the container to a relative position */
@@ -157,6 +157,15 @@ $highestZ: 10000;
   font-weight: bold; /* Optional: Adjust the font weight */
 }
 
+.gradingPanelScoreBreakdown {
+  font-size: 18px;
+  margin-top: 1em;
+}
+
+.gradingPanelScoreBreakdownHighlight {
+  font-weight: bold;
+}
+
 // info panel
 .infoPanelContainer p {
   white-space: pre-wrap;
@@ -173,4 +182,17 @@ $highestZ: 10000;
   align-items: center;
 
   resize: both;
+}
+
+.boneTooltipWindow {
+  background-color: $darkest;
+  border: 1px solid white;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 1em;
+  position: fixed;
+  z-index: 999;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 20px;
 }
