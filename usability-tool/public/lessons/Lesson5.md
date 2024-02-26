@@ -18,6 +18,13 @@ to prevent users from accidentally performing this irreversible action. Dialogs 
 the outcomes of the action and provide users with the option to proceed or cancel.
 
 
+A simple way websites use confirmation is by using Javascripts built in functions to open a confirmation 
+window.
+
+
+![JS confirm window](/lessons/lesson5-graphics/jsconfirm.gif)
+
+
 Implementing advanced **input validation** mechanisms helps prevent users from entering invalid data. Real-time 
 feedback on the validity of inputs, paired with clear error messages and suggestions for corrections, guides 
 users towards accurate data entry, likely reducing the amount of errors.

@@ -15,6 +15,7 @@ serves without having to directly tell the user.
 These symbols can be found on most sites and are a very clear representation of what they lead to. For example 
 having a gear or a wrench for settings, or having a piece of paper icon for documents.
 
+
 ![Icons that relate to real world objects](/lessons/lesson2-graphics/icons.png)
 
 
