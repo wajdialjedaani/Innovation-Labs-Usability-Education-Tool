@@ -11,13 +11,15 @@ import {
 } from "recharts";
 
 import { getAuthContext } from "../../components/AuthContextProvider";
-import { readHeuristicData, readUIData } from "@/lib/firebase/firestore";
+import {
+  readHeuristicData,
+  readUIData,
+  readAllHeuristicData,
+} from "@/lib/firebase/firestore";
 
 import { IoAlertCircle } from "react-icons/io5";
+import { FaLock } from "react-icons/fa";
 import { IconContext } from "react-icons";
-
-import { getDataSuite } from "../../components/ContextProvider";
-import { Enriqueta } from "next/font/google";
 
 const heuristics = Array.from({ length: 10 }, (x, i) => `Heuristic ${i + 1}`);
 /*
@@ -26,74 +28,158 @@ const heuristics = Array.from({ length: 10 }, (x, i) => `Heuristic ${i + 1}`);
     { name: "incorrect", value: 2 },
   ]
   */
-const AlertIcon = (
-  <IconContext.Provider
-    value={{
-      color: "red",
-      size: "25%",
-    }}
-  >
-    <IoAlertCircle />
-    <h3>No Data</h3>
-  </IconContext.Provider>
-);
+function AlertIcon() {
+  return (
+    <IconContext.Provider
+      value={{
+        color: "red",
+        size: "25%",
+      }}
+    >
+      <IoAlertCircle />
+      <h3>No Data</h3>
+    </IconContext.Provider>
+  );
+}
 
 export default function Statistics() {
   const { user } = getAuthContext();
   const [currHeuristic, setCurrHeuristic] = useState(0);
-  const [activeButton, setActiveButton] = useState(null);
-  const [currData, setCurrData] = useState(null);
-
+  const [activeButton, setActiveButton] = useState(0);
+  const [currQuizData, setCurrQuizData] = useState(null);
+  const [currUIData, setCurrUIData] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [quizDataArray, setQuizDataArray] = useState([]);
+  const [uiDataArray, setUIDataArray] = useState([]);
+  const [bestTime, setBestTime] = useState(100000000);
 
-  const colors = { incorrect: "#F24336", correct: "#4BAE4F" };
+  const colors = { Incorrect: "#F24336", Correct: "#4BAE4F" };
 
   function handleScreenResize() {
     if (window.innerWidth <= 768) setIsMobile(true);
     else setIsMobile(false);
   }
 
+  //Returns the data in a form that the graph can read
+  function getDataForGraph() {
+    return Object.keys(currQuizData)
+      .filter((key) => key === "correct" || key === "incorrect")
+      .map((key) => {
+        return {
+          name: key.charAt(0).toUpperCase() + key.slice(1),
+          value: currQuizData[key],
+        };
+      });
+  }
+
+  function getDataForUIGraph() {
+    return Object.keys(currUIData)
+      .filter((key) => key === "correct" || key === "incorrect")
+      .map((key) => {
+        return {
+          name: key.charAt(0).toUpperCase() + key.slice(1),
+          value: currUIData[key],
+        };
+      });
+  }
+
+  function getDataForTable() {
+    return Object.keys(currQuizData)
+    .filter(key => key ==="time")
+    .map(key => {
+      return {
+        name: key,
+        value: currQuizData[key]
+      }
+    })
+  }
+
+  function getDataForUITable() {
+    return Object.keys(currUIData)
+    .filter(key => key ==="time")
+    .map(key => {
+      return {
+        name: key,
+        value: currUIData[key]
+      }
+    })
+  }
+
+  function getDataForAttempts() {
+    return Object.keys(currQuizData)
+    .filter(key => key==="attempts")
+    .map(key => {
+      return {
+        name: key,
+        value: currQuizData[key]
+      }
+    })
+  }
+
+  function getDataForUIAttempts() {
+    return Object.keys(currUIData)
+    .filter(key => key==="attempts")
+    .map(key => {
+      return {
+        name: key,
+        value: currUIData[key]
+      }
+    })
+  }
+
+
   useEffect(() => {
     window.addEventListener("resize", handleScreenResize);
     return () => window.removeEventListener("resize", handleScreenResize);
   }, []);
 
+  //Get the data on the first load
+  useEffect(() => {
+    async function getAllHeuristicData() {
+      //The new state array
+      const heuristicDataArray = [];
+      const UIDataArray = [];
+      try {
+        //Loop through all 10 heurisics
+        for (let i = 0; i < 10; i++) {
+          //Get the data or put null if there isn't any
+          const heuristicData = await readHeuristicData(i + 1, user.uid);
+          heuristicDataArray[i] = heuristicData.data || null;
+
+          const uiData = await readUIData(i + 1, user.uid);
+          UIDataArray[i] = uiData.data || null;
+        }
+        //Set the state
+        setQuizDataArray(heuristicDataArray);
+        setCurrQuizData(heuristicDataArray[0]);
+        setUIDataArray(UIDataArray);
+        setCurrUIData(UIDataArray[0]);
+      } catch (e) {
+        console.error(e);
+      }
+    }
+    getAllHeuristicData();
+  }, []);
+
+  function calculateBestTime(data) {
+    console.log({data})
+    //setBestTime(data.value[0]);
+    if(data.value < bestTime) {
+      setBestTime(data.value);
+    }
+    return bestTime;
+  }
+
+  //Set the currData to the new heuristic's data
+  useEffect(() => {
+    setCurrQuizData(quizDataArray[currHeuristic]);
+    setCurrUIData(uiDataArray[currHeuristic]);
+  }, [currHeuristic]);
+
   function handleClick(index) {
     setCurrHeuristic(index);
     setActiveButton(index);
   }
-
-  useEffect(() => {
-    async function getData() {
-      //Figure out a caching mechanism
-      const { result, error, data } = await readHeuristicData(
-        currHeuristic + 1,
-        user.uid
-      );
-      //TODO: Get UI builder data
-
-      // console.log(data);
-
-      if (!data) {
-        setCurrData(null);
-      } else {
-        let i = 0;
-        const newData = [];
-        for (const [key, value] of Object.entries(data)) {
-          newData[i] = {
-            type: key === "correct" ? 1 : 0,
-            name: `Number of questions ${key}`,
-            value,
-          };
-          i++;
-        }
-        setCurrData(newData);
-      }
-    }
-
-    getData();
-  }, [currHeuristic]);
-
   return (
     <main>
       {isMobile ? (
@@ -110,77 +196,45 @@ export default function Statistics() {
           </select>
         </label>
       ) : null}
-      {/* <div className="progress-container">
-        <h2>Current Progress:</h2>
-        <ResponsiveContainer width="50%" height={250}>
-          <PieChart width={100} height={100}>
-            <Pie
-              dataKey="value"
-              isAnimationActive={false}
-              data={importedUserData.progressData}
-              cx="50%"
-              cy="50%"
-              outerRadius={100}
-              fill="#8884d8"
-              label
-            >
-              {importedUserData.progressData.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={entry.color} />
-              ))}
-            </Pie>
-            <Tooltip />
-          </PieChart>
-        </ResponsiveContainer>
-      </div> */}
 
       <div className="main-stat-container">
-        {
-          !isMobile ? (
-            <section className="stat-buttons">
-              {heuristics.map((heuristic, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleClick(index)}
-                  className={activeButton === index ? "active" : ""}
-                >
-                  {heuristic}
+        {!isMobile ? (
+          <section className="stat-buttons">
+            {quizDataArray.map((data, i) =>
+              !data ? (
+                <button key={i} disabled className="disabled">
+                  <FaLock />
+                  Complete Heuristic {i + 1} to Unlock
                 </button>
-              ))}
-            </section>
-          ) : null
-          // <label className="mobile-dropdown">
-          //   Select a Heuristic:
-          //   <select
-          //     name="selectedHeuristic"
-          //     value={currHeuristic}
-          //     onChange={(e) => handleClick(Number(e.target.value))}
-          //   >
-          //     {heuristics.map((_, i) => (
-          //       <option value={i}>{i + 1}</option>
-          //     ))}
-          //   </select>
-          // </label>
-        }
+              ) : (
+                <button
+                  key={i}
+                  onClick={() => handleClick(i)}
+                  className={activeButton === i ? "active" : ""}
+                >
+                  Heuristic {i + 1}
+                </button>
+              )
+            )}
+          </section>
+        ) : null}
         <section className="stat-container">
           <div className="stat-graphs">
             {/* <ResponsiveContainer className="stats-container"> */}
             <div className="stat-graph-container">
-              <h2 className="heuristic-title">Heuristic Data</h2>
-              {currData ? (
+              <h2 className="heuristic-title">Quiz Data</h2>
+              {currQuizData ? (
                 <ResponsiveContainer>
                   <PieChart>
                     <Pie
                       dataKey="value"
                       isAnimationActive={false}
-                      data={currData}
+                      data={getDataForGraph()}
                       fill="#8884d8"
                       label
                     >
-                      {currData.map((entry, index) => (
-                        <Cell
-                          key={`cell-${index}`}
-                          fill={entry.type ? colors.correct : colors.incorrect}
-                        />
+                      {getDataForGraph().map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={colors[entry.name]} />
                       ))}
                     </Pie>
 
@@ -188,25 +242,25 @@ export default function Statistics() {
                   </PieChart>
                 </ResponsiveContainer>
               ) : (
-                AlertIcon
+                <AlertIcon />
               )}
             </div>
             <div className="stat-graph-container">
               <h2 className="heuristic-title">UI Builder Data</h2>
-              {currData ? (
+              {currUIData ? (
                 <ResponsiveContainer>
                   <PieChart>
                     <Pie
                       dataKey="value"
                       isAnimationActive={false}
-                      data={currData}
+                      data={getDataForUIGraph()}
                       fill="#8884d8"
                       label
                     >
-                      {currData.map((entry, index) => (
+                      {getDataForUIGraph().map((entry, index) => (
                         <Cell
                           key={`cell-${index}`}
-                          fill={entry.type ? colors.correct : colors.incorrect}
+                          fill={colors[entry.name]}
                         />
                       ))}
                     </Pie>
@@ -214,10 +268,86 @@ export default function Statistics() {
                   </PieChart>
                 </ResponsiveContainer>
               ) : (
-                AlertIcon
+                <AlertIcon />
               )}
             </div>
             {/* </ResponsiveContainer> */}
+          </div>
+          <div className="space"></div>
+          <div className="stat-graphs">
+            <div className="panel-container">
+              {currQuizData ? (
+                <div className="panel">
+                  <h2 className="heuristic-title">Quiz</h2>
+                  <div className="content">
+                    <table className="stat-table">
+                      <thead>
+                        <tr>
+                          <th>Attempt Number</th>
+                          <th>Time Taken (sec)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {getDataForTable().map((data, index) => (
+                          <tr key={index}>
+                            <td>{index + 1}</td>
+                            <td>{data.value}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                    <div className="additional-info">
+                      {getDataForAttempts().map((data, index) => (
+                        <div key={index}>
+                          <p className="number-of-attempts">Number of Attempts: {data.value}</p>
+                        </div>
+                      ))}
+                      {getDataForTable().map((data, index) => (
+                        <div key={index}>
+                          <p className="number-of-attempts">Best Time Taken: {calculateBestTime(data)}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : null}
+
+              {currUIData ? (
+                <div className="panel">
+                  <h2 className="heuristic-title">UI Builder</h2>
+                  <div className="content">
+                    <table className="stat-table">
+                      <thead>
+                        <tr>
+                          <th className="table-heading">Attempt Number</th>
+                          <th className="table-heading">Time Taken (sec)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {getDataForUITable().map((data, index) => (
+                          <tr key={index}>
+                            <td>{index + 1}</td>
+                            <td>{data.value}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                    <div className="additional-info">
+                      {getDataForUIAttempts().map((data, index) => (
+                        <div key={index}>
+                          <p className="number-of-attempts">Number of Attempts: {data.value}</p>
+                        </div>
+                      ))}
+                      {getDataForUITable().map((data, index) => (
+                        <div key={index}>
+                          <p className="number-of-attempts">Best Time Taken: {calculateBestTime(data)}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : null}
+            </div>
           </div>
         </section>
       </div>

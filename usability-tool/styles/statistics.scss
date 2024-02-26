@@ -33,14 +33,13 @@ main {
 }
 
 .stat-buttons {
+  display: grid;
+  grid-template: repeat(10, 1fr) / 1fr;
   flex: 0 0 15%;
-  display: flex;
-  flex-wrap: wrap;
   gap: 5px;
   button {
+    font-size: 2vw;
     box-sizing: border-box;
-    flex: 0 0 calc(100% - 5px);
-    font-size: 25px;
     font-weight: bold;
     color: #ffffff;
     background-color: #324a5f;
@@ -53,9 +52,27 @@ main {
   button:hover {
     background-color: #0c1821;
   }
+  button:disabled {
+    display: flex;
+    font-size: medium;
+    align-items: center;
+    justify-content: center;
+    cursor: not-allowed;
+    color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(50, 74, 95, 0.5);
+    svg {
+      margin-right: 10px;
+      flex-shrink: 0.5;
+    }
+  }
 }
 
 button.active {
+  background-color: #0c1821;
+  color: white;
+}
+
+button.disabled {
   background-color: #0c1821;
   color: white;
 }
@@ -75,13 +92,28 @@ button.active {
 .stat-graphs {
   display: flex;
   flex-direction: column;
-  width: 33%;
+  width: 50%;
   height: 100%;
   background-color: #0c1821;
   border-radius: 15px;
   @include sm {
     width: 100%;
   }
+}
+
+.space {
+  padding-left: 0.5vw;
+  padding-right: 0.5vw;
+}
+
+.table-heading {
+  text-align: left; 
+}
+
+.number-of-attempts {
+  color: #ffffff;
+  padding-left: 2vw;
+  font-size: 20px;
 }
 
 .stat-graph-container {
@@ -105,6 +137,7 @@ button.active {
   font-size: 30px;
   text-align: center;
   margin: 0;
+  padding-top: 1vw;
   color: #ffffff;
 }
 
@@ -146,4 +179,36 @@ button.active {
     font-size: 25px;
     margin: 25px;
   }
+}
+
+.panel-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.panel {
+  flex: 1;
+}
+
+.content {
+  height: 50%;
+  overflow-y: auto;
+}
+
+.stat-table {
+  border-collapse: collapse;
+  width: 85%;
+  color: #ffffff;
+  margin: 2vw;
+}
+
+.stat-table th,
+.stat-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.stat-table th {
+  background-color: #000000;
 }
