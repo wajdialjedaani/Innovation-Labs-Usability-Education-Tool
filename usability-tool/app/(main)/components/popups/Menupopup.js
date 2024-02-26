@@ -1,9 +1,9 @@
 import "@/styles/menupopup.scss";
 import Link from "next/link";
 
-export default function Menupopup({ id }) {
+export default function Menupopup({ id, active }) {
   return (
-    <div className="menu-popup" role="menu" id={id}>
+    <div className="menu-popup" role="menu" id={id} style={{maxHeight: active ? "100vh" : "0px"}}>
       <Link href="/main" className="menu-popup-list-item-link">
         Home
       </Link>

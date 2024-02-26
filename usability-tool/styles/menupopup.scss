@@ -1,7 +1,9 @@
 @use "./mixins/breakpoints.scss" as *;
 
 .menu-popup {
-  max-height: calc(100vh - 65px);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease;
   height: 75vh;
   display: grid;
   // grid-template: repeat(11, 1fr) / 1fr;
@@ -15,6 +17,7 @@
   left: 0;
   background: #324a5f;
   text-align: center;
+
   a {
     font-size: 1em;
     display: flex;

@@ -56,8 +56,10 @@ export default function Navbar() {
             <IoPersonCircleOutline className="account-img" size="50" />
           </button>
         )}
-        {user && menu && <Menupopup id={menuId} />}
-        {user && account && <Accountpopup id={accountId} />}
+        {/* {user && menu && <Menupopup id={menuId} />} */}
+        <Menupopup id={menuId} active={user && menu}/>
+        {/* {user && account && <Accountpopup id={accountId} />} */}
+        <Accountpopup id={accountId} active={user && account}/>
       </header>
 
       <div className="generalSpacer" />

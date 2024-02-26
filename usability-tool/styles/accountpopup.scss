@@ -6,6 +6,9 @@
   display: grid;
   grid-template: 0.5fr repeat(2, 1fr) / 1fr;
   height: 25vh;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease;
 
   position: absolute;
 
