@@ -46,9 +46,11 @@ export default function Statistics() {
   const { user } = getAuthContext();
   const [currHeuristic, setCurrHeuristic] = useState(0);
   const [activeButton, setActiveButton] = useState(0);
-  const [currData, setCurrData] = useState(null);
+  const [currQuizData, setCurrQuizData] = useState(null);
+  const [currUIData, setCurrUIData] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [dataArray, setDataArray] = useState([]);
+  const [quizDataArray, setQuizDataArray] = useState([]);
+  const [uiDataArray, setUIDataArray] = useState([]);
   const [bestTime, setBestTime] = useState(100000000);
 
   const colors = { Incorrect: "#F24336", Correct: "#4BAE4F" };
@@ -60,34 +62,45 @@ export default function Statistics() {
 
   //Returns the data in a form that the graph can read
   function getDataForGraph() {
-    return Object.keys(currData)
+    return Object.keys(currQuizData)
       .filter((key) => key === "correct" || key === "incorrect")
       .map((key) => {
         return {
           name: key.charAt(0).toUpperCase() + key.slice(1),
-          value: currData[key],
+          value: currQuizData[key],
+        };
+      });
+  }
+
+  function getDataForUIGraph() {
+    return Object.keys(currUIData)
+      .filter((key) => key === "correct" || key === "incorrect")
+      .map((key) => {
+        return {
+          name: key.charAt(0).toUpperCase() + key.slice(1),
+          value: currUIData[key],
         };
       });
   }
 
   function getDataForTable() {
-    return Object.keys(currData)
+    return Object.keys(currQuizData)
     .filter(key => key ==="time")
     .map(key => {
       return {
         name: key,
-        value: currData[key]
+        value: currQuizData[key]
       }
     })
   }
 
   function getDataForAttempts() {
-    return Object.keys(currData)
+    return Object.keys(currQuizData)
     .filter(key => key==="attempts")
     .map(key => {
       return {
         name: key,
-        value: currData[key]
+        value: currQuizData[key]
       }
     })
   }
@@ -102,16 +115,22 @@ export default function Statistics() {
     async function getAllHeuristicData() {
       //The new state array
       const heuristicDataArray = [];
+      const UIDataArray = [];
       try {
         //Loop through all 10 heurisics
         for (let i = 0; i < 10; i++) {
           //Get the data or put null if there isn't any
           const heuristicData = await readHeuristicData(i + 1, user.uid);
           heuristicDataArray[i] = heuristicData.data || null;
+
+          const uiData = await readUIData(i + 1, user.uid);
+          UIDataArray[i] = uiData.data || null;
         }
         //Set the state
-        setDataArray(heuristicDataArray);
-        setCurrData(heuristicDataArray[0]);
+        setQuizDataArray(heuristicDataArray);
+        setCurrQuizData(heuristicDataArray[0]);
+        setUIDataArray(UIDataArray);
+        setCurrUIData(UIDataArray[0]);
       } catch (e) {
         console.error(e);
       }
@@ -130,8 +149,8 @@ export default function Statistics() {
 
   //Set the currData to the new heuristic's data
   useEffect(() => {
-    setCurrData(dataArray[currHeuristic]);
-    //calculateBestTime(getDataForTime());
+    setCurrQuizData(quizDataArray[currHeuristic]);
+    
   }, [currHeuristic]);
 
   function handleClick(index) {
@@ -158,7 +177,7 @@ export default function Statistics() {
       <div className="main-stat-container">
         {!isMobile ? (
           <section className="stat-buttons">
-            {dataArray.map((data, i) =>
+            {quizDataArray.map((data, i) =>
               !data ? (
                 <button key={i} disabled className="disabled">
                   <FaLock />
@@ -181,7 +200,7 @@ export default function Statistics() {
             {/* <ResponsiveContainer className="stats-container"> */}
             <div className="stat-graph-container">
               <h2 className="heuristic-title">Quiz Data</h2>
-              {currData ? (
+              {currQuizData ? (
                 <ResponsiveContainer>
                   <PieChart>
                     <Pie
@@ -205,22 +224,22 @@ export default function Statistics() {
             </div>
             <div className="stat-graph-container">
               <h2 className="heuristic-title">UI Builder Data</h2>
-              {currData ? (
+              {currUIData ? (
                 <ResponsiveContainer>
                   <PieChart>
                     <Pie
                       dataKey="value"
                       isAnimationActive={false}
-                      // data={currData.filter(entry => entry.name === "Number of questions correct" || entry.name === "Number of questions incorrect")}
+                      data={getDataForUIGraph()}
                       fill="#8884d8"
                       label
                     >
-                      {/* {currData.map((entry, index) => (
+                      {getDataForUIGraph().map((entry, index) => (
                         <Cell
                           key={`cell-${index}`}
-                          fill={entry.type ? colors.correct : colors.incorrect}
+                          fill={colors[entry.name]}
                         />
-                      ))} */}
+                      ))}
                     </Pie>
                     <Tooltip />
                   </PieChart>
@@ -234,7 +253,7 @@ export default function Statistics() {
           <div className="space"></div>
           <div className="stat-graphs">
             <div className="panel-container">
-              {currData ? (
+              {currQuizData ? (
                 <div className="panel">
                   <h2 className="heuristic-title">Quiz</h2>
                   <div className="content">
@@ -270,7 +289,7 @@ export default function Statistics() {
                 </div>
               ) : null}
 
-              {currData ? (
+              {currQuizData ? (
                 <div className="panel">
                   <h2 className="heuristic-title">UI Builder</h2>
                   <div className="content">

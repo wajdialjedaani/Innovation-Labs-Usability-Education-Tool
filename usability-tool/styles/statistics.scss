@@ -92,7 +92,7 @@ button.disabled {
 .stat-graphs {
   display: flex;
   flex-direction: column;
-  width: 33%;
+  width: 50%;
   height: 100%;
   background-color: #0c1821;
   border-radius: 15px;
@@ -102,8 +102,8 @@ button.disabled {
 }
 
 .space {
-  padding-left: 5vw;
-  padding-right: 5vw;
+  padding-left: 0.5vw;
+  padding-right: 0.5vw;
 }
 
 .table-heading {
@@ -198,7 +198,7 @@ button.disabled {
 
 .stat-table {
   border-collapse: collapse;
-  width: 80%;
+  width: 85%;
   color: #ffffff;
   margin: 2vw;
 }
