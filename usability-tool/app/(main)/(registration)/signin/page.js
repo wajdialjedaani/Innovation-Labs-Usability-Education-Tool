@@ -203,6 +203,7 @@ export default function Logon() {
             href="/home"
             className="back-arrow-button"
             aria-label="Go back to home page"
+            replace
           >
             <FaArrowCircleLeft className="back-arrow" size="2em" />
           </Link>
