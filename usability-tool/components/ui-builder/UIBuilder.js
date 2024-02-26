@@ -34,10 +34,12 @@ export default function UIBuilder({ scenario, widgetData, heuristic }) {
 }
 
 function UIBuilderDNDContainer(props) {
-  const { widgets, replaceWidget } = getContextSuite();
+  const { widgets, replaceWidget, stopTooltip, releaseTooltip } = getContextSuite();
   const [activeWidget, setactiveWidget] = useState(null);
 
   function handleDragStart(event) {
+    stopTooltip();
+
     // find widget. get info about it.
     const widget = widgets.drawer
       .concat(widgets.grid)
@@ -57,8 +59,12 @@ function UIBuilderDNDContainer(props) {
 
   // function for handling post-drag placement
   function handleDragEnd(event) {
+    releaseTooltip();
     console.log(event);
     console.log(event.active.rect.current.translated);
+    console.log(activeWidget);
+
+    console.log(activeWidget.widget.zIndex);
 
     // get activeWidget for editing
     let updatedWidget = activeWidget.widget;
@@ -70,6 +76,8 @@ function UIBuilderDNDContainer(props) {
         position: "absolute",
         left: event.active.rect.current.translated.left,
         top: event.active.rect.current.translated.top,
+        rect: event.active.rect.current,
+        zIndex: activeWidget.widget.zIndex
       };
 
       // replace in widgets context in grid
@@ -116,39 +124,3 @@ function UIBuilderBody(props) {
     </div>
   );
 }
-
-//     if (event.over.id === "UIBuilderGrid"){
-//       const widget = widgets.find((widget) => widget.id === event.active.id);
-
-//       //Need to deep copy the nested style object so we can modify its properties
-//       widget.style = {...widget.style};
-
-// /*       if (event.over && event.over.id === 'UIBuilderGrid') {
-//         //If widget is dragged over the grid, add the delta to the current position so that it sticks where it's dropped
-//         const currentLeft = parseInt(widget.style.left);
-//         const currentTop = parseInt(widget.style.top);
-//         widget.style.left = `${currentLeft + event.delta.x}px`;
-//         widget.style.top = `${currentTop + event.delta.y}px`
-//       }
-//       else {
-//         //Otherwise, if the widget was dragged back out of the grid, reset it back to its original position in the drawer
-//         widget.style.left = "0px";
-//         widget.style.top = "0px";
-//       } */
-
-//       //widget.style.transform = CSS.Translate.toString(event.delta);
-
-// /*       //Update the array and store it
-//       const updatedWidgets = widgets.map((element) => {
-//         // if(element.id === widget.id) return widget;
-//         // return element;
-//         return;
-//       }); */
-
-//       const updatedWidgets = widgets.filter(element => element.id !== widget.id);
-
-//       const updatedGridWidgets = [...gridWidgets, widget];
-
-//       setGridWidgets(updatedGridWidgets);
-//       setWidgets(updatedWidgets);
-//     }

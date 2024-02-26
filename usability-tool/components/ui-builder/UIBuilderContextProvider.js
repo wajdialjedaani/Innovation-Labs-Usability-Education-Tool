@@ -2,6 +2,8 @@
 import { useContext, createContext, useState, useRef } from "react";
 import gradingRoutine from "@/lib/UIBuilder/gradingRoutine";
 
+import { TooltipWindow } from "./BoneTooltip";
+
 // ContextSuite
 const ContextSuite = createContext();
 
@@ -55,6 +57,9 @@ export default function UIBuilderContextProvider({
   const [widgets, setWidgets] = useState(widgetData);
   const [gridWidgets, setGridWidgets] = useState([]);
   const startTime = useRef(Math.floor(Date.now() / 1000));
+
+  const [blockTooltip, setBlockTooltip] = useState(false);
+  const [tooltipDisp, setTooltipDisp] = useState(false);
 
   const contextSuite = {
     // The heuristic (for db)
@@ -119,20 +124,33 @@ export default function UIBuilderContextProvider({
     },
 
     startGrading: () => {
-      // get score
-      const score = gradingRoutine(scenario, widgets.grid);
-
-      // put score in database....
-      // do stuff
-
-      // ...return for display to user
-      return score;
+      return gradingRoutine(scenario, widgets.grid);
     },
+
+    // tooltip locking while dragging
+    blockTooltip,
+
+    setTooltipTitle: (title) => {
+      setTooltipDisp(<TooltipWindow title={title}/>)
+    },
+
+    killTooltipDisp: () => {
+      setTooltipDisp(null);
+    },
+
+    stopTooltip: () => {
+      setBlockTooltip(true);
+    },
+
+    releaseTooltip: () => {
+      setBlockTooltip(false);
+    }
   };
 
   return (
     <ContextSuite.Provider value={contextSuite}>
       {children}
+      {tooltipDisp}
     </ContextSuite.Provider>
   );
 }

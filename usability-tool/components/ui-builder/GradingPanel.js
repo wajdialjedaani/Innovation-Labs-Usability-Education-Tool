@@ -17,7 +17,7 @@ export default function GradingPanel() {
   const { user } = getAuthContext();
   const { startGrading, heuristic, startTime } = getContextSuite();
 
-  const [score, setScore] = useState();
+  const [scoreObj, setScoreObj] = useState({});
 
   const [howlerSrc, setHowlerSrc] = useState();
 
@@ -31,34 +31,40 @@ export default function GradingPanel() {
 
   useEffect(() => {
     // get score
-    const score = startGrading();
+    const scoreObjGet = startGrading();
+
     //Get the time taken
     const timeTaken = Math.floor(Date.now() / 1000) - startTime.current;
-    setScore(score);
+    setScoreObj(scoreObjGet);
 
     // initiate score sound
-    if (score >= 7) {
+    if (scoreObjGet.score >= 7) {
       setHowlerSrc("/UIBuilder/pass.mp3");
     } else {
       setHowlerSrc("/UIBuilder/failure.mp3");
     }
 
     //Add score to firebase
-    addUIDataToDB({ correct: score, incorrect: 10 - score, time: timeTaken });
+    addUIDataToDB({ correct: scoreObjGet.score, incorrect: 10 - scoreObjGet.score, time: timeTaken });
   }, []);
 
   return (
     <article title="Score" className={styles.gradingPanelContainer}>
       <h3 role="header" className={styles.gradingPanelHeader}>
-        You have {score >= 7 ? "passed!" : "failed."}
+        You have {scoreObj.score >= 7 ? "passed!" : "failed."}
       </h3>
 
       <div className={styles.gradingPanelProgressBarContainer}>
         <div
           className={styles.gradingPanelProgressBar}
-          style={{ width: `${score}0%` }}
+          style={{ width: `${scoreObj.score}0%` }}
         />
-        <p className={styles.gradingPanelScoreDisplay}>{score}/10</p>
+        <p className={styles.gradingPanelScoreDisplay}>{scoreObj.score}/10</p>
+      </div>
+
+      <div className={styles.gradingPanelScoreBreakdown}>
+        Component Position Points: <span className={styles.gradingPanelScoreBreakdownHighlight}>{Math.round(Number(scoreObj.positioningScore))} / 100</span><br/>
+        Component Selection Points: <span className={styles.gradingPanelScoreBreakdownHighlight}>{Math.round(Number(scoreObj.bonesUsedScore))} / 100</span>
       </div>
 
       {howlerSrc && (

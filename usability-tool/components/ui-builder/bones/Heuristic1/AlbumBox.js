@@ -1,7 +1,9 @@
 import styles from "@/styles/UIBones.module.scss";
+import BoneTooltip from "../../BoneTooltip";
 
 export default function AlbumBox(){
   return (
+    <BoneTooltip title="Album Panel">
     <div className={styles.albumBox}>
       <div className={styles.albumContainer}>
         <img src="/UIBuilder/cover1.png"/>
@@ -46,5 +48,6 @@ export default function AlbumBox(){
         </div>
       </div>
     </div>
+    </BoneTooltip>
   )
 }
