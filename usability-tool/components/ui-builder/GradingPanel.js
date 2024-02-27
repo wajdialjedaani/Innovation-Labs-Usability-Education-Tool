@@ -13,9 +13,9 @@ import { useEffect, useState } from "react";
 
 import { addUIData } from "@/lib/firebase/firestore";
 
-export default function GradingPanel() {
+export default function GradingPanel({toggleFunction}) {
   const { user } = getAuthContext();
-  const { startGrading, heuristic, startTime } = getContextSuite();
+  const { startGrading, heuristic, startTime, toggleSolutionView } = getContextSuite();
 
   const [scoreObj, setScoreObj] = useState({});
 
@@ -67,6 +67,37 @@ export default function GradingPanel() {
         Component Selection Points: <span className={styles.gradingPanelScoreBreakdownHighlight}>{Math.round(Number(scoreObj.bonesUsedScore))} / 100</span>
       </div>
 
+      <div className={styles.gradingPanelButtonGroup}>
+        <GradingPanelButton
+          text="View Solution"
+          icon="book-open"
+          alt="sup"
+          onClick={() => {toggleFunction(); toggleSolutionView();}}
+        />
+        {
+          scoreObj.score >= 7
+
+          ?
+
+          <GradingPanelButton
+            text="Continue"
+            icon="arrow-right"
+            alt="sup"
+            onClick={() => {toggleFunction(); toggleSolutionView();}}
+          />
+
+          :
+
+          <GradingPanelButton
+            text="View Solution"
+            icon="refresh-cw"
+            alt="hey"
+            onClick={() => {toggleFunction(); toggleSolutionView();}}
+          />
+        }
+      </div>
+      
+
       {howlerSrc && (
         <ReactHowler
           src={howlerSrc}
@@ -81,4 +112,15 @@ export default function GradingPanel() {
       )}
     </article>
   );
+}
+
+function GradingPanelButton({icon, alt, onClick, text}){
+  return (
+    <div className={styles.gradingPanelButtonContainer}>
+      <button className={styles.gradingPanelButton} role="button" alt={alt} title={alt} onClick={onClick}>
+        {text}
+        <img src={`/icons/${icon}.svg`}/>
+      </button>
+    </div>
+  )
 }
