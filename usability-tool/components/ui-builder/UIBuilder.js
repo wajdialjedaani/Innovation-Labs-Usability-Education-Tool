@@ -15,6 +15,7 @@ import ComponentDrawer from "./ComponentDrawer";
 import { DragOverlay } from "@dnd-kit/core";
 import BoneSelector from "./BoneSelector";
 import MenuBar from "./MenuBar";
+import SolutionViewer from "./SolutionViewer";
 
 // util imports
 import { restrictToWindowEdges } from "@dnd-kit/modifiers";
@@ -117,9 +118,12 @@ function UIBuilderDNDContainer(props) {
 }
 
 function UIBuilderBody(props) {
+  const { solutionMode } = getContextSuite();
+
   return (
     <div className={styles.builderBody}>
-      <Grid />
+      {/* <Grid /> */}
+      {solutionMode ? <SolutionViewer /> : <Grid /> }
       <ComponentDrawer widgets={props.widgets} />
     </div>
   );
