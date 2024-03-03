@@ -1,41 +1,68 @@
 "use client";
 import "@/styles/header.scss";
-import { useState, Fragment } from "react";
+import { useState, useEffect, Fragment, useId } from "react";
 
-import Image from "next/image";
+import { getAuthContext } from "./AuthContextProvider";
+import { IoMenuOutline } from "react-icons/io5";
+import { IoPersonCircleOutline } from "react-icons/io5";
+import { IconContext } from "react-icons";
 
-import menuIcon from "/public/images/menu.png";
-import accountIcon from "/public/images/account.png";
+import { usePathname } from "next/navigation";
 
 import Menupopup from "./popups/Menupopup";
 import Accountpopup from "./popups/Accountpopup";
 
 export default function Navbar() {
+  const pathName = usePathname();
+  const { user } = getAuthContext();
   const [menu, setMenu] = useState(false);
   const [account, setAccount] = useState(false);
+
+  const menuId = useId();
+  const accountId = useId();
+
+  //Close the popups when the page changes
+  useEffect(() => {
+    setMenu(false);
+    setAccount(false);
+  }, [pathName]);
+
   return (
     <Fragment>
       <header className="main-head">
-        <Image
-          src={menuIcon}
-          className="menu-img"
-          alt="Menu Button"
-          onClick={() => setMenu((prevMenu) => !prevMenu)}
-        />
-        
-        <h1 className="menu-title">Usability Education Tool</h1>
+        {user && (
+          <button
+            className="navbar-button"
+            onClick={() => setMenu((prevMenu) => !prevMenu)}
+            aria-label="Open the menu dropdown"
+            aria-expanded={menu}
+            aria-haspopup
+            aria-controls={menuId}
+          >
+            <IoMenuOutline className="menu-img" size="50" />
+          </button>
+        )}
 
-        <Image
-          src={accountIcon}
-          className="account-img"
-          alt="Account Button"
-          onClick={() => setAccount((prevAccount) => !prevAccount)}
-        />
-        {menu && <Menupopup />}
-        {account && <Accountpopup />}
+        <h1 className="menu-title">Usability Education Tool</h1>
+        {user && (
+          <button
+            className="navbar-button"
+            onClick={() => setAccount((prevAccount) => !prevAccount)}
+            aria-label="Open the account dropdown"
+            aria-expanded={account}
+            aria-haspopup
+            aria-controls={accountId}
+          >
+            <IoPersonCircleOutline className="account-img" size="50" />
+          </button>
+        )}
+        {/* {user && menu && <Menupopup id={menuId} />} */}
+        <Menupopup id={menuId} active={user && menu}/>
+        {/* {user && account && <Accountpopup id={accountId} />} */}
+        <Accountpopup id={accountId} active={user && account}/>
       </header>
 
-      <div className="generalSpacer"/>
+      <div className="generalSpacer" />
     </Fragment>
   );
 }

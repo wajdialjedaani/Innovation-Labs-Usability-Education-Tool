@@ -1,9 +1,11 @@
-@use './mixins/colorscheme.scss' as *;
+@use "./mixins/colorscheme.scss" as *;
+@use "./mixins/breakpoints.scss" as *;
 
 .textbookContainer {
   display: flex;
   justify-content: center;
   margin-top: 15px;
+  padding-inline: 5vw;
 }
 
 .markdownBody {
@@ -24,6 +26,12 @@
   gap: 0;
 
   align-items: center;
+  @include xsm {
+    padding: 2em;
+  }
+  @include sm {
+    width: 100%;
+  }
 }
 
 .markdownBody p {
@@ -32,10 +40,11 @@
 }
 
 .markdownBody img {
-
+  width: 100%;
 }
 
 .markdownBody h1 {
+  text-align: center;
   margin: 0;
   align-self: left !important;
   justify-self: left !important;

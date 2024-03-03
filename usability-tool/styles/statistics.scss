@@ -1,7 +1,10 @@
+@use "./mixins/breakpoints.scss" as *;
 main {
   box-sizing: border-box;
   padding: 15px;
-  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 65px);
 }
 
 .progress-container {
@@ -13,18 +16,30 @@ main {
 .main-stat-container {
   height: 100%;
   display: flex;
+
   gap: 30px;
+  // justify-content: center;
+  @include sm {
+    flex-direction: column;
+  }
+}
+
+.mobile-dropdown {
+  font-weight: bold;
+  align-self: center;
+  option {
+    //TODO: styles
+  }
 }
 
 .stat-buttons {
-  flex: 0 0 25%;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template: repeat(10, 1fr) / 1fr;
+  flex: 0 0 15%;
   gap: 5px;
   button {
+    font-size: 2vw;
     box-sizing: border-box;
-    flex: 0 0 calc(50% - 5px);
-    font-size: 25px;
     font-weight: bold;
     color: #ffffff;
     background-color: #324a5f;
@@ -37,25 +52,109 @@ main {
   button:hover {
     background-color: #0c1821;
   }
+  button:disabled {
+    display: flex;
+    font-size: medium;
+    align-items: center;
+    justify-content: center;
+    cursor: not-allowed;
+    color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(50, 74, 95, 0.5);
+    svg {
+      margin-right: 10px;
+      flex-shrink: 0.5;
+    }
+  }
+}
+
+button.active {
+  background-color: #0c1821;
+  color: white;
+}
+
+button.disabled {
+  background-color: #0c1821;
+  color: white;
 }
 
 .stat-container {
   padding: 15px;
-  flex: 0 1 75%;
+  flex: 0 0 80%;
   display: flex;
+  flex-direction: row;
   background-color: #324a5f;
   border-radius: 15px;
+  @include sm {
+    flex-direction: column;
+  }
+}
+
+.stat-graphs {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  background-color: #0c1821;
+  border-radius: 15px;
+  @include sm {
+    width: 100%;
+  }
+}
+
+.space {
+  padding-left: 0.5vw;
+  padding-right: 0.5vw;
+}
+
+.table-heading {
+  text-align: left; 
+}
+
+.number-of-attempts {
+  color: #ffffff;
+  padding-left: 2vw;
+  font-size: 20px;
 }
 
 .stat-graph-container {
   display: flex;
+  height: 50%;
   flex-direction: column;
   align-items: center;
+  // border: 1px solid black;
+  h3 {
+    margin: 0;
+    color: red;
+    font-style: italic;
+    font-size: 25px;
+    // background-color: #0c1821;
+    // border-radius: 100%;
+    // padding: 100px 50px;
+  }
 }
 
 .heuristic-title {
   font-size: 30px;
+  text-align: center;
+  margin: 0;
+  padding-top: 1vw;
   color: #ffffff;
+}
+
+.stats-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  //align-items: center;
+  flex-wrap: wrap;
+  width: 33%;
+  height: 80%;
+  // padding: 40px;
+  margin: auto;
+  //overflow-y: auto;
+  color: #ffffff;
+  background-color: #0c1821;
+  border-radius: 15px;
 }
 
 .wrong-questions-container {
@@ -80,4 +179,36 @@ main {
     font-size: 25px;
     margin: 25px;
   }
+}
+
+.panel-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.panel {
+  flex: 1;
+}
+
+.content {
+  height: 50%;
+  overflow-y: auto;
+}
+
+.stat-table {
+  border-collapse: collapse;
+  width: 85%;
+  color: #ffffff;
+  margin: 2vw;
+}
+
+.stat-table th,
+.stat-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.stat-table th {
+  background-color: #000000;
 }

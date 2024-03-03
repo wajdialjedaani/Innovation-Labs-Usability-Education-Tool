@@ -1,0 +1,140 @@
+{
+  "scenarioInformation": {
+    "title": "Visibility of System Status",
+    "description": "As you have learned in the previous lesson, the visibility of system status is an important heuristic to follow when designing user interfaces.\n\nFor this activity, you will be building a simple user interface for a web based music player. You do not need to use all of the components provided to successfully complete the activity. Remember to follow the guidelines of the visibility of system status heuristic while completing this activity."
+  },
+  "solutionGrid": [
+    {
+      "id": "h1y",
+      "bone": "AlbumBox",
+      "style": {
+        "position": "absolute",
+        "left": 255,
+        "top": 230
+      }
+    },
+    {
+      "id": "h1t",
+      "bone": "TopBar",
+      "style": {
+        "position": "absolute",
+        "left": 255,
+        "top": 140
+      }
+    },
+    {
+      "id": "h1e",
+      "bone": "NowPlaying",
+      "style": {
+        "position": "absolute",
+        "left": 490,
+        "top": 140
+      }
+    },
+    {
+      "id": "h1r",
+      "bone": "PlaybackSlider",
+      "style": {
+        "position": "absolute",
+        "left": 490,
+        "top": 211.984375
+      }
+    },
+    {
+      "id": "h1u",
+      "bone": "PlaybackBump",
+      "style": {
+        "position": "absolute",
+        "left": 900,
+        "top": 438.375
+      }
+    },
+    {
+      "id": "h1w",
+      "bone": "VolumeControls",
+      "style": {
+        "position": "absolute",
+        "left": 275,
+        "top": 152.9375
+      }
+    },
+    {
+      "id": "h1q",
+      "bone": "PlaybackControls",
+      "style": {
+        "position": "absolute",
+        "left": 940,
+        "top": 153.046875
+      }
+    }
+  ],
+  "widgetData": {
+    "drawer": [
+      {
+        "id": "h1y",
+        "bone": "AlbumBox",
+        "zIndex": 100,
+        "style": {
+          "position": "static"
+        }
+      },
+      {
+        "id": "h1t",
+        "bone": "TopBar",
+        "zIndex": 100,
+
+        "style": {
+          "zIndex": 100
+        }
+      },
+      {
+        "id": "h1e",
+        "bone": "NowPlaying",
+        "zIndex": 150,
+
+        "style": {
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "h1r",
+        "bone": "PlaybackSlider",
+        "zIndex": 150,
+
+        "style": {
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "h1u",
+        "bone": "PlaybackBump",
+        "zIndex": 150,
+
+        "style": {
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "h1w",
+        "bone": "VolumeControls",
+        "zIndex": 150,
+
+        "style": {
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "h1q",
+        "bone": "PlaybackControls",
+        "zIndex": 150,
+
+        "style": {
+          "zIndex": 150
+        }
+      }
+    ],
+    "grid": []
+  },
+  "positioningWeight": 0.5,
+  "bonesUsedWeight": 0.5
+}

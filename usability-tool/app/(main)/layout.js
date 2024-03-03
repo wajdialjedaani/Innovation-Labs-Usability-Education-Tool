@@ -2,9 +2,7 @@ import { Inter } from "next/font/google";
 import "@/styles/globals.scss";
 import Navbar from "./components/Navbar";
 
-import { ContextProvider } from "./components/ContextProvider";
-
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata = {
   title: "Usability Education Tool",
@@ -13,11 +11,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className="global">
-        <Navbar />
-        <ContextProvider>{children}</ContextProvider>
-      </body>
-    </html>
+    <>
+      <Navbar />
+      {children}
+    </>
   );
 }

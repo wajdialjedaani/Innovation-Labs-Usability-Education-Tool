@@ -1,8 +1,7 @@
-@use './mixins/colorscheme.scss' as *;
-
+@use "./mixins/colorscheme.scss" as *;
+@use "./mixins/breakpoints.scss" as *;
 .navContainer {
   position: fixed;
-
   bottom: 3vh;
 
   padding: 2vh;
@@ -24,6 +23,16 @@
   height: 7vh;
 
   background-color: $darkest;
+
+  @include sm {
+    bottom: 1vh;
+    height: 2vh;
+  }
+  @include xsm {
+    font-size: 0.8em;
+    padding: 0.5vh;
+    width: 33%;
+  }
 }
 
 .left {
@@ -61,11 +70,13 @@
 }
 
 .imageHolder {
-
 }
 
-.navContainer img{
+.navContainer img {
   filter: brightness(0) invert(1);
   width: 2em;
   height: auto;
+  @include xsm {
+    width: 1em;
+  }
 }

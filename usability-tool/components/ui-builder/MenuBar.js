@@ -16,7 +16,7 @@ import { getContextSuite } from "./UIBuilderContextProvider.js";
 import BoneDiscarder from "./BoneDiscarder";
 
 export default function MenuBar(props){
-  const {scenarioInformation} = getContextSuite();
+  const {scenarioInformation, solutionMode, toggleSolutionView} = getContextSuite();
   const [modal, setModal] = useState(null);
 
   function clearModal() {
@@ -45,6 +45,7 @@ export default function MenuBar(props){
           <Button
             alt="exit"
             icon="x"
+            text="Exit"
           />
 
           <Button
@@ -53,6 +54,7 @@ export default function MenuBar(props){
             onClick={() => {
               renderModal(<InfoPanel />, scenarioInformation.title);
             }}
+            text="Scenario Information"
           />
 
           { scenarioInformation.title === "developer mode" &&
@@ -60,6 +62,7 @@ export default function MenuBar(props){
               alt="debug menu"
               icon="cpu"
               onClick={() => {renderModal(<DebugMenu />, "debug menu")}}
+              text="Developer Menu"
             />
           }
         </div>
@@ -69,21 +72,34 @@ export default function MenuBar(props){
         </div>
 
         <div className={styles.menuBarGroup}>
-          <Button
-            alt="submit"
-            icon="check"
-            onClick={() => {renderModal(<GradingPanel />, "Activity Results")}}
-          />
+          {solutionMode ? 
+            <Button
+              alt="submit"
+              icon="unlock"
+              onClick={() => {toggleSolutionView();}}
+              text="Exit Solution View"
+            /> 
+            :
+            <Button
+              alt="submit"
+              icon="check"
+              onClick={() => {renderModal(<GradingPanel toggleFunction={clearModal}/>, "Activity Results")}}
+              text="Submit"
+            />
+          }
         </div>
       </nav>
     </Fragment>
   )
 }
 
-function Button({icon, alt, onClick}){
+function Button({icon, alt, onClick, text}){
   return (
-    <button className={styles.menuBarButton} role="button" alt={alt} title={alt} onClick={onClick}>
+    <div className={styles.menuBarButtonContainer}>
+      <button className={styles.menuBarButton} role="button" alt={alt} title={alt} onClick={onClick}>
+      {text}
       <img src={`/icons/${icon}.svg`}/>
-    </button>
+      </button>
+    </div>
   )
 }

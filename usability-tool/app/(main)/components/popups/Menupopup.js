@@ -1,25 +1,21 @@
 import "@/styles/menupopup.scss";
 import Link from "next/link";
 
-export default function Menupopup() {
+export default function Menupopup({ id, active }) {
   return (
-    <div className="menu-popup">
+    <div className="menu-popup" role="menu" id={id} style={{maxHeight: active ? "100vh" : "0px"}}>
       <Link href="/main" className="menu-popup-list-item-link">
         Home
       </Link>
       {new Array(10).fill(0).map((_, i) => (
         <Link
-          href={`/lesson-${i + 1}`}
+          href={`/lessons/${i + 1}`}
           className="menu-popup-list-item-link"
           key={i}
         >
           Heuristic {i + 1}
         </Link>
       ))}
-
-      <Link href="/statistics" className="menu-popup-list-item-link">
-        Statistics
-      </Link>
     </div>
   );
 }

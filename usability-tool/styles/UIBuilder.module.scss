@@ -9,29 +9,53 @@ $highestZ: 10000;
   background-color: $darkest;
 
   width: 100vw;
-  height: 5vh;
+  height: 65px;
 
   display: flex;
   color: white;
   justify-content: space-between;
   align-items: center;
 
+  box-sizing: border-box;
+
+  padding-left: 1em;   padding-right: 1em;
+
   z-index: $highestZ;
 }
 
 .menuBarTitle {
-  font-size: 3vh;
+  font-size: 30px;
+  margin-right: 8em;
   user-select: none;
+  font-weight: bold;
 }
 
 .menuBarButton {
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  box-sizing: border-box;
   appearance: none;
   background-color: transparent;
   border: none;
-  padding: 0;
+  padding: 0.3em;
   margin: 0;
   cursor: pointer;
+  border-radius: 8px;
+  transition: 0.2s;
 }
+
+.gradingPanelHeader {
+  margin-top: 0;
+}
+
+.menuBarButton:hover {
+  background-color: $darkestHover;
+}
+
+
 
 .menuBarButton img {
   justify-content: center;
@@ -42,7 +66,7 @@ $highestZ: 10000;
 
 .menuBarGroup {
   display: flex;
-  gap: 0.5em;
+  gap: 2em;
 }
 
 .builderBody {
@@ -52,7 +76,7 @@ $highestZ: 10000;
 
 // grid
 .gridBody {
-  height: 95vh;
+  height: calc(100vh - 65px);
   width: 75vw;
 
   display: flex;
@@ -78,12 +102,16 @@ $highestZ: 10000;
 
 // component drawer stuff
 .componentDrawer {
-  height: 95vh;
+  height: calc(100vh - 65px);
   width: 25vw;
 
   background-color: $dark;
   overflow-y: auto;
   overflow-x: hidden;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .componentDrawerHeader {
@@ -104,7 +132,7 @@ $highestZ: 10000;
   z-index: $highestZ;
 }
 
-// grading panel
+// ================================ grading panel ======================================
 
 .gradingPanelProgressBarContainer {
   position: relative; /* Set the container to a relative position */
@@ -129,6 +157,64 @@ $highestZ: 10000;
   font-weight: bold; /* Optional: Adjust the font weight */
 }
 
+.gradingPanelScoreBreakdown {
+  font-size: 18px;
+  margin-top: 1em;
+}
+
+.gradingPanelScoreBreakdownHighlight {
+  font-weight: bold;
+}
+
+.gradingPanelButton {
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  box-sizing: border-box;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+
+  background-color: $dark;
+
+  border: 1px white solid;
+  padding: 0.3em;
+  margin: 0;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.gradingPanelButton:hover {
+  background-color: $darkHover;
+}
+
+.gradingPanelButtonGroup {
+  margin-top: 1em;
+}
+
+.gradingPanelButton img {
+  filter: $whiteSvg;
+}
+
+.gradingPanelButtonGroup {
+  display: flex;
+  justify-content: space-between;
+}
+
+.gradingPanelScoreBreakdown h2 {
+  font-size: 18px;
+  margin-bottom: 0.5em;
+}
+
+.gradingPanelTippers {
+  display: block;
+  margin-top: 0.35em;
+  font-style: italic;
+}
+
 // info panel
 .infoPanelContainer p {
   white-space: pre-wrap;
@@ -145,4 +231,17 @@ $highestZ: 10000;
   align-items: center;
 
   resize: both;
+}
+
+.boneTooltipWindow {
+  background-color: $darkest;
+  border: 1px solid white;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 1em;
+  position: fixed;
+  z-index: 999;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 20px;
 }
