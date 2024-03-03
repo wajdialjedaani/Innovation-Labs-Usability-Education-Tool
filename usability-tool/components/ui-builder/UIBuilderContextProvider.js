@@ -20,7 +20,7 @@ export default function UIBuilderContextProvider({
   // widget state, for editing position and selecting bone
   const [widgets, setWidgets] = useState(widgetData);
 
-  const [solutionMode, setSolutionMode] = useState(true);
+  const [solutionMode, setSolutionMode] = useState(false);
 
   const startTime = useRef(Math.floor(Date.now() / 1000));
 

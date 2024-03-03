@@ -54,49 +54,9 @@ export default function GradingPanel({toggleFunction}) {
         You have {scoreObj.score >= 7 ? "passed!" : "failed."}
       </h3>
 
-      <div className={styles.gradingPanelProgressBarContainer}>
-        <div
-          className={styles.gradingPanelProgressBar}
-          style={{ width: `${scoreObj.score}0%` }}
-        />
-        <p className={styles.gradingPanelScoreDisplay}>{scoreObj.score}/10</p>
-      </div>
-
-      <div className={styles.gradingPanelScoreBreakdown}>
-        Component Position Points: <span className={styles.gradingPanelScoreBreakdownHighlight}>{Math.round(Number(scoreObj.positioningScore))} / 100</span><br/>
-        Component Selection Points: <span className={styles.gradingPanelScoreBreakdownHighlight}>{Math.round(Number(scoreObj.bonesUsedScore))} / 100</span>
-      </div>
-
-      <div className={styles.gradingPanelButtonGroup}>
-        <GradingPanelButton
-          text="View Solution"
-          icon="book-open"
-          alt="sup"
-          onClick={() => {toggleFunction(); toggleSolutionView();}}
-        />
-        {
-          scoreObj.score >= 7
-
-          ?
-
-          <GradingPanelButton
-            text="Continue"
-            icon="arrow-right"
-            alt="sup"
-            onClick={() => {toggleFunction(); toggleSolutionView();}}
-          />
-
-          :
-
-          <GradingPanelButton
-            text="View Solution"
-            icon="refresh-cw"
-            alt="hey"
-            onClick={() => {toggleFunction(); toggleSolutionView();}}
-          />
-        }
-      </div>
-      
+      <ScoreBar score={scoreObj.score}/>
+      <ScoreBreakdown scoreObj={scoreObj}/>
+      <GradingPanelButtons toggleFunction={toggleFunction} toggleSolutionView={toggleSolutionView} scoreObj={scoreObj}/>
 
       {howlerSrc && (
         <ReactHowler
@@ -114,6 +74,84 @@ export default function GradingPanel({toggleFunction}) {
   );
 }
 
+function ScoreBreakdown({scoreObj}){
+  return (
+    <div className={styles.gradingPanelScoreBreakdown}>
+      <h2>Component Positioning</h2>
+      Score: <span className={styles.gradingPanelScoreBreakdownHighlight}>{Math.round(Number(scoreObj.positioningScore))} / 100</span><br/>
+      {scoreObj.worstPositionedBone && <span className={styles.gradingPanelTippers}>Try repositioning the "{addSpaceToCamelCase(scoreObj.worstPositionedBone)}" component.</span>}
+
+      <h2>Components Used</h2>
+      Score: <span className={styles.gradingPanelScoreBreakdownHighlight}>{Math.round(Number(scoreObj.bonesUsedScore))} / 100</span><br/>
+      {
+        scoreObj.missingBones &&
+        scoreObj.missingBones.length > 0 &&
+
+        <span className={styles.gradingPanelTippers}>
+          You were missing the following components:
+          {scoreObj.missingBones && scoreObj.missingBones.map((obj) => {
+            if (!obj){
+              return;
+            }
+
+            return (
+              <li>
+                {addSpaceToCamelCase(obj)}
+              </li>
+            )
+          })}
+        </span>
+      } 
+    </div>
+  )
+}
+
+function ScoreBar({score}){
+  return (
+    <div className={styles.gradingPanelProgressBarContainer}>
+    <div
+      className={styles.gradingPanelProgressBar}
+      style={{ width: `${score}0%` }}
+    />
+    <p className={styles.gradingPanelScoreDisplay}>{score}/10</p>
+  </div>
+  )
+}
+
+function GradingPanelButtons({scoreObj, toggleFunction, toggleSolutionView}){
+  return (
+    <div className={styles.gradingPanelButtonGroup}>
+    <GradingPanelButton
+      text="View Solution"
+      icon="book-open"
+      alt="View Solution"
+      onClick={() => {toggleFunction(); toggleSolutionView();}}
+    />
+    {
+      scoreObj.score >= 7
+
+      ?
+
+      <GradingPanelButton
+        text="Continue"
+        icon="arrow-right"
+        alt="Continue"
+        onClick={() => {toggleFunction();}}
+      />
+
+      :
+
+      <GradingPanelButton
+        text="Retry"
+        icon="refresh-cw"
+        alt="Retry"
+        onClick={() => {toggleFunction();}}
+      />
+    }
+  </div>
+  )
+}
+
 function GradingPanelButton({icon, alt, onClick, text}){
   return (
     <div className={styles.gradingPanelButtonContainer}>
@@ -123,4 +161,8 @@ function GradingPanelButton({icon, alt, onClick, text}){
       </button>
     </div>
   )
+}
+
+function addSpaceToCamelCase(str) {
+  return str.replace(/([a-z])([A-Z])/g, '$1 $2');
 }

@@ -1,11 +1,19 @@
 // gradingRoutine.js - function for finding grade points on ten.
 
+// TODO: 
+// - implement a system to consider two solutions. --> next week (03.04.24)
+// - implement a system that returns the worst positioned id.
+
 export default function gradingRoutine(gradingObject, userGrid){
   const {positioningWeight, bonesUsedWeight, solutionGrid} = gradingObject;
 
   // get scores for both bone usage and positioning
-  const bonesUsedScore = getBonesUsedScore(solutionGrid, userGrid);
-  const positioningScore = getPositioningScore(solutionGrid, userGrid);
+  const {bonesUsedScore, missingBones} = getBonesUsedScore(solutionGrid, userGrid);
+  const {positioningScore, worstPositionedBone} = getPositioningScore(solutionGrid, userGrid);
+
+  console.log("MISSING BONES: ", missingBones);
+  console.log(bonesUsedScore);
+  console.log(worstPositionedBone);
 
   // get raw weighted score out of 100
   let totalRawScore = (positioningWeight * positioningScore) + (bonesUsedWeight * bonesUsedScore);
@@ -21,7 +29,9 @@ export default function gradingRoutine(gradingObject, userGrid){
   const returnPayload = {
     score: totalRawScore > 95 ? 10 : Math.round((totalRawScore / 100) * 10),
     bonesUsedScore,
-    positioningScore
+    positioningScore,
+    worstPositionedBone,
+    missingBones
   }
 
   return returnPayload;
@@ -30,7 +40,10 @@ export default function gradingRoutine(gradingObject, userGrid){
 function getBonesUsedScore(solutionGrid, userGrid){
   // if no bones used, give a zero!
   if (userGrid.length < 1){
-    return 0;
+    return {
+      bonesUsedScore: 0,
+      missingBones: []
+    };
   }
 
   // get bone count. 
@@ -39,6 +52,8 @@ function getBonesUsedScore(solutionGrid, userGrid){
   let userBones = userGrid.map(obj => obj.bone); // make user bones searchable
 
   let userBoneMatches = 0;
+
+  let missingBones = []
 
   userGrid.map(obj => {
     if (obj.bone){
@@ -57,6 +72,7 @@ function getBonesUsedScore(solutionGrid, userGrid){
       // if bone matches a solution, increment
       if (!userBones.includes(obj.bone)){
         console.log("hit");
+        missingBones.push(obj.bone);
         penalty++; 
       }
     }
@@ -68,27 +84,35 @@ function getBonesUsedScore(solutionGrid, userGrid){
   console.log("penalty subtract: ", penaltySubtract);
 
   if (penaltySubtract > ((userBoneMatches / solutionBoneCount) * 100)){
-    return 10.0;
+    return {
+      bonesUsedScore: 10.0,
+      missingBones: missingBones
+    }
   }
 
   // return a score out of 100 for bone matches
-  return ((userBoneMatches / solutionBoneCount) * 100) - penaltySubtract;
+  return {
+    bonesUsedScore: ((userBoneMatches / solutionBoneCount) * 100) - penaltySubtract,
+    missingBones: missingBones
+  }
 }
 
 // the NEW method of grading. grades based on position relative to all other bones.
 // doing this to account for various screen resolutions. 
 
 function getPositioningScore(solutionGrid, userGrid){
+  let worstPositionedBone;
 
   if (userGrid.length < 1){
-    return 0;
+    return {
+      positioningScore: 0,
+      worstPositionedBone: null
+    }
   }
 
-  const totalUserBones = userGrid.length;
-  const totalBones = solutionGrid.length;
   const totalPossiblePoints = userGrid.length * ((2 * (userGrid.length - 1)));
 
-  let positionRawScore = 0;
+  let worstPositionScore = 100.0;
   let newPositionRawScore = 0;
 
   // get solution deltas. find the deltas between each solution bone and all the other
@@ -162,44 +186,29 @@ function getPositioningScore(solutionGrid, userGrid){
 
       const metaDeltaScore = getDeltaScore(Math.abs(obj.topDelta - matchDelta.topDelta)) + getDeltaScore(Math.abs(obj.leftDelta - matchDelta.leftDelta));
 
-      console.log(metaDeltaScore);
+      if (metaDeltaScore < worstPositionScore){
+        worstPositionScore = metaDeltaScore;
+        worstPositionedBone = obj.bone;
+      }
 
       newPositionRawScore += metaDeltaScore;
     })
     
   });
 
+  console.log("NEW TEST: ", worstPositionScore, worstPositionedBone);
+
   if ((newPositionRawScore / totalPossiblePoints) * 100 < 0){
-    return 0;
+    return {
+      positioningScore: 0,
+      worstPositionedBone: worstPositionScore < 1.5 ? worstPositionedBone : null
+    }
   }
 
-  return isNaN((newPositionRawScore / totalPossiblePoints) * 100) ? 0 : (newPositionRawScore / totalPossiblePoints) * 100;
-  // console.log(newPositionRawScore, totalPossiblePoints);
-  
-  // // old way
-  // solutionGrid.map(obj => {
-  //   const solutionTop = obj.style.top;
-  //   const solutionLeft = obj.style.left;
-
-  //   const matchBone = userGrid.find(userObj => userObj.bone === obj.bone);
-
-  //   if (matchBone){
-  //     // get deltas between input and solution
-  //     const topDelta = Math.abs(solutionTop - matchBone.style.top);
-  //     const leftDelta = Math.abs(solutionLeft - matchBone.style.left);
-
-  //     // get delta score from both x and y deltas and combine.
-  //     const deltaScore = getDeltaScore(topDelta) + getDeltaScore(leftDelta);
-
-  //     // divide for one point per each bone
-  //     positionRawScore += deltaScore / 2;
-
-  //   }
-  // })
-
-  // console.log((positionRawScore / totalUserBones) * 100);
-  // // return num points out of 100 for the position of each bone
-  // return (positionRawScore / totalUserBones) * 100;
+  return {
+    positioningScore: isNaN((newPositionRawScore / totalPossiblePoints) * 100) ? 0 : (newPositionRawScore / totalPossiblePoints) * 100,
+    worstPositionedBone: worstPositionScore < 1.5 ? worstPositionedBone : null
+  }
 }
 
 function getDeltaScore(delta){

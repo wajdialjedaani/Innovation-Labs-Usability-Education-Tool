@@ -204,6 +204,17 @@ $highestZ: 10000;
   justify-content: space-between;
 }
 
+.gradingPanelScoreBreakdown h2 {
+  font-size: 18px;
+  margin-bottom: 0.5em;
+}
+
+.gradingPanelTippers {
+  display: block;
+  margin-top: 0.35em;
+  font-style: italic;
+}
+
 // info panel
 .infoPanelContainer p {
   white-space: pre-wrap;
