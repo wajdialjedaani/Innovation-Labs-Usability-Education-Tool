@@ -7,6 +7,9 @@ main {
   height: calc(100vh - 65px);
 }
 
+.list-group-item {
+}
+
 .progress-container {
   display: flex;
   flex-direction: column;
@@ -107,7 +110,7 @@ button.disabled {
 }
 
 .table-heading {
-  text-align: left; 
+  text-align: left;
 }
 
 .number-of-attempts {

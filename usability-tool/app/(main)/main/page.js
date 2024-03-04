@@ -16,14 +16,58 @@ export default function mainPage() {
   ];
 
   return (
-    <main className="main-main">
-      <div className="heuristic-btn-container">
-        {heuristicNames.map((name, i) => (
-          <Link className="heuristic-btn" href={`/lessons/${i + 1}`} key={i}>
-            <h3 className="heuristic-btn-title">Heuristic {i + 1}</h3>
-            <h5 className="heuristic-btn-name">{name}</h5>
-          </Link>
-        ))}
+    <main>
+      <div class="text-center mx-auto mt-5 col-md-6">
+        <div class="accordion accordion-flush shadow-none" id="mainAccordion">
+          {heuristicNames.map((name, i) => (
+            <div class="accordion-item" key={i}>
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target={`#collapse${i}`}
+                  aria-expanded="false"
+                  aria-controls={`collapse${i}`}
+                >
+                  Heuristic {i + 1}
+                </button>
+              </h2>
+              <div
+                id={`collapse${i}`}
+                class="accordion-collapse collapse"
+                data-bs-parent="#mainAccordion"
+              >
+                <div class="accordion-body p-0">
+                  <ul class="list-group list-group-flush text-start ">
+                    <Link
+                      class="list-group-item list-group-item-action"
+                      href={`/lessons/${i + 1}`}
+                    >
+                      <i class="bi bi-book p-1"></i>
+                      Textbook
+                    </Link>
+                    <Link
+                      class="list-group-item list-group-item-action disabled"
+                      aria-disabled="true"
+                      href={`/quiz/${i + 1}`}
+                    >
+                      <i class="bi bi-question-circle p-1"></i>Quiz
+                    </Link>
+                    <Link
+                      class="list-group-item list-group-item-action disabled"
+                      aria-disabled="true"
+                      href={`/ui-builder/activity/1`}
+                    >
+                      <i class="bi bi-tools p-1"></i>
+                      UI Builder
+                    </Link>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </main>
   );
