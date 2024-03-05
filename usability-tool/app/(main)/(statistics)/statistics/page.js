@@ -13,7 +13,10 @@ import { IoAlertCircle } from "react-icons/io5";
 import { FaLock } from "react-icons/fa";
 import { IconContext } from "react-icons";
 
+import styles from "@/styles/stats.module.scss";
+
 import PieGraph from "@/components/stats/PieGraph";
+import BarGraph from "@/components/stats/BarGraph";
 
 const heuristics = Array.from({ length: 10 }, (x, i) => `Heuristic ${i + 1}`);
 /*
@@ -195,6 +198,63 @@ export default function Statistics() {
     },
   ];
 
+  const barData = [
+    {
+      name: "Attempt 1",
+      correct: 4,
+      incorrect: 6,
+      time: 7,
+    },
+    {
+      name: "Attempt 2",
+      correct: 1,
+      incorrect: 9,
+      time: 2,
+    },
+    {
+      name: "Attempt 3",
+      correct: 6,
+      incorrect: 4,
+      time: 6,
+    },
+    {
+      name: "Attempt 1",
+      correct: 4,
+      incorrect: 6,
+      time: 7,
+    },
+    {
+      name: "Attempt 2",
+      correct: 1,
+      incorrect: 9,
+      time: 2,
+    },
+    {
+      name: "Attempt 3",
+      correct: 6,
+      incorrect: 4,
+      time: 6,
+    },
+    {
+      name: "Attempt 1",
+      correct: 4,
+      incorrect: 6,
+      time: 7,
+    },
+    {
+      name: "Attempt 2",
+      correct: 1,
+      incorrect: 9,
+      time: 2,
+    },
+    {
+      name: "Attempt 3",
+      correct: 6,
+      incorrect: 4,
+      time: 6,
+    },
+  ];
+
   return (
     <main class="container-fluid p-4">
       <div class="row h-100">
@@ -204,7 +264,7 @@ export default function Statistics() {
         <div
           class="col col-md-2 btn-group-vertical"
           role="group"
-          aria-label="Vertical button group"
+          aria-label="Heuristic data buttons"
         >
           {heuristics.map((_, i) => (
             <button type="button" class="btn btn-primary h-100 text-center">
@@ -215,22 +275,21 @@ export default function Statistics() {
         {
           //The actual graphs / data
         }
-        <div class="col" style={{ height: "100%", backgroundColor: "gray" }}>
+        <div className={`col ${styles.statsContainer}`}>
           <div class="row h-100">
             <div
               class="col col-md-4"
               style={{
                 height: "100%",
-                backgroundColor: "purple",
               }}
             >
               <PieGraph data={data1} graphTitle={"Heuristic Data"} />
               <PieGraph data={data1} graphTitle={"UI Builder Data"} />
             </div>
-            <div
-              class="col"
-              style={{ backgroundColor: "yellow", height: "50%" }}
-            ></div>
+            <div class="col" style={{ height: "100%" }}>
+              <BarGraph data={barData} graphTitle={"Heuristic Data"} />
+              <BarGraph data={barData} graphTitle={"Heuristic Data"} />
+            </div>
           </div>
         </div>
       </div>

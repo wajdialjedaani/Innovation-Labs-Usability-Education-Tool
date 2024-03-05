@@ -1,0 +1,19 @@
+@use "./mixins/colorscheme.scss" as *;
+
+.graphContainer {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  //   align-items: center;
+  //   background-color: orange;
+}
+
+.statsContainer {
+  background-color: $top;
+  padding: 15px;
+  height: 100%;
+}
+
+.graphTitle {
+  color: black;
+}

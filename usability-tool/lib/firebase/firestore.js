@@ -13,27 +13,11 @@ import {
   arrayUnion,
 } from "firebase/firestore";
 import errCodeToMessage from "../tools/errCodeToMsg";
-//Cloud Firestore stores data in Documents, which are stored in Collections
-//const x = await addToDB("users", user.uid, {...})
 const db = initializeFirestore(app, { localCache: persistentLocalCache() });
-// const db = getFirestore(app);
-
-// export async function addToDB(collection, id, data) {
-//   let result, error;
-//   result = error = null;
-//   try {
-//     result = await setDoc(doc(db, ...collection, id), data, { merge: true });
-//   } catch (e) {
-//     error = errCodeToMessage(e.code);
-//     console.error(error);
-//   }
-
-//   return { result, error };
-// }
 
 export async function addHeuristicData(heuristicID, userID, data) {
-  let result, error;
-  result = error = null;
+  console.log(data);
+  let result = null;
   const docRef = doc(
     db,
     "users",
@@ -42,12 +26,9 @@ export async function addHeuristicData(heuristicID, userID, data) {
     `Heuristic${heuristicID}`
   );
   try {
-    const { time: newTime } = data;
-    delete data.time;
-    result = await setDoc(docRef, data, { merge: true });
     await updateDoc(docRef, {
-      attempts: increment(1),
-      time: arrayUnion(newTime),
+      attemptCount: increment(1),
+      attempts: arrayUnion(data),
     });
   } catch (e) {
     throw errCodeToMessage(e.code);
@@ -55,6 +36,31 @@ export async function addHeuristicData(heuristicID, userID, data) {
 
   return result;
 }
+
+// export async function addHeuristicData(heuristicID, userID, data) {
+//   let result, error;
+//   result = error = null;
+//   const docRef = doc(
+//     db,
+//     "users",
+//     userID,
+//     "HeuristicData",
+//     `Heuristic${heuristicID}`
+//   );
+//   try {
+//     const { time: newTime } = data;
+//     delete data.time;
+//     result = await setDoc(docRef, data, { merge: true });
+//     await updateDoc(docRef, {
+//       attempts: increment(1),
+//       time: arrayUnion(newTime),
+//     });
+//   } catch (e) {
+//     throw errCodeToMessage(e.code);
+//   }
+
+//   return result;
+// }
 
 export async function readHeuristicData(heuristicID, userID) {
   let result, error, data;
@@ -84,19 +90,6 @@ export async function readAllHeuristicData(userId) {
   }
   return result;
 }
-
-// export async function readDB(collection, id) {
-//   let result, error, data;
-//   result = error = data = null;
-//   try {
-//     result = await getDoc(doc(db, collection, id));
-//     data = result.data();
-//   } catch (e) {
-//     error = errCodeToMessage(e.code);
-//     console.error(error);
-//   }
-//   return { result, error, data };
-// }
 
 export async function addUIData(heuristicID, userID, data) {
   let result, error;

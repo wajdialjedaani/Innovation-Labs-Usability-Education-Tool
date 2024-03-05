@@ -10,10 +10,11 @@ import NavFooter from "../nav/NavFooter";
 import Modal from "../Modal";
 
 import { getAuthContext } from "@/app/(main)/components/AuthContextProvider";
+
 import { addHeuristicData } from "@/lib/firebase/firestore";
 
 import styles from "@/styles/quiz.module.scss";
-import borrowed from "@/styles/UIBuilder.module.scss"
+import borrowed from "@/styles/UIBuilder.module.scss";
 
 const SubmitContext = createContext();
 
@@ -74,7 +75,9 @@ function QuizBody() {
             className={borrowed.gradingPanelProgressBar}
             style={{ width: `${score}0%` }}
           />
-          <p className={borrowed.gradingPanelScoreDisplay}>{score}/{quizObj.length}</p>
+          <p className={borrowed.gradingPanelScoreDisplay}>
+            {score}/{quizObj.length}
+          </p>
         </div>
       </div>,
       "Score"
