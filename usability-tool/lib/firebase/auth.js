@@ -19,7 +19,6 @@ export async function sendPasswordResetEmail(email) {
   let result;
   try {
     result = await _sendPasswordResetEmail(auth, email);
-    // await confirmPasswordReset(auth, )
   } catch (e) {
     throw errCodeToMessage(e.code);
   }
@@ -44,7 +43,6 @@ export async function signIn(email, password) {
   try {
     result = await signInWithEmailAndPassword(auth, email, password);
   } catch (e) {
-    console.log(e.message, e.name, e.code);
     throw errCodeToMessage(e.code);
   }
   return { result, error };

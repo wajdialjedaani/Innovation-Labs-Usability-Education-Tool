@@ -1,6 +1,6 @@
 "use client";
 import "@/styles/statistics.scss";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 
 import { getAuthContext } from "../../components/AuthContextProvider";
 import {
@@ -12,6 +12,8 @@ import {
 import { IoAlertCircle } from "react-icons/io5";
 import { FaLock } from "react-icons/fa";
 import { IconContext } from "react-icons";
+
+import { getMetadata } from "@/lib/firebase/firestore";
 
 import styles from "@/styles/stats.module.scss";
 
@@ -40,7 +42,85 @@ const heuristics = Array.from({ length: 10 }, (x, i) => `Heuristic ${i + 1}`);
 // }
 
 export default function Statistics() {
-  //   const { user } = getAuthContext();
+  //Stores the data for the current heuristic
+  const [currHeuristicData, setCurrHeuristicData] = useState(null);
+  const [currUIData, setCurrUIData] = useState(null);
+
+  //Stores the current heuristic that is selected
+  const [currHeuristic, setCurrheuristic] = useState(0);
+
+  //Loading state
+  const [loading, setLoading] = useState(true);
+
+  const {
+    user,
+    metaData: { completedHeuristics },
+  } = getAuthContext();
+
+  //Get the heuristic data.
+  async function getNewHeuristicdata(heuristic) {
+    try {
+      const data = await readHeuristicData(heuristic, user.uid);
+      console.log(data);
+      setCurrHeuristicData(data);
+    } catch (e) {
+      console.error("Erroring reading heuristic data");
+    }
+  }
+
+  //Get the UI data
+  async function getNewUIdata(heuristic) {
+    try {
+      const data = await readUIData(heuristic, user.uid);
+      console.log(data);
+      setCurrUIData(data);
+    } catch (e) {
+      console.error("Erroring reading UI data");
+    }
+  }
+
+  const getHeuristicDataForPie = () => {
+    const latestAttempt = currHeuristicData.attempts.slice(-1)[0];
+    return Object.keys(latestAttempt)
+      .filter((key) => key === "correct" || key === "incorrect")
+      .map((key) => {
+        return {
+          name: key.charAt(0).toUpperCase() + key.slice(1),
+          value: latestAttempt[key],
+        };
+      });
+  };
+
+  const getUIDataForPie = () => {
+    const latestAttempt = currUIData.attempts.slice(-1)[0];
+    return Object.keys(latestAttempt)
+      .filter((key) => key === "correct" || key === "incorrect")
+      .map((key) => {
+        return {
+          name: key.charAt(0).toUpperCase() + key.slice(1),
+          value: latestAttempt[key],
+        };
+      });
+  };
+
+  //Get new data when the heuristic changes
+  useEffect(() => {
+    setLoading(true);
+    const getAllCurrData = async () => {
+      try {
+        await Promise.all([
+          getNewHeuristicdata(currHeuristic + 1),
+          getNewUIdata(currHeuristic + 1),
+        ]);
+      } catch (e) {
+        console.error(e);
+      } finally {
+        setLoading(false);
+      }
+    };
+    getAllCurrData();
+  }, [currHeuristic]);
+
   //   const [currHeuristic, setCurrHeuristic] = useState(0);
   //   const [activeButton, setActiveButton] = useState(0);
   //   const [currQuizData, setCurrQuizData] = useState(null);
@@ -267,7 +347,12 @@ export default function Statistics() {
           aria-label="Heuristic data buttons"
         >
           {heuristics.map((_, i) => (
-            <button type="button" class="btn btn-primary h-100 text-center">
+            <button
+              key={i}
+              type="button"
+              class="btn h-100 text-center"
+              disabled={!completedHeuristics[i + 1]}
+            >
               Heuristic {i + 1}
             </button>
           ))}
@@ -275,23 +360,41 @@ export default function Statistics() {
         {
           //The actual graphs / data
         }
-        <div className={`col ${styles.statsContainer}`}>
-          <div class="row h-100">
-            <div
-              class="col col-md-4"
-              style={{
-                height: "100%",
-              }}
-            >
-              <PieGraph data={data1} graphTitle={"Heuristic Data"} />
-              <PieGraph data={data1} graphTitle={"UI Builder Data"} />
-            </div>
-            <div class="col" style={{ height: "100%" }}>
-              <BarGraph data={barData} graphTitle={"Heuristic Data"} />
-              <BarGraph data={barData} graphTitle={"Heuristic Data"} />
+        {!loading ? (
+          <div className={`col ${styles.statsContainer}`}>
+            <div class="row h-100">
+              <div
+                class="col col-md-4"
+                style={{
+                  height: "100%",
+                }}
+              >
+                <PieGraph
+                  data={getHeuristicDataForPie()}
+                  graphTitle={"Heuristic Data"}
+                />
+                <PieGraph
+                  data={getUIDataForPie()}
+                  graphTitle={"UI Builder Data"}
+                />
+              </div>
+              <div class="col" style={{ height: "100%" }}>
+                <BarGraph
+                  data={currHeuristicData.attempts}
+                  graphTitle={"Heuristic Data"}
+                />
+                <BarGraph
+                  data={currUIData.attempts}
+                  graphTitle={"UI Builder Data"}
+                />
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        )}
       </div>
     </main>
     // <main>

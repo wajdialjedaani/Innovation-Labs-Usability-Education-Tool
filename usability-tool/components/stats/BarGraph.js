@@ -24,18 +24,18 @@ export default function BarGraph({ data, graphTitle }) {
           <Legend />
           <Bar
             dataKey="correct"
-            fill="#8884d8"
-            activeBar={<Rectangle fill="green" stroke="blue" />}
+            fill="#4BAE4F"
+            activeBar={<Rectangle stroke="black" />}
           />
           <Bar
             dataKey="incorrect"
-            fill="#82ca9d"
-            activeBar={<Rectangle fill="red" stroke="purple" />}
+            fill="#F24336"
+            activeBar={<Rectangle stroke="black" />}
           />
           <Bar
             dataKey="time"
-            fill="#82ca9d"
-            activeBar={<Rectangle fill="gold" stroke="purple" />}
+            fill="lightblue"
+            activeBar={<Rectangle stroke="black" />}
           />
         </BarChart>
       </ResponsiveContainer>

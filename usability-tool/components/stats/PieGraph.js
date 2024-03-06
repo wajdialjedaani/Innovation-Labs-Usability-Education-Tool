@@ -27,8 +27,12 @@ export default function PieGraph({ data, graphTitle }) {
             cy="50%"
             outerRadius={"75%"}
           >
-            <Cell fill={"#F24336"} />
-            <Cell fill={"#4BAE4F"} />
+            {data.map((entry, i) => (
+              <Cell
+                key={i}
+                fill={entry === "Correct" ? "#4BAE4F" : "#F24336"}
+              />
+            ))}
           </Pie>
           <Tooltip />
         </PieChart>

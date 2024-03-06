@@ -16,7 +16,6 @@ import errCodeToMessage from "../tools/errCodeToMsg";
 const db = initializeFirestore(app, { localCache: persistentLocalCache() });
 
 export async function addHeuristicData(heuristicID, userID, data) {
-  console.log(data);
   let result = null;
   const docRef = doc(
     db,
@@ -63,37 +62,27 @@ export async function addHeuristicData(heuristicID, userID, data) {
 // }
 
 export async function readHeuristicData(heuristicID, userID) {
-  let result, error, data;
-  result = error = data = null;
+  let result = null;
+  let data = null;
+  const docRef = doc(
+    db,
+    "users",
+    userID,
+    "HeuristicData",
+    `Heuristic${heuristicID}`
+  );
   try {
-    result = await getDocFromCache(
-      doc(db, "users", userID, "HeuristicData", `Heuristic${heuristicID}`)
-    );
+    result = await getDoc(docRef);
     data = result.data();
-  } catch (e) {
-    error = errCodeToMessage(e.code);
-    console.error(error);
-  }
-
-  return { result, error, data };
-}
-
-export async function readAllHeuristicData(userId) {
-  const collectionRef = collection(db, "users", userId, "HeuristicData");
-  let result;
-  try {
-    result = await getDocsFromCache(collectionRef);
-    console.log(result);
-    result.forEach((doc) => console.log(doc.data()));
   } catch (e) {
     throw errCodeToMessage(e.code);
   }
-  return result;
+
+  return data;
 }
 
 export async function addUIData(heuristicID, userID, data) {
-  let result, error;
-  result = error = null;
+  let result = null;
   const docRef = doc(
     db,
     "users",
@@ -102,18 +91,40 @@ export async function addUIData(heuristicID, userID, data) {
     `Heuristic${heuristicID}`
   );
   try {
-    const { time: newTime } = data;
-    delete data.time;
-    result = await setDoc(docRef, data, { merge: true });
     await updateDoc(docRef, {
-      attempts: increment(1),
-      time: arrayUnion(newTime),
+      attemptCount: increment(1),
+      attempts: arrayUnion(data),
     });
   } catch (e) {
     throw errCodeToMessage(e.code);
   }
+
   return result;
 }
+
+// export async function addUIData(heuristicID, userID, data) {
+//   let result, error;
+//   result = error = null;
+//   const docRef = doc(
+//     db,
+//     "users",
+//     userID,
+//     "UIBuilderData",
+//     `Heuristic${heuristicID}`
+//   );
+//   try {
+//     const { time: newTime } = data;
+//     delete data.time;
+//     result = await setDoc(docRef, data, { merge: true });
+//     await updateDoc(docRef, {
+//       attempts: increment(1),
+//       time: arrayUnion(newTime),
+//     });
+//   } catch (e) {
+//     throw errCodeToMessage(e.code);
+//   }
+//   return result;
+// }
 
 export async function readUIData(heuristicID, userID) {
   let result, error, data;
@@ -132,5 +143,21 @@ export async function readUIData(heuristicID, userID) {
     throw errCodeToMessage(e.code);
   }
 
-  return { data };
+  return data;
+}
+
+export async function getMetadata(userID) {
+  let result, data;
+  result = data = null;
+  const docRef = doc(db, "users", userID);
+  try {
+    result = await getDoc(docRef);
+    data = result.data()?.metadata || {
+      completedHeuristics: [],
+      lastHeuristic: 0,
+    };
+  } catch (e) {
+    throw errCodeToMessage(e.code);
+  }
+  return data;
 }
