@@ -23,5 +23,7 @@ export default function Quiz1({ params }) {
   const shuffledQuestions = heuristicQuestions
     .sort(() => Math.random() - 0.5)
     .slice(0, 10);
-  return <Quiz quizObj={shuffledQuestions} meta={meta} />;
+  return (
+    <Quiz quizObj={shuffledQuestions} meta={meta} quizNumber={quizId - 1} />
+  );
 }

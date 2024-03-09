@@ -52,10 +52,29 @@ export default function Statistics() {
   //Loading state
   const [loading, setLoading] = useState(true);
 
+  //Get user and metadata
   const {
     user,
-    metaData: { completedHeuristics },
+    metaDataSuite: { metaData: completedHeuristics },
   } = getAuthContext();
+
+  //Get new data when the heuristic changes
+  useEffect(() => {
+    setLoading(true);
+    const getAllCurrData = async () => {
+      try {
+        await Promise.all([
+          getNewHeuristicdata(currHeuristic + 1),
+          getNewUIdata(currHeuristic + 1),
+        ]);
+      } catch (e) {
+        console.error(e);
+      } finally {
+        setLoading(false);
+      }
+    };
+    getAllCurrData();
+  }, [currHeuristic]);
 
   //Get the heuristic data.
   async function getNewHeuristicdata(heuristic) {
@@ -102,24 +121,6 @@ export default function Statistics() {
         };
       });
   };
-
-  //Get new data when the heuristic changes
-  useEffect(() => {
-    setLoading(true);
-    const getAllCurrData = async () => {
-      try {
-        await Promise.all([
-          getNewHeuristicdata(currHeuristic + 1),
-          getNewUIdata(currHeuristic + 1),
-        ]);
-      } catch (e) {
-        console.error(e);
-      } finally {
-        setLoading(false);
-      }
-    };
-    getAllCurrData();
-  }, [currHeuristic]);
 
   //   const [currHeuristic, setCurrHeuristic] = useState(0);
   //   const [activeButton, setActiveButton] = useState(0);
@@ -267,74 +268,6 @@ export default function Statistics() {
   //     setActiveButton(index);
   //   }
 
-  const data1 = [
-    {
-      name: "Incorrect",
-      value: 1,
-    },
-    {
-      name: "Correct",
-      value: 7,
-    },
-  ];
-
-  const barData = [
-    {
-      name: "Attempt 1",
-      correct: 4,
-      incorrect: 6,
-      time: 7,
-    },
-    {
-      name: "Attempt 2",
-      correct: 1,
-      incorrect: 9,
-      time: 2,
-    },
-    {
-      name: "Attempt 3",
-      correct: 6,
-      incorrect: 4,
-      time: 6,
-    },
-    {
-      name: "Attempt 1",
-      correct: 4,
-      incorrect: 6,
-      time: 7,
-    },
-    {
-      name: "Attempt 2",
-      correct: 1,
-      incorrect: 9,
-      time: 2,
-    },
-    {
-      name: "Attempt 3",
-      correct: 6,
-      incorrect: 4,
-      time: 6,
-    },
-    {
-      name: "Attempt 1",
-      correct: 4,
-      incorrect: 6,
-      time: 7,
-    },
-    {
-      name: "Attempt 2",
-      correct: 1,
-      incorrect: 9,
-      time: 2,
-    },
-    {
-      name: "Attempt 3",
-      correct: 6,
-      incorrect: 4,
-      time: 6,
-    },
-  ];
-
   return (
     <main class="container-fluid p-4">
       <div class="row h-100">
@@ -352,6 +285,7 @@ export default function Statistics() {
               type="button"
               class="btn h-100 text-center"
               disabled={!completedHeuristics[i + 1]}
+              onClick={() => setCurrheuristic(i)}
             >
               Heuristic {i + 1}
             </button>

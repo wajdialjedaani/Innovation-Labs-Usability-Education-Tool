@@ -1,7 +1,14 @@
+"use client";
 import "@/styles/mainpage.scss";
 import Link from "next/link";
 
+import { getAuthContext } from "../components/AuthContextProvider";
+
 export default function mainPage() {
+  const {
+    metaDataSuite: { metaData },
+  } = getAuthContext();
+
   const heuristicNames = [
     "Visibility of system status",
     "Match between system and the real world",
@@ -51,14 +58,22 @@ export default function mainPage() {
                       Textbook
                     </Link>
                     <Link
-                      className="list-group-item list-group-item-action disabled"
+                      className={`list-group-item list-group-item-action ${
+                        metaData.completedHeuristics[i] < 1
+                          ? "disabled"
+                          : "none"
+                      }`}
                       aria-disabled="true"
                       href={`/quiz/${i + 1}`}
                     >
                       <i className="bi bi-question-circle p-1"></i>Quiz
                     </Link>
                     <Link
-                      className="list-group-item list-group-item-action disabled"
+                      className={`list-group-item list-group-item-action ${
+                        metaData.completedHeuristics[i] < 2
+                          ? "disabled"
+                          : "none"
+                      }`}
                       aria-disabled="true"
                       href={`/ui-builder/activity/1`}
                     >

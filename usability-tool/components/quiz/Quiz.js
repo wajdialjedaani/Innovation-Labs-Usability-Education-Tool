@@ -18,17 +18,20 @@ import borrowed from "@/styles/UIBuilder.module.scss";
 
 const SubmitContext = createContext();
 
-export default function Quiz({ quizObj, meta }) {
+export default function Quiz({ quizObj, meta, quizNumber }) {
   return (
     <QuizContextProvider quiz={quizObj}>
-      <QuizBody />
+      <QuizBody quizNumber={quizNumber} />
       <NavFooter options={meta.navFooterOptions} />
     </QuizContextProvider>
   );
 }
 
-function QuizBody() {
-  const { user } = getAuthContext();
+function QuizBody({ quizNumber }) {
+  const {
+    user,
+    metaDataSuite: { metaData, updateMetaData },
+  } = getAuthContext();
   const { quizObj } = getQuizSuite();
 
   //Has the submit button been pressed
@@ -64,6 +67,15 @@ function QuizBody() {
       incorrect: quizObj.length - score,
       time: timeTaken,
     });
+    //Update Metadata
+    if (score >= 7) {
+      const newMetaData = { ...metaData };
+      newMetaData.completedHeuristics[quizNumber] = Math.max(
+        newMetaData.completedHeuristics[quizNumber],
+        2
+      );
+      updateMetaData(newMetaData);
+    }
     renderModal(
       <div>
         <h3 role="header" className={borrowed.gradingPanelHeader}>

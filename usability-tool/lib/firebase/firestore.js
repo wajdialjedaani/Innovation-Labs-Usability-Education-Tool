@@ -152,12 +152,23 @@ export async function getMetadata(userID) {
   const docRef = doc(db, "users", userID);
   try {
     result = await getDoc(docRef);
-    data = result.data()?.metadata || {
-      completedHeuristics: [],
+    data = result.data() || {
+      completedHeuristics: new Array(10).fill(0), //0 means havent started. 1 means you're on the quiz. 2 Means you're on the UI builder. 3 Means you've done everything
       lastHeuristic: 0,
     };
   } catch (e) {
     throw errCodeToMessage(e.code);
   }
   return data;
+}
+
+export async function updateMetadata(userID, newMetadata) {
+  let result = null;
+  const docRef = doc(db, "users", userID);
+  try {
+    result = await updateDoc(docRef, newMetadata);
+  } catch (e) {
+    throw e.errCodeToMessage;
+  }
+  return result;
 }

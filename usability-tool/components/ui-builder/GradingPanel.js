@@ -14,7 +14,10 @@ import { useEffect, useState } from "react";
 import { addUIData } from "@/lib/firebase/firestore";
 
 export default function GradingPanel() {
-  const { user } = getAuthContext();
+  const {
+    user,
+    metaDataSuite: { metaData, updateMetaData },
+  } = getAuthContext();
   const { startGrading, heuristic, startTime } = getContextSuite();
 
   const [scoreObj, setScoreObj] = useState({});
@@ -40,12 +43,22 @@ export default function GradingPanel() {
     // initiate score sound
     if (scoreObjGet.score >= 7) {
       setHowlerSrc("/UIBuilder/pass.mp3");
+      const newMetaData = { ...metaData };
+      newMetaData.completedHeuristics[heuristic - 1] = Math.max(
+        newMetaData.completedHeuristics[heuristic - 1],
+        3
+      );
+      updateMetaData(newMetaData);
     } else {
       setHowlerSrc("/UIBuilder/failure.mp3");
     }
 
     //Add score to firebase
-    addUIDataToDB({ correct: scoreObjGet.score, incorrect: 10 - scoreObjGet.score, time: timeTaken });
+    addUIDataToDB({
+      correct: scoreObjGet.score,
+      incorrect: 10 - scoreObjGet.score,
+      time: timeTaken,
+    });
   }, []);
 
   return (
@@ -63,8 +76,15 @@ export default function GradingPanel() {
       </div>
 
       <div className={styles.gradingPanelScoreBreakdown}>
-        Component Position Points: <span className={styles.gradingPanelScoreBreakdownHighlight}>{Math.round(Number(scoreObj.positioningScore))} / 100</span><br/>
-        Component Selection Points: <span className={styles.gradingPanelScoreBreakdownHighlight}>{Math.round(Number(scoreObj.bonesUsedScore))} / 100</span>
+        Component Position Points:{" "}
+        <span className={styles.gradingPanelScoreBreakdownHighlight}>
+          {Math.round(Number(scoreObj.positioningScore))} / 100
+        </span>
+        <br />
+        Component Selection Points:{" "}
+        <span className={styles.gradingPanelScoreBreakdownHighlight}>
+          {Math.round(Number(scoreObj.bonesUsedScore))} / 100
+        </span>
       </div>
 
       {howlerSrc && (
