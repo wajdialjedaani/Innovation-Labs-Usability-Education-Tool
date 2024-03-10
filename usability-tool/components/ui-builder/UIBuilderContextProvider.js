@@ -21,6 +21,7 @@ export default function UIBuilderContextProvider({
   const [widgets, setWidgets] = useState(widgetData);
 
   const [solutionMode, setSolutionMode] = useState(false);
+  const [solutionDispIndex, setSolutionDispIndex] = useState(0);
 
   const startTime = useRef(Math.floor(Date.now() / 1000));
 
@@ -100,7 +101,11 @@ export default function UIBuilderContextProvider({
       setSolutionMode(prev => !prev);
     },
 
-    solutionGrid: scenario.solutionGrid,
+    setSolutionIndex: (index) => {
+      setSolutionDispIndex(index);
+    },
+
+    solutionGrid: scenario.solutionGrids[solutionDispIndex],
 
     // tooltip stuff
     blockTooltip,

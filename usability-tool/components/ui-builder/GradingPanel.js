@@ -15,7 +15,7 @@ import { addUIData } from "@/lib/firebase/firestore";
 
 export default function GradingPanel({toggleFunction}) {
   const { user } = getAuthContext();
-  const { startGrading, heuristic, startTime, toggleSolutionView } = getContextSuite();
+  const { startGrading, heuristic, startTime, toggleSolutionView, setSolutionIndex } = getContextSuite();
 
   const [scoreObj, setScoreObj] = useState({});
 
@@ -32,6 +32,8 @@ export default function GradingPanel({toggleFunction}) {
   useEffect(() => {
     // get score
     const scoreObjGet = startGrading();
+
+    setSolutionIndex(scoreObjGet.closestSolutionIndex ? scoreObjGet.closestSolutionIndex : 0);
 
     //Get the time taken
     const timeTaken = Math.floor(Date.now() / 1000) - startTime.current;

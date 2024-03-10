@@ -5,11 +5,39 @@
 // - implement a system that returns the worst positioned id.
 
 export default function gradingRoutine(gradingObject, userGrid){
-  const {positioningWeight, bonesUsedWeight, solutionGrid} = gradingObject;
+  const {positioningWeight, bonesUsedWeight, solutionGrid, solutionGrids} = gradingObject;
 
-  // get scores for both bone usage and positioning
-  const {bonesUsedScore, missingBones} = getBonesUsedScore(solutionGrid, userGrid);
-  const {positioningScore, worstPositionedBone} = getPositioningScore(solutionGrid, userGrid);
+  let bestPositioningScore = 0;
+
+  // used for storing the actual info of the closest ones
+  let bonesUsedScore = null, missingBones = null, positioningScore = null, worstPositionedBone = null;
+
+  let closestSolutionIndex = null;
+
+  solutionGrids.map((obj, index) => {
+    console.log(`======================================================================= SCORE TEST # ${index} ===============================================================`);
+    console.log("best at start: ", bestPositioningScore);
+    // get scores for both bone usage and positioning
+    // const {bonesUsedScore, missingBones} = getBonesUsedScore(obj, userGrid);
+    const boneObj = getBonesUsedScore(obj, userGrid);
+
+    // const {positioningScore, worstPositionedBone} = getPositioningScore(obj, userGrid);
+    const posObj = getPositioningScore(obj, userGrid);
+
+    console.log("found this score: ", posObj.positioningScore);
+
+    if (posObj.positioningScore > bestPositioningScore){
+      console.log("ITS COPYIGN!");
+      // copy the data to the pre loop vars
+      bonesUsedScore = boneObj.bonesUsedScore, missingBones = boneObj.missingBones, positioningScore = posObj.positioningScore, worstPositionedBone = posObj.worstPositionedBone;
+
+      // update positioning score tracker
+      bestPositioningScore = posObj.positioningScore;
+      closestSolutionIndex = index;
+    }
+  });
+
+  console.log("Closed solution: ", closestSolutionIndex);
 
   console.log("MISSING BONES: ", missingBones);
   console.log(bonesUsedScore);
@@ -31,7 +59,8 @@ export default function gradingRoutine(gradingObject, userGrid){
     bonesUsedScore,
     positioningScore,
     worstPositionedBone,
-    missingBones
+    missingBones,
+    closestSolutionIndex
   }
 
   return returnPayload;
