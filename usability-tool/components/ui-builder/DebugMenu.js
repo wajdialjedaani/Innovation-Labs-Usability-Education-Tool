@@ -25,7 +25,7 @@ export default function DebugMenu(){
 }
 
 function ScenarioGenerator(props){
-  const {downloadGridJSON} = getContextSuite();
+  const {downloadGridJSON, copyWidgetArray} = getContextSuite();
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -40,6 +40,10 @@ function ScenarioGenerator(props){
 
     downloadGridJSON(positionWeight, bonesWeight, scenarioInformation);
   }
+
+  function printJustTheSolutionGrid() {
+
+  };
 
   return (
     <div>
@@ -78,6 +82,7 @@ function ScenarioGenerator(props){
         }}
       /><br /><br />
       <button onClick={handleSubmit}>download scenario json</button>
+      <button onClick={copyWidgetArray}>copy widget json array</button>
     </div>
   )
 }

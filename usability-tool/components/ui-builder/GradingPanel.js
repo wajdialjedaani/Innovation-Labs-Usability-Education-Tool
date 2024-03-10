@@ -30,6 +30,7 @@ export default function GradingPanel({toggleFunction}) {
   }
 
   useEffect(() => {
+    console.log("mounting use effect - changing");
     // get score
     const scoreObjGet = startGrading();
 

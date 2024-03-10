@@ -1,5 +1,5 @@
 // util imports
-import { useContext, createContext, useState, useRef } from "react";
+import { useContext, createContext, useState, useRef, useEffect } from "react";
 import gradingRoutine from "@/lib/UIBuilder/gradingRoutine";
 
 import { TooltipWindow } from "./BoneTooltip";
@@ -22,6 +22,13 @@ export default function UIBuilderContextProvider({
 
   const [solutionMode, setSolutionMode] = useState(false);
   const [solutionDispIndex, setSolutionDispIndex] = useState(0);
+  const [solutionGrid, setSolutionGrid] = useState(scenario.solutionGrids[0]);
+
+  useEffect(() => {
+    console.log("changing solution grid - ", solutionDispIndex);
+    setSolutionGrid(scenario.solutionGrids[solutionDispIndex]);
+  }, [solutionDispIndex]);
+
 
   const startTime = useRef(Math.floor(Date.now() / 1000));
 
@@ -92,6 +99,13 @@ export default function UIBuilderContextProvider({
       );
     },
 
+    copyWidgetArray: () => {
+      const formattedObj = JSON.stringify(widgets.grid, null, 2); // 2 spaces for formatting
+      navigator.clipboard.writeText(formattedObj)
+        .then(() => console.log('Object copied to clipboard!'))
+        .catch(err => console.error('Could not copy object to clipboard: ', err));
+    },
+
     startGrading: () => {
       return gradingRoutine(scenario, widgets.grid);
     },
@@ -105,7 +119,7 @@ export default function UIBuilderContextProvider({
       setSolutionDispIndex(index);
     },
 
-    solutionGrid: scenario.solutionGrids[solutionDispIndex],
+    solutionGrid,
 
     // tooltip stuff
     blockTooltip,

@@ -7,7 +7,7 @@
 export default function gradingRoutine(gradingObject, userGrid){
   const {positioningWeight, bonesUsedWeight, solutionGrid, solutionGrids} = gradingObject;
 
-  let bestPositioningScore = 0;
+  let bestPositioningScore = -1000;
 
   // used for storing the actual info of the closest ones
   let bonesUsedScore = null, missingBones = null, positioningScore = null, worstPositionedBone = null;
