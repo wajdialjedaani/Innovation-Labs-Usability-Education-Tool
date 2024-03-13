@@ -16,7 +16,7 @@ import { getContextSuite } from "./UIBuilderContextProvider.js";
 import BoneDiscarder from "./BoneDiscarder";
 
 export default function MenuBar(props){
-  const {scenarioInformation} = getContextSuite();
+  const {scenarioInformation, solutionMode, toggleSolutionView} = getContextSuite();
   const [modal, setModal] = useState(null);
 
   function clearModal() {
@@ -72,12 +72,21 @@ export default function MenuBar(props){
         </div>
 
         <div className={styles.menuBarGroup}>
-          <Button
-            alt="submit"
-            icon="check"
-            onClick={() => {renderModal(<GradingPanel />, "Activity Results")}}
-            text="Submit"
-          />
+          {solutionMode ? 
+            <Button
+              alt="submit"
+              icon="unlock"
+              onClick={() => {toggleSolutionView();}}
+              text="Exit Solution View"
+            /> 
+            :
+            <Button
+              alt="submit"
+              icon="check"
+              onClick={() => {renderModal(<GradingPanel toggleFunction={clearModal}/>, "Activity Results")}}
+              text="Submit"
+            />
+          }
         </div>
       </nav>
     </Fragment>
