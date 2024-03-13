@@ -1,18 +1,22 @@
 import "@/styles/accountpopup.scss";
 import Link from "next/link";
 
-import { auth } from "@/lib/firebase/firebase";
 import { logOut } from "@/lib/firebase/auth";
 
 import { getAuthContext } from "../AuthContextProvider";
-
-import { nav } from "@/lib/tools/redirect";
 
 import { useRouter } from "next/navigation";
 
 export default function Accountpopup({ id, active }) {
   const router = useRouter();
-  const { user } = getAuthContext();
+  const {
+    user,
+    metaDataSuite: { metaData },
+  } = getAuthContext();
+
+  const completion = metaData.completedHeuristics.reduce((acc, cur) => {
+    return acc + cur;
+  }, 0);
 
   async function handleSignout() {
     try {
@@ -22,21 +26,28 @@ export default function Accountpopup({ id, active }) {
     }
   }
 
-  if (!user){
+  if (!user) {
     return;
   }
 
   return (
-    <div className="account-popup" role="menu" id={id} style={{maxHeight: active ? "100vh" : "0px"}}>
+    <div
+      className="account-popup"
+      role="menu"
+      id={id}
+      style={{ maxHeight: active ? "100vh" : "0px" }}
+    >
       <div>
         <p className="account-popup-signedinas">
           Signed in: <span className="account-popup-email">{user.email}</span>
         </p>
         <hr />
       </div>
-      <Link href="/statistics" className="account-popup-list-item-link">
+
+      <Link href="/statistics" className="account-popup-list-item-link btn">
         Statistics
       </Link>
+
       <button
         href="#"
         className="account-popup-list-item-link"

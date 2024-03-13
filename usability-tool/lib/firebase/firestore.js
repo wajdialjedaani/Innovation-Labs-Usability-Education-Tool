@@ -24,11 +24,16 @@ export async function addHeuristicData(heuristicID, userID, data) {
     "HeuristicData",
     `Heuristic${heuristicID}`
   );
+
   try {
-    await updateDoc(docRef, {
-      attemptCount: increment(1),
-      attempts: arrayUnion(data),
-    });
+    await setDoc(
+      docRef,
+      {
+        attemptCount: increment(1),
+        attempts: arrayUnion(data),
+      },
+      { merge: true }
+    );
   } catch (e) {
     throw errCodeToMessage(e.code);
   }
@@ -166,7 +171,7 @@ export async function updateMetadata(userID, newMetadata) {
   let result = null;
   const docRef = doc(db, "users", userID);
   try {
-    result = await updateDoc(docRef, newMetadata);
+    result = await setDoc(docRef, newMetadata, { merge: true });
   } catch (e) {
     throw e.errCodeToMessage;
   }

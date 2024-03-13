@@ -13,16 +13,6 @@ import BarGraph from "@/components/stats/BarGraph";
 const heuristics = Array.from({ length: 10 }, (x, i) => `Heuristic ${i + 1}`);
 
 export default function Statistics() {
-  //Stores the data for the current heuristic
-  const [currHeuristicData, setCurrHeuristicData] = useState(null);
-  const [currUIData, setCurrUIData] = useState(null);
-
-  //Stores the current heuristic that is selected
-  const [currHeuristic, setCurrheuristic] = useState(0);
-
-  //Loading state
-  const [loading, setLoading] = useState(true);
-
   //Get user and metadata
   const {
     user,
@@ -30,6 +20,24 @@ export default function Statistics() {
       metaData: { completedHeuristics },
     },
   } = getAuthContext();
+  //Stores the data for the current heuristic
+  const [currHeuristicData, setCurrHeuristicData] = useState(null);
+  const [currUIData, setCurrUIData] = useState(null);
+
+  //Stores the current heuristic that is selected
+  const [currHeuristic, setCurrheuristic] = useState(
+    completedHeuristics.forEach((heu, i) => {
+      if (heu === 3) return i;
+    }) || 0
+  );
+
+  //Loading state
+  const [loading, setLoading] = useState(true);
+
+  //State for if there's no quiz data
+  const [noQuizData, setNoQuizData] = useState(false);
+  //State for if there's no UI Data
+  const [noUIData, setNoUIData] = useState(false);
 
   //Get new data when the heuristic changes
   useEffect(() => {
@@ -46,6 +54,7 @@ export default function Statistics() {
         setLoading(false);
       }
     };
+
     getAllCurrData();
   }, [currHeuristic]);
 
@@ -54,9 +63,10 @@ export default function Statistics() {
     try {
       const data = await readHeuristicData(heuristic, user.uid);
       console.log(data);
+
       setCurrHeuristicData(data);
     } catch (e) {
-      console.error("Erroring reading heuristic data");
+      console.error("Error reading heuristic data");
     }
   }
 
@@ -67,7 +77,7 @@ export default function Statistics() {
       console.log(data);
       setCurrUIData(data);
     } catch (e) {
-      console.error("Erroring reading UI data");
+      console.error("Error reading UI data");
     }
   }
 
@@ -111,7 +121,7 @@ export default function Statistics() {
               key={i}
               type="button"
               className={`btn h-100 text-center ${styles.heuristicBtn}`}
-              disabled={completedHeuristics[i] != 3}
+              disabled={completedHeuristics[i] <= 1}
               onClick={() => setCurrheuristic(i)}
             >
               Heuristic {i + 1}
@@ -130,26 +140,42 @@ export default function Statistics() {
                   height: "100%",
                 }}
               >
-                <PieGraph
-                  data={getHeuristicDataForPie()}
-                  graphTitle={"Most Recent Heuristic Data"}
-                />
-                <PieGraph
-                  data={getUIDataForPie()}
-                  graphTitle={"Most Recent UI Builder Data"}
-                />
+                {!noQuizData ? (
+                  <PieGraph
+                    data={getHeuristicDataForPie()}
+                    graphTitle={"Most Recent Heuristic Data"}
+                  />
+                ) : (
+                  <i class="bi bi-exclamation-circle-fill"></i>
+                )}
+                {!noUIData ? (
+                  <PieGraph
+                    data={getUIDataForPie()}
+                    graphTitle={"Most Recent UI Builder Data"}
+                  />
+                ) : (
+                  <i class="bi bi-exclamation-circle-fill"></i>
+                )}
               </div>
               <div
                 className={`col list-group list-group-flush ${styles.listGroup}`}
               >
-                <BarGraph
-                  data={currHeuristicData.attempts}
-                  graphTitle={"All Heuristic Data"}
-                />
-                <BarGraph
-                  data={currUIData.attempts}
-                  graphTitle={"All UI Builder Data"}
-                />
+                {!noQuizData ? (
+                  <BarGraph
+                    data={currHeuristicData.attempts}
+                    graphTitle={"All Heuristic Data"}
+                  />
+                ) : (
+                  <i class="bi bi-exclamation-circle-fill"></i>
+                )}
+                {!noUIData ? (
+                  <BarGraph
+                    data={currUIData.attempts}
+                    graphTitle={"All UI Builder Data"}
+                  />
+                ) : (
+                  <i class="bi bi-exclamation-circle-fill"></i>
+                )}
               </div>
             </div>
           </div>

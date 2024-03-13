@@ -1,6 +1,5 @@
 import styles from "@/styles/Textbook.module.scss";
 
-import TextbookBody from "@/components/textbook/TextbookBody";
 import { Fragment } from "react";
 
 import NavFooter from "../nav/NavFooter";
