@@ -14,9 +14,13 @@ export default function Accountpopup({ id, active }) {
     metaDataSuite: { metaData },
   } = getAuthContext();
 
-  const completion = metaData.completedHeuristics.reduce((acc, cur) => {
-    return acc + cur;
-  }, 0);
+  if (!user) {
+    return;
+  }
+
+  // const completion = metaData.completedHeuristics.reduce((acc, cur) => {
+  //   return acc + cur;
+  // }, 0);
 
   async function handleSignout() {
     try {
@@ -24,10 +28,6 @@ export default function Accountpopup({ id, active }) {
     } catch (error) {
       console.error(error);
     }
-  }
-
-  if (!user) {
-    return;
   }
 
   return (
@@ -39,7 +39,10 @@ export default function Accountpopup({ id, active }) {
     >
       <div>
         <p className="account-popup-signedinas">
-          Signed in: <span className="account-popup-email">{user.email}</span>
+          Signed in:{" "}
+          <span className="account-popup-email">
+            {user.displayName || user.email}
+          </span>
         </p>
         <hr />
       </div>

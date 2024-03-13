@@ -8,7 +8,6 @@ import {
   updateDoc,
   increment,
   getDocFromCache,
-  collection,
   getDocsFromCache,
   arrayUnion,
 } from "firebase/firestore";
@@ -41,31 +40,6 @@ export async function addHeuristicData(heuristicID, userID, data) {
   return result;
 }
 
-// export async function addHeuristicData(heuristicID, userID, data) {
-//   let result, error;
-//   result = error = null;
-//   const docRef = doc(
-//     db,
-//     "users",
-//     userID,
-//     "HeuristicData",
-//     `Heuristic${heuristicID}`
-//   );
-//   try {
-//     const { time: newTime } = data;
-//     delete data.time;
-//     result = await setDoc(docRef, data, { merge: true });
-//     await updateDoc(docRef, {
-//       attempts: increment(1),
-//       time: arrayUnion(newTime),
-//     });
-//   } catch (e) {
-//     throw errCodeToMessage(e.code);
-//   }
-
-//   return result;
-// }
-
 export async function readHeuristicData(heuristicID, userID) {
   let result = null;
   let data = null;
@@ -96,40 +70,20 @@ export async function addUIData(heuristicID, userID, data) {
     `Heuristic${heuristicID}`
   );
   try {
-    await updateDoc(docRef, {
-      attemptCount: increment(1),
-      attempts: arrayUnion(data),
-    });
+    await setDoc(
+      docRef,
+      {
+        attemptCount: increment(1),
+        attempts: arrayUnion(data),
+      },
+      { merge: true }
+    );
   } catch (e) {
     throw errCodeToMessage(e.code);
   }
 
   return result;
 }
-
-// export async function addUIData(heuristicID, userID, data) {
-//   let result, error;
-//   result = error = null;
-//   const docRef = doc(
-//     db,
-//     "users",
-//     userID,
-//     "UIBuilderData",
-//     `Heuristic${heuristicID}`
-//   );
-//   try {
-//     const { time: newTime } = data;
-//     delete data.time;
-//     result = await setDoc(docRef, data, { merge: true });
-//     await updateDoc(docRef, {
-//       attempts: increment(1),
-//       time: arrayUnion(newTime),
-//     });
-//   } catch (e) {
-//     throw errCodeToMessage(e.code);
-//   }
-//   return result;
-// }
 
 export async function readUIData(heuristicID, userID) {
   let result, error, data;

@@ -63,8 +63,11 @@ export default function Statistics() {
     try {
       const data = await readHeuristicData(heuristic, user.uid);
       console.log(data);
-
-      setCurrHeuristicData(data);
+      if (!data) setNoQuizData(true);
+      else {
+        setNoQuizData(false);
+        setCurrHeuristicData(data);
+      }
     } catch (e) {
       console.error("Error reading heuristic data");
     }
@@ -75,7 +78,11 @@ export default function Statistics() {
     try {
       const data = await readUIData(heuristic, user.uid);
       console.log(data);
-      setCurrUIData(data);
+      if (!data) setNoUIData(true);
+      else {
+        setNoUIData(false);
+        setCurrUIData(data);
+      }
     } catch (e) {
       console.error("Error reading UI data");
     }

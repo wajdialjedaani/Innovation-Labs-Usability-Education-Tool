@@ -20,6 +20,8 @@ export default function Logon() {
   const router = useRouter();
   const [formData, setFormData] = useState({
     email: "",
+    firstName: "",
+    lastName: "",
     password: "",
     passwordConf: "",
   });
@@ -30,11 +32,17 @@ export default function Logon() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    console.log(formData);
     if (formData.password === formData.passwordConf) {
       setStatus("submitting");
       //Call firebase
       try {
-        await createAccount(formData.email, formData.password);
+        await createAccount(
+          formData.email,
+          formData.password,
+          formData.firstName,
+          formData.lastName
+        );
         router.replace("/main");
       } catch (error) {
         console.error(error);
@@ -90,6 +98,44 @@ export default function Logon() {
             value={formData.email}
             required
           />
+          <div className="name-inputs-container">
+            <div className="name-input">
+              <label
+                className="registration-form-label"
+                htmlFor="registration-firstName-input"
+              >
+                First Name
+              </label>
+              <input
+                type="text"
+                name="firstName"
+                className="registration-form-input"
+                id="registration-firstName-input"
+                placeholder="Enter First Name"
+                onChange={handleFormChange}
+                value={formData.firstName}
+                required
+              />
+            </div>
+            <div>
+              <label
+                className="registration-form-label"
+                htmlFor="registration-lastName-input"
+              >
+                Last Name
+              </label>
+              <input
+                type="text"
+                name="lastName"
+                className="registration-form-input"
+                id="registration-lastName-input"
+                placeholder="Enter First Name"
+                onChange={handleFormChange}
+                value={formData.lastName}
+                required
+              />
+            </div>
+          </div>
 
           <label
             className="registration-form-label"

@@ -6,10 +6,14 @@ import {
   signOut,
   onAuthStateChanged as _onAuthStateChanged,
   sendPasswordResetEmail as _sendPasswordResetEmail,
-  confirmPasswordReset,
+  updateProfile,
+  setPersistence,
+  inMemoryPersistence,
 } from "firebase/auth";
 import { auth } from "./firebase";
 import errCodeToMessage from "../tools/errCodeToMsg";
+
+setPersistence(auth, inMemoryPersistence);
 
 export function onAuthStateChanged(callback = () => {}) {
   return _onAuthStateChanged(auth, callback);
@@ -26,11 +30,14 @@ export async function sendPasswordResetEmail(email) {
   return result;
 }
 
-export async function createAccount(email, password) {
+export async function createAccount(email, password, firstname, lastname) {
   let result, error;
   result = error = null;
   try {
     result = await createUserWithEmailAndPassword(auth, email, password);
+    updateProfile(auth.currentUser, {
+      displayName: `${firstname} ${lastname}`,
+    });
   } catch (e) {
     throw errCodeToMessage(e.code);
   }

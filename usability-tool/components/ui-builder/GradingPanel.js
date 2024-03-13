@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 
 import { addUIData } from "@/lib/firebase/firestore";
 
-export default function GradingPanel() {
+export default function GradingPanel({ toggleFunction }) {
   const {
     user,
     metaDataSuite: { metaData, updateMetaData },

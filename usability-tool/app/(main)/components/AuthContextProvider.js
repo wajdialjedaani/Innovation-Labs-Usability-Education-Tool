@@ -43,6 +43,7 @@ export function AuthContextProvider({ children }) {
       } else {
         setUser(null);
         router.replace("/home");
+        setLoading(false);
       }
     });
 
