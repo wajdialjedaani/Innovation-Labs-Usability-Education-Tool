@@ -5,16 +5,16 @@ import "@/styles/logon.scss";
 import { useState } from "react";
 
 import { createAccount } from "@/lib/firebase/auth";
-import { nav } from "@/lib/tools/redirect";
 
 import { IoClose } from "react-icons/io5";
 import Link from "next/link";
 
-import { info } from "sass";
 import { IconContext } from "react-icons";
 import { FaArrowCircleLeft } from "react-icons/fa";
 
 import { useRouter } from "next/navigation";
+
+import { useForm } from "react-hook-form";
 
 export default function Logon() {
   const router = useRouter();
@@ -26,35 +26,44 @@ export default function Logon() {
     passwordConf: "",
   });
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+  } = useForm();
+
+  console.log(errors);
+
   const [logonError, setLogOnError] = useState(null);
   const [errorDismissed, setErrorDismissed] = useState(false);
   const [status, setStatus] = useState("idle");
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    console.log(formData);
-    if (formData.password === formData.passwordConf) {
-      setStatus("submitting");
-      //Call firebase
-      try {
-        await createAccount(
-          formData.email,
-          formData.password,
-          formData.firstName,
-          formData.lastName
-        );
-        router.replace("/main");
-      } catch (error) {
-        console.error(error);
-        setErrorDismissed(false);
-        setLogOnError(error);
-      } finally {
-        setStatus("idle");
-      }
-    } else {
-      setLogOnError("Passwords do not match");
-    }
-  }
+  // async function handleSubmit(e) {
+  //   e.preventDefault();
+  //   console.log(formData);
+  //   if (formData.password === formData.passwordConf) {
+  //     setStatus("submitting");
+  //     //Call firebase
+  //     try {
+  //       await createAccount(
+  //         formData.email,
+  //         formData.password,
+  //         formData.firstName,
+  //         formData.lastName
+  //       );
+  //       router.replace("/main");
+  //     } catch (error) {
+  //       console.error(error);
+  //       setErrorDismissed(false);
+  //       setLogOnError(error);
+  //     } finally {
+  //       setStatus("idle");
+  //     }
+  //   } else {
+  //     setLogOnError("Passwords do not match");
+  //   }
+  // }
 
   function handleFormChange(e) {
     const { name, value } = e.target;
@@ -67,133 +76,85 @@ export default function Logon() {
   }
 
   return (
-    <main className="registration-main">
-      {logonError && !errorDismissed ? (
-        <div className="registration-error-popup">
-          <h1>Error</h1>
-          <h3>{`${logonError}`}</h3>
-          <IconContext.Provider
-            value={{ color: "white", size: "40", className: "error-close" }}
-          >
-            <IoClose onClick={() => setErrorDismissed(true)} />
-          </IconContext.Provider>
-        </div>
-      ) : null}
-      <article className="registration-container">
-        <h1 className="registration-title">Register</h1>
-        <form className="registration-form" onSubmit={handleSubmit}>
-          <label
-            className="registration-form-label"
-            htmlFor="registration-email-input"
-          >
+    <main className="text-center mx-auto mt-5 col-md-4 p-5 form-container">
+      <h1 className="registration-title">Register</h1>
+      <form
+        onSubmit={handleSubmit((data) => {
+          console.log(data);
+        })}
+        className="needs-validation"
+        noValidate
+      >
+        <div className="form-floating mb-3 has-validation">
+          <input
+            id="emailInput"
+            className="form-control"
+            type="email"
+            {...register("email", { required: "Email is required" })}
+            placeholder="Email"
+          />
+          <label htmlFor="emailInput" className="form-label">
             Email
           </label>
-          <input
-            type="email"
-            name="email"
-            className="registration-form-input"
-            id="registration-email-input"
-            placeholder="Enter Email"
-            onChange={handleFormChange}
-            value={formData.email}
-            required
-          />
-          <div className="name-inputs-container">
-            <div className="name-input">
-              <label
-                className="registration-form-label"
-                htmlFor="registration-firstName-input"
-              >
-                First Name
-              </label>
-              <input
-                type="text"
-                name="firstName"
-                className="registration-form-input"
-                id="registration-firstName-input"
-                placeholder="Enter First Name"
-                onChange={handleFormChange}
-                value={formData.firstName}
-                required
-              />
-            </div>
-            <div>
-              <label
-                className="registration-form-label"
-                htmlFor="registration-lastName-input"
-              >
-                Last Name
-              </label>
-              <input
-                type="text"
-                name="lastName"
-                className="registration-form-input"
-                id="registration-lastName-input"
-                placeholder="Enter First Name"
-                onChange={handleFormChange}
-                value={formData.lastName}
-                required
-              />
-            </div>
+          <div className="invalid-feedback">{errors.email?.message}</div>
+        </div>
+        <div className="mb-3 input-group">
+          <div className="form-floating">
+            <input
+              id="firstNameInput"
+              className="form-control"
+              type="text"
+              {...register("firstName", { required: "First name is required" })}
+              placeholder="First Name"
+            />
+            <label htmlFor="firstNameInput">First Name</label>
           </div>
-
-          <label
-            className="registration-form-label"
-            htmlFor="registration-password-input"
-          >
-            Password
-          </label>
+          <div className="form-floating">
+            <input
+              id="lastNameInput"
+              className="form-control"
+              type="text"
+              {...register("lastName", { required: "Last name is required" })}
+              placeholder="Last Name"
+            />
+            <label htmlFor="lastNameInput">Last Name</label>
+          </div>
+        </div>
+        <div className="mb-3 form-floating">
           <input
+            id="passwordInput"
+            className="form-control"
             type="password"
-            name="password"
-            className="registration-form-input"
-            id="registration-password-input"
-            placeholder="Enter Password"
-            onChange={handleFormChange}
-            value={formData.password}
-            required
+            {...register("password", {
+              required: "Password is required",
+              minLength: {
+                value: 6,
+                message: "Password must be at least 6 characters",
+              },
+            })}
+            placeholder="Password"
           />
-
-          <label
-            className="registration-form-label"
-            htmlFor="registration-password-confirm-input"
-          >
-            Confirm Password
-          </label>
+          <label htmlFor="passwordInput">Password</label>
+        </div>
+        <div className="mb-3 form-floating">
           <input
+            id="passwordConfirmInput"
+            className="form-control"
             type="password"
-            name="passwordConf"
-            className="registration-form-input"
-            id="registration-password-confirm-input"
+            {...register("passwordConf", {
+              required: "Password confirmation is required",
+              validate: (val) => {
+                if (watch("password") !== val) {
+                  return "Passwords do not match";
+                }
+              },
+            })}
             placeholder="Confirm Password"
-            onChange={handleFormChange}
-            value={formData.passwordConf}
-            required
           />
-
-          <button
-            className="registraion-confirm-btn"
-            type="submit"
-            disabled={status === "submitting"}
-          >
-            {status === "idle" ? "Register" : "Registering"}
-          </button>
-        </form>
-
-        <small className="registration-account-check">
-          Already have an account?
-          <Link href="/signin" className="registration-login-link">
-            Log in
-          </Link>
-        </small>
-        <Link
-          href="/home"
-          className="back-arrow-button"
-          aria-label="Go back to home page"
-        >
-          <FaArrowCircleLeft className="back-arrow" size="2em" />
-        </Link>
-      </article>
+          <label htmlFor="passwordConfirmInput">Confirm Password</label>
+        </div>
+        <button className="registration-confirm-btn">Submit</button>
+      </form>
     </main>
   );
 }
