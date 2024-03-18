@@ -802,3 +802,602 @@ export const heuristic5Questions = [
     selectedAnswer: null,
   },
   ];
+
+// HEURISTIC 6 QUESTIONS
+  
+export const heuristic6Questions = [
+  {
+    question:
+      "According to Nielson's usability heuristics, which of the following is preferred?",
+    answers: [
+      "Recall over recognition",
+      "Recognition over recall",
+      "Both are equally important",
+      "Neither is important",
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Which of the following best illustrates the application of \"recognition rather than recall\" in a web application?",
+    answers: [
+      "Providing a search feature to find specific content",
+      "Displaying breadcrumbs to show the user's location",
+      "Requiring users to remember their login credentials",
+      "Using a minimalist design with hidden navigation options",
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Which of the following is an example of \"recognition rather than recall\" in a user interface?",
+    answers: [
+      "Requiring users to remember complex keyboard shortcuts",
+      "Giving users a help page with all the actions on it",
+      "Hiding important information behind multiple clicks",
+      "Providing a list of available actions and what they do on the screen",
+    ],
+    correctAnswerIndex: 3,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Which of the following is an advantage of recognition over recall?",
+    answers: [
+      "Requires deeper processing",
+      "Provides more context",
+      "Less susceptible to forgetting",
+      "Enhances creativity",
+    ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Which of the following design elements violates the \"recognition rather than recall\" heuristic?",
+    answers: [
+      "Requiring users to remember specific commands for navigation",
+      "Providing autocomplete suggestions in a search bar",
+      "Using clear and descriptive labels for menu items",
+      "Providing visual cues for interactive elements",
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "How can designers apply the \"recognition rather than recall\" heuristic to improve usability?",
+    answers: [
+      "By providing clear and consistent navigation options",
+      "By requiring users to memorize complex commands",
+      "By using ambiguous icons without labels",
+      "By limiting the amount of information displayed on the screen",
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "In the context of web design, what is an example of implementing \"recognition rather than recall\"?",
+    answers: [
+      "Using icons without labels for navigation",
+      "Providing clear and descriptive labels for menu items",
+      "Asking users to remember their previous search queries",
+      "Hiding important information behind multiple clicks",
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Nielson's heuristic \"recognition rather than recall\" emphasizes the importance of:",
+    answers: [
+      "Minimizing the need for users to remember information",
+      "Maximizing the need for users to remember information",
+      "Using complex symbols that require memorization",
+      "None of the above",
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "How does the \"recognition rather than recall\" heuristic contribute to a positive user experience?",
+    answers: [
+      "By reducing the cognitive effort required to complete tasks",
+      "By challenging users to remember complex information",
+      "By encouraging users to rely on external memory aids",
+      "By limiting the options available to users",
+    ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "How does adherence to the \"recognition rather than recall\" heuristic impact user satisfaction?",
+    answers: [
+      "It increases frustration due to limited options",
+      "It reduces cognitive effort and enhances user satisfaction",
+      "It requires users to memorize complex interface elements",
+      "It decreases user engagement and retention",
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+]
+
+// HEURISTIC 7 QUESTIONS
+
+export const heuristic7Questions = [
+  {
+    question:
+      "What does Flexibility and efficiency of use emphasize in user interface design?",
+    answers: [
+      "Providing a wide range of customization options",
+      "Designing interfaces that are easy to learn",
+      "Slowing down the interaction time",
+      "Minimizing the number of features to reduce complexity",
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "How can software applications cater to both novice and expert users?",
+    answers: [
+      "By providing a complex interface with many options",
+      "By offering customization options and accelerators",
+      "By limiting functionality to essential features only",
+      "By removing all unnecessary features",
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Providing users with the ability to customize frequent actions is an example of following heuristic 7.",
+    answers: [
+      "True",
+      "False",
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "How can accelerators benefit user interfaces?",
+    answers: [
+      "By making tasks more difficult for novice users",
+      "By providing shortcuts for experienced users to perform actions more quickly",
+      "By adding unnecessary complexity to the interface",
+      "By slowing down the interaction for all users",
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "According to heuristic 7, interfaces should prioritize aesthetics over functionality.",
+    answers: [
+      "True",
+      "False",
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "What is the relationship between flexibility and efficiency?",
+    answers: [
+      "They are mutually exclusive concepts",
+      "Flexibility often leads to inefficiency ",
+      "They are complementary goals in interface design",
+      "Efficiency is more important than flexibility",
+    ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Which of the following design choices is consistent with heuristic 7?",
+    answers: [
+      "Using a fixed layout that cannot be changed by the user",
+      "Restricting the number of features available to users",
+      "Making all actions require multiple confirmation steps",
+      "Providing a variety of customization options for user preferences",
+    ],
+    correctAnswerIndex: 3,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "According to heuristic 7, interfaces should prioritize efficiency over flexibility.",
+    answers: [
+      "True",
+      "False",
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "How can interfaces support both novice and expert users?",
+    answers: [
+      "By removing all advanced features to simplify the interface",
+      "By providing a consistent interface that does not change",
+      "By offering customization options that can be toggled on or off",
+      "By requiring users to undergo extensive training before using the interface",
+    ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Heuristic 7 suggests that interfaces should be designed to cater exclusively to expert users.",
+    answers: [
+      "True",
+      "False",
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+]
+
+// HEURISTIC 8 QUESTIONS
+
+export const heuristic8Questions = [
+  {
+    question:
+      "Which of the following best describes the principle of aesthetic and minimalist design?",
+    answers: [
+      "Including all possible information to ensure users have all the information they might need.",
+      "Keeping dialogues free of irrelevant or rarely needed information and keeping the interface clean.",
+      "Using complex visual elements to enhance the user interface.",
+      "Using as many colors and fonts as possible without a clear direction",
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Aesthetic and minimalist design suggests that every extra unit of information in a dialogue enhances the user experience.",
+    answers: [
+      "True",
+      "False",
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Which of the following is a key aspect of aesthetic and minimalist design?",
+    answers: [
+      "Including all possible information.",
+      "Using complex visual elements.",
+      "Keeping dialogues free of irrelevant information.",
+      "Using as many colors and fonts as possible.",
+    ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Aesthetic and minimalist design is focused on:",
+    answers: [
+      "Making the interface visually complex.",
+      "Reducing visual clutter and unnecessary elements.",
+      "Using a wide variety of colors and fonts.",
+      "All of the above.",
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Aesthetic and minimalist design encourages the inclusion of all possible information to ensure users have all they might need.",
+    answers: [
+      "True",
+      "False",
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "What should be the focus of dialogues according to the principle of aesthetic and minimalist design?",
+    answers: [
+      "Including as much information as possible.",
+      "Keeping the design visually complex.",
+      "Reducing visual clutter and unnecessary elements.",
+      "Maximizing the styling on the page",
+    ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Which is more important having an aesthetic or a minimalist design?",
+    answers: [
+      "Aesthetics are more important.",
+      "Minimalist design is more important.",
+      "They both are not important at all.",
+      "None of the above.",
+    ],
+    correctAnswerIndex: 3,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Which of the following is not aligned with the principle of aesthetic and minimalist design?",
+    answers: [
+      "Using simple and clean visuals.",
+      "Providing only relevant information.",
+      "Including complex visual elements.",
+      "Keeping dialogues free of irrelevant information.",
+    ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Aesthetic and minimalist design encourages decreasing the use of complex visual elements in the interface.",
+    answers: [
+      "True",
+      "False",
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Sometimes, including extra information in a dialogue can:",
+    answers: [
+      "Confuse users.",
+      "Enhance the user experience.",
+      "Improve clarity.",
+      "All of the above.",
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+]
+
+// HEURISTIC 9 QUESTIONS
+
+export const heuristic9Questions = [
+  {
+    question:
+      "Error messages should be expressed in complex language to ensure users understand the severity of the error.",
+    answers: [
+      "True",
+      "False",
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Which of the following is NOT aligned with helping users recognize, diagnose, and recover from errors?",
+    answers: [
+      "Providing clear and concise error messages.",
+      "Offering suggestions for recovery.",
+      "Using technical jargon in error messages.",
+      "Indicating the problem precisely."
+    ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Sometimes, using technical jargon in error messages can:",
+    answers: [
+      "Enhance user understanding.",
+      "Confuse users.",
+      "Improve clarity.",
+      "None of the above.",
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Helping users recognize, diagnose, and recover from errors involves:",
+    answers: [
+      "Using vague error messages.",
+      "Providing no suggestions for recovery.",
+      "Giving the user no options.",
+      "None of the above.",
+    ],
+    correctAnswerIndex: 3,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Giving the user more relevant information is better for helping them recover from errors?",
+    answers: [
+      "True",
+      "False",
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Which design approach aligns with helping users recognize, diagnose, and recover from errors?",
+    answers: [
+      "Providing vague error messages.",
+      "Using error codes without explanations.",
+      "Offering explanations and solutions.",
+      "Providing no suggestions for recovery.",
+    ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Using technical jargon in error messages can sometimes:",
+    answers: [
+      "Enhance user understanding.",
+      "Confuse users.",
+      "Improve clarity.",
+      "None of the above.",
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "What should be avoided in error codes?",
+    answers: [
+      "Printing the error code.",
+      "Providing a reference to the documentation.",
+      "Giving a summary of the error.",
+      "Giving the user as technical of a description as possible.",
+    ],
+    correctAnswerIndex: 3,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Helping users recognize, diagnose, and recover from errors involves providing complex, technical, and verbose solutions.",
+    answers: [
+      "True",
+      "False",
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "What words should be avoided?",
+    answers: [
+      "Technical terms.",
+      "The error code.",
+      "Terms in relation to the program.",
+      "All of the above.",
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+]
+
+// HEURISTIC 10 QUESTIONS
+
+export const heuristic10Questions = [
+  {
+    question:
+      "Providing help and documentation is only necessary for complex systems.",
+    answers: [
+      "True",
+      "False",
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Which of the following is a key aspect of providing help and documentation?",
+    answers: [
+      "Making the documentation difficult to search.",
+      "Focusing on the system rather than the user's task.",
+      "Listing abstract steps that are not actionable.",
+      "Being easy to search and focused on the user's task."
+    ],
+    correctAnswerIndex: 3,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "What is the main purpose of providing help and documentation?",
+    answers: [
+      "To showcase the technical expertise of the development team.",
+      "To guide users through the system in a clear and concise manner.",
+      "To overwhelm users with unnecessary information.",
+      "To minimize the need for user support.",
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Sometimes, providing too much information in help and documentation can:",
+    answers: [
+      "Clarify complex concepts for users.",
+      "Overwhelm users and hinder comprehension.",
+      "Improve user confidence in the system.",
+      "All of the above.",
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Providing effective help and documentation involves using technical jargon extensively to maintain professional tone.",
+    answers: [
+      "True",
+      "False",
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Effective help and documentation should be:",
+    answers: [
+      "Difficult to navigate to encourage exploration.",
+      "Focused on the system's technical details.",
+      "Easy to search and focused on user tasks.",
+      "Written in complex language to convey authority.",
+    ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Which approach aligns with providing effective help and documentation?",
+    answers: [
+      "Including every detail about the system, no matter how trivial.",
+      "Focusing on technical aspects to demonstrate expertise.",
+      "Presenting information in a clear and concise manner.",
+      "Using technical terms without explanation.",
+    ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Which of the following best describes the principle of providing effective help and documentation?",
+    answers: [
+      "Making the documentation difficult to search.",
+      "Focusing on the user's task.",
+      "Providing information that is difficult to understand.",
+      "Being easy to search and focused on the user's task.",
+    ],
+    correctAnswerIndex: 3,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Effective help and documentation involves providing concise explanations to scenarios.",
+    answers: [
+      "True",
+      "False",
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Providing effective help and documentation aims to:",
+    answers: [
+      "Overwhelm users with too much information.",
+      "Enhance the user experience by focusing on the system.",
+      "Offer information that is easy to search and focused on the user's task.",
+      "Provide information that is difficult to understand.",
+    ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+]
