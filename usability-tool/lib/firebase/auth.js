@@ -8,12 +8,12 @@ import {
   sendPasswordResetEmail as _sendPasswordResetEmail,
   updateProfile,
   setPersistence,
-  inMemoryPersistence,
+  browserSessionPersistence,
 } from "firebase/auth";
 import { auth } from "./firebase";
 import errCodeToMessage from "../tools/errCodeToMsg";
 
-setPersistence(auth, inMemoryPersistence);
+setPersistence(auth, browserSessionPersistence);
 
 export function onAuthStateChanged(callback = () => {}) {
   return _onAuthStateChanged(auth, callback);

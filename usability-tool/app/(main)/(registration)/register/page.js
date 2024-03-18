@@ -33,46 +33,30 @@ export default function Logon() {
     watch,
   } = useForm();
 
-  console.log(errors);
 
   const [logonError, setLogOnError] = useState(null);
   const [errorDismissed, setErrorDismissed] = useState(false);
   const [status, setStatus] = useState("idle");
 
-  // async function handleSubmit(e) {
-  //   e.preventDefault();
-  //   console.log(formData);
-  //   if (formData.password === formData.passwordConf) {
-  //     setStatus("submitting");
-  //     //Call firebase
-  //     try {
-  //       await createAccount(
-  //         formData.email,
-  //         formData.password,
-  //         formData.firstName,
-  //         formData.lastName
-  //       );
-  //       router.replace("/main");
-  //     } catch (error) {
-  //       console.error(error);
-  //       setErrorDismissed(false);
-  //       setLogOnError(error);
-  //     } finally {
-  //       setStatus("idle");
-  //     }
-  //   } else {
-  //     setLogOnError("Passwords do not match");
-  //   }
-  // }
-
-  function handleFormChange(e) {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => {
-      return {
-        ...prevFormData,
-        [name]: value,
-      };
-    });
+  async function handleRegister(data) {
+    console.log(data)
+      setStatus("submitting");
+      //Call firebase
+      try {
+        await createAccount(
+          data.email,
+          data.password,
+          data.firstName,
+          data.lastName
+        );
+        router.replace("/main");
+      } catch (error) {
+        console.error(error);
+        setErrorDismissed(false);
+        setLogOnError(error);
+      } finally {
+        setStatus("idle");
+      }
   }
 
   return (
@@ -80,15 +64,15 @@ export default function Logon() {
       <h1 className="registration-title">Register</h1>
       <form
         onSubmit={handleSubmit((data) => {
-          console.log(data);
+          handleRegister(data)
         })}
-        className="needs-validation"
-        noValidate
+        // className="needs-validation"
+        // noValidate
       >
-        <div className="form-floating mb-3 has-validation">
+        <div className="form-floating mb-3">
           <input
             id="emailInput"
-            className="form-control"
+            className={`form-control ${errors.email ? "is-invalid" : null}`}
             type="email"
             {...register("email", { required: "Email is required" })}
             placeholder="Email"
@@ -96,34 +80,36 @@ export default function Logon() {
           <label htmlFor="emailInput" className="form-label">
             Email
           </label>
-          <div className="invalid-feedback">{errors.email?.message}</div>
+          <div class="invalid-feedback">{errors.email?.message}</div>
         </div>
         <div className="mb-3 input-group">
           <div className="form-floating">
             <input
               id="firstNameInput"
-              className="form-control"
+              className={`form-control ${errors.firstName ? "is-invalid" : null}`}
               type="text"
               {...register("firstName", { required: "First name is required" })}
               placeholder="First Name"
             />
             <label htmlFor="firstNameInput">First Name</label>
+            <div className="invalid-feedback">{errors.firstName?.message}</div>
           </div>
           <div className="form-floating">
             <input
               id="lastNameInput"
-              className="form-control"
+              className={`form-control ${errors.lastName ? "is-invalid" : null}`}
               type="text"
               {...register("lastName", { required: "Last name is required" })}
               placeholder="Last Name"
             />
             <label htmlFor="lastNameInput">Last Name</label>
+            <div className="invalid-feedback">{errors.lastName?.message}</div>
           </div>
         </div>
         <div className="mb-3 form-floating">
           <input
             id="passwordInput"
-            className="form-control"
+            className={`form-control ${errors.password ? "is-invalid" : null}`}
             type="password"
             {...register("password", {
               required: "Password is required",
@@ -135,11 +121,12 @@ export default function Logon() {
             placeholder="Password"
           />
           <label htmlFor="passwordInput">Password</label>
+          <div className="invalid-feedback">{errors.password?.message}</div>
         </div>
         <div className="mb-3 form-floating">
           <input
             id="passwordConfirmInput"
-            className="form-control"
+            className={`form-control ${errors.passwordConf ? "is-invalid" : null}`}
             type="password"
             {...register("passwordConf", {
               required: "Password confirmation is required",
@@ -152,6 +139,7 @@ export default function Logon() {
             placeholder="Confirm Password"
           />
           <label htmlFor="passwordConfirmInput">Confirm Password</label>
+          <div className="invalid-feedback">{errors.passwordConf?.message}</div>
         </div>
         <button className="registration-confirm-btn">Submit</button>
       </form>

@@ -28,6 +28,7 @@ export function AuthContextProvider({ children }) {
       try {
         setMetaDataFetched(false);
         const data = await getMetadata(user);
+        console.log(data)
         setMetaData(data);
       } catch (e) {
         console.error(e);
