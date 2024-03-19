@@ -34,7 +34,10 @@
 }
 
 .menu-title {
+  user-select: none;
   margin: auto;
+  text-decoration: none;
+  color: inherit;
   @include sm {
     font-size: 1.5em;
   }

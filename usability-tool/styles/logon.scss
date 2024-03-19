@@ -4,6 +4,9 @@
 .form-control:focus {
   background: $dark;
   color: white;
+  &:focus {
+    background: $darkest;
+  }
 }
 
 .form-container {
@@ -14,7 +17,7 @@
 .form-floating > .form-control:not(:placeholder-shown) ~ label,
 .form-floating > .form-control-plaintext ~ label,
 .form-floating > .form-select ~ label {
-  color: white;
+  color: $white;
 }
 
 .form-floating {
@@ -24,6 +27,10 @@
       background: none !important;
     }
   }
+}
+
+.invalid-feedback {
+  font-weight: bold;
 }
 
 /*Containers*/

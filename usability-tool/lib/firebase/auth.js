@@ -39,6 +39,7 @@ export async function createAccount(email, password, firstname, lastname) {
       displayName: `${firstname} ${lastname}`,
     });
   } catch (e) {
+    console.log(e);
     throw errCodeToMessage(e.code);
   }
   return { result, error };

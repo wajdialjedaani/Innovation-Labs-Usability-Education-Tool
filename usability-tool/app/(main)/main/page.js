@@ -6,7 +6,9 @@ import { getAuthContext } from "../components/AuthContextProvider";
 
 export default function mainPage() {
   const {
-    metaDataSuite: { metaData },
+    metaDataSuite: {
+      metaData: { completedHeuristics },
+    },
   } = getAuthContext();
 
   const heuristicNames = [
@@ -21,6 +23,8 @@ export default function mainPage() {
     "Help users recognize, diagnose, and recover from errors",
     "Help and documentation",
   ];
+
+  if (!completedHeuristics) return;
 
   return (
     <main>
@@ -59,9 +63,7 @@ export default function mainPage() {
                     </Link>
                     <Link
                       className={`list-group-item list-group-item-action ${
-                        metaData.completedHeuristics[i] < 1
-                          ? "disabled"
-                          : "none"
+                        completedHeuristics[i] < 1 ? "disabled" : "none"
                       }`}
                       aria-disabled="true"
                       href={`/quiz/${i + 1}`}
@@ -70,9 +72,7 @@ export default function mainPage() {
                     </Link>
                     <Link
                       className={`list-group-item list-group-item-action ${
-                        metaData.completedHeuristics[i] < 2
-                          ? "disabled"
-                          : "none"
+                        completedHeuristics[i] < 2 ? "disabled" : "none"
                       }`}
                       aria-disabled="true"
                       href={`/ui-builder/activity/1`}
