@@ -42,6 +42,7 @@ export default function UIBuilderContextProvider({
     startTime,
     // scenario info:
     scenarioInformation: scenario.scenarioInformation,
+    staticWidgets: scenario.staticWidgets,
 
     solutionMode,
 

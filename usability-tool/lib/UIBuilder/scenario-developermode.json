@@ -4,6 +4,7 @@
     "description": "make some scenarios!\n\nany components left in the component drawer will be delivered to user.\n\nbe careful! any components discarded cannot be regenerated!"
   },
   "solutionGrids": [[]],
+  "staticWidgets": [],
   "positioningWeight": 0.55,
   "bonesUsedWeight": 0.45
 }

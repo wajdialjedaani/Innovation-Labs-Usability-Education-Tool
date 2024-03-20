@@ -82,18 +82,22 @@ function getBonesUsedScore(solutionGrid, userGrid){
 
   let userBoneMatches = 0;
 
-  let missingBones = []
+  let missingBones = [];
+
+  let penalty = 0;
+
 
   userGrid.map(obj => {
     if (obj.bone){
       // if bone matches a solution, increment
       if (solutionBones.includes(obj.bone)){
         userBoneMatches++; 
+      } else {
+        penalty++;
       }
     }
   });
 
-  let penalty = 0;
 
   // no use penalty
   solutionGrid.map(obj => {
@@ -114,7 +118,7 @@ function getBonesUsedScore(solutionGrid, userGrid){
 
   if (penaltySubtract > ((userBoneMatches / solutionBoneCount) * 100)){
     return {
-      bonesUsedScore: 10.0,
+      bonesUsedScore: 0,
       missingBones: missingBones
     }
   }
@@ -183,6 +187,8 @@ function getPositioningScore(solutionGrid, userGrid){
 
   userGrid.map((obj) => {
     const matchBone = solutionDeltas.find(userObj => userObj.bone === obj.bone);
+
+    console.log("MATCHBONE SPITOUT: ", matchBone);
 
     let thisDeltaObj = {
       bone: obj.bone,

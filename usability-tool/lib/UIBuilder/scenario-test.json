@@ -1,7 +1,7 @@
 {
   "scenarioInformation": {
-    "title": "test",
-    "description": "test"
+    "title": "Visibility of System Status",
+    "description": "As you have learned in the previous lesson, the visibility of system status is an important heuristic to follow when designing user interfaces.\n\nFor this activity, you will be building a simple user interface for a web based music player. You do not need to use all of the components provided to successfully complete the activity. Remember to follow the guidelines of the visibility of system status heuristic while completing this activity."
   },
   "solutionGrids": [
     [
@@ -1913,6 +1913,416 @@
           }
         }
       }
+    ],
+    [
+      {
+        "id": "h1t",
+        "bone": "TopBar",
+        "zIndex": 100,
+        "style": {
+          "zIndex": 100,
+          "position": "absolute",
+          "left": 240,
+          "top": 120.296875,
+          "rect": {
+            "initial": {
+              "top": 85.296875,
+              "left": 0,
+              "width": 900,
+              "height": 90,
+              "bottom": 175.296875,
+              "right": 900
+            },
+            "translated": {
+              "top": 120.296875,
+              "left": 240,
+              "width": 900,
+              "height": 90,
+              "bottom": 210.296875,
+              "right": 1140
+            }
+          }
+        }
+      },
+      {
+        "id": "h1u",
+        "bone": "PlaybackBump",
+        "zIndex": 150,
+        "style": {
+          "zIndex": 150,
+          "position": "absolute",
+          "left": 880,
+          "top": 415.296875,
+          "rect": {
+            "initial": {
+              "top": 125.296875,
+              "left": 1410,
+              "width": 470,
+              "height": 49,
+              "bottom": 174.296875,
+              "right": 1880
+            },
+            "translated": {
+              "top": 415.296875,
+              "left": 880,
+              "width": 470,
+              "height": 49,
+              "bottom": 464.296875,
+              "right": 1350
+            }
+          }
+        }
+      },
+      {
+        "id": "h1y",
+        "bone": "AlbumBox",
+        "zIndex": 100,
+        "style": {
+          "position": "absolute",
+          "left": 240,
+          "top": 207,
+          "rect": {
+            "initial": {
+              "top": 207,
+              "left": 240,
+              "width": 900,
+              "height": 634,
+              "bottom": 841,
+              "right": 1140
+            },
+            "translated": {
+              "top": 207,
+              "left": 240,
+              "width": 900,
+              "height": 634,
+              "bottom": 841,
+              "right": 1140
+            }
+          },
+          "zIndex": 100
+        }
+      },
+      {
+        "id": "h1w",
+        "bone": "VolumeControls",
+        "zIndex": 150,
+        "style": {
+          "zIndex": 150,
+          "position": "absolute",
+          "left": 255,
+          "top": 135.296875,
+          "rect": {
+            "initial": {
+              "top": 135.296875,
+              "left": 250,
+              "width": 207,
+              "height": 59,
+              "bottom": 194.296875,
+              "right": 457
+            },
+            "translated": {
+              "top": 135.296875,
+              "left": 255,
+              "width": 207,
+              "height": 59,
+              "bottom": 194.296875,
+              "right": 462
+            }
+          }
+        }
+      },
+      {
+        "id": "h1e",
+        "bone": "NowPlaying",
+        "zIndex": 150,
+        "style": {
+          "zIndex": 150,
+          "position": "absolute",
+          "left": 485,
+          "top": 120.296875,
+          "rect": {
+            "initial": {
+              "top": 120.296875,
+              "left": 465,
+              "width": 400,
+              "height": 75,
+              "bottom": 195.296875,
+              "right": 865
+            },
+            "translated": {
+              "top": 120.296875,
+              "left": 485,
+              "width": 400,
+              "height": 75,
+              "bottom": 195.296875,
+              "right": 885
+            }
+          }
+        }
+      },
+      {
+        "id": "h1r",
+        "bone": "PlaybackSlider",
+        "zIndex": 150,
+        "style": {
+          "zIndex": 150,
+          "position": "absolute",
+          "left": 485,
+          "top": 195.296875,
+          "rect": {
+            "initial": {
+              "top": 195.296875,
+              "left": 465,
+              "width": 400,
+              "height": 10,
+              "bottom": 205.296875,
+              "right": 865
+            },
+            "translated": {
+              "top": 195.296875,
+              "left": 485,
+              "width": 400,
+              "height": 10,
+              "bottom": 205.296875,
+              "right": 885
+            }
+          }
+        }
+      },
+      {
+        "id": "h1q",
+        "bone": "PlaybackControls",
+        "zIndex": 150,
+        "style": {
+          "zIndex": 150,
+          "position": "absolute",
+          "left": 940,
+          "top": 135.296875,
+          "rect": {
+            "initial": {
+              "top": 135.296875,
+              "left": 930,
+              "width": 154,
+              "height": 59,
+              "bottom": 194.296875,
+              "right": 1084
+            },
+            "translated": {
+              "top": 135.296875,
+              "left": 940,
+              "width": 154,
+              "height": 59,
+              "bottom": 194.296875,
+              "right": 1094
+            }
+          }
+        }
+      }
+    ],
+    [
+      {
+        "id": "h1t",
+        "bone": "TopBar",
+        "zIndex": 100,
+        "style": {
+          "zIndex": 100,
+          "position": "absolute",
+          "left": 240,
+          "top": 120.296875,
+          "rect": {
+            "initial": {
+              "top": 85.296875,
+              "left": 0,
+              "width": 900,
+              "height": 90,
+              "bottom": 175.296875,
+              "right": 900
+            },
+            "translated": {
+              "top": 120.296875,
+              "left": 240,
+              "width": 900,
+              "height": 90,
+              "bottom": 210.296875,
+              "right": 1140
+            }
+          }
+        }
+      },
+      {
+        "id": "h1u",
+        "bone": "PlaybackBump",
+        "zIndex": 150,
+        "style": {
+          "zIndex": 150,
+          "position": "absolute",
+          "left": 880,
+          "top": 415.296875,
+          "rect": {
+            "initial": {
+              "top": 125.296875,
+              "left": 1410,
+              "width": 470,
+              "height": 49,
+              "bottom": 174.296875,
+              "right": 1880
+            },
+            "translated": {
+              "top": 415.296875,
+              "left": 880,
+              "width": 470,
+              "height": 49,
+              "bottom": 464.296875,
+              "right": 1350
+            }
+          }
+        }
+      },
+      {
+        "id": "h1y",
+        "bone": "AlbumBox",
+        "zIndex": 100,
+        "style": {
+          "position": "absolute",
+          "left": 240,
+          "top": 207,
+          "rect": {
+            "initial": {
+              "top": 207,
+              "left": 240,
+              "width": 900,
+              "height": 634,
+              "bottom": 841,
+              "right": 1140
+            },
+            "translated": {
+              "top": 207,
+              "left": 240,
+              "width": 900,
+              "height": 634,
+              "bottom": 841,
+              "right": 1140
+            }
+          },
+          "zIndex": 100
+        }
+      },
+      {
+        "id": "h1e",
+        "bone": "NowPlaying",
+        "zIndex": 150,
+        "style": {
+          "zIndex": 150,
+          "position": "absolute",
+          "left": 485,
+          "top": 120.296875,
+          "rect": {
+            "initial": {
+              "top": 120.296875,
+              "left": 465,
+              "width": 400,
+              "height": 75,
+              "bottom": 195.296875,
+              "right": 865
+            },
+            "translated": {
+              "top": 120.296875,
+              "left": 485,
+              "width": 400,
+              "height": 75,
+              "bottom": 195.296875,
+              "right": 885
+            }
+          }
+        }
+      },
+      {
+        "id": "h1r",
+        "bone": "PlaybackSlider",
+        "zIndex": 150,
+        "style": {
+          "zIndex": 150,
+          "position": "absolute",
+          "left": 485,
+          "top": 195.296875,
+          "rect": {
+            "initial": {
+              "top": 195.296875,
+              "left": 465,
+              "width": 400,
+              "height": 10,
+              "bottom": 205.296875,
+              "right": 865
+            },
+            "translated": {
+              "top": 195.296875,
+              "left": 485,
+              "width": 400,
+              "height": 10,
+              "bottom": 205.296875,
+              "right": 885
+            }
+          }
+        }
+      },
+      {
+        "id": "h1q",
+        "bone": "PlaybackControls",
+        "zIndex": 150,
+        "style": {
+          "zIndex": 150,
+          "position": "absolute",
+          "left": 285,
+          "top": 135.296875,
+          "rect": {
+            "initial": {
+              "top": 135.296875,
+              "left": 940,
+              "width": 154,
+              "height": 59,
+              "bottom": 194.296875,
+              "right": 1094
+            },
+            "translated": {
+              "top": 135.296875,
+              "left": 285,
+              "width": 154,
+              "height": 59,
+              "bottom": 194.296875,
+              "right": 439
+            }
+          }
+        }
+      },
+      {
+        "id": "h1w",
+        "bone": "VolumeControls",
+        "zIndex": 150,
+        "style": {
+          "zIndex": 150,
+          "position": "absolute",
+          "left": 910,
+          "top": 135.296875,
+          "rect": {
+            "initial": {
+              "top": 295.296875,
+              "left": 745,
+              "width": 207,
+              "height": 59,
+              "bottom": 354.296875,
+              "right": 952
+            },
+            "translated": {
+              "top": 135.296875,
+              "left": 910,
+              "width": 207,
+              "height": 59,
+              "bottom": 194.296875,
+              "right": 1117
+            }
+          }
+        }
+      }
     ]
   ],
   "widgetData": {
@@ -1982,6 +2392,7 @@
     ],
     "grid": []
   },
+  "staticWidgets": [],
   "positioningWeight": 0.5,
   "bonesUsedWeight": 0.5
 }

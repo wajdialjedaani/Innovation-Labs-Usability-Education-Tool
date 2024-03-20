@@ -1,3 +1,86 @@
+// ================================== heuristic 2 ==============================
+
+.twoTopBar {
+  background-color: rgb(40, 40, 40);
+  width: 1000px;
+  height: 30px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color: white;
+  font-size: 18px;
+  box-sizing: border-box;
+  padding-left: 10px; padding-right: 10px;
+}
+
+.twoTopBarList {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.twoToolBar {
+  background-color: rgb(31, 31, 31);
+
+  width: 225px;
+  height: 600px;
+
+  box-sizing: border-box;
+
+  color: white;
+  font-size: 25px;
+  padding-left: 45px;
+}
+
+.twoCanvas {
+  background-color: rgb(17, 17, 17);
+  width: 775px;
+  height: 600px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.twoCanvas img {
+  width: 400px;
+  height: auto;
+}
+
+.twoBottomHolder {
+  display: flex;
+  flex-direction: row;
+}
+
+.twoToolBarButtonHolder {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  gap: 8px;
+}
+
+.twoStatic {
+  user-select: none;
+}
+
+.twoImgHolder {
+  background-color: rgb(31, 31, 31);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center; align-items: center;
+}
+
+.twoImgHolder img {
+  width: 25px;
+  height: 25px;
+}
+
 // ================================== heuristic 1 ==================================
 
 $playbackTopBarBG: #3c3c3c;
