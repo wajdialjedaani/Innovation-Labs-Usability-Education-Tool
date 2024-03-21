@@ -1,7 +1,14 @@
+"use client";
 import "@/styles/mainpage.scss";
 import Link from "next/link";
 
+import { getAuthContext } from "../components/AuthContextProvider";
+
 export default function mainPage() {
+  const {
+    metaDataSuite: { metaData },
+  } = getAuthContext();
+
   const heuristicNames = [
     "Visibility of system status",
     "Match between system and the real world",
@@ -16,14 +23,69 @@ export default function mainPage() {
   ];
 
   return (
-    <main className="main-main">
-      <div className="heuristic-btn-container">
-        {heuristicNames.map((name, i) => (
-          <Link className="heuristic-btn" href={`/lessons/${i + 1}`} key={i}>
-            <h3 className="heuristic-btn-title">Heuristic {i + 1}</h3>
-            <h5 className="heuristic-btn-name">{name}</h5>
-          </Link>
-        ))}
+    <main>
+      <div className="text-center mx-auto mt-5 col-md-6">
+        <div
+          className="accordion accordion-flush shadow-none"
+          id="mainAccordion"
+        >
+          {heuristicNames.map((name, i) => (
+            <div className="accordion-item" key={i}>
+              <h2 className="accordion-header">
+                <button
+                  className="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target={`#collapse${i}`}
+                  aria-expanded="false"
+                  aria-controls={`collapse${i}`}
+                >
+                  Heuristic {i + 1}
+                </button>
+              </h2>
+              <div
+                id={`collapse${i}`}
+                className="accordion-collapse collapse"
+                data-bs-parent="#mainAccordion"
+              >
+                <div className="accordion-body p-0">
+                  <ul className="list-group list-group-flush text-start ">
+                    <Link
+                      className="list-group-item list-group-item-action"
+                      href={`/lessons/${i + 1}`}
+                    >
+                      <i className="bi bi-book p-1"></i>
+                      Textbook
+                    </Link>
+                    <Link
+                      className={`list-group-item list-group-item-action ${
+                        metaData.completedHeuristics[i] < 1
+                          ? "disabled"
+                          : "none"
+                      }`}
+                      aria-disabled="true"
+                      href={`/quiz/${i + 1}`}
+                    >
+                      <i className="bi bi-question-circle p-1"></i>Quiz
+                    </Link>
+                    <Link
+                      className={`list-group-item list-group-item-action ${
+                        metaData.completedHeuristics[i] < 2
+                          ? "disabled"
+                          : "none"
+                      }`}
+                      aria-disabled="true"
+                      href={`/ui-builder/activity/1`}
+                    >
+                      <i className="bi bi-tools p-1"></i>
+                      UI Builder
+                    </Link>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </main>
   );

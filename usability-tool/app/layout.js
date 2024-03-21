@@ -1,5 +1,9 @@
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import { Inter } from "next/font/google";
 import "@/styles/globals.scss";
+
+import BootstrapClient from "@/components/BootstrapClient";
 
 import { AuthContextProvider } from "./(main)/components/AuthContextProvider";
 
@@ -14,7 +18,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en-US">
       <body className="global">
-        <AuthContextProvider>{children}</AuthContextProvider>
+        <AuthContextProvider>
+          {children}
+          <BootstrapClient />
+        </AuthContextProvider>
       </body>
     </html>
   );

@@ -1,365 +1,196 @@
 "use client";
 import "@/styles/statistics.scss";
-import { useState, useEffect } from "react";
-import {
-  ResponsiveContainer,
-  PieChart,
-  Pie,
-  Cell,
-  Tooltip,
-  Text,
-} from "recharts";
+import { useState, useEffect, Suspense } from "react";
 
 import { getAuthContext } from "../../components/AuthContextProvider";
-import {
-  readHeuristicData,
-  readUIData,
-  readAllHeuristicData,
-} from "@/lib/firebase/firestore";
+import { readHeuristicData, readUIData } from "@/lib/firebase/firestore";
 
-import { IoAlertCircle } from "react-icons/io5";
-import { FaLock } from "react-icons/fa";
-import { IconContext } from "react-icons";
+import styles from "@/styles/stats.module.scss";
+
+import PieGraph from "@/components/stats/PieGraph";
+import BarGraph from "@/components/stats/BarGraph";
 
 const heuristics = Array.from({ length: 10 }, (x, i) => `Heuristic ${i + 1}`);
-/*
-[
-    { name: "Correct", value: 3 },
-    { name: "incorrect", value: 2 },
-  ]
-  */
-function AlertIcon() {
-  return (
-    <IconContext.Provider
-      value={{
-        color: "red",
-        size: "25%",
-      }}
-    >
-      <IoAlertCircle />
-      <h3>No Data</h3>
-    </IconContext.Provider>
-  );
-}
 
 export default function Statistics() {
-  const { user } = getAuthContext();
-  const [currHeuristic, setCurrHeuristic] = useState(0);
-  const [activeButton, setActiveButton] = useState(0);
-  const [currQuizData, setCurrQuizData] = useState(null);
+  //Get user and metadata
+  const {
+    user,
+    metaDataSuite: {
+      metaData: { completedHeuristics },
+    },
+  } = getAuthContext();
+  //Stores the data for the current heuristic
+  const [currHeuristicData, setCurrHeuristicData] = useState(null);
   const [currUIData, setCurrUIData] = useState(null);
-  const [isMobile, setIsMobile] = useState(false);
-  const [quizDataArray, setQuizDataArray] = useState([]);
-  const [uiDataArray, setUIDataArray] = useState([]);
-  const [bestQuizTime, setBestQuizTime] = useState(100000000);
-  const [bestUITime, setBestUITime] = useState(10000000);
 
-  const colors = { Incorrect: "#F24336", Correct: "#4BAE4F" };
+  //Stores the current heuristic that is selected
+  const [currHeuristic, setCurrheuristic] = useState(
+    completedHeuristics.forEach((heu, i) => {
+      if (heu === 3) return i;
+    }) || 0
+  );
 
-  function handleScreenResize() {
-    if (window.innerWidth <= 768) setIsMobile(true);
-    else setIsMobile(false);
-  }
+  //Loading state
+  const [loading, setLoading] = useState(true);
 
-  //Returns the data in a form that the graph can read
-  function getDataForGraph() {
-    return Object.keys(currQuizData)
-      .filter((key) => key === "correct" || key === "incorrect")
-      .map((key) => {
-        return {
-          name: key.charAt(0).toUpperCase() + key.slice(1),
-          value: currQuizData[key],
-        };
-      });
-  }
+  //State for if there's no quiz data
+  const [noQuizData, setNoQuizData] = useState(false);
+  //State for if there's no UI Data
+  const [noUIData, setNoUIData] = useState(false);
 
-  function getDataForUIGraph() {
-    return Object.keys(currUIData)
-      .filter((key) => key === "correct" || key === "incorrect")
-      .map((key) => {
-        return {
-          name: key.charAt(0).toUpperCase() + key.slice(1),
-          value: currUIData[key],
-        };
-      });
-  }
-
-  function getDataForTable() {
-    return Object.keys(currQuizData)
-    .filter(key => key ==="time")
-    .map(key => {
-      return {
-        name: key,
-        value: currQuizData[key]
-      }
-    })
-  }
-
-  function getDataForUITable() {
-    return Object.keys(currUIData)
-    .filter(key => key ==="time")
-    .map(key => {
-      return {
-        name: key,
-        value: currUIData[key]
-      }
-    })
-  }
-
-  function getDataForAttempts() {
-    return Object.keys(currQuizData)
-    .filter(key => key==="attempts")
-    .map(key => {
-      return {
-        name: key,
-        value: currQuizData[key]
-      }
-    })
-  }
-
-  function getDataForUIAttempts() {
-    return Object.keys(currUIData)
-    .filter(key => key==="attempts")
-    .map(key => {
-      return {
-        name: key,
-        value: currUIData[key]
-      }
-    })
-  }
-
-
+  //Get new data when the heuristic changes
   useEffect(() => {
-    window.addEventListener("resize", handleScreenResize);
-    return () => window.removeEventListener("resize", handleScreenResize);
-  }, []);
-
-  //Get the data on the first load
-  useEffect(() => {
-    async function getAllHeuristicData() {
-      //The new state array
-      const heuristicDataArray = [];
-      const UIDataArray = [];
+    setLoading(true);
+    const getAllCurrData = async () => {
       try {
-        //Loop through all 10 heurisics
-        for (let i = 0; i < 10; i++) {
-          //Get the data or put null if there isn't any
-          const heuristicData = await readHeuristicData(i + 1, user.uid);
-          heuristicDataArray[i] = heuristicData.data || null;
-
-          const uiData = await readUIData(i + 1, user.uid);
-          UIDataArray[i] = uiData.data || null;
-        }
-        //Set the state
-        setQuizDataArray(heuristicDataArray);
-        setCurrQuizData(heuristicDataArray[0]);
-        setUIDataArray(UIDataArray);
-        setCurrUIData(UIDataArray[0]);
+        await Promise.all([
+          getNewHeuristicdata(currHeuristic + 1),
+          getNewUIdata(currHeuristic + 1),
+        ]);
       } catch (e) {
         console.error(e);
+      } finally {
+        setLoading(false);
       }
-    }
-    getAllHeuristicData();
-  }, []);
+    };
 
-  function calculateBestQuizTime(data) {
-    console.log({data})
-    //setBestTime(data.value[0]);
-    if(data.value < bestQuizTime) {
-      setBestQuizTime(data.value);
-    }
-    return bestQuizTime;
-  }
-
-  function calculateBestUITime(data) {
-    console.log({data})
-    //setBestTime(data.value[0]);
-    if(data.value < bestUITime) {
-      setBestUITime(data.value);
-    }
-    return bestUITime;
-  }
-
-  //Set the currData to the new heuristic's data
-  useEffect(() => {
-    setCurrQuizData(quizDataArray[currHeuristic]);
-    setCurrUIData(uiDataArray[currHeuristic]);
+    getAllCurrData();
   }, [currHeuristic]);
 
-  function handleClick(index) {
-    setCurrHeuristic(index);
-    setActiveButton(index);
+  //Get the heuristic data.
+  async function getNewHeuristicdata(heuristic) {
+    try {
+      const data = await readHeuristicData(heuristic, user.uid);
+      console.log(data);
+      if (!data) setNoQuizData(true);
+      else {
+        setNoQuizData(false);
+        setCurrHeuristicData(data);
+      }
+    } catch (e) {
+      console.error("Error reading heuristic data");
+    }
   }
+
+  //Get the UI data
+  async function getNewUIdata(heuristic) {
+    try {
+      const data = await readUIData(heuristic, user.uid);
+      console.log(data);
+      if (!data) setNoUIData(true);
+      else {
+        setNoUIData(false);
+        setCurrUIData(data);
+      }
+    } catch (e) {
+      console.error("Error reading UI data");
+    }
+  }
+
+  const getHeuristicDataForPie = () => {
+    const latestAttempt = currHeuristicData.attempts.slice(-1)[0];
+    return Object.keys(latestAttempt)
+      .filter((key) => key === "correct" || key === "incorrect")
+      .map((key) => {
+        return {
+          name: key.charAt(0).toUpperCase() + key.slice(1),
+          value: latestAttempt[key],
+        };
+      });
+  };
+
+  const getUIDataForPie = () => {
+    const latestAttempt = currUIData.attempts.slice(-1)[0];
+    return Object.keys(latestAttempt)
+      .filter((key) => key === "correct" || key === "incorrect")
+      .map((key) => {
+        return {
+          name: key.charAt(0).toUpperCase() + key.slice(1),
+          value: latestAttempt[key],
+        };
+      });
+  };
+
   return (
-    <main>
-      {isMobile ? (
-        <label className="mobile-dropdown">
-          Select a Heuristic:
-          <select
-            name="selectedHeuristic"
-            value={currHeuristic}
-            onChange={(e) => handleClick(Number(e.target.value))}
-          >
-            {heuristics.map((_, i) => (
-              <option value={i}>{i + 1}</option>
-            ))}
-          </select>
-        </label>
-      ) : null}
-
-      <div className="main-stat-container">
-        {!isMobile ? (
-          <section className="stat-buttons">
-            {quizDataArray.map((data, i) =>
-              !data ? (
-                <button key={i} disabled className="disabled">
-                  <FaLock />
-                  Complete Heuristic {i + 1} to Unlock
-                </button>
-              ) : (
-                <button
-                  key={i}
-                  onClick={() => handleClick(i)}
-                  className={activeButton === i ? "active" : ""}
-                >
-                  Heuristic {i + 1}
-                </button>
-              )
-            )}
-          </section>
-        ) : null}
-        <section className="stat-container">
-          <div className="stat-graphs">
-            {/* <ResponsiveContainer className="stats-container"> */}
-            <div className="stat-graph-container">
-              <h2 className="heuristic-title">Quiz Data</h2>
-              {currQuizData ? (
-                <ResponsiveContainer>
-                  <PieChart>
-                    <Pie
-                      dataKey="value"
-                      isAnimationActive={false}
-                      data={getDataForGraph()}
-                      fill="#8884d8"
-                      label
-                    >
-                      {getDataForGraph().map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={colors[entry.name]} />
-                      ))}
-                    </Pie>
-
-                    <Tooltip />
-                  </PieChart>
-                </ResponsiveContainer>
-              ) : (
-                <AlertIcon />
-              )}
-            </div>
-            <div className="stat-graph-container">
-              <h2 className="heuristic-title">UI Builder Data</h2>
-              {currUIData ? (
-                <ResponsiveContainer>
-                  <PieChart>
-                    <Pie
-                      dataKey="value"
-                      isAnimationActive={false}
-                      data={getDataForUIGraph()}
-                      fill="#8884d8"
-                      label
-                    >
-                      {getDataForUIGraph().map((entry, index) => (
-                        <Cell
-                          key={`cell-${index}`}
-                          fill={colors[entry.name]}
-                        />
-                      ))}
-                    </Pie>
-                    <Tooltip />
-                  </PieChart>
-                </ResponsiveContainer>
-              ) : (
-                <AlertIcon />
-              )}
-            </div>
-            {/* </ResponsiveContainer> */}
-          </div>
-          <div className="space"></div>
-          <div className="stat-graphs">
-            <div className="panel-container">
-              {currQuizData ? (
-                <div className="panel">
-                  <h2 className="heuristic-title">Quiz</h2>
-                  <div className="content">
-                    <table className="stat-table">
-                      <thead>
-                        <tr>
-                          <th>Attempt Number</th>
-                          <th>Time Taken (sec)</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {getDataForTable().map((data, index) => (
-                          <tr key={index}>
-                            <td>{index + 1}</td>
-                            <td>{data.value}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                    <div className="additional-info">
-                      {getDataForAttempts().map((data, index) => (
-                        <div key={index}>
-                          <p className="number-of-attempts">Number of Attempts: {data.value}</p>
-                        </div>
-                      ))}
-                      {getDataForTable().map((data, index) => (
-                        <div key={index}>
-                          <p className="number-of-attempts">Best Time Taken: {calculateBestQuizTime(data)}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ) : null}
-
-              {currUIData ? (
-                <div className="panel">
-                  <h2 className="heuristic-title">UI Builder</h2>
-                  <div className="content">
-                    <table className="stat-table">
-                      <thead>
-                        <tr>
-                          <th className="table-heading">Attempt Number</th>
-                          <th className="table-heading">Time Taken (sec)</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {getDataForUITable().map((data, index) => (
-                          <tr key={index}>
-                            <td>{index + 1}</td>
-                            <td>{data.value}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                    <div className="additional-info">
-                      {getDataForUIAttempts().map((data, index) => (
-                        <div key={index}>
-                          <p className="number-of-attempts">Number of Attempts: {data.value}</p>
-                        </div>
-                      ))}
-                      {getDataForUITable().map((data, index) => (
-                        <div key={index}>
-                          <p className="number-of-attempts">Best Time Taken: {calculateBestUITime(data)}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ) : null}
+    <main class="container-fluid p-4">
+      <div class="row h-100">
+        {
+          //The buttons
+        }
+        <div
+          className={`col col-md-2 btn-group-vertical ${styles.heuristicBtnGroup}`}
+          role="group"
+          aria-label="Heuristic data buttons"
+        >
+          {heuristics.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              className={`btn h-100 text-center ${styles.heuristicBtn}`}
+              disabled={completedHeuristics[i] <= 1}
+              onClick={() => setCurrheuristic(i)}
+            >
+              Heuristic {i + 1}
+            </button>
+          ))}
+        </div>
+        {
+          //The actual graphs / data
+        }
+        {!loading ? (
+          <div className={`col ${styles.statsContainer}`}>
+            <div class="row h-100">
+              <div
+                className={`col col-md-4 list-group list-group-flush ${styles.listGroup}`}
+                style={{
+                  height: "100%",
+                }}
+              >
+                {!noQuizData ? (
+                  <PieGraph
+                    data={getHeuristicDataForPie()}
+                    graphTitle={"Most Recent Heuristic Data"}
+                  />
+                ) : (
+                  <i class="bi bi-exclamation-circle-fill"></i>
+                )}
+                {!noUIData ? (
+                  <PieGraph
+                    data={getUIDataForPie()}
+                    graphTitle={"Most Recent UI Builder Data"}
+                  />
+                ) : (
+                  <i class="bi bi-exclamation-circle-fill"></i>
+                )}
+              </div>
+              <div
+                className={`col list-group list-group-flush ${styles.listGroup}`}
+              >
+                {!noQuizData ? (
+                  <BarGraph
+                    data={currHeuristicData.attempts}
+                    graphTitle={"All Heuristic Data"}
+                  />
+                ) : (
+                  <i class="bi bi-exclamation-circle-fill"></i>
+                )}
+                {!noUIData ? (
+                  <BarGraph
+                    data={currUIData.attempts}
+                    graphTitle={"All UI Builder Data"}
+                  />
+                ) : (
+                  <i class="bi bi-exclamation-circle-fill"></i>
+                )}
+              </div>
             </div>
           </div>
-        </section>
+        ) : (
+          <div className="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        )}
       </div>
     </main>
   );

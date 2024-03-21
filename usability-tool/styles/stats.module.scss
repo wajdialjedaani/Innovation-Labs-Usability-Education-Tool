@@ -1,0 +1,42 @@
+@use "./mixins/colorscheme.scss" as *;
+
+.graphContainer {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.statsContainer {
+  background-color: $top;
+  height: 100%;
+}
+
+.graphTitle {
+  color: white;
+  text-align: center;
+  font-size: 1.75rem;
+}
+
+.listGroup {
+  padding: 15px;
+  height: 100%;
+  --bs-list-group-bg: #{$darkest} !important ;
+}
+
+.heuristicBtnGroup {
+  padding-left: 0;
+}
+
+.heuristicBtn {
+  --bs-btn-bg: #{$top};
+  --bs-btn-color: white;
+  --bs-btn-hover-bg: #{$darkest};
+  --bs-btn-hover-color: white;
+  --bs-btn-active-color: white;
+  --bs-btn-active-bg: #{$darkest};
+  &:disabled {
+    background-color: $top;
+    color: white;
+    border-color: $dark;
+  }
+}

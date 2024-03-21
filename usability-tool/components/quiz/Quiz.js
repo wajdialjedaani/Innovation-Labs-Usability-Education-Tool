@@ -10,24 +10,28 @@ import NavFooter from "../nav/NavFooter";
 import Modal from "../Modal";
 
 import { getAuthContext } from "@/app/(main)/components/AuthContextProvider";
+
 import { addHeuristicData } from "@/lib/firebase/firestore";
 
 import styles from "@/styles/quiz.module.scss";
-import borrowed from "@/styles/UIBuilder.module.scss"
+import borrowed from "@/styles/UIBuilder.module.scss";
 
 const SubmitContext = createContext();
 
-export default function Quiz({ quizObj, meta }) {
+export default function Quiz({ quizObj, meta, quizNumber }) {
   return (
     <QuizContextProvider quiz={quizObj}>
-      <QuizBody />
+      <QuizBody quizNumber={quizNumber} />
       <NavFooter options={meta.navFooterOptions} />
     </QuizContextProvider>
   );
 }
 
-function QuizBody() {
-  const { user } = getAuthContext();
+function QuizBody({ quizNumber }) {
+  const {
+    user,
+    metaDataSuite: { metaData, updateMetaData },
+  } = getAuthContext();
   const { quizObj } = getQuizSuite();
 
   //Has the submit button been pressed
@@ -63,6 +67,15 @@ function QuizBody() {
       incorrect: quizObj.length - score,
       time: timeTaken,
     });
+    //Update Metadata
+    if (score >= 7) {
+      const newMetaData = { ...metaData };
+      newMetaData.completedHeuristics[quizNumber] = Math.max(
+        newMetaData.completedHeuristics[quizNumber],
+        2
+      );
+      updateMetaData(newMetaData);
+    }
     renderModal(
       <div>
         <h3 role="header" className={borrowed.gradingPanelHeader}>
@@ -74,7 +87,9 @@ function QuizBody() {
             className={borrowed.gradingPanelProgressBar}
             style={{ width: `${score}0%` }}
           />
-          <p className={borrowed.gradingPanelScoreDisplay}>{score}/{quizObj.length}</p>
+          <p className={borrowed.gradingPanelScoreDisplay}>
+            {score}/{quizObj.length}
+          </p>
         </div>
       </div>,
       "Score"
