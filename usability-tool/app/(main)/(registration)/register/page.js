@@ -3,30 +3,15 @@
 "use client";
 import "@/styles/logon.scss";
 import { useState } from "react";
-
 import { createAccount } from "@/lib/firebase/auth";
-
-import { IoClose } from "react-icons/io5";
 import Link from "next/link";
-
-import { IconContext } from "react-icons";
-import { FaArrowCircleLeft } from "react-icons/fa";
-
 import { useRouter } from "next/navigation";
-
 import { useForm } from "react-hook-form";
 
 import Modal from "@/components/Modal";
 
 export default function Logon() {
   const router = useRouter();
-  const [formData, setFormData] = useState({
-    email: "",
-    firstName: "",
-    lastName: "",
-    password: "",
-    passwordConf: "",
-  });
 
   const {
     register,
@@ -47,7 +32,6 @@ export default function Logon() {
   }
 
   async function handleRegister(data) {
-    console.log(data);
     setStatus("submitting");
     //Call firebase
     try {
@@ -163,12 +147,18 @@ export default function Logon() {
             </div>
           </div>
           <button
-            className="registration-confirm-btn"
+            className="registration-confirm-btn mb-3"
             disabled={status === "submitting"}
           >
             {status === "idle" ? "Register" : "Registering..."}
           </button>
         </form>
+        <small className="registration-account-check">
+          Already have an account?
+          <Link href="/signin" className="registration-link">
+            Log In
+          </Link>
+        </small>
         <Link
           className="back-arrow-button"
           href="/home"
