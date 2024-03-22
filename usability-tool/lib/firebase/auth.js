@@ -8,12 +8,12 @@ import {
   sendPasswordResetEmail as _sendPasswordResetEmail,
   updateProfile,
   setPersistence,
-  inMemoryPersistence,
+  browserSessionPersistence,
 } from "firebase/auth";
 import { auth } from "./firebase";
 import errCodeToMessage from "../tools/errCodeToMsg";
 
-setPersistence(auth, inMemoryPersistence);
+setPersistence(auth, browserSessionPersistence);
 
 export function onAuthStateChanged(callback = () => {}) {
   return _onAuthStateChanged(auth, callback);
@@ -39,6 +39,7 @@ export async function createAccount(email, password, firstname, lastname) {
       displayName: `${firstname} ${lastname}`,
     });
   } catch (e) {
+    console.log(e);
     throw errCodeToMessage(e.code);
   }
   return { result, error };
