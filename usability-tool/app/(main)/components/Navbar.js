@@ -5,9 +5,10 @@ import { useState, useEffect, Fragment, useId } from "react";
 import { getAuthContext } from "./AuthContextProvider";
 import { IoMenuOutline } from "react-icons/io5";
 import { IoPersonCircleOutline } from "react-icons/io5";
-import { IconContext } from "react-icons";
 
 import { usePathname } from "next/navigation";
+
+import Link from "next/link";
 
 import Menupopup from "./popups/Menupopup";
 import Accountpopup from "./popups/Accountpopup";
@@ -43,7 +44,9 @@ export default function Navbar() {
           </button>
         )}
 
-        <h1 className="menu-title">Usability Education Tool</h1>
+        <Link href="/home" className="menu-title">
+          <h1>Usability Education Tool</h1>
+        </Link>
         {user && (
           <button
             className="navbar-button"
@@ -57,9 +60,9 @@ export default function Navbar() {
           </button>
         )}
         {/* {user && menu && <Menupopup id={menuId} />} */}
-        <Menupopup id={menuId} active={user && menu}/>
+        <Menupopup id={menuId} active={user && menu} />
         {/* {user && account && <Accountpopup id={accountId} />} */}
-        <Accountpopup id={accountId} active={user && account}/>
+        <Accountpopup id={accountId} active={user && account} />
       </header>
 
       <div className="generalSpacer" />

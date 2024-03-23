@@ -1,11 +1,10 @@
-// Modal.js 
+// Modal.js
 
-// Takes props.toggleFunction and children. 
+// Takes props.toggleFunction and children.
 // user handles modal panel and children. clicking outside bounds of children will trigger toggleFunction.
 import styles from "@/styles/modal.module.scss";
 
-export default function Modal({toggleFunction, children, heading}){
-
+export default function Modal({ toggleFunction, children, heading, id }) {
   const handleClick = (event) => {
     // Check if the clicked element or its parent is the modalBody
     if (
@@ -18,24 +17,29 @@ export default function Modal({toggleFunction, children, heading}){
   };
 
   return (
-    <div className={styles.modalBody} onClick={handleClick}>
-      <div className={styles.modalContainer}>
+    <div
+      className={`${styles.modalBody}`}
+      onClick={handleClick}
+      tabIndex="-1"
+      id={id}
+    >
+      <div className={`${styles.modalContainer} col-md-4 col-sm-6`}>
         <div className={styles.modalPanel}>
           <div className={styles.modalHeading}>
-            <div className={styles.modalHeadingText}>
-              {heading}
-            </div>
+            <div className={styles.modalHeadingText}>{heading}</div>
 
-            <button className={styles.modalButton} title="exit" onClick={toggleFunction}>
-              <img src="/icons/x.svg" alt="exit"/>
+            <button
+              className={styles.modalButton}
+              title="exit"
+              onClick={toggleFunction}
+            >
+              <img src="/icons/x.svg" alt="exit" />
             </button>
           </div>
 
-          <div className={styles.modalChildrenContainer}>
-            {children}
-          </div>
+          <div className={styles.modalChildrenContainer}>{children}</div>
         </div>
       </div>
     </div>
-  )
+  );
 }
