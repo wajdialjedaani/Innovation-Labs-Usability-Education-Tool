@@ -2330,6 +2330,7 @@
       {
         "id": "h1y",
         "bone": "AlbumBox",
+        "allowCollide": ["TopBar"],
         "zIndex": 100,
         "style": {
           "position": "static"
@@ -2339,6 +2340,7 @@
         "id": "h1t",
         "bone": "TopBar",
         "zIndex": 100,
+        "allowCollide": ["AlbumBox"],
 
         "style": {
           "zIndex": 100
@@ -2348,6 +2350,8 @@
         "id": "h1e",
         "bone": "NowPlaying",
         "zIndex": 150,
+        "allowCollide": ["TopBar"],
+
 
         "style": {
           "zIndex": 150
@@ -2357,6 +2361,7 @@
         "id": "h1r",
         "bone": "PlaybackSlider",
         "zIndex": 150,
+        "allowCollide": ["TopBar", "AlbumBox"],
 
         "style": {
           "zIndex": 150
@@ -2365,6 +2370,8 @@
       {
         "id": "h1u",
         "bone": "PlaybackBump",
+        "allowCollide": ["AlbumBox"],
+
         "zIndex": 150,
 
         "style": {
@@ -2375,6 +2382,7 @@
         "id": "h1w",
         "bone": "VolumeControls",
         "zIndex": 150,
+        "allowCollide": ["TopBar"],
 
         "style": {
           "zIndex": 150
@@ -2384,6 +2392,7 @@
         "id": "h1q",
         "bone": "PlaybackControls",
         "zIndex": 150,
+        "allowCollide": ["TopBar"],
 
         "style": {
           "zIndex": 150

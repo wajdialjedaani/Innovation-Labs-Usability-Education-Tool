@@ -1,5 +1,7 @@
 // gradingRoutine.js - function for finding grade points on ten.
 
+import { collection } from "firebase/firestore";
+
 // TODO: 
 // - implement a system to consider two solutions. --> next week (03.04.24)
 // - implement a system that returns the worst positioned id.
@@ -15,8 +17,6 @@ export default function gradingRoutine(gradingObject, userGrid){
   let closestSolutionIndex = null;
 
   solutionGrids.map((obj, index) => {
-    console.log(`======================================================================= SCORE TEST # ${index} ===============================================================`);
-    console.log("best at start: ", bestPositioningScore);
     // get scores for both bone usage and positioning
     // const {bonesUsedScore, missingBones} = getBonesUsedScore(obj, userGrid);
     const boneObj = getBonesUsedScore(obj, userGrid);
@@ -24,10 +24,7 @@ export default function gradingRoutine(gradingObject, userGrid){
     // const {positioningScore, worstPositionedBone} = getPositioningScore(obj, userGrid);
     const posObj = getPositioningScore(obj, userGrid);
 
-    console.log("found this score: ", posObj.positioningScore);
-
     if (posObj.positioningScore > bestPositioningScore){
-      console.log("ITS COPYIGN!");
       // copy the data to the pre loop vars
       bonesUsedScore = boneObj.bonesUsedScore, missingBones = boneObj.missingBones, positioningScore = posObj.positioningScore, worstPositionedBone = posObj.worstPositionedBone;
 
@@ -37,11 +34,15 @@ export default function gradingRoutine(gradingObject, userGrid){
     }
   });
 
-  console.log("Closed solution: ", closestSolutionIndex);
+  const collisions = getDetectedCollisions(userGrid);
 
-  console.log("MISSING BONES: ", missingBones);
-  console.log(bonesUsedScore);
-  console.log(worstPositionedBone);
+  if (collisions.length > 0){
+    positioningScore -= 20 * collisions.length;
+
+    if (positioningScore < 0){
+      positioningScore = 0;
+    }
+  }
 
   // get raw weighted score out of 100
   let totalRawScore = (positioningWeight * positioningScore) + (bonesUsedWeight * bonesUsedScore);
@@ -50,7 +51,7 @@ export default function gradingRoutine(gradingObject, userGrid){
   }
 
   // scale to points out of 10 and return. round up!
-  console.log("total score", Math.round((totalRawScore / 100) * 10));
+  console.log(collisions);
 
   // if score is higher than 90, were gonna give a 10.
 
@@ -60,7 +61,8 @@ export default function gradingRoutine(gradingObject, userGrid){
     positioningScore,
     worstPositionedBone,
     missingBones,
-    closestSolutionIndex
+    closestSolutionIndex,
+    collisions
   }
 
   return returnPayload;
@@ -104,17 +106,13 @@ function getBonesUsedScore(solutionGrid, userGrid){
     if (obj.bone){
       // if bone matches a solution, increment
       if (!userBones.includes(obj.bone)){
-        console.log("hit");
         missingBones.push(obj.bone);
         penalty++; 
       }
     }
   });
 
-  console.log("bone penalty ", penalty);
-
   const penaltySubtract = Math.pow(penalty, 5);
-  console.log("penalty subtract: ", penaltySubtract);
 
   if (penaltySubtract > ((userBoneMatches / solutionBoneCount) * 100)){
     return {
@@ -180,15 +178,12 @@ function getPositioningScore(solutionGrid, userGrid){
     solutionDeltas.push(thisDeltaObj);
   });
 
-  //console.log("NEW DELTA OBJ: ", solutionDeltas);
 
   // go through the user grid, check for a matching obj in the solution deltas. then find
   // the meta-delta between the solution delta and the user delta. 
 
   userGrid.map((obj) => {
     const matchBone = solutionDeltas.find(userObj => userObj.bone === obj.bone);
-
-    console.log("MATCHBONE SPITOUT: ", matchBone);
 
     let thisDeltaObj = {
       bone: obj.bone,
@@ -231,19 +226,109 @@ function getPositioningScore(solutionGrid, userGrid){
     
   });
 
-  console.log("NEW TEST: ", worstPositionScore, worstPositionedBone);
-
   if ((newPositionRawScore / totalPossiblePoints) * 100 < 0){
     return {
       positioningScore: 0,
-      worstPositionedBone: worstPositionScore < 1.5 ? worstPositionedBone : null
+      worstPositionedBone: worstPositionScore < 1.5 ? worstPositionedBone : null,
     }
   }
 
   return {
     positioningScore: isNaN((newPositionRawScore / totalPossiblePoints) * 100) ? 0 : (newPositionRawScore / totalPossiblePoints) * 100,
-    worstPositionedBone: worstPositionScore < 1.5 ? worstPositionedBone : null
+    worstPositionedBone: worstPositionScore < 1.5 ? worstPositionedBone : null,
   }
+}
+
+function getDetectedCollisions(userGrid){
+    // time for collision detections
+    let badCollisions = []; // array to store the bad collisions
+
+    userGrid.map((obj, index) => {
+      // easy obj for storing rect info
+      let thisRect = {
+        name: obj.bone,
+        index: index,
+        x: obj.style.rect.translated.left,
+        y: obj.style.rect.translated.top,
+        width: obj.style.rect.translated.width,
+        height: obj.style.rect.translated.height,
+      };
+  
+      // if we have allowed collsions, make note of them in the object.
+      if ("allowCollide" in obj){
+        thisRect.allowCollide = obj.allowCollide;
+      } else {
+        thisRect.allowCollide = [];
+      }
+  
+      // check collisions with every other bone
+      userGrid.map((obj, index) => {
+        if (index == thisRect.index){
+          return;
+        }
+  
+        // get bone info
+        let thatRect = {
+          name: obj.bone,
+          index: index,
+          x: obj.style.rect.translated.left,
+          y: obj.style.rect.translated.top,
+          width: obj.style.rect.translated.width,
+          height: obj.style.rect.translated.height
+        };
+  
+        if ("allowCollide" in obj){
+          thatRect.allowCollide = obj.allowCollide;
+        } else {
+          thatRect.allowCollide = [];
+        }
+  
+        // check if it collides
+        if (thisRect.x < thatRect.x + thatRect.width &&
+          thisRect.x + thisRect.width > thatRect.x &&
+          thisRect.y < thatRect.y + thatRect.height &&
+          thisRect.y + thisRect.height > thatRect.y){
+            //console.log("COLLISION DETECTED", thisRect, thatRect);
+  
+            let allowCollision = false;
+  
+            // check if the collision is allowed
+            thisRect.allowCollide.length > 0 && thisRect.allowCollide.map((bone) => {
+              if (thatRect.name == bone){
+                allowCollision = true;
+              }
+            });
+  
+            thatRect.allowCollide.length > 0 && thatRect.allowCollide.map((bone) => {
+              if (thisRect.name == bone){
+                allowCollision = true;
+              }
+            })
+  
+            // if allowed, do nothing;
+            if (allowCollision){
+              console.log("ALLOWED COLLISION: ", thisRect.name, thatRect.name);
+              return;
+            }
+            
+            // if not, add it to the badCollisions array
+            console.log("DISALLOWED COLLISION: ", thisRect.name, thatRect.name);
+            if (badCollisions.find((obj) => (obj.bone1 == thatRect.name && obj.bone2 == thisRect.name))){
+              return;
+            } else {
+              badCollisions.push({
+                bone1: thisRect.name,
+                bone2: thatRect.name
+              });
+              return;
+            }
+          } else {
+            return;
+          }
+      })
+    });
+
+    return badCollisions;
 }
 
 function getDeltaScore(delta){
