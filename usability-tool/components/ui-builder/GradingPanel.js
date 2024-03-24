@@ -104,12 +104,31 @@ function ScoreBreakdown({ scoreObj }) {
         {Math.round(Number(scoreObj.positioningScore))} / 100
       </span>
       <br />
+      {
+        scoreObj.collisions && scoreObj.collisions.length > 0 && 
+        
+        <div>
+          <i>Components should not collide!</i><br/>
+          <i>Detected Collisions:</i>
+          <ul className={styles.collisionList}>
+            {scoreObj.collisions.map((obj, index) => {
+              return (
+                <li key={`collisionsList--${index}`}>
+                  "{addSpaceToCamelCase(obj.bone1)}" collides with "{addSpaceToCamelCase(obj.bone2)}".
+                </li>
+              )
+            })}
+          </ul>
+        </div>
+      }
       {scoreObj.worstPositionedBone && (
         <span className={styles.gradingPanelTippers}>
           Try repositioning the "
           {addSpaceToCamelCase(scoreObj.worstPositionedBone)}" component.
+
         </span>
       )}
+      <br />
       <h2>Components Used</h2>
       Score:{" "}
       <span className={styles.gradingPanelScoreBreakdownHighlight}>

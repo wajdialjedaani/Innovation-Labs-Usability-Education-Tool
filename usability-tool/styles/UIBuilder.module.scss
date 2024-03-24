@@ -150,8 +150,8 @@ $highestZ: 10000;
 }
 
 .gradingPanelScoreDisplay {
-  position: relative;
-  top: -2.70em;
+  position: absolute;
+  top: 6px;
   left: 45%;
   color: #fff; /* Set the color of the score */
   font-weight: bold; /* Optional: Adjust the font weight */
@@ -244,4 +244,9 @@ $highestZ: 10000;
   border-radius: 5px;
   font-weight: bold;
   font-size: 20px;
+}
+
+.collisionList {
+  max-height: 25vh;
+  overflow-y: auto;
 }
