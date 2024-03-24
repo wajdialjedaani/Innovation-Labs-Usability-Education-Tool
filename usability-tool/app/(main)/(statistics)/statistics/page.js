@@ -38,6 +38,64 @@ export default function Statistics() {
   const [noQuizData, setNoQuizData] = useState(false);
   //State for if there's no UI Data
   const [noUIData, setNoUIData] = useState(false);
+  const [heuristicData, setHeuristicData] = useState(null);
+
+  const getHeuristicDataForPie = () => {
+    // Initialize variables to store total correct, incorrect, and total time
+    let totalCorrect = 0;
+    let totalIncorrect = 0;
+    let totalTime = 0;
+    let averageCorrect = 0;
+    let averageIncorrect = 0;
+    let averageTime = 0;
+    let totalAttempts = 0;
+    let average = 0;
+  
+    // Iterate through all attempts to aggregate data
+    currHeuristicData.attempts.forEach(attempt => {
+      totalCorrect += attempt.correct;
+      totalIncorrect += attempt.incorrect;
+      totalTime += attempt.time;
+      totalAttempts += 1;
+    });
+
+    averageCorrect = (totalCorrect / totalAttempts).toFixed(2);
+    averageIncorrect = (totalIncorrect / totalAttempts).toFixed(2);
+    average = (averageCorrect / 10 * 100).toFixed(2)
+    averageTime = (totalTime / totalAttempts).toFixed(2);
+  
+    // Return the aggregated data
+    return [
+      {
+        name: 'Attempts',
+        value: totalAttempts
+      },
+      {
+        name: 'Total Correct',
+        value: totalCorrect
+      },
+      {
+        name: 'Total Incorrect',
+        value: totalIncorrect
+      },
+      {
+        name: 'Total Time (s)',
+        value: averageTime
+      },
+      {
+        name: 'Average Correct',
+        value: averageCorrect
+      },
+      {
+        name: 'Average Incorrect',
+        value: averageIncorrect
+      },
+      {
+        name: 'Average Score',
+        value: average + '%'
+      },
+    ];
+  };
 
   //Get new data when the heuristic changes
   useEffect(() => {
@@ -86,31 +144,73 @@ export default function Statistics() {
     } catch (e) {
       console.error("Error reading UI data");
     }
+    data = getHeuristicDataForPie();
+    setHeuristicData(data);
+    console.log(heuristicData)
   }
 
-  const getHeuristicDataForPie = () => {
-    const latestAttempt = currHeuristicData.attempts.slice(-1)[0];
-    return Object.keys(latestAttempt)
-      .filter((key) => key === "correct" || key === "incorrect")
-      .map((key) => {
-        return {
-          name: key.charAt(0).toUpperCase() + key.slice(1),
-          value: latestAttempt[key],
-        };
-      });
-  };
-
   const getUIDataForPie = () => {
-    const latestAttempt = currUIData.attempts.slice(-1)[0];
-    return Object.keys(latestAttempt)
-      .filter((key) => key === "correct" || key === "incorrect")
-      .map((key) => {
-        return {
-          name: key.charAt(0).toUpperCase() + key.slice(1),
-          value: latestAttempt[key],
-        };
-      });
+    // Initialize variables to store total correct, incorrect, and total time
+    let totalCorrect = 0;
+    let totalIncorrect = 0;
+    let totalTime = 0;
+    let averageCorrect = 0;
+    let averageIncorrect = 0;
+    let average = 0;
+    let averageTime = 0;
+    let totalAttempts = 0;
+  
+    // Iterate through all attempts to aggregate data
+    currUIData.attempts.forEach(attempt => {
+      totalCorrect += attempt.correct;
+      totalIncorrect += attempt.incorrect;
+      totalTime += attempt.time;
+      totalAttempts += 1;
+    });
+    
+    averageCorrect = (totalCorrect / totalAttempts).toFixed(2);
+    averageIncorrect = (totalIncorrect / totalAttempts).toFixed(2);
+    average = (averageCorrect / 10 * 100).toFixed(2);
+    averageTime = (totalTime / totalAttempts).toFixed(2);
+
+    // Return the aggregated data
+    return [
+      {
+        name: 'Attempts',
+        value: totalAttempts
+      },
+      {
+        name: 'Total Correct',
+        value: totalCorrect
+      },
+      {
+        name: 'Total Incorrect',
+        value: totalIncorrect
+      },
+      {
+        name: 'Total Time (s)',
+        value: totalTime
+      },
+      {
+        name: 'Average Correct',
+        value: averageCorrect
+      },
+      {
+        name: 'Average Incorrect',
+        value: averageIncorrect
+      },
+      {
+        name: 'Average Time (s)',
+        value: averageTime
+      },
+      {
+        name: 'Average Score',
+        value: average + '%'
+      },
+    ];
   };
+  
+  
 
   return (
     <main class="container-fluid p-4">
@@ -146,18 +246,22 @@ export default function Statistics() {
                 className={`col-md-4 list-group list-group-flush ${styles.listGroup}`}
               >
                 {!noQuizData ? (
-                  <PieGraph
-                    data={getHeuristicDataForPie()}
-                    graphTitle={"Most Recent Heuristic Data"}
-                  />
+                  <div className={`list-group-item ${styles.graphContainer}`}>
+                    <h2 className={styles.graphTitle}>Total Heuristic Data</h2>
+                    {getHeuristicDataForPie().map((data, index) => (
+                      <p className={`${styles.information}`} key={index}>{data.name}: {data.value}</p>
+                    ))}
+                  </div>
                 ) : (
                   <i class="bi bi-exclamation-circle-fill"></i>
                 )}
                 {!noUIData ? (
-                  <PieGraph
-                    data={getUIDataForPie()}
-                    graphTitle={"Most Recent UI Builder Data"}
-                  />
+                  <div className={`list-group-item ${styles.graphContainer}`}>
+                    <h2 className={styles.graphTitle}>Total UI Builder Data</h2>
+                    {getUIDataForPie().map((data, index) => (
+                      <p className={`${styles.information}`} key={index}>{data.name}: {data.value}</p>
+                    ))}
+                </div>
                 ) : (
                   <i class="bi bi-exclamation-circle-fill"></i>
                 )}

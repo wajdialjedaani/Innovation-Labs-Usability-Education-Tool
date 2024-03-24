@@ -18,7 +18,7 @@ export default function PieGraph({ data, graphTitle }) {
             {data.map((entry, i) => (
               <Cell
                 key={i}
-                fill={entry.name === "Correct" ? "#4BAE4F" : "#F24336"}
+                fill={entry.name === "Correct" ? "#4BAE4F" : entry.name === "Incorrect" ? "#F24336" : "lightblue"}
               />
             ))}
           </Pie>
