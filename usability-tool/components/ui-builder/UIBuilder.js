@@ -17,10 +17,13 @@ import BoneSelector from "./BoneSelector";
 import MenuBar from "./MenuBar";
 import SolutionViewer from "./SolutionViewer";
 
+import { MouseSensor, useSensor, useSensors } from "@dnd-kit/core";
+
 // util imports
 import { restrictToWindowEdges } from "@dnd-kit/modifiers";
 import { useState } from "react";
-import { smartSnapToGrid } from "@/lib/UIBuilder/smartSnapToGrid";
+import { smartSnapToGrid, smartSnapToCursor } from "@/lib/UIBuilder/smartSnapToGrid";
+import { snapCenterToCursor } from "@dnd-kit/modifiers";
 
 export default function UIBuilder({ scenario, widgetData, heuristic }) {
   return (
@@ -35,7 +38,7 @@ export default function UIBuilder({ scenario, widgetData, heuristic }) {
 }
 
 function UIBuilderDNDContainer(props) {
-  const { widgets, replaceWidget, stopTooltip, releaseTooltip } = getContextSuite();
+  const { widgets, replaceWidget, stopTooltip, releaseTooltip, setWasComponentInDrawer } = getContextSuite();
   const [activeWidget, setactiveWidget] = useState(null);
 
   function handleDragStart(event) {
@@ -51,6 +54,10 @@ function UIBuilderDNDContainer(props) {
       (widget) => widget.id === event.active.id
     );
 
+    console.log("IS IN DRAWER INIT HIT: ", isInDrawer);
+
+    setWasComponentInDrawer(isInDrawer);
+
     // set state accordingly
     setactiveWidget({
       widget,
@@ -61,12 +68,6 @@ function UIBuilderDNDContainer(props) {
   // function for handling post-drag placement
   function handleDragEnd(event) {
     releaseTooltip();
-    console.log(event);
-    console.log(event.active.rect.current.translated);
-    console.log(activeWidget);
-
-    console.log(activeWidget.widget.zIndex);
-
     // get activeWidget for editing
     let updatedWidget = activeWidget.widget;
 
@@ -99,18 +100,21 @@ function UIBuilderDNDContainer(props) {
     setactiveWidget(null);
   }
 
+  const sensors = useSensors(useSensor(MouseSensor));
+
   return (
     <DndContext
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
-      modifiers={[smartSnapToGrid, restrictToWindowEdges]}
+      modifiers={[restrictToWindowEdges, smartSnapToCursor]}
+      sensors={sensors}
     >
       <div aria-label="UI Builder">
         <MenuBar />
         <UIBuilderBody widgets={widgets} />
       </div>
 
-      <DragOverlay zIndex={100}>
+      <DragOverlay zIndex={500}>
         {activeWidget ? <BoneSelector type={activeWidget.widget.bone} /> : null}
       </DragOverlay>
     </DndContext>

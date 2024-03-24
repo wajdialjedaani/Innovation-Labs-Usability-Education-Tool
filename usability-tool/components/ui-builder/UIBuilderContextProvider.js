@@ -24,6 +24,9 @@ export default function UIBuilderContextProvider({
   const [solutionDispIndex, setSolutionDispIndex] = useState(0);
   const [solutionGrid, setSolutionGrid] = useState(scenario.solutionGrids[0]);
 
+  // custom modifier state
+  const [wasComponentInDrawer, setWasComponentInDrawer] = useState(null);
+
   useEffect(() => {
     console.log("changing solution grid - ", solutionDispIndex);
     setSolutionGrid(scenario.solutionGrids[solutionDispIndex]);
@@ -139,7 +142,14 @@ export default function UIBuilderContextProvider({
 
     releaseTooltip: () => {
       setBlockTooltip(false);
-    }
+    },
+
+    // custom modifier state stuff
+    wasComponentInDrawer,
+
+    setWasComponentInDrawer: (wellWasIt) => {
+      setWasComponentInDrawer(wellWasIt);
+    },
   };
 
   return (
