@@ -1,0 +1,46 @@
+@use "./mixins/colorscheme.scss" as *;
+
+.homeTitle {
+  font-weight: bold;
+  font-size: 3.5rem;
+}
+
+.homeButtonsContainer {
+  //   display: flex;
+  //   flex-direction: column;
+  //   align-items: center;
+}
+
+.homeButton {
+  max-width: 250px;
+  cursor: pointer;
+  color: $white;
+  text-align: center;
+  min-width: 10%;
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: $black;
+  padding: 20px 40px;
+  margin: 15px;
+  border-radius: 15px;
+  display: inline-block;
+}
+.homeButton:hover {
+  background-color: $dark;
+}
+
+.homeButton:active,
+.homeButton:focus {
+  background-color: $black;
+}
+
+.card {
+  color: whitesmoke;
+  background-color: $top;
+}
+
+.card-header {
+  background-color: $dark;
+  font-size: 1.15rem;
+}

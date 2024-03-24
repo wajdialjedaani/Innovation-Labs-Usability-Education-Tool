@@ -10,6 +10,7 @@ import {
   getDocFromCache,
   getDocsFromCache,
   arrayUnion,
+  runTransaction,
 } from "firebase/firestore";
 import errCodeToMessage from "../tools/errCodeToMsg";
 const db = initializeFirestore(app, { localCache: persistentLocalCache() });
@@ -23,16 +24,24 @@ export async function addHeuristicData(heuristicID, userID, data) {
     "HeuristicData",
     `Heuristic${heuristicID}`
   );
-
   try {
-    await setDoc(
-      docRef,
-      {
-        attemptCount: increment(1),
-        attempts: arrayUnion(data),
-      },
-      { merge: true }
-    );
+    result = await runTransaction(db, async (transaction) => {
+      const prevDoc = await transaction.get(docRef);
+      if (!prevDoc.exists()) {
+        transaction.set(docRef, {
+          attemptCount: 1,
+          attempts: [data],
+        });
+      } else {
+        const Attempts = prevDoc.data().attempts;
+        Attempts.push(data);
+
+        transaction.update(docRef, {
+          attemptCount: prevDoc.data().attemptCount + 1,
+          attempts: Attempts,
+        });
+      }
+    });
   } catch (e) {
     throw errCodeToMessage(e.code);
   }
@@ -69,15 +78,25 @@ export async function addUIData(heuristicID, userID, data) {
     "UIBuilderData",
     `Heuristic${heuristicID}`
   );
+
   try {
-    await setDoc(
-      docRef,
-      {
-        attemptCount: increment(1),
-        attempts: arrayUnion(data),
-      },
-      { merge: true }
-    );
+    result = await runTransaction(db, async (transaction) => {
+      const prevDoc = await transaction.get(docRef);
+      if (!prevDoc.exists()) {
+        transaction.set(docRef, {
+          attemptCount: 1,
+          attempts: [data],
+        });
+      } else {
+        const Attempts = prevDoc.data().attempts;
+        Attempts.push(data);
+
+        transaction.update(docRef, {
+          attemptCount: prevDoc.data().attemptCount + 1,
+          attempts: Attempts,
+        });
+      }
+    });
   } catch (e) {
     throw errCodeToMessage(e.code);
   }

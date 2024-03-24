@@ -1,6 +1,6 @@
 "use client";
 import "@/styles/statistics.scss";
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect } from "react";
 
 import { getAuthContext } from "../../components/AuthContextProvider";
 import { readHeuristicData, readUIData } from "@/lib/firebase/firestore";
@@ -119,7 +119,7 @@ export default function Statistics() {
           //The buttons
         }
         <div
-          className={`col col-md-2 btn-group-vertical ${styles.heuristicBtnGroup}`}
+          className={`col col-md-2 btn-group-vertical d-none d-md-flex ${styles.heuristicBtnGroup} `}
           role="group"
           aria-label="Heuristic data buttons"
         >
@@ -139,13 +139,11 @@ export default function Statistics() {
           //The actual graphs / data
         }
         {!loading ? (
-          <div className={`col ${styles.statsContainer}`}>
-            <div class="row h-100">
+          //1. remove col
+          <div className={`col h-100 ${styles.statsContainer}`}>
+            <div class={`row h-100 ${styles.graphContainer}`}>
               <div
-                className={`col col-md-4 list-group list-group-flush ${styles.listGroup}`}
-                style={{
-                  height: "100%",
-                }}
+                className={`col-md-4 list-group list-group-flush ${styles.listGroup}`}
               >
                 {!noQuizData ? (
                   <PieGraph
@@ -165,7 +163,7 @@ export default function Statistics() {
                 )}
               </div>
               <div
-                className={`col list-group list-group-flush ${styles.listGroup}`}
+                className={`col-md-8 list-group list-group-flush ${styles.listGroup}`}
               >
                 {!noQuizData ? (
                   <BarGraph

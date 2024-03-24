@@ -6,10 +6,11 @@ import { getAuthContext } from "../components/AuthContextProvider";
 
 export default function mainPage() {
   const {
-    metaDataSuite: {
-      metaData: { completedHeuristics },
-    },
+    metaDataSuite: { metaData, updateMetaData },
   } = getAuthContext();
+
+  const completedHeuristics = metaData.completedHeuristics;
+  if (!completedHeuristics) return;
 
   const heuristicNames = [
     "Visibility of system status",
@@ -24,7 +25,14 @@ export default function mainPage() {
     "Help and documentation",
   ];
 
-  if (!completedHeuristics) return;
+  function textbookClicked(heur) {
+    const newMetaData = { ...metaData };
+    newMetaData.completedHeuristics[heur] = Math.max(
+      newMetaData.completedHeuristics[heur],
+      1
+    );
+    updateMetaData(newMetaData);
+  }
 
   return (
     <main>
@@ -57,6 +65,9 @@ export default function mainPage() {
                     <Link
                       className="list-group-item list-group-item-action"
                       href={`/lessons/${i + 1}`}
+                      onClick={() => {
+                        if (completedHeuristics[i] < 1) textbookClicked(i);
+                      }}
                     >
                       <i className="bi bi-book p-1"></i>
                       Textbook

@@ -99,7 +99,7 @@ function QuizBody({ quizNumber }) {
   async function writeToDB(data) {
     //Replace "1" with the id of the quiz
     try {
-      const result = await addHeuristicData(1, user.uid, data);
+      const result = await addHeuristicData(quizNumber + 1, user.uid, data);
     } catch (e) {
       console.error("Error adding data. Please try again");
     }

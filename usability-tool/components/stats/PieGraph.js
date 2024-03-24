@@ -5,7 +5,7 @@ export default function PieGraph({ data, graphTitle }) {
   return (
     <div className={`list-group-item ${styles.graphContainer}`}>
       <h3 className={styles.graphTitle}>{graphTitle}</h3>
-      <ResponsiveContainer>
+      <ResponsiveContainer height="100%" width="100%">
         <PieChart>
           <Pie
             label

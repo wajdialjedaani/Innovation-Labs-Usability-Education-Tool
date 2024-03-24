@@ -20,7 +20,10 @@ export default function Textbook({ heuristicObj }) {
       <NavFooter
         options={{
           prev: null,
-          next: { title: "Hueristic 1 Quiz", href: "/quiz/1" },
+          next: {
+            title: `Hueristic ${heuristicObj.meta.heuristic} Quiz`,
+            href: `/quiz/${heuristicObj.meta.heuristic}`,
+          },
           nextLock: false,
         }}
       />
