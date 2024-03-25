@@ -240,18 +240,21 @@ function getPositioningScore(solutionGrid, userGrid){
 }
 
 function getDetectedCollisions(userGrid){
+    // this really should be refactored before going into production.
     // time for collision detections
     let badCollisions = []; // array to store the bad collisions
 
     userGrid.map((obj, index) => {
+     const actualRect = document.getElementById(obj.id).getBoundingClientRect();
+
       // easy obj for storing rect info
       let thisRect = {
         name: obj.bone,
         index: index,
-        x: obj.style.rect.translated.left,
-        y: obj.style.rect.translated.top,
-        width: obj.style.rect.translated.width,
-        height: obj.style.rect.translated.height,
+        x: actualRect.left,
+        y: actualRect.top,
+        width: actualRect.width,
+        height: actualRect.height,
       };
   
       // if we have allowed collsions, make note of them in the object.
@@ -266,15 +269,17 @@ function getDetectedCollisions(userGrid){
         if (index == thisRect.index){
           return;
         }
+
+        const actualRect = document.getElementById(obj.id).getBoundingClientRect();
   
         // get bone info
         let thatRect = {
           name: obj.bone,
           index: index,
-          x: obj.style.rect.translated.left,
-          y: obj.style.rect.translated.top,
-          width: obj.style.rect.translated.width,
-          height: obj.style.rect.translated.height
+          x: actualRect.left,
+          y: actualRect.top,
+          width: actualRect.width,
+          height: actualRect.height
         };
   
         if ("allowCollide" in obj){

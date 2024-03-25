@@ -11,6 +11,8 @@ import { getContextSuite } from "./UIBuilderContextProvider";
 import { getAuthContext } from "@/app/(main)/components/AuthContextProvider";
 import { useEffect, useState } from "react";
 
+import { useRouter } from "next/navigation";
+
 import { addUIData } from "@/lib/firebase/firestore";
   
 export default function GradingPanel({ toggleFunction }) {
@@ -19,7 +21,7 @@ export default function GradingPanel({ toggleFunction }) {
     metaDataSuite: { metaData, updateMetaData },
   } = getAuthContext();
   
-  const { startGrading, heuristic, startTime, toggleSolutionView, setSolutionIndex } = getContextSuite();
+  const { startGrading, heuristic, startTime, toggleSolutionView, setSolutionIndex, scenarioInformation } = getContextSuite();
 
   const [scoreObj, setScoreObj] = useState({});
 
@@ -31,6 +33,12 @@ export default function GradingPanel({ toggleFunction }) {
     } catch (e) {
       console.error(e);
     }
+  }
+
+  const router = useRouter();
+
+  function handleContinue(){
+    router.push(scenarioInformation.nextUrl);
   }
 
   useEffect(() => {
@@ -76,6 +84,7 @@ export default function GradingPanel({ toggleFunction }) {
       <GradingPanelButtons
         toggleFunction={toggleFunction}
         toggleSolutionView={toggleSolutionView}
+        onContinue={handleContinue}
         scoreObj={scoreObj}
       />
 
@@ -164,7 +173,7 @@ function ScoreBar({ score }) {
   );
 }
 
-function GradingPanelButtons({ scoreObj, toggleFunction, toggleSolutionView }) {
+function GradingPanelButtons({ scoreObj, toggleFunction, toggleSolutionView, onContinue }) {
   return (
     <div className={styles.gradingPanelButtonGroup}>
       <GradingPanelButton
@@ -181,9 +190,7 @@ function GradingPanelButtons({ scoreObj, toggleFunction, toggleSolutionView }) {
           text="Continue"
           icon="arrow-right"
           alt="Continue"
-          onClick={() => {
-            toggleFunction();
-          }}
+          onClick={onContinue}
         />
       ) : (
         <GradingPanelButton

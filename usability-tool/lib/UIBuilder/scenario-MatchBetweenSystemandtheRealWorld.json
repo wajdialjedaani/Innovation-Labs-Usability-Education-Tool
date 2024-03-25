@@ -1,7 +1,9 @@
 {
   "scenarioInformation": {
     "title": "Match Between System and the Real World",
-    "description": "Atomic Media is a small tech startup currently working on the UI for their new photo editing software. They have laid out the basic UI in the UI Builder, but they need help choosing icons for their tool bar.\n\nOn the left side of their UI, you will see a list of tools that will be available in the final photo editing software. Match the appropriate icon with the correct tool. Remember to place the icons to the left of the correct tool name."
+    "description": "Atomic Media is a small tech startup currently working on the UI for their new photo editing software. They have laid out the basic UI in the UI Builder, but they need help choosing icons for their tool bar.\n\nOn the left side of their UI, you will see a list of tools that will be available in the final photo editing software. Match the appropriate icon with the correct tool. Remember to place the icons to the left of the correct tool name.",
+    "nextUrl": "/lessons/3",
+    "exitUrl": "/quiz/2"
   },
   "solutionGrids": [[
     {

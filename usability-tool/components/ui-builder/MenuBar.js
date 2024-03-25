@@ -14,10 +14,13 @@ import InfoPanel from "./InfoPanel";
 import { Fragment, useEffect, useState } from "react";
 import { getContextSuite } from "./UIBuilderContextProvider.js";
 import BoneDiscarder from "./BoneDiscarder";
+import { useRouter } from "next/navigation";
 
 export default function MenuBar(props){
   const {scenarioInformation, solutionMode, toggleSolutionView} = getContextSuite();
   const [modal, setModal] = useState(null);
+
+  const router = useRouter();
 
   function clearModal() {
     setModal(null);
@@ -29,6 +32,10 @@ export default function MenuBar(props){
         {component}
       </Modal>
     )
+  }
+
+  function handleExit(){
+    router.push(scenarioInformation.exitUrl)
   }
 
   // use effect for displaying scenario information
@@ -46,6 +53,8 @@ export default function MenuBar(props){
             alt="exit"
             icon="x"
             text="Exit"
+            scaryMode
+            onClick={handleExit}
           />
 
           <Button
@@ -93,10 +102,10 @@ export default function MenuBar(props){
   )
 }
 
-function Button({icon, alt, onClick, text}){
+function Button({icon, alt, onClick, text, scaryMode}){
   return (
     <div className={styles.menuBarButtonContainer}>
-      <button className={styles.menuBarButton} role="button" alt={alt} title={alt} onClick={onClick}>
+      <button className={`${styles.menuBarButton} ${scaryMode && styles.scaryButton}`} role="button" alt={alt} title={alt} onClick={onClick}>
       {text}
       <img src={`/icons/${icon}.svg`}/>
       </button>

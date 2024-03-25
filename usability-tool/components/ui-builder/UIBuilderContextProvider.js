@@ -147,6 +147,17 @@ export default function UIBuilderContextProvider({
     // custom modifier state stuff
     wasComponentInDrawer,
 
+    getWasComponentInDrawer: () => {
+      // custom get function because not doing this breaks window bounds
+      const curr = wasComponentInDrawer;
+
+      if (!curr) {return false;}
+
+      setWasComponentInDrawer(false);
+
+      return (wasComponentInDrawer);
+    },
+
     setWasComponentInDrawer: (wellWasIt) => {
       setWasComponentInDrawer(wellWasIt);
     },

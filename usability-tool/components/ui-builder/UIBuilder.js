@@ -17,12 +17,10 @@ import BoneSelector from "./BoneSelector";
 import MenuBar from "./MenuBar";
 import SolutionViewer from "./SolutionViewer";
 
-import { MouseSensor, useSensor, useSensors } from "@dnd-kit/core";
-
 // util imports
 import { restrictToWindowEdges } from "@dnd-kit/modifiers";
 import { useState } from "react";
-import { smartSnapToGrid, smartSnapToCursor } from "@/lib/UIBuilder/smartSnapToGrid";
+import { smartSnapToGrid, smartSnapToCursor } from "@/lib/UIBuilder/custom-modifiers.js";
 import { snapCenterToCursor } from "@dnd-kit/modifiers";
 
 export default function UIBuilder({ scenario, widgetData, heuristic }) {
@@ -67,6 +65,8 @@ function UIBuilderDNDContainer(props) {
 
   // function for handling post-drag placement
   function handleDragEnd(event) {
+    console.log("drag end event: ", event);
+
     releaseTooltip();
     // get activeWidget for editing
     let updatedWidget = activeWidget.widget;
@@ -100,14 +100,11 @@ function UIBuilderDNDContainer(props) {
     setactiveWidget(null);
   }
 
-  const sensors = useSensors(useSensor(MouseSensor));
-
   return (
     <DndContext
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
-      modifiers={[restrictToWindowEdges, smartSnapToCursor]}
-      sensors={sensors}
+      modifiers={[smartSnapToGrid, restrictToWindowEdges, smartSnapToCursor]}
     >
       <div aria-label="UI Builder">
         <MenuBar />

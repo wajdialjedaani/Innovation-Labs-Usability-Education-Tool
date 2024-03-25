@@ -22,29 +22,27 @@ import { getContextSuite } from "@/components/ui-builder/UIBuilderContextProvide
 
 export function smartSnapToCursor(args){
   const {transform, activatorEvent, draggingNodeRect} = args;
-  const {wasComponentInDrawer, setWasComponentInDrawer} = getContextSuite();
-
-  if (!activatorEvent || activatorEvent instanceof KeyboardEvent || !draggingNodeRect){
+  const {wasComponentInDrawer, getWasComponentInDrawer} = getContextSuite();
+  
+  if (!activatorEvent || activatorEvent instanceof KeyboardEvent || !draggingNodeRect || !wasComponentInDrawer){
     return transform;
   }
 
-  console.log("ARGS: ", args);
-
-  console.log(wasComponentInDrawer);
-
-
   const activatorCoordinates = getEventCoordinates(activatorEvent);
 
-  console.log(args);
+  if (!activatorCoordinates){
+    return transform;
+  }
 
-  if (wasComponentInDrawer){
+  // check and then also kill the "true" so it doesn't break window bounds. 
+  if (getWasComponentInDrawer()){
     const offsetX = activatorCoordinates.x - draggingNodeRect.left;
     const offsetY = activatorCoordinates.y - draggingNodeRect.top;
 
     return {
       ...transform,
-      x: transform.x + offsetX,
-      y: transform.y + offsetY,
+      x: transform.x + offsetX - draggingNodeRect.width / 2,
+      y: transform.y + offsetY - draggingNodeRect.height / 2,
     }
   }
 

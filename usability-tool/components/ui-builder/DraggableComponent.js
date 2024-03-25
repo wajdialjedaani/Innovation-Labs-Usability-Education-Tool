@@ -17,7 +17,7 @@ export default function DraggableComponent({id, widget, drawerMode, ...props}){
   } : widget.style;
 
   return (
-    <div ref={setNodeRef} style={{...style, /* zIndex: 100 */}} {...listeners} {...attributes}>
+    <div ref={setNodeRef} id={id} style={{...style, /* zIndex: 100 */}} {...listeners} {...attributes}>
       <div className={`${isDragging && styles.hiddenThumbBone}`}>
       {props.children}
       </div>

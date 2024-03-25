@@ -34,17 +34,29 @@ $highestZ: 10000;
   font-size: 25px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   color: white;
   box-sizing: border-box;
   appearance: none;
   background-color: transparent;
   border: none;
-  padding: 0.3em;
+  padding: 0.25em;
   margin: 0;
   cursor: pointer;
   border-radius: 8px;
   transition: 0.2s;
+  //border: solid 1px rgb(0, 0, 0);
+  //background-color: rgb(42, 47, 59);
+}
+
+.scaryButton {
+  padding-left: 16px;
+  background-color: rgb(129, 64, 64);
+}
+
+.scaryButton:hover {
+  background-color: rgb(199, 100, 100) !important;
 }
 
 .gradingPanelHeader {
