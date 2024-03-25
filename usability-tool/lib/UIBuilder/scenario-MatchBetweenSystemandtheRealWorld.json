@@ -1,69 +1,12 @@
 {
   "scenarioInformation": {
     "title": "Match Between System and the Real World",
+    "faketitle": "developer mode",
     "description": "Atomic Media is a small tech startup currently working on the UI for their new photo editing software. They have laid out the basic UI in the UI Builder, but they need help choosing icons for their tool bar.\n\nOn the left side of their UI, you will see a list of tools that will be available in the final photo editing software. Match the appropriate icon with the correct tool. Remember to place the icons to the left of the correct tool name.",
     "nextUrl": "/lessons/3",
     "exitUrl": "/quiz/2"
   },
   "solutionGrids": [[
-    {
-      "id": "h2d",
-      "bone": "SelectIcon",
-      "zIndex": "100",
-      "style": {
-        "zIndex": "100",
-        "position": "absolute",
-        "left": 245,
-        "top": 247,
-        "rect": {
-          "initial": {
-            "top": 292,
-            "left": 1410,
-            "width": 470,
-            "height": 30,
-            "bottom": 322,
-            "right": 1880
-          },
-          "translated": {
-            "top": 247,
-            "left": 245,
-            "width": 470,
-            "height": 30,
-            "bottom": 277,
-            "right": 715
-          }
-        }
-      }
-    },
-    {
-      "id": "h2l",
-      "bone": "SelectColorIcon",
-      "zIndex": "100",
-      "style": {
-        "zIndex": "100",
-        "position": "absolute",
-        "left": 245,
-        "top": 542,
-        "rect": {
-          "initial": {
-            "top": 292,
-            "left": 1410,
-            "width": 470,
-            "height": 30,
-            "bottom": 322,
-            "right": 1880
-          },
-          "translated": {
-            "top": 542,
-            "left": 245,
-            "width": 470,
-            "height": 30,
-            "bottom": 572,
-            "right": 715
-          }
-        }
-      }
-    },
     {
       "id": "h2c",
       "bone": "MoveIcon",
@@ -72,52 +15,52 @@
         "zIndex": "100",
         "position": "absolute",
         "left": 245,
-        "top": 212,
+        "top": 215.015625,
         "rect": {
           "initial": {
-            "top": 697,
-            "left": 1410,
-            "width": 470,
+            "top": 730.015625,
+            "left": 1635,
+            "width": 75,
             "height": 30,
-            "bottom": 727,
-            "right": 1880
+            "bottom": 760.015625,
+            "right": 1710
           },
           "translated": {
-            "top": 212,
+            "top": 215.015625,
             "left": 245,
-            "width": 470,
+            "width": 75,
             "height": 30,
-            "bottom": 242,
-            "right": 715
+            "bottom": 245.015625,
+            "right": 320
           }
         }
       }
     },
     {
-      "id": "h2f",
-      "bone": "CopyIcon",
+      "id": "h2d",
+      "bone": "SelectIcon",
       "zIndex": "100",
       "style": {
         "zIndex": "100",
         "position": "absolute",
         "left": 245,
-        "top": 322,
+        "top": 260.015625,
         "rect": {
           "initial": {
-            "top": 337,
-            "left": 1410,
-            "width": 470,
+            "top": 820.015625,
+            "left": 1635,
+            "width": 75,
             "height": 30,
-            "bottom": 367,
-            "right": 1880
+            "bottom": 850.015625,
+            "right": 1710
           },
           "translated": {
-            "top": 322,
+            "top": 260.015625,
             "left": 245,
-            "width": 470,
+            "width": 75,
             "height": 30,
-            "bottom": 352,
-            "right": 715
+            "bottom": 290.015625,
+            "right": 320
           }
         }
       }
@@ -130,110 +73,23 @@
         "zIndex": "100",
         "position": "absolute",
         "left": 245,
-        "top": 287,
+        "top": 305.015625,
         "rect": {
           "initial": {
-            "top": 427,
-            "left": 1410,
-            "width": 470,
+            "top": 460.015625,
+            "left": 1635,
+            "width": 75,
             "height": 30,
-            "bottom": 457,
-            "right": 1880
+            "bottom": 490.015625,
+            "right": 1710
           },
           "translated": {
-            "top": 287,
+            "top": 305.015625,
             "left": 245,
-            "width": 470,
+            "width": 75,
             "height": 30,
-            "bottom": 317,
-            "right": 715
-          }
-        }
-      }
-    },
-    {
-      "id": "h2k",
-      "bone": "AddShapeIcon",
-      "zIndex": "100",
-      "style": {
-        "zIndex": "100",
-        "position": "absolute",
-        "left": 245,
-        "top": 507,
-        "rect": {
-          "initial": {
-            "top": 562,
-            "left": 1410,
-            "width": 470,
-            "height": 30,
-            "bottom": 592,
-            "right": 1880
-          },
-          "translated": {
-            "top": 507,
-            "left": 245,
-            "width": 470,
-            "height": 30,
-            "bottom": 537,
-            "right": 715
-          }
-        }
-      }
-    },
-    {
-      "id": "h2j",
-      "bone": "AddTextIcon",
-      "zIndex": "100",
-      "style": {
-        "zIndex": "100",
-        "position": "absolute",
-        "left": 245,
-        "top": 472,
-        "rect": {
-          "initial": {
-            "top": 517,
-            "left": 1410,
-            "width": 470,
-            "height": 30,
-            "bottom": 547,
-            "right": 1880
-          },
-          "translated": {
-            "top": 472,
-            "left": 245,
-            "width": 470,
-            "height": 30,
-            "bottom": 502,
-            "right": 715
-          }
-        }
-      }
-    },
-    {
-      "id": "h2h",
-      "bone": "DrawIcon",
-      "zIndex": "100",
-      "style": {
-        "zIndex": "100",
-        "position": "absolute",
-        "left": 245,
-        "top": 397,
-        "rect": {
-          "initial": {
-            "top": 427,
-            "left": 1410,
-            "width": 470,
-            "height": 30,
-            "bottom": 457,
-            "right": 1880
-          },
-          "translated": {
-            "top": 397,
-            "left": 245,
-            "width": 470,
-            "height": 30,
-            "bottom": 427,
-            "right": 715
+            "bottom": 335.015625,
+            "right": 320
           }
         }
       }
@@ -246,23 +102,52 @@
         "zIndex": "100",
         "position": "absolute",
         "left": 245,
-        "top": 362,
+        "top": 395.015625,
         "rect": {
           "initial": {
-            "top": 337,
-            "left": 1410,
-            "width": 470,
+            "top": 370.015625,
+            "left": 1635,
+            "width": 75,
             "height": 30,
-            "bottom": 367,
-            "right": 1880
+            "bottom": 400.015625,
+            "right": 1710
           },
           "translated": {
-            "top": 362,
+            "top": 395.015625,
             "left": 245,
-            "width": 470,
+            "width": 75,
             "height": 30,
-            "bottom": 392,
-            "right": 715
+            "bottom": 425.015625,
+            "right": 320
+          }
+        }
+      }
+    },
+    {
+      "id": "h2f",
+      "bone": "CopyIcon",
+      "zIndex": "100",
+      "style": {
+        "zIndex": "100",
+        "position": "absolute",
+        "left": 245,
+        "top": 350.015625,
+        "rect": {
+          "initial": {
+            "top": 370.015625,
+            "left": 1635,
+            "width": 75,
+            "height": 30,
+            "bottom": 400.015625,
+            "right": 1710
+          },
+          "translated": {
+            "top": 350.015625,
+            "left": 245,
+            "width": 75,
+            "height": 30,
+            "bottom": 380.015625,
+            "right": 320
           }
         }
       }
@@ -275,23 +160,139 @@
         "zIndex": "100",
         "position": "absolute",
         "left": 245,
-        "top": 432,
+        "top": 485.015625,
         "rect": {
           "initial": {
-            "top": 292,
-            "left": 1410,
-            "width": 470,
+            "top": 370.015625,
+            "left": 1635,
+            "width": 75,
             "height": 30,
-            "bottom": 322,
-            "right": 1880
+            "bottom": 400.015625,
+            "right": 1710
           },
           "translated": {
-            "top": 432,
+            "top": 485.015625,
             "left": 245,
-            "width": 470,
+            "width": 75,
             "height": 30,
-            "bottom": 462,
-            "right": 715
+            "bottom": 515.015625,
+            "right": 320
+          }
+        }
+      }
+    },
+    {
+      "id": "h2h",
+      "bone": "DrawIcon",
+      "zIndex": "100",
+      "style": {
+        "zIndex": "100",
+        "position": "absolute",
+        "left": 245,
+        "top": 440.015625,
+        "rect": {
+          "initial": {
+            "top": 550.015625,
+            "left": 1635,
+            "width": 75,
+            "height": 30,
+            "bottom": 580.015625,
+            "right": 1710
+          },
+          "translated": {
+            "top": 440.015625,
+            "left": 245,
+            "width": 75,
+            "height": 30,
+            "bottom": 470.015625,
+            "right": 320
+          }
+        }
+      }
+    },
+    {
+      "id": "h2j",
+      "bone": "AddTextIcon",
+      "zIndex": "100",
+      "style": {
+        "zIndex": "100",
+        "position": "absolute",
+        "left": 245,
+        "top": 535.015625,
+        "rect": {
+          "initial": {
+            "top": 730.015625,
+            "left": 1635,
+            "width": 75,
+            "height": 30,
+            "bottom": 760.015625,
+            "right": 1710
+          },
+          "translated": {
+            "top": 535.015625,
+            "left": 245,
+            "width": 75,
+            "height": 30,
+            "bottom": 565.015625,
+            "right": 320
+          }
+        }
+      }
+    },
+    {
+      "id": "h2k",
+      "bone": "AddShapeIcon",
+      "zIndex": "100",
+      "style": {
+        "zIndex": "100",
+        "position": "absolute",
+        "left": 247.5,
+        "top": 582.015625,
+        "rect": {
+          "initial": {
+            "top": 752.015625,
+            "left": 1642.5,
+            "width": 75,
+            "height": 30,
+            "bottom": 782.015625,
+            "right": 1717.5
+          },
+          "translated": {
+            "top": 582.015625,
+            "left": 247.5,
+            "width": 75,
+            "height": 30,
+            "bottom": 612.015625,
+            "right": 322.5
+          }
+        }
+      }
+    },
+    {
+      "id": "h2l",
+      "bone": "SelectColorIcon",
+      "zIndex": "100",
+      "style": {
+        "zIndex": "100",
+        "position": "absolute",
+        "left": 247.5,
+        "top": 627.015625,
+        "rect": {
+          "initial": {
+            "top": 482.015625,
+            "left": 1642.5,
+            "width": 75,
+            "height": 30,
+            "bottom": 512.015625,
+            "right": 1717.5
+          },
+          "translated": {
+            "top": 627.015625,
+            "left": 247.5,
+            "width": 75,
+            "height": 30,
+            "bottom": 657.015625,
+            "right": 322.5
           }
         }
       }
