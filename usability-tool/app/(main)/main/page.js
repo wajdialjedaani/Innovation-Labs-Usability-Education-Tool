@@ -1,5 +1,6 @@
 "use client";
-import "@/styles/mainpage.scss";
+// import "@/styles/mainpage.scss";
+import styles from "@/styles/mainpage.module.scss";
 import Link from "next/link";
 
 import { getAuthContext } from "../components/AuthContextProvider";
@@ -38,14 +39,14 @@ export default function mainPage() {
     <main>
       <div className="text-center mx-auto mt-5 col-md-6">
         <div
-          className="accordion accordion-flush shadow-none"
+          className={`accordion accordion-flush shadow-none ${styles.accordion}`}
           id="mainAccordion"
         >
           {heuristicNames.map((name, i) => (
             <div className="accordion-item" key={i}>
               <h2 className="accordion-header">
                 <button
-                  className="accordion-button collapsed"
+                  className={`accordion-button collapsed ${styles.accordionButton}`}
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target={`#collapse${i}`}
@@ -61,7 +62,9 @@ export default function mainPage() {
                 data-bs-parent="#mainAccordion"
               >
                 <div className="accordion-body p-0">
-                  <ul className="list-group list-group-flush text-start ">
+                  <ul
+                    className={`list-group list-group-flush text-start ${styles.listGroup}`}
+                  >
                     <Link
                       className="list-group-item list-group-item-action"
                       href={`/lessons/${i + 1}`}

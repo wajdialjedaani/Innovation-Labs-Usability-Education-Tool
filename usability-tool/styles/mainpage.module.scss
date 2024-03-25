@@ -1,0 +1,33 @@
+/*Main*/
+@use "./mixins/colorscheme.scss" as *;
+
+/* BOOTSTRAP */
+
+.accordion {
+  --bs-accordion-bg: #132634 !important;
+  --bs-accordion-active-bg: #0c1821 !important;
+  --bs-body-color: white !important;
+  --bs-accordion-active-color: white !important;
+  --bs-accordion-btn-focus-box-shadow: none !important;
+}
+
+.accordionButton {
+  font-size: 0.75em;
+  font-weight: bold;
+  &:after {
+    filter: invert(1);
+  }
+  &:not(.collapsed)::after {
+    background-image: var(--bs-accordion-btn-icon);
+  }
+}
+
+.listGroup {
+  --bs-list-group-bg: #324a5f !important;
+  --bs-list-group-action-hover-bg: #1b2a41 !important;
+  --bs-list-group-action-active-bg: #1b2a41 !important;
+  --bs-list-group-action-hover-color: white !important;
+  --bs-list-group-disabled-bg: rgba(50, 74, 95, 0.5) !important;
+  --bs-list-group-disabled-color: rgba(255, 255, 255, 0.5) !important;
+  font-size: 1.15em;
+}

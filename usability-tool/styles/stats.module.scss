@@ -1,5 +1,14 @@
 @use "./mixins/colorscheme.scss" as *;
 
+/* CONTAINER */
+.mainContainer {
+  box-sizing: border-box;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 65px);
+}
+
 .graphContainer {
   height: 50%;
   display: flex;
@@ -13,7 +22,22 @@
 .graphTitle {
   color: white;
   text-align: center;
-  font-size: 1.75rem;
+  // font-size: 1.75rem;
+}
+
+/*BOOTSTRAP*/
+
+.table {
+  --bs-table-color: white;
+  --bs-table-striped-color: white;
+  --bs-table-bg: rgba(50, 74, 95, 0.576);
+  --bs-table-striped-bg: #{$top};
+}
+
+.listGroupItem {
+  //align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .listGroup {
@@ -43,7 +67,4 @@
 .information {
   color: white;
   align-items: center;
-  display: flex;
-  padding-left: 2vw;
-  padding-top: 1vw;
 }

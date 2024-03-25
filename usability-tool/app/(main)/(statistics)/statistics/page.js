@@ -1,5 +1,4 @@
 "use client";
-import "@/styles/statistics.scss";
 import { useState, useEffect } from "react";
 
 import { getAuthContext } from "../../components/AuthContextProvider";
@@ -50,9 +49,9 @@ export default function Statistics() {
     let averageTime = 0;
     let totalAttempts = 0;
     let average = 0;
-  
+
     // Iterate through all attempts to aggregate data
-    currHeuristicData.attempts.forEach(attempt => {
+    currHeuristicData.attempts.forEach((attempt) => {
       totalCorrect += attempt.correct;
       totalIncorrect += attempt.incorrect;
       totalTime += attempt.time;
@@ -61,38 +60,42 @@ export default function Statistics() {
 
     averageCorrect = (totalCorrect / totalAttempts).toFixed(2);
     averageIncorrect = (totalIncorrect / totalAttempts).toFixed(2);
-    average = (averageCorrect / 10 * 100).toFixed(2)
+    average = ((averageCorrect / 10) * 100).toFixed(2);
     averageTime = (totalTime / totalAttempts).toFixed(2);
-  
+
     // Return the aggregated data
     return [
       {
-        name: 'Attempts',
-        value: totalAttempts
+        name: "Total Attempts",
+        value: totalAttempts,
       },
       {
-        name: 'Total Correct',
-        value: totalCorrect
+        name: "Total Correct Answers",
+        value: totalCorrect,
       },
       {
-        name: 'Total Incorrect',
-        value: totalIncorrect
+        name: "Total Incorrect Answers",
+        value: totalIncorrect,
       },
       {
-        name: 'Total Time (s)',
-        value: averageTime
+        name: "Total Time (s)",
+        value: totalTime,
       },
       {
-        name: 'Average Correct',
-        value: averageCorrect
+        name: "Average Correct Answers",
+        value: averageCorrect,
       },
       {
-        name: 'Average Incorrect',
-        value: averageIncorrect
+        name: "Average Incorrect Answers",
+        value: averageIncorrect,
       },
       {
-        name: 'Average Score',
-        value: average + '%'
+        name: "Average Time per Quiz (s)",
+        value: averageTime,
+      },
+      {
+        name: "Average Score per Quiz",
+        value: average + "%",
       },
     ];
   };
@@ -146,7 +149,7 @@ export default function Statistics() {
     }
     data = getHeuristicDataForPie();
     setHeuristicData(data);
-    console.log(heuristicData)
+    console.log(heuristicData);
   }
 
   const getUIDataForPie = () => {
@@ -159,61 +162,59 @@ export default function Statistics() {
     let average = 0;
     let averageTime = 0;
     let totalAttempts = 0;
-  
+
     // Iterate through all attempts to aggregate data
-    currUIData.attempts.forEach(attempt => {
+    currUIData.attempts.forEach((attempt) => {
       totalCorrect += attempt.correct;
       totalIncorrect += attempt.incorrect;
       totalTime += attempt.time;
       totalAttempts += 1;
     });
-    
+
     averageCorrect = (totalCorrect / totalAttempts).toFixed(2);
     averageIncorrect = (totalIncorrect / totalAttempts).toFixed(2);
-    average = (averageCorrect / 10 * 100).toFixed(2);
+    average = ((averageCorrect / 10) * 100).toFixed(2);
     averageTime = (totalTime / totalAttempts).toFixed(2);
 
     // Return the aggregated data
     return [
       {
-        name: 'Attempts',
-        value: totalAttempts
+        name: "Total Attempts",
+        value: totalAttempts,
       },
       {
-        name: 'Total Correct',
-        value: totalCorrect
+        name: "Total Correct Answers",
+        value: totalCorrect,
       },
       {
-        name: 'Total Incorrect',
-        value: totalIncorrect
+        name: "Total Incorrect Answers",
+        value: totalIncorrect,
       },
       {
-        name: 'Total Time (s)',
-        value: totalTime
+        name: "Total Time (s)",
+        value: totalTime,
       },
       {
-        name: 'Average Correct',
-        value: averageCorrect
+        name: "Average Correct Answers",
+        value: averageCorrect,
       },
       {
-        name: 'Average Incorrect',
-        value: averageIncorrect
+        name: "Average Incorrect Answers",
+        value: averageIncorrect,
       },
       {
-        name: 'Average Time (s)',
-        value: averageTime
+        name: "Average Time per Game (s)",
+        value: averageTime,
       },
       {
-        name: 'Average Score',
-        value: average + '%'
+        name: "Average Score per Game",
+        value: average + "%",
       },
     ];
   };
-  
-  
 
   return (
-    <main class="container-fluid p-4">
+    <main className={`container-fluid p-4 ${styles.mainContainer}`}>
       <div class="row h-100">
         {
           //The buttons
@@ -239,29 +240,68 @@ export default function Statistics() {
           //The actual graphs / data
         }
         {!loading ? (
-          //1. remove col
           <div className={`col h-100 ${styles.statsContainer}`}>
             <div class={`row h-100 ${styles.graphContainer}`}>
               <div
                 className={`col-md-4 list-group list-group-flush ${styles.listGroup}`}
               >
                 {!noQuizData ? (
-                  <div className={`list-group-item ${styles.graphContainer}`}>
-                    <h2 className={styles.graphTitle}>Total Heuristic Data</h2>
-                    {getHeuristicDataForPie().map((data, index) => (
-                      <p className={`${styles.information}`} key={index}>{data.name}: {data.value}</p>
-                    ))}
+                  <div
+                    className={`list-group-item d-flex flex-column table-responsive h-50`}
+                  >
+                    <h3 className={`${styles.graphTitle}`}>
+                      Total Heuristic Data
+                    </h3>
+                    <table
+                      className={`table table-sm table-striped h-100 ${styles.table}`}
+                    >
+                      <thead>
+                        <tr>
+                          <th scope="col">Value</th>
+                          <th scope="col">Data</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {getHeuristicDataForPie().map((data, i) => (
+                          <tr key={i}>
+                            <th className="align-middle" scope="row">
+                              {data.name}
+                            </th>
+                            <td className="align-middle">{data.value}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </div>
                 ) : (
                   <i class="bi bi-exclamation-circle-fill"></i>
                 )}
                 {!noUIData ? (
-                  <div className={`list-group-item ${styles.graphContainer}`}>
-                    <h2 className={styles.graphTitle}>Total UI Builder Data</h2>
-                    {getUIDataForPie().map((data, index) => (
-                      <p className={`${styles.information}`} key={index}>{data.name}: {data.value}</p>
-                    ))}
-                </div>
+                  <div
+                    className={`list-group-item d-flex flex-column table-responsive h-50`}
+                  >
+                    <h3 className={styles.graphTitle}>Total UI Builder Data</h3>
+                    <table
+                      className={`table table-sm table-striped h-100 ${styles.table}`}
+                    >
+                      <thead>
+                        <tr>
+                          <th scope="col">Value</th>
+                          <th scope="col">Data</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {getUIDataForPie().map((data, i) => (
+                          <tr key={i}>
+                            <th className="align-middle" scope="row">
+                              {data.name}
+                            </th>
+                            <td className="align-middle">{data.value}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 ) : (
                   <i class="bi bi-exclamation-circle-fill"></i>
                 )}
