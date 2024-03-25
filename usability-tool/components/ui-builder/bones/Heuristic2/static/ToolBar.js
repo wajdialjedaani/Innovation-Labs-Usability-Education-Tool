@@ -5,9 +5,9 @@ export default function ToolBar(){
     <div className={styles.twoToolBar}>
       <div className={styles.twoToolBarButtonHolder}>
         <div>Move</div>
-        <div>Select</div>
+        <div>Grab</div>
         <div>Zoom</div>
-        <div>Copy</div>
+        <div>Cut</div>
         <div>Paste</div>
         <div>Draw</div>
         <div>Erase</div>
