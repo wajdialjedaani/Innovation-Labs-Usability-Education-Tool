@@ -1,7 +1,7 @@
 // BoneSelector.js - A dynamic component for rendering certain bones.
 // should allow for modular selection by the dragging components.
 
-import DraggableComponent from "./DraggableComponent";
+import styles from "@/styles/UIBones.module.scss"
 
 // bone imports
 import SearchBar from "./bones/SearchBar";
@@ -35,7 +35,9 @@ import Slantline from "./bones/Heuristic2/Slantline";
 import TagIcon from "./bones/Heuristic2/Tag";
 import MagicWand from "./bones/Heuristic2/MagicWand";
 
-export default function BoneSelector({type}){
+// god this is so terrible
+
+export default function BoneSelector({type, drawerMode}){
 
   let BoneComponent;
 
@@ -131,6 +133,14 @@ export default function BoneSelector({type}){
 
     default:
       BoneComponent = null;
+  }
+
+  if (drawerMode){
+    return (
+      <div className={styles.thumbnailWrapper}>
+        {BoneComponent}
+      </div>
+    )
   }
 
   return BoneComponent

@@ -1,7 +1,10 @@
 {
   "scenarioInformation": {
     "title": "Visibility of System Status",
-    "description": "As you have learned in the previous lesson, the visibility of system status is an important heuristic to follow when designing user interfaces.\n\nFor this activity, you will be building a simple user interface for a web based music player. You do not need to use all of the components provided to successfully complete the activity. Remember to follow the guidelines of the visibility of system status heuristic while completing this activity."
+    "description": "As you have learned in the previous lesson, the visibility of system status is an important heuristic to follow when designing user interfaces.\n\nFor this activity, you will be building a simple user interface for a web based music player. You do not need to use all of the components provided to successfully complete the activity. Remember to follow the guidelines of the visibility of system status heuristic while completing this activity.",
+    "heuristicAttachment": 1,
+    "nextUrl": "/lessons/2",
+    "exitUrl": "/quiz/1"
   },
   "solutionGrids": [
     [
@@ -2361,7 +2364,7 @@
         "id": "h1r",
         "bone": "PlaybackSlider",
         "zIndex": 150,
-        "allowCollide": ["TopBar", "AlbumBox"],
+        "allowCollide": ["TopBar", "AlbumBox", "NowPlaying"],
 
         "style": {
           "zIndex": 150

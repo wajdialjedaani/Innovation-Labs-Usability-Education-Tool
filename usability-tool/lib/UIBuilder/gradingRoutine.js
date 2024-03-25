@@ -51,7 +51,7 @@ export default function gradingRoutine(gradingObject, userGrid){
   }
 
   // scale to points out of 10 and return. round up!
-  console.log(collisions);
+  //console.log(collisions);
 
   // if score is higher than 90, were gonna give a 10.
 
@@ -240,18 +240,21 @@ function getPositioningScore(solutionGrid, userGrid){
 }
 
 function getDetectedCollisions(userGrid){
+    // this really should be refactored before going into production.
     // time for collision detections
     let badCollisions = []; // array to store the bad collisions
 
     userGrid.map((obj, index) => {
+     const actualRect = document.getElementById(obj.id).getBoundingClientRect();
+
       // easy obj for storing rect info
       let thisRect = {
         name: obj.bone,
         index: index,
-        x: obj.style.rect.translated.left,
-        y: obj.style.rect.translated.top,
-        width: obj.style.rect.translated.width,
-        height: obj.style.rect.translated.height,
+        x: actualRect.left,
+        y: actualRect.top,
+        width: actualRect.width,
+        height: actualRect.height,
       };
   
       // if we have allowed collsions, make note of them in the object.
@@ -266,15 +269,17 @@ function getDetectedCollisions(userGrid){
         if (index == thisRect.index){
           return;
         }
+
+        const actualRect = document.getElementById(obj.id).getBoundingClientRect();
   
         // get bone info
         let thatRect = {
           name: obj.bone,
           index: index,
-          x: obj.style.rect.translated.left,
-          y: obj.style.rect.translated.top,
-          width: obj.style.rect.translated.width,
-          height: obj.style.rect.translated.height
+          x: actualRect.left,
+          y: actualRect.top,
+          width: actualRect.width,
+          height: actualRect.height
         };
   
         if ("allowCollide" in obj){
@@ -307,12 +312,12 @@ function getDetectedCollisions(userGrid){
   
             // if allowed, do nothing;
             if (allowCollision){
-              console.log("ALLOWED COLLISION: ", thisRect.name, thatRect.name);
+              //console.log("ALLOWED COLLISION: ", thisRect.name, thatRect.name);
               return;
             }
             
             // if not, add it to the badCollisions array
-            console.log("DISALLOWED COLLISION: ", thisRect.name, thatRect.name);
+            //console.log("DISALLOWED COLLISION: ", thisRect.name, thatRect.name);
             if (badCollisions.find((obj) => (obj.bone1 == thatRect.name && obj.bone2 == thisRect.name))){
               return;
             } else {

@@ -24,8 +24,11 @@ export default function UIBuilderContextProvider({
   const [solutionDispIndex, setSolutionDispIndex] = useState(0);
   const [solutionGrid, setSolutionGrid] = useState(scenario.solutionGrids[0]);
 
+  // custom modifier state
+  const [wasComponentInDrawer, setWasComponentInDrawer] = useState(null);
+
   useEffect(() => {
-    console.log("changing solution grid - ", solutionDispIndex);
+    //console.log("changing solution grid - ", solutionDispIndex);
     setSolutionGrid(scenario.solutionGrids[solutionDispIndex]);
   }, [solutionDispIndex]);
 
@@ -139,7 +142,25 @@ export default function UIBuilderContextProvider({
 
     releaseTooltip: () => {
       setBlockTooltip(false);
-    }
+    },
+
+    // custom modifier state stuff
+    wasComponentInDrawer,
+
+    getWasComponentInDrawer: () => {
+      // custom get function because not doing this breaks window bounds
+      const curr = wasComponentInDrawer;
+
+      if (!curr) {return false;}
+
+      setWasComponentInDrawer(false);
+
+      return (wasComponentInDrawer);
+    },
+
+    setWasComponentInDrawer: (wellWasIt) => {
+      setWasComponentInDrawer(wellWasIt);
+    },
   };
 
   return (
