@@ -52,7 +52,7 @@ function UIBuilderDNDContainer(props) {
       (widget) => widget.id === event.active.id
     );
 
-    console.log("IS IN DRAWER INIT HIT: ", isInDrawer);
+    //console.log("IS IN DRAWER INIT HIT: ", isInDrawer);
 
     setWasComponentInDrawer(isInDrawer);
 
@@ -65,7 +65,7 @@ function UIBuilderDNDContainer(props) {
 
   // function for handling post-drag placement
   function handleDragEnd(event) {
-    console.log("drag end event: ", event);
+    //console.log("drag end event: ", event);
 
     releaseTooltip();
     // get activeWidget for editing

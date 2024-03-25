@@ -28,7 +28,7 @@ export default function UIBuilderContextProvider({
   const [wasComponentInDrawer, setWasComponentInDrawer] = useState(null);
 
   useEffect(() => {
-    console.log("changing solution grid - ", solutionDispIndex);
+    //console.log("changing solution grid - ", solutionDispIndex);
     setSolutionGrid(scenario.solutionGrids[solutionDispIndex]);
   }, [solutionDispIndex]);
 

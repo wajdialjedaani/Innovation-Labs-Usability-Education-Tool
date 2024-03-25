@@ -51,7 +51,7 @@ export default function gradingRoutine(gradingObject, userGrid){
   }
 
   // scale to points out of 10 and return. round up!
-  console.log(collisions);
+  //console.log(collisions);
 
   // if score is higher than 90, were gonna give a 10.
 
@@ -312,12 +312,12 @@ function getDetectedCollisions(userGrid){
   
             // if allowed, do nothing;
             if (allowCollision){
-              console.log("ALLOWED COLLISION: ", thisRect.name, thatRect.name);
+              //console.log("ALLOWED COLLISION: ", thisRect.name, thatRect.name);
               return;
             }
             
             // if not, add it to the badCollisions array
-            console.log("DISALLOWED COLLISION: ", thisRect.name, thatRect.name);
+            //console.log("DISALLOWED COLLISION: ", thisRect.name, thatRect.name);
             if (badCollisions.find((obj) => (obj.bone1 == thatRect.name && obj.bone2 == thisRect.name))){
               return;
             } else {
