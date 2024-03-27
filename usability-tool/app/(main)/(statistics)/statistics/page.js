@@ -214,8 +214,8 @@ export default function Statistics() {
   };
 
   return (
-    <main className={`container-fluid p-4 ${styles.mainContainer}`}>
-      <div class="row h-100">
+    <main className={`container-fluid p-4 h-100`}>
+      <div class="row  h-100">
         {
           //The buttons
         }
@@ -239,10 +239,11 @@ export default function Statistics() {
         {
           //The actual graphs / data
         }
+
         {!loading ? (
           <div className={`col h-100 ${styles.statsContainer}`}>
             <div class={`row h-100 ${styles.graphContainer}`}>
-              <div
+              {/* <div
                 className={`col-md-4 list-group list-group-flush ${styles.listGroup}`}
               >
                 {!noQuizData ? (
@@ -305,11 +306,11 @@ export default function Statistics() {
                 ) : (
                   <i class="bi bi-exclamation-circle-fill"></i>
                 )}
-              </div>
+              </div> */}
               <div
                 className={`col-md-8 list-group list-group-flush ${styles.listGroup}`}
               >
-                {!noQuizData ? (
+                {/* {!noQuizData ? (
                   <BarGraph
                     data={currHeuristicData.attempts}
                     graphTitle={"All Heuristic Data"}
@@ -324,7 +325,7 @@ export default function Statistics() {
                   />
                 ) : (
                   <i class="bi bi-exclamation-circle-fill"></i>
-                )}
+                )} */}
               </div>
             </div>
           </div>

@@ -1,0 +1,47 @@
+@use "./mixins/colorscheme.scss" as *;
+
+/* NAVBAR */
+.navbar {
+  background-color: #{$darkest};
+}
+
+.navbarBrand {
+  margin-right: 0;
+  color: #{$white};
+  &:hover,
+  &:focus {
+    color: #{$white};
+  }
+}
+
+/* DROPDOWNS */
+
+.dropdownBtn {
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+.dropDownImg {
+  color: #{$white};
+  &:hover,
+  &:focus {
+    color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.dropDownMenu {
+  --bs-dropdown-font-size: 1.25rem;
+  --bs-dropdown-divider-bg: white;
+  --bs-dropdown-bg: #{$top};
+  --bs-dropdown-color: white;
+  --bs-dropdown-link-color: white;
+  --bs-dropdown-link-hover-color: white;
+  --bs-dropdown-link-hover-bg: #{$darkest};
+  --bs-dropdown-link-active-bg: #{$darkest};
+  --bs-dropdown-item-padding-y: 0.5rem;
+}
+
+.dropDownItemText {
+  font-size: 1rem;
+}

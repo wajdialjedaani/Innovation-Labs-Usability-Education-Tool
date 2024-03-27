@@ -1,15 +1,25 @@
 @use "./mixins/colorscheme.scss" as *;
 
+/* BOOTSTRAP */
+
+.card {
+  color: whitesmoke;
+  background-color: $top;
+}
+
+.cardHeader {
+  background-color: $dark;
+  font-size: 1.15rem;
+}
+
+/* TEXT */
+
 .homeTitle {
   font-weight: bold;
   font-size: 3.5rem;
 }
 
-.homeButtonsContainer {
-  //   display: flex;
-  //   flex-direction: column;
-  //   align-items: center;
-}
+/* BUTTONS */
 
 .homeButton {
   max-width: 250px;
@@ -33,14 +43,4 @@
 .homeButton:active,
 .homeButton:focus {
   background-color: $black;
-}
-
-.card {
-  color: whitesmoke;
-  background-color: $top;
-}
-
-.card-header {
-  background-color: $dark;
-  font-size: 1.15rem;
 }

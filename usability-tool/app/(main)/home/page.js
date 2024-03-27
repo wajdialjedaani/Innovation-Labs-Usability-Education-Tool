@@ -1,5 +1,5 @@
 "use client";
-import styles from "@/styles/home.scss";
+import styles from "@/styles/home.module.scss";
 import Link from "next/link";
 
 import { getAuthContext } from "../components/AuthContextProvider";
@@ -8,13 +8,13 @@ export default function Home() {
   const { user } = getAuthContext();
   return (
     <main>
-      <h1 className="homeTitle mt-3 text-center">
+      <h1 className={`${styles.homeTitle} mt-3 text-center`}>
         Learn and Practice Nielsen's 10 Usability Heuristics
       </h1>
 
       <div className=" mt-3 p-4 d-lg-flex flex-row justify-content-center gap-4">
-        <div className="card col-lg-2 mb-3">
-          <div className="card-header">
+        <div className={`${styles.card} card col-lg-2 mb-3`}>
+          <div className={`${styles.cardHeader} card-header`}>
             Learn - Textbook <i class="bi bi-book"></i>
           </div>
           <div className="card-body">
@@ -24,8 +24,8 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="card col-lg-2 mb-3">
-          <div className="card-header">
+        <div className={`${styles.card} card col-lg-2 mb-3`}>
+          <div className={`${styles.cardHeader} card-header`}>
             Study - Quizzes <i class="bi bi-question-circle"></i>
           </div>
           <div className="card-body">
@@ -35,8 +35,8 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="card col-lg-2 mb-3">
-          <div className="card-header">
+        <div className={`${styles.card} card col-lg-2 mb-3`}>
+          <div className={`${styles.cardHeader} card-header`}>
             Practice - UI Builder <i class="bi bi-tools"></i>
           </div>
           <div className="card-body">
@@ -47,8 +47,8 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className="card col-lg-2 mb-3">
-          <div className="card-header">
+        <div className={`${styles.card} card col-lg-2 mb-3`}>
+          <div className={`${styles.cardHeader} card-header`}>
             Statistics - Graphs <i class="bi bi-bar-chart"></i>
           </div>
           <div className="card-body">
@@ -59,18 +59,18 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="homeButtonsContainer text-center d-flex d-md-block  justify-content-center align-items-center flex-column">
+      <div className="text-center d-flex d-md-block justify-content-center align-items-center flex-column">
         {!user ? (
           <>
-            <Link className="homeButton col-8" href="/signin">
+            <Link className={`${styles.homeButton} col-8`} href="/signin">
               Sign In
             </Link>
-            <Link className="homeButton col-8" href="/register">
+            <Link className={`${styles.homeButton} col-8`} href="/register">
               Register
             </Link>
           </>
         ) : (
-          <Link className="homeButton col-8" href="/main">
+          <Link className={`${styles.homeButton} col-8`} href="/main">
             Continue
           </Link>
         )}
