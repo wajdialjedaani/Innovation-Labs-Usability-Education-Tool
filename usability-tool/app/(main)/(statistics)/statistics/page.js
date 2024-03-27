@@ -214,13 +214,38 @@ export default function Statistics() {
   };
 
   return (
-    <main className={`container-fluid p-4 h-100`}>
-      <div class="row  h-100">
+    <main className={`container-fluid p-4 ${styles.mainContainer}`}>
+      <div className="dropdown d-lg-none mb-3 text-center">
+        <button
+          className={`dropdown-toggle ${styles.dropDownBtn}`}
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Select Heuristic
+        </button>
+        <ul className={`dropdown-menu ${styles.dropDownMenu}`}>
+          {heuristics.map((_, i) => (
+            <li>
+              <button
+                key={i}
+                type="button"
+                className={`btn h-100 text-center dropdown-item`}
+                disabled={completedHeuristics[i] <= 1}
+                onClick={() => setCurrheuristic(i)}
+              >
+                Heuristic {i + 1}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="row h-100">
         {
           //The buttons
         }
         <div
-          className={`col col-md-2 btn-group-vertical d-none d-md-flex ${styles.heuristicBtnGroup} `}
+          className={` col-md-2 btn-group-vertical d-none d-lg-flex ${styles.heuristicBtnGroup} `}
           role="group"
           aria-label="Heuristic data buttons"
         >
@@ -242,9 +267,9 @@ export default function Statistics() {
 
         {!loading ? (
           <div className={`col h-100 ${styles.statsContainer}`}>
-            <div class={`row h-100 ${styles.graphContainer}`}>
-              {/* <div
-                className={`col-md-4 list-group list-group-flush ${styles.listGroup}`}
+            <div className={`row h-100`}>
+              <div
+                className={`col-lg-4 col-12 list-group list-group-flush ${styles.listGroup}`}
               >
                 {!noQuizData ? (
                   <div
@@ -306,26 +331,30 @@ export default function Statistics() {
                 ) : (
                   <i class="bi bi-exclamation-circle-fill"></i>
                 )}
-              </div> */}
+              </div>
               <div
-                className={`col-md-8 list-group list-group-flush ${styles.listGroup}`}
+                className={`col-lg-8 col-12 list-group list-group-flush ${styles.listGroup}`}
               >
-                {/* {!noQuizData ? (
-                  <BarGraph
-                    data={currHeuristicData.attempts}
-                    graphTitle={"All Heuristic Data"}
-                  />
+                {!noQuizData ? (
+                  <div className="list-group-item d-flex flex-column h-50">
+                    <BarGraph
+                      data={currHeuristicData.attempts}
+                      graphTitle={"All Heuristic Data"}
+                    />
+                  </div>
                 ) : (
                   <i class="bi bi-exclamation-circle-fill"></i>
                 )}
                 {!noUIData ? (
-                  <BarGraph
-                    data={currUIData.attempts}
-                    graphTitle={"All UI Builder Data"}
-                  />
+                  <div className="list-group-item d-flex flex-column h-50">
+                    <BarGraph
+                      data={currUIData.attempts}
+                      graphTitle={"All UI Builder Data"}
+                    />
+                  </div>
                 ) : (
-                  <i class="bi bi-exclamation-circle-fill"></i>
-                )} */}
+                  <i class="bi bi-exclamation-circle-fill "></i>
+                )}
               </div>
             </div>
           </div>

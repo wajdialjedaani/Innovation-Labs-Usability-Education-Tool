@@ -13,9 +13,9 @@ import styles from "@/styles/stats.module.scss";
 
 export default function BarGraph({ data, graphTitle }) {
   return (
-    <div className={`list-group-item ${styles.graphContainer}`}>
+    <div className={`${styles.graphContainer}`}>
       <h3 className={styles.graphTitle}>{graphTitle}</h3>
-      <ResponsiveContainer>
+      <ResponsiveContainer height="100%" width="100%">
         <BarChart data={data}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />

@@ -14,7 +14,7 @@ export default function Navbar() {
   const { user } = getAuthContext();
 
   return (
-    <nav className={`navbar  ${styles.navbar}`}>
+    <nav className={`navbar navbar-expand ${styles.navbar}`}>
       <div className="container-fluid justify-content-between">
         {user && <MenuPopup />}
         <Link

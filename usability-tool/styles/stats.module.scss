@@ -1,16 +1,15 @@
 @use "./mixins/colorscheme.scss" as *;
-
 /* CONTAINER */
 .mainContainer {
-  box-sizing: border-box;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
   height: calc(100vh - 65px);
+  @media (max-width: 992px) {
+    // background-color: red;
+    height: 200%;
+  }
 }
 
 .graphContainer {
-  height: 50%;
+  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -44,6 +43,10 @@
   padding: 15px;
   height: 100%;
   --bs-list-group-bg: #{$darkest} !important ;
+  @media (max-width: 992px) {
+    // background-color: red;
+    height: 50%;
+  }
 }
 
 .heuristicBtnGroup {
@@ -67,4 +70,30 @@
 .information {
   color: white;
   align-items: center;
+}
+
+.dropDownBtn {
+  background-color: #{$black};
+  border: none;
+  color: white;
+  padding: 0.5em 1em;
+  border-radius: 10px;
+  &:focus,
+  &:active {
+    background-color: #{$black};
+  }
+  &:hover {
+    background-color: #{$dark};
+  }
+}
+
+.dropDownMenu {
+  --bs-dropdown-divider-bg: white;
+  --bs-dropdown-bg: #{$top};
+  --bs-dropdown-color: white;
+  --bs-dropdown-link-color: white;
+  --bs-dropdown-link-hover-color: white;
+  --bs-dropdown-link-hover-bg: #{$darkest};
+  --bs-dropdown-link-active-bg: #{$darkest};
+  --bs-dropdown-link-disabled-color: rgba($darkest, 0.5);
 }
