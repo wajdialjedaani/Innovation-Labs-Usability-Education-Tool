@@ -22,7 +22,7 @@ export function Heuristic1Text() {
         back in order to help the user decide their next move. If not, the user
         would be flying blind, guessing at the current state of the system.
       </p>
-      <p className={styles.sideBySide}>
+      <p className={`${styles.sideBySide}`}>
         <img
           src="/lessons/lesson1-graphics/visibility1.gif"
           alt="Clicking a button notifies the user of the state of the program"
@@ -61,7 +61,7 @@ export function Heuristic1Text() {
         button to download a file or to register for a new account. The status
         of both of these operations depends on some action by the user.
       </p>
-      <p className={styles.sideBySide}>
+      <p className={`${styles.sideBySide}`}>
         <img src="/lessons/lesson1-graphics/battery.png" alt="Battery Icon" />
         <div>
           A <strong>persistent</strong> system status is displayed constantly

@@ -11,6 +11,18 @@ import BarGraph from "@/components/stats/BarGraph";
 
 const heuristics = Array.from({ length: 10 }, (x, i) => `Heuristic ${i + 1}`);
 
+function NoData({ title }) {
+  return (
+    <div className="list-group-item h-50 text-center text-danger">
+      <h3>{title}</h3>
+      <h4>
+        <i className="bi bi-exclamation-circle-fill fs-5 m-3"></i>
+        No Data
+      </h4>
+    </div>
+  );
+}
+
 export default function Statistics() {
   //Get user and metadata
   const {
@@ -117,13 +129,14 @@ export default function Statistics() {
     };
 
     getAllCurrData();
+
+    // return () => localStorage.clear();
   }, [currHeuristic]);
 
   //Get the heuristic data.
   async function getNewHeuristicdata(heuristic) {
     try {
       const data = await readHeuristicData(heuristic, user.uid);
-      console.log(data);
       if (!data) setNoQuizData(true);
       else {
         setNoQuizData(false);
@@ -138,7 +151,6 @@ export default function Statistics() {
   async function getNewUIdata(heuristic) {
     try {
       const data = await readUIData(heuristic, user.uid);
-      console.log(data);
       if (!data) setNoUIData(true);
       else {
         setNoUIData(false);
@@ -149,7 +161,6 @@ export default function Statistics() {
     }
     data = getHeuristicDataForPie();
     setHeuristicData(data);
-    console.log(heuristicData);
   }
 
   const getUIDataForPie = () => {
@@ -231,7 +242,7 @@ export default function Statistics() {
                 key={i}
                 type="button"
                 className={`btn h-100 text-center dropdown-item`}
-                disabled={completedHeuristics[i] <= 1}
+                disabled={completedHeuristics[i] < 1}
                 onClick={() => setCurrheuristic(i)}
               >
                 Heuristic {i + 1}
@@ -254,7 +265,7 @@ export default function Statistics() {
               key={i}
               type="button"
               className={`btn h-100 text-center ${styles.heuristicBtn}`}
-              disabled={completedHeuristics[i] <= 1}
+              disabled={completedHeuristics[i] < 1}
               onClick={() => setCurrheuristic(i)}
             >
               Heuristic {i + 1}
@@ -300,7 +311,7 @@ export default function Statistics() {
                     </table>
                   </div>
                 ) : (
-                  <i class="bi bi-exclamation-circle-fill"></i>
+                  <NoData title={"Total Heuristic Data"} />
                 )}
                 {!noUIData ? (
                   <div
@@ -329,7 +340,7 @@ export default function Statistics() {
                     </table>
                   </div>
                 ) : (
-                  <i class="bi bi-exclamation-circle-fill"></i>
+                  <NoData title={"Total UI Builder Data"} />
                 )}
               </div>
               <div
@@ -343,7 +354,7 @@ export default function Statistics() {
                     />
                   </div>
                 ) : (
-                  <i class="bi bi-exclamation-circle-fill"></i>
+                  <NoData title={"All Heuristic Data"} />
                 )}
                 {!noUIData ? (
                   <div className="list-group-item d-flex flex-column h-50">
@@ -353,14 +364,14 @@ export default function Statistics() {
                     />
                   </div>
                 ) : (
-                  <i class="bi bi-exclamation-circle-fill "></i>
+                  <NoData title={"All UI Builder Data"} />
                 )}
               </div>
             </div>
           </div>
         ) : (
-          <div className="spinner-border" role="status">
-            <span class="visually-hidden">Loading...</span>
+          <div className="spinner-border mx-auto" role="status">
+            <span className="visually-hidden">Loading...</span>
           </div>
         )}
       </div>

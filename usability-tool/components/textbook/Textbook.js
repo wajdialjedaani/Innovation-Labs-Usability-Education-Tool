@@ -13,8 +13,12 @@ export default function Textbook({ heuristicObj }) {
         headerImg={heuristicObj.meta.headerImg}
       />
 
-      <div className={styles.textbookBodyContainer}>
-        <div className={styles.textbookBody}>{heuristicObj.TextContents()}</div>
+      <div
+        className={`container-fluid d-flex justify-content-center ${styles.textbookBodyContainer}`}
+      >
+        <div className={`col-12 col-md-8 col-lg-6 ${styles.textbookBody}`}>
+          {heuristicObj.TextContents()}
+        </div>
       </div>
 
       <NavFooter
