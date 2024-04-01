@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.0"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   width="163"
+   height="60"
+   viewBox="0 0 163 60"
+   enable-background="new 0 0 143 40"
+   xml:space="preserve"
+   sodipodi:docname="svgexport-1.svg"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs7" /><sodipodi:namedview
+   id="namedview5"
+   pagecolor="#ffffff"
+   bordercolor="#999999"
+   borderopacity="1"
+   inkscape:pageshadow="0"
+   inkscape:pageopacity="0"
+   inkscape:pagecheckerboard="0"
+   showgrid="false"
+   fit-margin-top="10"
+   fit-margin-right="10"
+   fit-margin-bottom="10"
+   fit-margin-left="10"
+   inkscape:zoom="9.1888112"
+   inkscape:cx="81.566591"
+   inkscape:cy="29.982116"
+   inkscape:window-width="1920"
+   inkscape:window-height="1001"
+   inkscape:window-x="-9"
+   inkscape:window-y="-9"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Layer_1" />
+<path
+   fill="#ed1941"
+   d="m 58.2,25 h -6.3 l -8,16 h 6 L 51,38.6 h 8.2 l 1.1,2.4 h 6 z m -5.5,9.9 2.3,-5 h 0.2 l 2.3,5 z m 10.4,-5.2 h 5.6 V 41 h 5.6 V 29.7 H 80 V 25.1 H 63.1 Z m 27.3,-5.1 c -6.6,0 -9.7,3.2 -9.7,8.4 0,5.1 3.1,8.4 9.7,8.4 6.6,0 9.7,-3.2 9.7,-8.4 0,-5.1 -3.1,-8.4 -9.7,-8.4 m 0,12.7 c -3,0 -3.8,-1.9 -3.8,-4.3 0,-2.3 0.8,-4.3 3.8,-4.3 3,0 3.8,1.9 3.8,4.3 0,2.3 -0.8,4.3 -3.8,4.3 m 53.3,0 c -2.9,0 -3.8,-1.9 -3.8,-4.3 0,-2.3 0.8,-4.2 3.7,-4.2 1.9,0 2.9,0.7 3.4,1.8 h 5.9 c -0.8,-3.7 -3.6,-5.9 -9.2,-5.9 -6.6,0 -9.7,3.3 -9.7,8.4 0,5.1 3.1,8.3 9.7,8.3 5.6,0 8.5,-2.3 9.3,-6.2 h -5.8 c -0.6,1.3 -1.4,2.1 -3.5,2.1 m -16.8,3.6 h 5.4 V 25.1 h -5.4 z m -9.8,-15.8 -3.9,9.9 h -0.1 l -3.9,-9.9 h -7.4 V 41 h 5.3 v -9.3 h 0.2 l 3.8,9.3 h 4.1 l 3.8,-9.3 h 0.2 V 41 h 5.3 V 25.1 Z M 24.7,42.3 H 24.6 L 10.1,50 10,49.8 16.8,39.2 C 19,35.8 19.3,35 20,31.8 L 24.6,10 h 0.2 l 4.6,21.8 c 0.7,3.2 1,4 3.2,7.4 l 6.8,10.6 -0.1,0.2 z"
+   id="path2" />
+</svg>

@@ -76,16 +76,77 @@ const widgetData = {
     //   {},
     // },
 
+    // {
+    //   id: "h2a",
+    //   bone: "HeuristicTwoStatic",
+    //   zIndex: "50",
+    //   style: 
+    //   {
+    //     zIndex: "50"
+    //   },
+    // },
+    // {"id":"h2m","bone":"HomeIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2n","bone":"GradientIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2r","bone":"MagicWand","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2q","bone":"Tag","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2d","bone":"SelectIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2l","bone":"SelectColorIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2i","bone":"EraseIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2f","bone":"CopyIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2g","bone":"PasteIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2p","bone":"Slantline","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2e","bone":"ZoomIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2h","bone":"DrawIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2o","bone":"ThumbtackIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2j","bone":"AddTextIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2k","bone":"AddShapeIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2c","bone":"MoveIcon","zIndex":"100","style":{"zIndex":"100"}}
+    
     {
-      id: "h2a",
-      bone: "HeuristicTwoStatic",
-      zIndex: "50",
-      style: 
-      {
-        zIndex: "50"
-      },
+      "id": "searchbar",
+      "bone": "searchbar",
+      "style": {}
     },
-    {"id":"h2m","bone":"HomeIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2n","bone":"GradientIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2r","bone":"MagicWand","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2q","bone":"Tag","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2d","bone":"SelectIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2l","bone":"SelectColorIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2i","bone":"EraseIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2f","bone":"CopyIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2g","bone":"PasteIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2p","bone":"Slantline","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2e","bone":"ZoomIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2h","bone":"DrawIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2o","bone":"ThumbtackIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2j","bone":"AddTextIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2k","bone":"AddShapeIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2c","bone":"MoveIcon","zIndex":"100","style":{"zIndex":"100"}}
+      {
+        "id": "AtomicLogo",
+        "bone": "AtomicLogo",
+        "style": {}
+      },
+      {
+        "id": "HeuristicThreeStaticTopBar",
+        "bone": "HeuristicThreeStaticTopBar",
+        "style": {}
+      },
+      {
+        "id": "HeuristicThreeStaticBody",
+        "bone": "HeuristicThreeStaticBody",
+        "style": {}
+      },
+      {
+        "id": "HatsDropdown",
+        "bone": "HatsDropdown",
+        "style": {}
+      },
+      {
+        "id": "SuitsDropdown",
+        "bone": "SuitsDropdown",
+        "style": {}
+      },
+      {
+        "id": "ShoesDropdown",
+        "bone": "ShoesDropdown",
+        "style": {}
+      },
+      {
+        "id": "BannerAd",
+        "bone": "BannerAd",
+        "style": {}
+      },
+      {
+        "id": "HatQuickButton",
+        "bone": "HatQuickButton",
+        "style": {}
+      },
+      {
+        "id": "SuitsQuickButton",
+        "bone": "SuitsQuickButton",
+        "style": {}
+      },
+      {
+        "id": "ShoesQuickButton",
+        "bone": "ShoesQuickButton",
+        "style": {}
+      },
+      {
+        "id": "CartButton",
+        "bone": "CartButton",
+        "style": {}
+      }
     
   ],
   grid: []
