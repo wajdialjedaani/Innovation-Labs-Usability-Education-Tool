@@ -5,6 +5,8 @@ import {
   getDoc,
   initializeFirestore,
   persistentLocalCache,
+  getDocs,
+  collection,
   updateDoc,
   increment,
   getDocFromCache,
@@ -123,6 +125,30 @@ export async function readUIData(heuristicID, userID) {
 
   return data;
 }
+
+
+export async function readAllData(userID) {
+  const allData = {}
+
+  try {
+    const quizData = {}
+    const quizDocs = await getDocs(collection(db, "users", userID, "HeuristicData"));
+    quizDocs.forEach(quiz => quizData[quiz.id] = quiz.data())
+    const uiData = {}
+    const uiDocs = await getDocs(collection(db, "users", userID, "UIBuilderData"))
+    uiDocs.forEach(ui => uiData[ui.id] = ui.data())
+
+    allData["HeuristicData"] = quizData
+    allData["UIBuilderData"] = uiData
+
+  } catch(e) {
+    throw errCodeToMessage(e.code);
+  }
+
+  return allData;
+}
+
+
 
 export async function getMetadata(userID) {
   let result, data;

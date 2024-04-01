@@ -19,7 +19,7 @@ export default function MenuPopup() {
           </Link>
         </li>
         {new Array(10).fill(0).map((_, i) => (
-          <li>
+          <li key={i}>
             <Link
               className={`dropdown-item`}
               href={`/lessons/${i + 1}`}

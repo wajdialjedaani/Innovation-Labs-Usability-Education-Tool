@@ -1,7 +1,9 @@
 @use "./mixins/colorscheme.scss" as *;
 /* CONTAINER */
 .mainContainer {
-  height: calc(100vh - 65px);
+  // height: calc(100vh - 65px);
+  // height: auto;
+  height: 200%;
   @media (max-width: 992px) {
     // background-color: red;
     height: 200%;

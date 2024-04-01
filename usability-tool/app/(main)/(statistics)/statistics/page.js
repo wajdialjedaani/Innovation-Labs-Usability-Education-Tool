@@ -2,12 +2,14 @@
 import { useState, useEffect } from "react";
 
 import { getAuthContext } from "../../components/AuthContextProvider";
-import { readHeuristicData, readUIData } from "@/lib/firebase/firestore";
+import { readHeuristicData, readUIData, readAllData } from "@/lib/firebase/firestore";
 
 import styles from "@/styles/stats.module.scss";
 
-import PieGraph from "@/components/stats/PieGraph";
+import getDataForTable from "@/lib/stats/getDataForTable";
+
 import BarGraph from "@/components/stats/BarGraph";
+import AllData from "@/components/stats/AllData";
 
 const heuristics = Array.from({ length: 10 }, (x, i) => `Heuristic ${i + 1}`);
 
@@ -44,73 +46,12 @@ export default function Statistics() {
 
   //Loading state
   const [loading, setLoading] = useState(true);
-
+  //Loading all data
+  const [loadingAllData, setLoadingAllData] = useState(true);
   //State for if there's no quiz data
   const [noQuizData, setNoQuizData] = useState(false);
   //State for if there's no UI Data
   const [noUIData, setNoUIData] = useState(false);
-  const [heuristicData, setHeuristicData] = useState(null);
-
-  const getHeuristicDataForPie = () => {
-    // Initialize variables to store total correct, incorrect, and total time
-    let totalCorrect = 0;
-    let totalIncorrect = 0;
-    let totalTime = 0;
-    let averageCorrect = 0;
-    let averageIncorrect = 0;
-    let averageTime = 0;
-    let totalAttempts = 0;
-    let average = 0;
-
-    // Iterate through all attempts to aggregate data
-    currHeuristicData.attempts.forEach((attempt) => {
-      totalCorrect += attempt.correct;
-      totalIncorrect += attempt.incorrect;
-      totalTime += attempt.time;
-      totalAttempts += 1;
-    });
-
-    averageCorrect = (totalCorrect / totalAttempts).toFixed(2);
-    averageIncorrect = (totalIncorrect / totalAttempts).toFixed(2);
-    average = ((averageCorrect / 10) * 100).toFixed(2);
-    averageTime = (totalTime / totalAttempts).toFixed(2);
-
-    // Return the aggregated data
-    return [
-      {
-        name: "Total Attempts",
-        value: totalAttempts,
-      },
-      {
-        name: "Total Correct Answers",
-        value: totalCorrect,
-      },
-      {
-        name: "Total Incorrect Answers",
-        value: totalIncorrect,
-      },
-      {
-        name: "Total Time (s)",
-        value: totalTime,
-      },
-      {
-        name: "Average Correct Answers",
-        value: averageCorrect,
-      },
-      {
-        name: "Average Incorrect Answers",
-        value: averageIncorrect,
-      },
-      {
-        name: "Average Time per Quiz (s)",
-        value: averageTime,
-      },
-      {
-        name: "Average Score per Quiz",
-        value: average + "%",
-      },
-    ];
-  };
 
   //Get new data when the heuristic changes
   useEffect(() => {
@@ -132,6 +73,22 @@ export default function Statistics() {
 
     // return () => localStorage.clear();
   }, [currHeuristic]);
+
+  //Get the data for the all data panel at component load
+  useEffect(() => {
+    const getAllData = async () => {
+      try {
+        const data = await readAllData(user.uid);
+        console.log(data)
+      } catch(e) {
+        console.error(e)
+      } finally {
+        setLoadingAllData(false)
+      }
+    }
+
+    getAllData();
+  }, [])
 
   //Get the heuristic data.
   async function getNewHeuristicdata(heuristic) {
@@ -159,70 +116,10 @@ export default function Statistics() {
     } catch (e) {
       console.error("Error reading UI data");
     }
-    data = getHeuristicDataForPie();
-    setHeuristicData(data);
+    // data = getHeuristicDataForPie();
+    // setHeuristicData(data);
   }
 
-  const getUIDataForPie = () => {
-    // Initialize variables to store total correct, incorrect, and total time
-    let totalCorrect = 0;
-    let totalIncorrect = 0;
-    let totalTime = 0;
-    let averageCorrect = 0;
-    let averageIncorrect = 0;
-    let average = 0;
-    let averageTime = 0;
-    let totalAttempts = 0;
-
-    // Iterate through all attempts to aggregate data
-    currUIData.attempts.forEach((attempt) => {
-      totalCorrect += attempt.correct;
-      totalIncorrect += attempt.incorrect;
-      totalTime += attempt.time;
-      totalAttempts += 1;
-    });
-
-    averageCorrect = (totalCorrect / totalAttempts).toFixed(2);
-    averageIncorrect = (totalIncorrect / totalAttempts).toFixed(2);
-    average = ((averageCorrect / 10) * 100).toFixed(2);
-    averageTime = (totalTime / totalAttempts).toFixed(2);
-
-    // Return the aggregated data
-    return [
-      {
-        name: "Total Attempts",
-        value: totalAttempts,
-      },
-      {
-        name: "Total Correct Answers",
-        value: totalCorrect,
-      },
-      {
-        name: "Total Incorrect Answers",
-        value: totalIncorrect,
-      },
-      {
-        name: "Total Time (s)",
-        value: totalTime,
-      },
-      {
-        name: "Average Correct Answers",
-        value: averageCorrect,
-      },
-      {
-        name: "Average Incorrect Answers",
-        value: averageIncorrect,
-      },
-      {
-        name: "Average Time per Game (s)",
-        value: averageTime,
-      },
-      {
-        name: "Average Score per Game",
-        value: average + "%",
-      },
-    ];
-  };
 
   return (
     <main className={`container-fluid p-4 ${styles.mainContainer}`}>
@@ -237,7 +134,7 @@ export default function Statistics() {
         </button>
         <ul className={`dropdown-menu ${styles.dropDownMenu}`}>
           {heuristics.map((_, i) => (
-            <li>
+            <li key={i}>
               <button
                 key={i}
                 type="button"
@@ -251,7 +148,7 @@ export default function Statistics() {
           ))}
         </ul>
       </div>
-      <div className="row h-100">
+      <div className="row h-50 mb-3">
         {
           //The buttons
         }
@@ -287,7 +184,7 @@ export default function Statistics() {
                     className={`list-group-item d-flex flex-column table-responsive h-50`}
                   >
                     <h3 className={`${styles.graphTitle}`}>
-                      Total Heuristic Data
+                      Quiz {currHeuristic + 1} Data
                     </h3>
                     <table
                       className={`table table-sm table-striped h-100 ${styles.table}`}
@@ -299,7 +196,7 @@ export default function Statistics() {
                         </tr>
                       </thead>
                       <tbody>
-                        {getHeuristicDataForPie().map((data, i) => (
+                        {getDataForTable(currHeuristicData).map((data, i) => (
                           <tr key={i}>
                             <th className="align-middle" scope="row">
                               {data.name}
@@ -317,7 +214,7 @@ export default function Statistics() {
                   <div
                     className={`list-group-item d-flex flex-column table-responsive h-50`}
                   >
-                    <h3 className={styles.graphTitle}>Total UI Builder Data</h3>
+                    <h3 className={styles.graphTitle}>UI Builder {currHeuristic + 1} Data</h3>
                     <table
                       className={`table table-sm table-striped h-100 ${styles.table}`}
                     >
@@ -328,7 +225,7 @@ export default function Statistics() {
                         </tr>
                       </thead>
                       <tbody>
-                        {getUIDataForPie().map((data, i) => (
+                        {getDataForTable(currUIData).map((data, i) => (
                           <tr key={i}>
                             <th className="align-middle" scope="row">
                               {data.name}
@@ -350,21 +247,21 @@ export default function Statistics() {
                   <div className="list-group-item d-flex flex-column h-50">
                     <BarGraph
                       data={currHeuristicData.attempts}
-                      graphTitle={"All Heuristic Data"}
+                      graphTitle={`Quiz ${currHeuristic + 1} Attempts`}
                     />
                   </div>
                 ) : (
-                  <NoData title={"All Heuristic Data"} />
+                  <NoData title={`Quiz ${currHeuristic + 1} Attempts`} />
                 )}
                 {!noUIData ? (
                   <div className="list-group-item d-flex flex-column h-50">
                     <BarGraph
                       data={currUIData.attempts}
-                      graphTitle={"All UI Builder Data"}
+                      graphTitle={`UI Builder ${currHeuristic + 1} Attempts`}
                     />
                   </div>
                 ) : (
-                  <NoData title={"All UI Builder Data"} />
+                  <NoData title={`UI Builder ${currHeuristic + 1} Attempts`} />
                 )}
               </div>
             </div>
@@ -374,6 +271,15 @@ export default function Statistics() {
             <span className="visually-hidden">Loading...</span>
           </div>
         )}
+      </div>
+      <div className="row h-50">
+        {!loadingAllData ?
+          <AllData />
+        :
+        <div className="spinner-border mx-auto" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+        }
       </div>
     </main>
   );

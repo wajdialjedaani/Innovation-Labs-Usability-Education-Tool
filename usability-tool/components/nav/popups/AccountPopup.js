@@ -25,7 +25,7 @@ export default function Accountpopup() {
         aria-expanded="false"
         aria-label="Open the account dropdown menu"
       >
-        <i class={`bi bi-person-circle fs-2 ${styles.dropDownImg}`}></i>
+        <i className={`bi bi-person-circle fs-2 ${styles.dropDownImg}`}></i>
       </button>
       <ul className={`dropdown-menu dropdown-menu-end ${styles.dropDownMenu}`}>
         <li>
