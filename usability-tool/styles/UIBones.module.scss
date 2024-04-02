@@ -15,6 +15,47 @@
   background-color: rgba(255,255,255,0.1);
 }
 
+// ================================== heuristic 4 ==============================
+.heuristicFourAccountSettingsHeader {
+  background-color: white;
+  font-size: 25px;
+  width: 850px;
+  border-bottom: solid 2px black;
+}
+
+.heuristicFourSubHeader {
+  background-color: white;
+  font-size: 20px;
+  width: 650px;
+  border-bottom: solid 1px black;
+}
+
+.heuristicFourInputBox {
+  height: 25px;
+  border: solid 2px black;
+
+  width: 400px;
+  background-color: white;
+}
+
+.heuristicFourNormalButton {
+  background-color: rgb(236, 233, 175);
+  width: fit-content;
+
+  color: rgb(0, 0, 0);
+
+  border: 1px black solid;
+  border-radius: 5px;
+
+  padding: 7.5px;
+}
+
+.heuristicFourScaryButton {
+  background-color: rgb(255, 80, 80);
+  color: white;
+}
+
+
 // ================================== heuristic 3 ==============================
 
 .atomicLogoBackgroundless img {

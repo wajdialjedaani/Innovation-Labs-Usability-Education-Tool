@@ -1,22 +1,26 @@
-import { CartButton, ShoesQuickButton, SuitsQuickButton, HatQuickButton, BannerAd, SuitsDropdown, ShoesDropdown, HatsDropdown, AtomicLogo, HeuristicThreeStaticTopBar, HeuristicThreeStaticBody} from "@/components/ui-builder/bones/Heuristic3";
-import SearchBar from "@/components/ui-builder/bones/SearchBar";
+import { HeuristicThreeStaticBody, HeuristicThreeStaticTopBar } from "@/components/ui-builder/bones/Heuristic3"
+import { LogOutEverywhereWarning, DeleteAccountWarning, LogOutEverywhereButton, DeleteAccountButton, ChangeUsernameButton, ChangePasswordButton, NewPasswordInputHeader, ConfirmNewPasswordInputHeader, CurrentPasswordInputHeader, SecuritySubHeader, PasswordSubHeader, InputBox, AccountSettingsHeader, UsernameSubHeader } from "@/components/ui-builder/bones/Heuristic4"
 
 export default function Staging(){
   return (
     <div>
-      <AtomicLogo />
       <HeuristicThreeStaticTopBar />
       <HeuristicThreeStaticBody />
-      <SearchBar />
-      <HatsDropdown />
-      <SuitsDropdown />
-      <ShoesDropdown />
-      <BannerAd />
-      <HatQuickButton />
-      <SuitsQuickButton />
-      <ShoesQuickButton />
 
-      <CartButton />
+      <AccountSettingsHeader />
+      <InputBox />
+      <UsernameSubHeader />
+      <PasswordSubHeader />
+      <SecuritySubHeader />
+      <CurrentPasswordInputHeader />
+      <ConfirmNewPasswordInputHeader />
+      <NewPasswordInputHeader />
+      <ChangePasswordButton />
+      <ChangeUsernameButton />
+      <DeleteAccountButton />
+      <LogOutEverywhereButton />
+      <DeleteAccountWarning />
+      <LogOutEverywhereWarning />
     </div>
   )
 }
