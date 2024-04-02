@@ -2,7 +2,11 @@
 import { useState, useEffect } from "react";
 
 import { getAuthContext } from "../../components/AuthContextProvider";
-import { readHeuristicData, readUIData, readAllData } from "@/lib/firebase/firestore";
+import {
+  readHeuristicData,
+  readUIData,
+  readAllData,
+} from "@/lib/firebase/firestore";
 
 import styles from "@/styles/stats.module.scss";
 
@@ -53,6 +57,9 @@ export default function Statistics() {
   //State for if there's no UI Data
   const [noUIData, setNoUIData] = useState(false);
 
+  //State for all data panel
+  const [allData, setAllData] = useState(null);
+
   //Get new data when the heuristic changes
   useEffect(() => {
     setLoading(true);
@@ -79,16 +86,16 @@ export default function Statistics() {
     const getAllData = async () => {
       try {
         const data = await readAllData(user.uid);
-        console.log(data)
-      } catch(e) {
-        console.error(e)
+        setAllData(data);
+      } catch (e) {
+        console.error(e);
       } finally {
-        setLoadingAllData(false)
+        setLoadingAllData(false);
       }
-    }
+    };
 
     getAllData();
-  }, [])
+  }, []);
 
   //Get the heuristic data.
   async function getNewHeuristicdata(heuristic) {
@@ -120,10 +127,9 @@ export default function Statistics() {
     // setHeuristicData(data);
   }
 
-
   return (
     <main className={`container-fluid p-4 ${styles.mainContainer}`}>
-      <div className="dropdown d-lg-none mb-3 text-center">
+      <div className="dropdown mb-3 text-center">
         <button
           className={`dropdown-toggle ${styles.dropDownBtn}`}
           type="button"
@@ -152,7 +158,7 @@ export default function Statistics() {
         {
           //The buttons
         }
-        <div
+        {/* <div
           className={` col-md-2 btn-group-vertical d-none d-lg-flex ${styles.heuristicBtnGroup} `}
           role="group"
           aria-label="Heuristic data buttons"
@@ -168,13 +174,13 @@ export default function Statistics() {
               Heuristic {i + 1}
             </button>
           ))}
-        </div>
+        </div> */}
         {
           //The actual graphs / data
         }
 
         {!loading ? (
-          <div className={`col h-100 ${styles.statsContainer}`}>
+          <div className={`col h-100 mx-auto ${styles.statsContainer}`}>
             <div className={`row h-100`}>
               <div
                 className={`col-lg-4 col-12 list-group list-group-flush ${styles.listGroup}`}
@@ -214,7 +220,9 @@ export default function Statistics() {
                   <div
                     className={`list-group-item d-flex flex-column table-responsive h-50`}
                   >
-                    <h3 className={styles.graphTitle}>UI Builder {currHeuristic + 1} Data</h3>
+                    <h3 className={styles.graphTitle}>
+                      UI Builder {currHeuristic + 1} Data
+                    </h3>
                     <table
                       className={`table table-sm table-striped h-100 ${styles.table}`}
                     >
@@ -273,13 +281,13 @@ export default function Statistics() {
         )}
       </div>
       <div className="row h-50">
-        {!loadingAllData ?
-          <AllData />
-        :
-        <div className="spinner-border mx-auto" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </div>
-        }
+        {!loadingAllData ? (
+          <AllData data={allData} />
+        ) : (
+          <div className="spinner-border mx-auto" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        )}
       </div>
     </main>
   );
