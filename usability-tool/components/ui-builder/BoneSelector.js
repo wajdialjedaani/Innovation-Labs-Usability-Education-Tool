@@ -37,6 +37,8 @@ import MagicWand from "./bones/Heuristic2/MagicWand";
 
 // wow i did it better here haha
 import { CartButton, ShoesQuickButton, SuitsQuickButton, HatQuickButton, BannerAd, SuitsDropdown, ShoesDropdown, HatsDropdown, AtomicLogo, HeuristicThreeStaticTopBar, HeuristicThreeStaticBody} from "@/components/ui-builder/bones/Heuristic3";
+import { HeuristicFourStaticBody, LogOutEverywhereWarning, DeleteAccountWarning, LogOutEverywhereButton, DeleteAccountButton, ChangeUsernameButton, ChangePasswordButton, NewPasswordInputHeader, ConfirmNewPasswordInputHeader, CurrentPasswordInputHeader, SecuritySubHeader, PasswordSubHeader, InputBox, AccountSettingsHeader, UsernameSubHeader } from "@/components/ui-builder/bones/Heuristic4"
+
 
 
 // god this is so terrible
@@ -169,6 +171,53 @@ export default function BoneSelector({type, drawerMode}){
     case "CartButton":
       BoneComponent = <CartButton />
       break;
+
+    // heuristic 4 bonez
+    case "AccountSettingsHeader":
+      BoneComponent = <AccountSettingsHeader />
+      break;
+    case "InputBox":
+      BoneComponent = <InputBox />
+      break;
+    case "UsernameSubHeader":
+      BoneComponent = <UsernameSubHeader />
+      break;   
+    case "PasswordSubHeader":
+      BoneComponent = <PasswordSubHeader />
+      break;
+    case "SecuritySubHeader":
+      BoneComponent = <SecuritySubHeader />
+      break;
+    case "CurrentPasswordInputHeader":
+      BoneComponent = <CurrentPasswordInputHeader />
+      break;
+    case "NewPasswordInputHeader":
+      BoneComponent = <NewPasswordInputHeader />
+      break;
+    case "ConfirmNewPasswordInputHeader":
+      BoneComponent = <ConfirmNewPasswordInputHeader />
+      break;
+    case "ChangeUsernameButton":
+      BoneComponent = <ChangeUsernameButton />
+      break;
+    case "ChangePasswordButton":
+      BoneComponent = <ChangePasswordButton />
+      break;
+    case "LogOutEverywhereButton":
+      BoneComponent = <LogOutEverywhereButton />
+      break;
+    case "DeleteAccountButton":
+      BoneComponent = <DeleteAccountButton />
+      break;
+    case "DeleteAccountWarning":
+      BoneComponent = <DeleteAccountWarning />
+      break;
+    case "LogOutEverywhereWarning":
+      BoneComponent = <LogOutEverywhereWarning />
+      break;      
+    case "HeuristicFourStaticBody":
+      BoneComponent = <HeuristicFourStaticBody />
+      break;      
     default:
       BoneComponent = null;
   }

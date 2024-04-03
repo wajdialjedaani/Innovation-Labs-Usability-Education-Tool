@@ -88,8 +88,8 @@ const widgetData = {
     // {"id":"h2m","bone":"HomeIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2n","bone":"GradientIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2r","bone":"MagicWand","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2q","bone":"Tag","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2d","bone":"SelectIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2l","bone":"SelectColorIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2i","bone":"EraseIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2f","bone":"CopyIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2g","bone":"PasteIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2p","bone":"Slantline","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2e","bone":"ZoomIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2h","bone":"DrawIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2o","bone":"ThumbtackIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2j","bone":"AddTextIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2k","bone":"AddShapeIcon","zIndex":"100","style":{"zIndex":"100"}},{"id":"h2c","bone":"MoveIcon","zIndex":"100","style":{"zIndex":"100"}}
     
     {
-      "id": "searchbar",
-      "bone": "searchbar",
+      "id": "SearchBar",
+      "bone": "SearchBar",
       "style": {}
     },
       {
@@ -103,8 +103,8 @@ const widgetData = {
         "style": {}
       },
       {
-        "id": "HeuristicThreeStaticBody",
-        "bone": "HeuristicThreeStaticBody",
+        "id": "HeuristicFourStaticBody",
+        "bone": "HeuristicFourStaticBody",
         "style": {}
       },
       {
@@ -145,6 +145,92 @@ const widgetData = {
       {
         "id": "CartButton",
         "bone": "CartButton",
+        "style": {}
+      },
+
+      {
+        "id": "AccountSettingsHeader",
+        "bone": "AccountSettingsHeader",
+        "style": {}
+      },
+      {
+        "id": "InputBox",
+        "bone": "InputBox",
+        "style": {}
+      },
+      {
+        "id": "InputBox2",
+        "bone": "InputBox",
+        "style": {}
+      },
+      {
+        "id": "InputBox3",
+        "bone": "InputBox",
+        "style": {}
+      },
+      {
+        "id": "InputBox4",
+        "bone": "InputBox",
+        "style": {}
+      },
+      {
+        "id": "UsernameSubHeader",
+        "bone": "UsernameSubHeader",
+        "style": {}
+      },
+      {
+        "id": "PasswordSubHeader",
+        "bone": "PasswordSubHeader",
+        "style": {}
+      },
+      {
+        "id": "SecuritySubHeader",
+        "bone": "SecuritySubHeader",
+        "style": {}
+      },
+      {
+        "id": "CurrentPasswordInputHeader",
+        "bone": "CurrentPasswordInputHeader",
+        "style": {}
+      },
+      {
+        "id": "NewPasswordInputHeader",
+        "bone": "NewPasswordInputHeader",
+        "style": {}
+      },
+      {
+        "id": "ConfirmNewPasswordInputHeader",
+        "bone": "ConfirmNewPasswordInputHeader",
+        "style": {}
+      },
+      {
+        "id": "ChangeUsernameButton",
+        "bone": "ChangeUsernameButton",
+        "style": {}
+      },
+      {
+        "id": "ChangePasswordButton",
+        "bone": "ChangePasswordButton",
+        "style": {}
+      },
+      {
+        "id": "LogOutEverywhereButton",
+        "bone": "LogOutEverywhereButton",
+        "style": {}
+      },
+      {
+        "id": "DeleteAccountButton",
+        "bone": "DeleteAccountButton",
+        "style": {}
+      },
+      {
+        "id": "DeleteAccountWarning",
+        "bone": "DeleteAccountWarning",
+        "style": {}
+      },
+      {
+        "id": "LogOutEverywhereWarning",
+        "bone": "LogOutEverywhereWarning",
         "style": {}
       }
     

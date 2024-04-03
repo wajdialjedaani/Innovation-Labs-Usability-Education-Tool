@@ -23,11 +23,21 @@
   border-bottom: solid 2px black;
 }
 
+.thumbnailWrapper .heuristicFourAccountSettingsHeader {
+  width: 200px;
+  padding: 5px;
+}
+
 .heuristicFourSubHeader {
   background-color: white;
   font-size: 20px;
   width: 650px;
   border-bottom: solid 1px black;
+}
+
+.thumbnailWrapper .heuristicFourSubHeader {
+  width: 200px;
+  padding: 5px;
 }
 
 .heuristicFourInputBox {
@@ -53,6 +63,32 @@
 .heuristicFourScaryButton {
   background-color: rgb(255, 80, 80);
   color: white;
+}
+
+.scaryWarning {
+  color: red;
+}
+
+.heuristicFourStaticBody {
+  width: 1000px;
+  height: 735px;
+  background-color: rgb(255, 255, 255);
+}
+
+.currentPasswordHeader, .normalWarning, .scaryWarning {
+  background-color: white;
+}
+
+.thumbnailWrapper .currentPasswordHeader {
+  padding: 5px;
+}
+
+.normalWarning, .scaryWarning {
+  width: 800px;
+}
+
+.thumbnailWrapper .normalWarning, .thumbnailWrapper .scaryWarning {
+  width: 300px;
 }
 
 

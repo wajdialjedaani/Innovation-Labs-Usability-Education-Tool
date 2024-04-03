@@ -114,3 +114,10 @@ export function LogOutEverywhereWarning(){
   )
 }
 
+export function HeuristicFourStaticBody(){
+  return (
+    <div className={styles.heuristicFourStaticBody}>
+    </div>
+  )
+}
+
