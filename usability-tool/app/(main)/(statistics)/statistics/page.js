@@ -280,7 +280,7 @@ export default function Statistics() {
           </div>
         )}
       </div>
-      <div className="row h-50">
+      <div className="row ">
         {!loadingAllData ? (
           <AllData data={allData} />
         ) : (
