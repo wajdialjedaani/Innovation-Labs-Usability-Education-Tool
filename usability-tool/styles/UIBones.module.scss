@@ -1,3 +1,8 @@
+// behold. the worst css file you have ever seen in your life.
+
+@use "./mixins/colorscheme.scss" as *;
+
+
 // ======================================= gent ================================
 
 .thumbnailWrapper {
@@ -10,6 +15,219 @@
   background-color: rgba(255,255,255,0.1);
 }
 
+// ================================== heuristic 4 ==============================
+.heuristicFourAccountSettingsHeader {
+  background-color: white;
+  font-size: 25px;
+  width: 850px;
+  border-bottom: solid 2px black;
+}
+
+.thumbnailWrapper .heuristicFourAccountSettingsHeader {
+  width: 200px;
+  padding: 5px;
+}
+
+.heuristicFourSubHeader {
+  background-color: white;
+  font-size: 20px;
+  width: 650px;
+  border-bottom: solid 1px black;
+}
+
+.thumbnailWrapper .heuristicFourSubHeader {
+  width: 200px;
+  padding: 5px;
+}
+
+.heuristicFourInputBox {
+  height: 25px;
+  border: solid 2px black;
+
+  width: 400px;
+  background-color: white;
+}
+
+.heuristicFourNormalButton {
+  background-color: rgb(236, 233, 175);
+  width: fit-content;
+
+  color: rgb(0, 0, 0);
+
+  border: 1px black solid;
+  border-radius: 5px;
+
+  padding: 7.5px;
+}
+
+.heuristicFourScaryButton {
+  background-color: rgb(255, 80, 80);
+  color: white;
+}
+
+.scaryWarning {
+  color: red;
+}
+
+.heuristicFourStaticBody {
+  width: 1000px;
+  height: 735px;
+  background-color: rgb(255, 255, 255);
+}
+
+.currentPasswordHeader, .normalWarning, .scaryWarning {
+  background-color: white;
+}
+
+.thumbnailWrapper .currentPasswordHeader {
+  padding: 5px;
+}
+
+.normalWarning, .scaryWarning {
+  width: 800px;
+}
+
+.thumbnailWrapper .normalWarning, .thumbnailWrapper .scaryWarning {
+  width: 300px;
+}
+
+
+// ================================== heuristic 3 ==============================
+
+.atomicLogoBackgroundless img {
+  width: 200px;
+  height: auto;
+}
+
+.atomicLogoBackgroundless {
+  padding: 0;
+  margin: 0;
+}
+
+.heuristicThreeStaticTopBar {
+  width: 1000px;
+  height: 80px;
+  background-color: rgb(218, 212, 127);
+  display: flex;
+}
+
+.heuristicThreeStaticBody {
+  width: 1000px;
+  height: 600px;
+  background-color: rgb(255, 255, 255);
+}
+
+// Search bar
+.searchBarContainer {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  
+  width: 350px;
+  height: 47px;
+  background-color: rgb(236, 232, 178);
+
+  gap: 15px;
+
+  // border-style: solid;
+  // border-width: 2px;
+  border-radius: 5px;
+  padding: 0.5em;
+
+
+  touch-action: none;
+}
+
+.searchBarContainer img {
+  height: 2.5em;
+  user-select: none;
+  filter: $whiteSvg;
+}
+
+.searchBarText {
+  align-items: center;
+  font-size: 1.8em;
+  color: #969696;
+  user-select: none;
+}
+
+.heuristicThreeDropdownBox {
+  background-color: rgb(218, 212, 127);
+  //color: white;
+
+  display: flex;
+
+  justify-content: left;
+  align-items: center;
+
+  gap: 5px;
+
+  font-size: 24px;
+
+  height: 45px;
+}
+
+.heuristicThreeDropdownBox img {
+  height: 25px;
+  width: auto;
+  //filter: $whiteSvg;
+}
+
+.bannerAd img {
+  border-radius: 8px;
+}
+
+.thumbnailWrapper .bannerAd img {
+  width: 350px;
+  height: auto;
+}
+
+.heuristicThreeQuickButton {
+  background-color: rgb(218, 212, 127);
+  width: 220px;
+  height: 225px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  //padding: 25px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  box-sizing: border-box;
+
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.suitsgrrr {
+  padding-top: 0px;
+}
+
+.heuristicThreeQuickButton div {
+  font-size: 38px;
+}
+
+.heuristicThreeQuickButton img {
+  width: 150px;
+  height: auto;
+}
+
+.heuristicThreeProfileButton {
+  background-color: rgb(218, 212, 127);
+  display: flex;
+  width: 115px;
+  align-items: center;
+  font-size: 24px;
+  gap: 0.45em;
+}
+
+.heuristicThreeProfileButton img {
+  height: 45px;
+  user-select: none;
+}
 
 // ================================== heuristic 2 ==============================
 
@@ -311,38 +529,7 @@ $playbackTopBarBG: #3c3c3c;
 
 // ============================== example bones ====================================
 
-// Search bar
-.searchBarContainer {
-  display: flex;
-  flex-direction: row;
 
-  align-items: center;
-  
-  width: 350px;
-  height: 47px;
-  background-color: white;
-
-  gap: 10px;
-
-  border-style: solid;
-  border-width: 2px;
-  border-radius: 5px;
-
-
-  touch-action: none;
-}
-
-.searchBarContainer img {
-  height: 2.5em;
-  user-select: none;
-}
-
-.searchBarText {
-  align-items: center;
-  font-size: 1.8em;
-  color: #969696;
-  user-select: none;
-}
 
 // Navbar
 .navBarContainer {
