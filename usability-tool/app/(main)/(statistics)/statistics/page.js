@@ -128,7 +128,9 @@ export default function Statistics() {
   }
 
   return (
-    <main className={`container-fluid p-4 ${styles.mainContainer}`}>
+    <main
+      className={`container-fluid p-4 d-flex flex-column ${styles.mainContainer}`}
+    >
       <div className="dropdown mb-3 text-center">
         <button
           className={`dropdown-toggle ${styles.dropDownBtn}`}
@@ -154,7 +156,7 @@ export default function Statistics() {
           ))}
         </ul>
       </div>
-      <div className="row h-50 mb-3">
+      <div className={`row mb-3 ${styles.sectionContainer}`}>
         {
           //The buttons
         }
@@ -280,7 +282,7 @@ export default function Statistics() {
           </div>
         )}
       </div>
-      <div className="row ">
+      <div className={`row`}>
         {!loadingAllData ? (
           <AllData data={allData} />
         ) : (

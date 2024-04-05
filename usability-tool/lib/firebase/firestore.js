@@ -80,7 +80,7 @@ export async function addUIData(heuristicID, userID, data) {
     "UIBuilderData",
     `Heuristic${heuristicID}`
   );
-
+  console.log(docRef);
   try {
     result = await runTransaction(db, async (transaction) => {
       const prevDoc = await transaction.get(docRef);
@@ -126,29 +126,32 @@ export async function readUIData(heuristicID, userID) {
   return data;
 }
 
-
 export async function readAllData(userID) {
-  const allData = {}
-
+  const allData = {};
   try {
-    const quizData = {}
-    const quizDocs = await getDocs(collection(db, "users", userID, "HeuristicData"));
-    quizDocs.forEach(quiz => quizData[quiz.id] = quiz.data())
-    const uiData = {}
-    const uiDocs = await getDocs(collection(db, "users", userID, "UIBuilderData"))
-    uiDocs.forEach(ui => uiData[ui.id] = ui.data())
+    const quizData = [];
+    const quizDocs = await getDocs(
+      collection(db, "users", userID, "HeuristicData")
+    );
+    quizDocs.forEach(
+      (quiz) => (quizData[parseInt(quiz.id.match(/\d+$/)[0]) - 1] = quiz.data())
+    );
 
-    allData["HeuristicData"] = quizData
-    allData["UIBuilderData"] = uiData
+    const uiData = [];
+    const uiDocs = await getDocs(
+      collection(db, "users", userID, "UIBuilderData")
+    );
+    uiDocs.forEach(
+      (ui) => (uiData[parseInt(ui.id.match(/\d+$/)[0]) - 1] = ui.data())
+    );
 
-  } catch(e) {
+    allData["HeuristicData"] = quizData;
+    allData["UIBuilderData"] = uiData;
+  } catch (e) {
     throw errCodeToMessage(e.code);
   }
-
   return allData;
 }
-
-
 
 export async function getMetadata(userID) {
   let result, data;
