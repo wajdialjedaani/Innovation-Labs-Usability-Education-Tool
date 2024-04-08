@@ -1,4 +1,5 @@
-import PieGraph from "./PieGraph";
+import { useState, useEffect } from "react";
+import BarGraph from "./BarGraph";
 import styles from "@/styles/stats.module.scss";
 import getDataForAllData from "@/lib/stats/getDataForAllData";
 export default function AllData({ data }) {
@@ -7,6 +8,13 @@ export default function AllData({ data }) {
   }
   const allQuizData = getDataForAllData(data["HeuristicData"]);
   const allUIData = getDataForAllData(data["UIBuilderData"]);
+
+  const [quizChartSortBy, setQuizChartSortBy] = useState("correct");
+  const [quizChartData, setQuizChartData] = useState([]);
+
+  const [UIChartSortBy, setUIChartSortBy] = useState("correct");
+  const [UIChartData, setUIChartData] = useState([]);
+
   function getWorst(dataObject) {
     let worst = { val: 0, heuristic: 0 };
     dataObject.forEach((val, i) => {
@@ -26,7 +34,7 @@ export default function AllData({ data }) {
       return (
         <div
           key={i}
-          className={`border border-top-0 col-12 col-lg-6 list-group-item d-flex justify-content-between align-items-start ${styles.listGroupItem} `}
+          className={`border border-top-0 col-12  list-group-item d-flex justify-content-between align-items-start ${styles.listGroupItem} `}
         >
           <div className="me-auto">
             <div className="fw-bold">Heuristic {i + 1}</div>
@@ -58,13 +66,32 @@ export default function AllData({ data }) {
     });
   }
 
+  useEffect(() => {
+    setQuizChartData(
+      allQuizData
+        .filter((el) => el != null)
+        .toSorted((a, b) => b[quizChartSortBy] - a[quizChartSortBy])
+    );
+  }, [quizChartSortBy]);
+
+  useEffect(() => {
+    setUIChartData(
+      allUIData
+        .filter((el) => el != null)
+        .toSorted((a, b) => b[UIChartSortBy] - a[UIChartSortBy])
+    );
+  }, [UIChartSortBy]);
+
   return (
     <div className={`col-12 p-3 mx-auto ${styles.statsContainer}`}>
-      <h2 className={`h2 ${styles.graphTitle}`}>All Data</h2>
+      <h2 className={`h2 ${styles.graphTitle}`}>View All Data</h2>
 
       <article className="row">
-        <section
-          className={`col-12 col-lg-6 list-group list-group-flush ${styles.listGroup}`}
+        {
+          //All Quiz
+        }
+        {/* <section
+          className={`col-12 col-lg-3 list-group list-group-flush ${styles.listGroup}`}
         >
           <h3 className={`h3 m-0 list-group-item ${styles.graphTitle}`}>
             Quizzes
@@ -74,9 +101,12 @@ export default function AllData({ data }) {
           >
             {getDataList(allQuizData)}
           </div>
-        </section>
-        <section
-          className={`col-12 col-lg-6 list-group list-group-flush ${styles.listGroup}`}
+        </section> */}
+        {
+          //All UI Builder
+        }
+        {/* <section
+          className={`col-12 col-lg-3 list-group list-group-flush ${styles.listGroup}`}
         >
           <h3 className={`h3 m-0 list-group-item ${styles.graphTitle}`}>
             UI Builders
@@ -85,6 +115,88 @@ export default function AllData({ data }) {
             className={` list-group list-group-flush d-flex flex-row flex-wrap p-0 ${styles.listGroup}`}
           >
             {getDataList(allUIData)}
+          </div>
+        </section> */}
+        {
+          //Graph representation
+        }
+        <section
+          className={`col-12 col-lg-12 list-group list-group-flush mx-auto ${styles.listGroup} `}
+        >
+          <div
+            className={`list-group-item d-flex flex-column ${styles.graphContainer}`}
+          >
+            <div
+              className="btn-group mb-3 col-12 col-lg-6 mx-auto"
+              role="group"
+              aria-label="sort graph buttons"
+            >
+              <button
+                className="btn btn-success"
+                type="button"
+                onClick={() => setQuizChartSortBy("correct")}
+              >
+                Correct
+              </button>
+              <button
+                className="btn btn-danger"
+                type="button"
+                onClick={() => setQuizChartSortBy("incorrect")}
+              >
+                Incorrect
+              </button>
+              <button
+                className="btn btn-primary"
+                type="button"
+                onClick={() => setQuizChartSortBy("time")}
+              >
+                Time
+              </button>
+            </div>
+            <BarGraph
+              data={quizChartData}
+              graphTitle={`Quiz Data Sorted by ${
+                quizChartSortBy.charAt(0).toUpperCase() +
+                quizChartSortBy.slice(1)
+              } ${quizChartSortBy === "time" ? "" : "Answers"}`}
+            />
+          </div>
+          <div
+            className={`list-group-item d-flex flex-column ${styles.graphContainer}`}
+          >
+            <div
+              className="btn-group mb-3 col-12 col-lg-6 mx-auto"
+              role="group"
+              aria-label="sort graph buttons"
+            >
+              <button
+                className="btn btn-success"
+                type="button"
+                onClick={() => setUIChartSortBy("correct")}
+              >
+                Correct
+              </button>
+              <button
+                className="btn btn-danger"
+                type="button"
+                onClick={() => setUIChartSortBy("incorrect")}
+              >
+                Incorrect
+              </button>
+              <button
+                className="btn btn-primary"
+                type="button"
+                onClick={() => setUIChartSortBy("time")}
+              >
+                Time
+              </button>
+            </div>
+            <BarGraph
+              data={UIChartData}
+              graphTitle={`UI Builder Data Sorted by ${
+                UIChartSortBy.charAt(0).toUpperCase() + UIChartSortBy.slice(1)
+              } ${UIChartSortBy === "time" ? "" : "Answers"}`}
+            />
           </div>
         </section>
       </article>

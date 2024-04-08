@@ -1,7 +1,11 @@
 export default function getDataForAllData(data) {
   const totalData = [];
+  console.log("?");
   data.forEach((curData, i) => {
-    const currSum = { attempts: curData["attemptCount"] };
+    const currSum = {
+      attempts: curData["attemptCount"],
+      name: `Heuristic ${i + 1}`,
+    };
     curData["attempts"].forEach((attempt) => {
       for (const [dataName, dataVal] of Object.entries(attempt)) {
         // totalData["sumData"][dataName] =

@@ -13,7 +13,7 @@ import styles from "@/styles/stats.module.scss";
 
 export default function BarGraph({ data, graphTitle }) {
   return (
-    <div className={`${styles.graphContainer}`}>
+    <div className={`d-flex flex-column h-100`}>
       <h3 className={styles.graphTitle}>{graphTitle}</h3>
       <ResponsiveContainer height="100%" width="100%">
         <BarChart data={data}>

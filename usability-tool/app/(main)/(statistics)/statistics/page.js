@@ -254,7 +254,7 @@ export default function Statistics() {
                 className={`col-lg-8 col-12 list-group list-group-flush ${styles.listGroup}`}
               >
                 {!noQuizData ? (
-                  <div className="list-group-item d-flex flex-column h-50">
+                  <div className={`list-group-item d-flex flex-column h-50`}>
                     <BarGraph
                       data={currHeuristicData.attempts}
                       graphTitle={`Quiz ${currHeuristic + 1} Attempts`}
@@ -264,7 +264,7 @@ export default function Statistics() {
                   <NoData title={`Quiz ${currHeuristic + 1} Attempts`} />
                 )}
                 {!noUIData ? (
-                  <div className="list-group-item d-flex flex-column h-50">
+                  <div className={`list-group-item d-flex flex-column h-50`}>
                     <BarGraph
                       data={currUIData.attempts}
                       graphTitle={`UI Builder ${currHeuristic + 1} Attempts`}
