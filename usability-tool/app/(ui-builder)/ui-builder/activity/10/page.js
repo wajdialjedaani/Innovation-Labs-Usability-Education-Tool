@@ -1,13 +1,13 @@
 import UIBuilder from "@/components/ui-builder/UIBuilder";
 
-const scenario = require("/lib/UIBuilder/scenario-ErrorPrevention.json");
+const scenario = require("/lib/UIBuilder/scenario-HelpAndDocumentation.json");
 
 export default function UIBuilderPage() {
   return (
     <UIBuilder
       scenario={scenario}
       widgetData={scenario.widgetData}
-      heuristic={5}
+      heuristic={9}
     />
   );
 }

@@ -1,0 +1,832 @@
+{
+  "scenarioInformation": {
+    "ftitle": "developer mode",
+    "title": "Help and Documentation",
+    "description": "After extensive user feedback, customers of Atomic Clothing felt that the screen shown after an order was complete both lacked information and did little to provide support if an order went wrong.\n\nYour task is to redesign their order summary page to both provide information about the order and to offer quick access to support in case an order is incorrect",
+    "nextUrl": "/",
+    "exitUrl": "/quiz/10"
+  },
+  "solutionGrids": [
+    [
+      {
+        "id": "OrderSummary",
+        "bone": "OrderSummary",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 707.5,
+          "top": 239.015625,
+          "rect": {
+            "initial": {
+              "top": 519.015625,
+              "left": 1447.5,
+              "width": 450,
+              "height": 482,
+              "bottom": 1001.015625,
+              "right": 1897.5
+            },
+            "translated": {
+              "top": 239.015625,
+              "left": 707.5,
+              "width": 450,
+              "height": 482,
+              "bottom": 721.015625,
+              "right": 1157.5
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "ChatBox",
+        "bone": "ChatBox",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 1007.5,
+          "top": 771.390625,
+          "rect": {
+            "initial": {
+              "top": 776.390625,
+              "left": 1037.5,
+              "width": 125,
+              "height": 56,
+              "bottom": 832.390625,
+              "right": 1162.5
+            },
+            "translated": {
+              "top": 771.390625,
+              "left": 1007.5,
+              "width": 125,
+              "height": 56,
+              "bottom": 827.390625,
+              "right": 1132.5
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "OrderSummaryHeader",
+        "bone": "OrderSummaryHeader",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 253.921875,
+          "top": 247.015625,
+          "rect": {
+            "initial": {
+              "top": 257.015625,
+              "left": 253.921875,
+              "width": 247.15625,
+              "height": 42,
+              "bottom": 299.015625,
+              "right": 501.078125
+            },
+            "translated": {
+              "top": 247.015625,
+              "left": 253.921875,
+              "width": 247.15625,
+              "height": 42,
+              "bottom": 289.015625,
+              "right": 501.078125
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "BillToSubheader",
+        "bone": "BillToSubheader",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 257.3125,
+          "top": 292.015625,
+          "rect": {
+            "initial": {
+              "top": 307.015625,
+              "left": 257.3125,
+              "width": 65.359375,
+              "height": 36,
+              "bottom": 343.015625,
+              "right": 322.671875
+            },
+            "translated": {
+              "top": 292.015625,
+              "left": 257.3125,
+              "width": 65.359375,
+              "height": 36,
+              "bottom": 328.015625,
+              "right": 322.671875
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "BillingInfo",
+        "bone": "BillingInfo",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 264.078125,
+          "top": 332.015625,
+          "rect": {
+            "initial": {
+              "top": 347.015625,
+              "left": 264.078125,
+              "width": 281.828125,
+              "height": 130,
+              "bottom": 477.015625,
+              "right": 545.90625
+            },
+            "translated": {
+              "top": 332.015625,
+              "left": 264.078125,
+              "width": 281.828125,
+              "height": 130,
+              "bottom": 462.015625,
+              "right": 545.90625
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "ShiptoSubheader",
+        "bone": "ShiptoSubheader",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 259.296875,
+          "top": 472.015625,
+          "rect": {
+            "initial": {
+              "top": 482.015625,
+              "left": 259.296875,
+              "width": 81.390625,
+              "height": 36,
+              "bottom": 518.015625,
+              "right": 340.6875
+            },
+            "translated": {
+              "top": 472.015625,
+              "left": 259.296875,
+              "width": 81.390625,
+              "height": 36,
+              "bottom": 508.015625,
+              "right": 340.6875
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "ShippingAddress",
+        "bone": "ShippingAddress",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 268.984375,
+          "top": 512.015625,
+          "rect": {
+            "initial": {
+              "top": 532.015625,
+              "left": 268.984375,
+              "width": 252.03125,
+              "height": 90,
+              "bottom": 622.015625,
+              "right": 521.015625
+            },
+            "translated": {
+              "top": 512.015625,
+              "left": 268.984375,
+              "width": 252.03125,
+              "height": 90,
+              "bottom": 602.015625,
+              "right": 521.015625
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "ShippingEstimate",
+        "bone": "ShippingEstimate",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 271.59375,
+          "top": 612.015625,
+          "rect": {
+            "initial": {
+              "top": 627.015625,
+              "left": 271.59375,
+              "width": 266.796875,
+              "height": 30,
+              "bottom": 657.015625,
+              "right": 538.390625
+            },
+            "translated": {
+              "top": 612.015625,
+              "left": 271.59375,
+              "width": 266.796875,
+              "height": 30,
+              "bottom": 642.015625,
+              "right": 538.390625
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "FeedbackRequest",
+        "bone": "FeedbackRequest",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 270,
+          "top": 667.015625,
+          "rect": {
+            "initial": {
+              "top": 672.015625,
+              "left": 270,
+              "width": 350,
+              "height": 145,
+              "bottom": 817.015625,
+              "right": 620
+            },
+            "translated": {
+              "top": 667.015625,
+              "left": 270,
+              "width": 350,
+              "height": 145,
+              "bottom": 812.015625,
+              "right": 620
+            }
+          },
+          "zIndex": 150
+        }
+      }
+    ],
+    [
+      {
+        "id": "OrderSummary",
+        "bone": "OrderSummary",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 707.5,
+          "top": 239.015625,
+          "rect": {
+            "initial": {
+              "top": 519.015625,
+              "left": 1447.5,
+              "width": 450,
+              "height": 482,
+              "bottom": 1001.015625,
+              "right": 1897.5
+            },
+            "translated": {
+              "top": 239.015625,
+              "left": 707.5,
+              "width": 450,
+              "height": 482,
+              "bottom": 721.015625,
+              "right": 1157.5
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "ChatBox",
+        "bone": "ChatBox",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 1007.5,
+          "top": 771.390625,
+          "rect": {
+            "initial": {
+              "top": 776.390625,
+              "left": 1037.5,
+              "width": 125,
+              "height": 56,
+              "bottom": 832.390625,
+              "right": 1162.5
+            },
+            "translated": {
+              "top": 771.390625,
+              "left": 1007.5,
+              "width": 125,
+              "height": 56,
+              "bottom": 827.390625,
+              "right": 1132.5
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "OrderSummaryHeader",
+        "bone": "OrderSummaryHeader",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 253.921875,
+          "top": 247.015625,
+          "rect": {
+            "initial": {
+              "top": 257.015625,
+              "left": 253.921875,
+              "width": 247.15625,
+              "height": 42,
+              "bottom": 299.015625,
+              "right": 501.078125
+            },
+            "translated": {
+              "top": 247.015625,
+              "left": 253.921875,
+              "width": 247.15625,
+              "height": 42,
+              "bottom": 289.015625,
+              "right": 501.078125
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "FeedbackRequest",
+        "bone": "FeedbackRequest",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 270,
+          "top": 667.015625,
+          "rect": {
+            "initial": {
+              "top": 672.015625,
+              "left": 270,
+              "width": 350,
+              "height": 145,
+              "bottom": 817.015625,
+              "right": 620
+            },
+            "translated": {
+              "top": 667.015625,
+              "left": 270,
+              "width": 350,
+              "height": 145,
+              "bottom": 812.015625,
+              "right": 620
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "BillToSubheader",
+        "bone": "BillToSubheader",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 257.3125,
+          "top": 472.015625,
+          "rect": {
+            "initial": {
+              "top": 292.015625,
+              "left": 257.3125,
+              "width": 65.359375,
+              "height": 36,
+              "bottom": 328.015625,
+              "right": 322.671875
+            },
+            "translated": {
+              "top": 472.015625,
+              "left": 257.3125,
+              "width": 65.359375,
+              "height": 36,
+              "bottom": 508.015625,
+              "right": 322.671875
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "ShiptoSubheader",
+        "bone": "ShiptoSubheader",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 254.296875,
+          "top": 292.015625,
+          "rect": {
+            "initial": {
+              "top": 422.015625,
+              "left": 1254.296875,
+              "width": 81.390625,
+              "height": 36,
+              "bottom": 458.015625,
+              "right": 1335.6875
+            },
+            "translated": {
+              "top": 292.015625,
+              "left": 254.296875,
+              "width": 81.390625,
+              "height": 36,
+              "bottom": 328.015625,
+              "right": 335.6875
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "ShippingAddress",
+        "bone": "ShippingAddress",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 263.984375,
+          "top": 332.015625,
+          "rect": {
+            "initial": {
+              "top": 332.015625,
+              "left": 1173.984375,
+              "width": 252.03125,
+              "height": 90,
+              "bottom": 422.015625,
+              "right": 1426.015625
+            },
+            "translated": {
+              "top": 332.015625,
+              "left": 263.984375,
+              "width": 252.03125,
+              "height": 90,
+              "bottom": 422.015625,
+              "right": 516.015625
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "ShippingEstimate",
+        "bone": "ShippingEstimate",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 261.59375,
+          "top": 427.015625,
+          "rect": {
+            "initial": {
+              "top": 297.015625,
+              "left": 1166.59375,
+              "width": 266.796875,
+              "height": 30,
+              "bottom": 327.015625,
+              "right": 1433.390625
+            },
+            "translated": {
+              "top": 427.015625,
+              "left": 261.59375,
+              "width": 266.796875,
+              "height": 30,
+              "bottom": 457.015625,
+              "right": 528.390625
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "BillingInfo",
+        "bone": "BillingInfo",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 264.078125,
+          "top": 507.015625,
+          "rect": {
+            "initial": {
+              "top": 507.015625,
+              "left": 264.078125,
+              "width": 281.828125,
+              "height": 130,
+              "bottom": 637.015625,
+              "right": 545.90625
+            },
+            "translated": {
+              "top": 507.015625,
+              "left": 264.078125,
+              "width": 281.828125,
+              "height": 130,
+              "bottom": 637.015625,
+              "right": 545.90625
+            }
+          },
+          "zIndex": 150
+        }
+      }
+    ]
+  ],
+  "staticWidgets": [
+    {
+      "id": "HeuristicThreeStaticTopBar",
+      "bone": "HeuristicThreeStaticTopBar",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 192.5,
+        "top": 149,
+        "rect": {
+          "initial": {
+            "top": 224,
+            "left": 277.5,
+            "width": 1000,
+            "height": 80,
+            "bottom": 304,
+            "right": 1277.5
+          },
+          "translated": {
+            "top": 149,
+            "left": 192.5,
+            "width": 1000,
+            "height": 80,
+            "bottom": 229,
+            "right": 1192.5
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "HeuristicThreeStaticBody",
+      "bone": "HeuristicThreeStaticBody",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 192.5,
+        "top": 229,
+        "rect": {
+          "initial": {
+            "top": 334,
+            "left": 177.5,
+            "width": 1000,
+            "height": 600,
+            "bottom": 934,
+            "right": 1177.5
+          },
+          "translated": {
+            "top": 229,
+            "left": 192.5,
+            "width": 1000,
+            "height": 600,
+            "bottom": 829,
+            "right": 1192.5
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AtomicLogo",
+      "bone": "AtomicLogo",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 197.5,
+        "top": 150.390625,
+        "rect": {
+          "initial": {
+            "top": 860.390625,
+            "left": 607.5,
+            "width": 200,
+            "height": 73.609375,
+            "bottom": 934,
+            "right": 807.5
+          },
+          "translated": {
+            "top": 150.390625,
+            "left": 197.5,
+            "width": 200,
+            "height": 73.609375,
+            "bottom": 224,
+            "right": 397.5
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "HatsDropdown",
+      "bone": "HatsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 402.8125,
+        "top": 169,
+        "rect": {
+          "initial": {
+            "top": 889,
+            "left": 57.8125,
+            "width": 79.359375,
+            "height": 45,
+            "bottom": 934,
+            "right": 137.171875
+          },
+          "translated": {
+            "top": 169,
+            "left": 402.8125,
+            "width": 79.359375,
+            "height": 45,
+            "bottom": 214,
+            "right": 482.171875
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "SuitsDropdown",
+      "bone": "SuitsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 490.8125,
+        "top": 169,
+        "rect": {
+          "initial": {
+            "top": 889,
+            "left": 460.8125,
+            "width": 83.359375,
+            "height": 45,
+            "bottom": 934,
+            "right": 544.171875
+          },
+          "translated": {
+            "top": 169,
+            "left": 490.8125,
+            "width": 83.359375,
+            "height": 45,
+            "bottom": 214,
+            "right": 574.171875
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "ShoesDropdown",
+      "bone": "ShoesDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 578.46875,
+        "top": 169,
+        "rect": {
+          "initial": {
+            "top": 889,
+            "left": 308.46875,
+            "width": 98.0625,
+            "height": 45,
+            "bottom": 934,
+            "right": 406.53125
+          },
+          "translated": {
+            "top": 169,
+            "left": 578.46875,
+            "width": 98.0625,
+            "height": 45,
+            "bottom": 214,
+            "right": 676.53125
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "CartButton",
+      "bone": "CartButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 1070,
+        "top": 169,
+        "rect": {
+          "initial": {
+            "top": 169,
+            "left": 1075,
+            "width": 115,
+            "height": 45,
+            "bottom": 214,
+            "right": 1190
+          },
+          "translated": {
+            "top": 169,
+            "left": 1070,
+            "width": 115,
+            "height": 45,
+            "bottom": 214,
+            "right": 1185
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "SearchBar",
+      "bone": "SearchBar",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 692.5,
+        "top": 168.015625,
+        "rect": {
+          "initial": {
+            "top": 168.015625,
+            "left": 697.5,
+            "width": 350,
+            "height": 47,
+            "bottom": 215.015625,
+            "right": 1047.5
+          },
+          "translated": {
+            "top": 168.015625,
+            "left": 692.5,
+            "width": 350,
+            "height": 47,
+            "bottom": 215.015625,
+            "right": 1042.5
+          }
+        },
+        "zIndex": 150
+      }
+    }
+  ],
+  "widgetData": {
+    "drawer": [
+      {
+        "id": "OrderSummaryHeader",
+        "bone": "OrderSummaryHeader",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "ShiptoSubheader",
+        "bone": "ShiptoSubheader",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "BillToSubheader",
+        "bone": "BillToSubheader",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "BillingInfo",
+        "bone": "BillingInfo",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "ShippingAddress",
+        "bone": "ShippingAddress",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "ShippingEstimate",
+        "bone": "ShippingEstimate",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "OrderSummary",
+        "bone": "OrderSummary",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "ChatBox",
+        "bone": "ChatBox",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "FeedbackRequest",
+        "bone": "FeedbackRequest",
+        "zIndex": 150,
+        "style": {}
+      }
+    ],
+    "grid": []
+  },
+  "positioningWeight": 0.40,
+  "bonesUsedWeight": 0.60
+}

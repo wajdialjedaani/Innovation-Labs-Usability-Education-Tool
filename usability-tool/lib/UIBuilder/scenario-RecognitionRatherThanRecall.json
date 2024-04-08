@@ -1,0 +1,602 @@
+{
+  "scenarioInformation": {
+    "ftitle": "developer mode",
+    "title": "Recognition Rather Than Recall",
+    "description": "Atomic Clothing is now in need of a new catalog page for their hats. They would like to make sure that every function is labelled properly so users understand what each button will do.\n\nThey have also requested that the list of items is placed is ordered alphabetically automatically.",
+    "nextUrl": "/lessons/7",
+    "exitUrl": "/quiz/6"
+  },
+  "solutionGrids": [
+    [
+      {
+        "id": "FilterBar",
+        "bone": "FilterBar",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 197.5,
+          "top": 257.015625,
+          "rect": {
+            "initial": {
+              "top": 122.015625,
+              "left": 1547.5,
+              "width": 250,
+              "height": 600,
+              "bottom": 722.015625,
+              "right": 1797.5
+            },
+            "translated": {
+              "top": 257.015625,
+              "left": 197.5,
+              "width": 250,
+              "height": 600,
+              "bottom": 857.015625,
+              "right": 447.5
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "TheBaseballer",
+        "bone": "TheBaseballer",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 482.5,
+          "top": 260.015625,
+          "rect": {
+            "initial": {
+              "top": 260.015625,
+              "left": 482.5,
+              "width": 200,
+              "height": 300,
+              "bottom": 560.015625,
+              "right": 682.5
+            },
+            "translated": {
+              "top": 260.015625,
+              "left": 482.5,
+              "width": 200,
+              "height": 300,
+              "bottom": 560.015625,
+              "right": 682.5
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "TheRedditor",
+        "bone": "TheRedditor",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 482.5,
+          "top": 570.015625,
+          "rect": {
+            "initial": {
+              "top": 550.015625,
+              "left": 482.5,
+              "width": 200,
+              "height": 275,
+              "bottom": 825.015625,
+              "right": 682.5
+            },
+            "translated": {
+              "top": 570.015625,
+              "left": 482.5,
+              "width": 200,
+              "height": 275,
+              "bottom": 845.015625,
+              "right": 682.5
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "TheCowboy",
+        "bone": "TheCowboy",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 952.5,
+          "top": 267.015625,
+          "rect": {
+            "initial": {
+              "top": 262.015625,
+              "left": 952.5,
+              "width": 200,
+              "height": 275,
+              "bottom": 537.015625,
+              "right": 1152.5
+            },
+            "translated": {
+              "top": 267.015625,
+              "left": 952.5,
+              "width": 200,
+              "height": 275,
+              "bottom": 542.015625,
+              "right": 1152.5
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "TheSnapback",
+        "bone": "TheSnapback",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 950,
+          "top": 572.015625,
+          "rect": {
+            "initial": {
+              "top": 572.015625,
+              "left": 950,
+              "width": 200,
+              "height": 275,
+              "bottom": 847.015625,
+              "right": 1150
+            },
+            "translated": {
+              "top": 572.015625,
+              "left": 950,
+              "width": 200,
+              "height": 275,
+              "bottom": 847.015625,
+              "right": 1150
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "TheEugene",
+        "bone": "TheEugene",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 717.5,
+          "top": 570.015625,
+          "rect": {
+            "initial": {
+              "top": 570.015625,
+              "left": 717.5,
+              "width": 200,
+              "height": 275,
+              "bottom": 845.015625,
+              "right": 917.5
+            },
+            "translated": {
+              "top": 570.015625,
+              "left": 717.5,
+              "width": 200,
+              "height": 275,
+              "bottom": 845.015625,
+              "right": 917.5
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "TheChickenHat",
+        "bone": "TheChickenHat",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 712.5,
+          "top": 262.015625,
+          "rect": {
+            "initial": {
+              "top": 302.015625,
+              "left": 722.5,
+              "width": 200,
+              "height": 275,
+              "bottom": 577.015625,
+              "right": 922.5
+            },
+            "translated": {
+              "top": 262.015625,
+              "left": 712.5,
+              "width": 200,
+              "height": 275,
+              "bottom": 537.015625,
+              "right": 912.5
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "TypeFilters",
+        "bone": "TypeFilters",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 197.5,
+          "top": 627.015625,
+          "rect": {
+            "initial": {
+              "top": 122.015625,
+              "left": 1562.5,
+              "width": 235,
+              "height": 146,
+              "bottom": 268.015625,
+              "right": 1797.5
+            },
+            "translated": {
+              "top": 627.015625,
+              "left": 197.5,
+              "width": 235,
+              "height": 146,
+              "bottom": 773.015625,
+              "right": 432.5
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "SizeFilters",
+        "bone": "SizeFilters",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 197.5,
+          "top": 303.078125,
+          "rect": {
+            "initial": {
+              "top": 123.078125,
+              "left": 1562.5,
+              "width": 235,
+              "height": 112,
+              "bottom": 235.078125,
+              "right": 1797.5
+            },
+            "translated": {
+              "top": 303.078125,
+              "left": 197.5,
+              "width": 235,
+              "height": 112,
+              "bottom": 415.078125,
+              "right": 432.5
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "ColorFilters",
+        "bone": "ColorFilters",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 197.5,
+          "top": 467.015625,
+          "rect": {
+            "initial": {
+              "top": 467.015625,
+              "left": 197.5,
+              "width": 235,
+              "height": 112,
+              "bottom": 579.015625,
+              "right": 432.5
+            },
+            "translated": {
+              "top": 467.015625,
+              "left": 197.5,
+              "width": 235,
+              "height": 112,
+              "bottom": 579.015625,
+              "right": 432.5
+            }
+          },
+          "zIndex": 150
+        }
+      }
+    ]
+  ],
+  "staticWidgets": [
+    {
+      "id": "HeuristicThreeStaticBody",
+      "bone": "HeuristicThreeStaticBody",
+      "style": {
+        "position": "absolute",
+        "left": 197.5,
+        "top": 252.625,
+        "rect": {
+          "initial": {
+            "top": 167.625,
+            "left": 1172.5,
+            "width": 1000,
+            "height": 600,
+            "bottom": 767.625,
+            "right": 2172.5
+          },
+          "translated": {
+            "top": 252.625,
+            "left": 197.5,
+            "width": 1000,
+            "height": 600,
+            "bottom": 852.625,
+            "right": 1197.5
+          }
+        }
+      }
+    },
+    {
+      "id": "HeuristicThreeStaticTopBar",
+      "bone": "HeuristicThreeStaticTopBar",
+      "style": {
+        "position": "absolute",
+        "left": 197.5,
+        "top": 174.625,
+        "rect": {
+          "initial": {
+            "top": 574.625,
+            "left": 1172.5,
+            "width": 1000,
+            "height": 80,
+            "bottom": 654.625,
+            "right": 2172.5
+          },
+          "translated": {
+            "top": 174.625,
+            "left": 197.5,
+            "width": 1000,
+            "height": 80,
+            "bottom": 254.625,
+            "right": 1197.5
+          }
+        }
+      }
+    },
+    {
+      "id": "AtomicLogo",
+      "bone": "AtomicLogo",
+      "style": {
+        "position": "absolute",
+        "left": 202.5,
+        "top": 176.015625,
+        "rect": {
+          "initial": {
+            "top": 581.015625,
+            "left": 1572.5,
+            "width": 200,
+            "height": 73.609375,
+            "bottom": 654.625,
+            "right": 1772.5
+          },
+          "translated": {
+            "top": 176.015625,
+            "left": 202.5,
+            "width": 200,
+            "height": 73.609375,
+            "bottom": 249.625,
+            "right": 402.5
+          }
+        }
+      }
+    },
+    {
+      "id": "HatsDropdown",
+      "bone": "HatsDropdown",
+      "style": {
+        "position": "absolute",
+        "left": 407.8125,
+        "top": 195.015625,
+        "rect": {
+          "initial": {
+            "top": 670.015625,
+            "left": 1632.8125,
+            "width": 79.359375,
+            "height": 45,
+            "bottom": 715.015625,
+            "right": 1712.171875
+          },
+          "translated": {
+            "top": 195.015625,
+            "left": 407.8125,
+            "width": 79.359375,
+            "height": 45,
+            "bottom": 240.015625,
+            "right": 487.171875
+          }
+        }
+      }
+    },
+    {
+      "id": "SuitsDropdown",
+      "bone": "SuitsDropdown",
+      "style": {
+        "position": "absolute",
+        "left": 490.8125,
+        "top": 195.015625,
+        "rect": {
+          "initial": {
+            "top": 730.015625,
+            "left": 1630.8125,
+            "width": 83.359375,
+            "height": 45,
+            "bottom": 775.015625,
+            "right": 1714.171875
+          },
+          "translated": {
+            "top": 195.015625,
+            "left": 490.8125,
+            "width": 83.359375,
+            "height": 45,
+            "bottom": 240.015625,
+            "right": 574.171875
+          }
+        }
+      }
+    },
+    {
+      "id": "ShoesDropdown",
+      "bone": "ShoesDropdown",
+      "style": {
+        "position": "absolute",
+        "left": 578.46875,
+        "top": 195.015625,
+        "rect": {
+          "initial": {
+            "top": 790.015625,
+            "left": 1623.46875,
+            "width": 98.0625,
+            "height": 45,
+            "bottom": 835.015625,
+            "right": 1721.53125
+          },
+          "translated": {
+            "top": 195.015625,
+            "left": 578.46875,
+            "width": 98.0625,
+            "height": 45,
+            "bottom": 240.015625,
+            "right": 676.53125
+          }
+        }
+      }
+    },
+    {
+      "id": "SearchBar",
+      "bone": "SearchBar",
+      "style": {
+        "position": "absolute",
+        "left": 682.5,
+        "top": 194.015625,
+        "rect": {
+          "initial": {
+            "top": 194.015625,
+            "left": 742.5,
+            "width": 350,
+            "height": 47,
+            "bottom": 241.015625,
+            "right": 1092.5
+          },
+          "translated": {
+            "top": 194.015625,
+            "left": 682.5,
+            "width": 350,
+            "height": 47,
+            "bottom": 241.015625,
+            "right": 1032.5
+          }
+        }
+      }
+    },
+    {
+      "id": "CartButton",
+      "bone": "CartButton",
+      "style": {
+        "position": "absolute",
+        "left": 1070,
+        "top": 195.015625,
+        "rect": {
+          "initial": {
+            "top": 850.015625,
+            "left": 1615,
+            "width": 115,
+            "height": 45,
+            "bottom": 895.015625,
+            "right": 1730
+          },
+          "translated": {
+            "top": 195.015625,
+            "left": 1070,
+            "width": 115,
+            "height": 45,
+            "bottom": 240.015625,
+            "right": 1185
+          }
+        }
+      }
+    }
+  ],
+  "widgetData": {
+    "drawer": [
+      {
+        "id": "FilterBar",
+        "bone": "FilterBar",
+        "allowCollide": [
+          "ColorFilters",
+          "TypeFilters",
+          "SizeFilters"
+        ],
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "TheBaseballer",
+        "bone": "TheBaseballer",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "TheChickenHat",
+        "bone": "TheChickenHat",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "TheCowboy",
+        "bone": "TheCowboy",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "TheRedditor",
+        "bone": "TheRedditor",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "TheEugene",
+        "bone": "TheEugene",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "TheSnapback",
+        "bone": "TheSnapback",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "ColorFilters",
+        "bone": "ColorFilters",
+        "allowCollide": [
+          "FilterBar"
+        ],
+        "zIndex": 155,
+        "style": {}
+      },
+      {
+        "id": "TypeFilters",
+        "bone": "TypeFilters",
+        "allowCollide": [
+          "FilterBar"
+        ],
+        "zIndex": 155,
+        "style": {}
+      },
+      {
+        "id": "SizeFilters",
+        "bone": "SizeFilters",
+        "allowCollide": [
+          "FilterBar"
+        ],
+        "zIndex": 155,
+        "style": {}
+      }
+    ],
+    "grid": []
+  },
+  "positioningWeight": 0.40,
+  "bonesUsedWeight": 0.60
+}

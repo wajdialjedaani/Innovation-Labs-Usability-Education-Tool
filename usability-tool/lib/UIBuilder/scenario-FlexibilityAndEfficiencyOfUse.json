@@ -1,0 +1,451 @@
+{
+  "scenarioInformation": {
+    "title": "Flexibility and Efficiency of Use",
+    "ftitle": "developer mode",
+    "description": "After releasing Atomic Photoedit, Atomic Software receieved user feedback stating that many tools were hard to find. After looking at competing software, it was decided that another sidepanel should be added to the software.\n\nYour job is to create the UI for this sidebar. The three most requested features were a quick color selector, a panel that displays layers, and a \"user tools\" section, where users can save actions and write custom scripts.",
+    "nextUrl": "/lessons/6",
+    "exitUrl": "/quiz/5"
+  },
+  "solutionGrids": [
+    [
+      {
+        "id": "ColorSelector",
+        "bone": "ColorSelector",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 842.5,
+          "top": 127.015625,
+          "rect": {
+            "initial": {
+              "top": 127.015625,
+              "left": 842.5,
+              "width": 200,
+              "height": 198.328125,
+              "bottom": 325.34375,
+              "right": 1042.5
+            },
+            "translated": {
+              "top": 127.015625,
+              "left": 842.5,
+              "width": 200,
+              "height": 198.328125,
+              "bottom": 325.34375,
+              "right": 1042.5
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "QuickToolsPanel",
+        "bone": "QuickToolsPanel",
+        "allowCollide": [
+          "QuickToolsOptions"
+        ],
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 845,
+          "top": 327.015625,
+          "rect": {
+            "initial": {
+              "top": 122.015625,
+              "left": 1580,
+              "width": 200,
+              "height": 186,
+              "bottom": 308.015625,
+              "right": 1780
+            },
+            "translated": {
+              "top": 327.015625,
+              "left": 845,
+              "width": 200,
+              "height": 186,
+              "bottom": 513.015625,
+              "right": 1045
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "LayerPanel",
+        "bone": "LayerPanel",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 845,
+          "top": 517.015625,
+          "rect": {
+            "initial": {
+              "top": 277.015625,
+              "left": 1580,
+              "width": 200,
+              "height": 210,
+              "bottom": 487.015625,
+              "right": 1780
+            },
+            "translated": {
+              "top": 517.015625,
+              "left": 845,
+              "width": 200,
+              "height": 210,
+              "bottom": 727.015625,
+              "right": 1045
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "QuickToolsOptions",
+        "bone": "QuickToolsOptions",
+        "allowCollide": [
+          "QuickToolsPanel"
+        ],
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 851.578125,
+          "top": 352.015625,
+          "rect": {
+            "initial": {
+              "top": 122.015625,
+              "left": 1596.578125,
+              "width": 166.84375,
+              "height": 140,
+              "bottom": 262.015625,
+              "right": 1763.421875
+            },
+            "translated": {
+              "top": 352.015625,
+              "left": 851.578125,
+              "width": 166.84375,
+              "height": 140,
+              "bottom": 492.015625,
+              "right": 1018.421875
+            }
+          },
+          "zIndex": 150
+        }
+      }
+    ],
+    [
+      {
+        "id": "LayerPanel",
+        "bone": "LayerPanel",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 845,
+          "top": 517.015625,
+          "rect": {
+            "initial": {
+              "top": 277.015625,
+              "left": 1580,
+              "width": 200,
+              "height": 210,
+              "bottom": 487.015625,
+              "right": 1780
+            },
+            "translated": {
+              "top": 517.015625,
+              "left": 845,
+              "width": 200,
+              "height": 210,
+              "bottom": 727.015625,
+              "right": 1045
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "QuickToolsPanel",
+        "bone": "QuickToolsPanel",
+        "allowCollide": [
+          "QuickToolsOptions"
+        ],
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 845,
+          "top": 127.015625,
+          "rect": {
+            "initial": {
+              "top": 327.015625,
+              "left": 845,
+              "width": 200,
+              "height": 186,
+              "bottom": 513.015625,
+              "right": 1045
+            },
+            "translated": {
+              "top": 127.015625,
+              "left": 845,
+              "width": 200,
+              "height": 186,
+              "bottom": 313.015625,
+              "right": 1045
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "QuickToolsOptions",
+        "bone": "QuickToolsOptions",
+        "allowCollide": [
+          "QuickToolsPanel"
+        ],
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 856.578125,
+          "top": 152.015625,
+          "rect": {
+            "initial": {
+              "top": 382.015625,
+              "left": 1171.578125,
+              "width": 166.84375,
+              "height": 140,
+              "bottom": 522.015625,
+              "right": 1338.421875
+            },
+            "translated": {
+              "top": 152.015625,
+              "left": 856.578125,
+              "width": 166.84375,
+              "height": 140,
+              "bottom": 292.015625,
+              "right": 1023.421875
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "ColorSelector",
+        "bone": "ColorSelector",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 842.5,
+          "top": 317.015625,
+          "rect": {
+            "initial": {
+              "top": 622.015625,
+              "left": 1142.5,
+              "width": 200,
+              "height": 198.328125,
+              "bottom": 820.34375,
+              "right": 1342.5
+            },
+            "translated": {
+              "top": 317.015625,
+              "left": 842.5,
+              "width": 200,
+              "height": 198.328125,
+              "bottom": 515.34375,
+              "right": 1042.5
+            }
+          },
+          "zIndex": 150
+        }
+      }
+    ],
+    [
+      {
+        "id": "QuickToolsPanel",
+        "bone": "QuickToolsPanel",
+        "allowCollide": [
+          "QuickToolsOptions"
+        ],
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 845,
+          "top": 127.015625,
+          "rect": {
+            "initial": {
+              "top": 327.015625,
+              "left": 845,
+              "width": 200,
+              "height": 186,
+              "bottom": 513.015625,
+              "right": 1045
+            },
+            "translated": {
+              "top": 127.015625,
+              "left": 845,
+              "width": 200,
+              "height": 186,
+              "bottom": 313.015625,
+              "right": 1045
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "QuickToolsOptions",
+        "bone": "QuickToolsOptions",
+        "allowCollide": [
+          "QuickToolsPanel"
+        ],
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 856.578125,
+          "top": 152.015625,
+          "rect": {
+            "initial": {
+              "top": 382.015625,
+              "left": 1171.578125,
+              "width": 166.84375,
+              "height": 140,
+              "bottom": 522.015625,
+              "right": 1338.421875
+            },
+            "translated": {
+              "top": 152.015625,
+              "left": 856.578125,
+              "width": 166.84375,
+              "height": 140,
+              "bottom": 292.015625,
+              "right": 1023.421875
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "ColorSelector",
+        "bone": "ColorSelector",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 842.5,
+          "top": 527.015625,
+          "rect": {
+            "initial": {
+              "top": 317.015625,
+              "left": 842.5,
+              "width": 200,
+              "height": 198.328125,
+              "bottom": 515.34375,
+              "right": 1042.5
+            },
+            "translated": {
+              "top": 527.015625,
+              "left": 842.5,
+              "width": 200,
+              "height": 198.328125,
+              "bottom": 725.34375,
+              "right": 1042.5
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "LayerPanel",
+        "bone": "LayerPanel",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 845,
+          "top": 317.015625,
+          "rect": {
+            "initial": {
+              "top": 312.015625,
+              "left": 845,
+              "width": 200,
+              "height": 210,
+              "bottom": 522.015625,
+              "right": 1045
+            },
+            "translated": {
+              "top": 317.015625,
+              "left": 845,
+              "width": 200,
+              "height": 210,
+              "bottom": 527.015625,
+              "right": 1045
+            }
+          },
+          "zIndex": 150
+        }
+      }
+    ]
+  ],
+  "staticWidgets": [
+    {
+      "id": "Heuristic7Static",
+      "bone": "Heuristic7Static",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 45,
+        "top": 97,
+        "rect": {
+          "initial": {
+            "top": 79,
+            "left": 15,
+            "width": 1000,
+            "height": 630,
+            "bottom": 709,
+            "right": 1015
+          },
+          "translated": {
+            "top": 94,
+            "left": 45,
+            "width": 1000,
+            "height": 630,
+            "bottom": 724,
+            "right": 1045
+          }
+        },
+        "zIndex": 150
+      }
+    }
+  ],
+  "widgetData": {
+    "drawer": [
+      {
+        "id": "ColorSelector",
+        "bone": "ColorSelector",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "QuickToolsPanel",
+        "bone": "QuickToolsPanel",
+        "allowCollide": [
+          "QuickToolsOptions"
+        ],
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "QuickToolsOptions",
+        "bone": "QuickToolsOptions",
+        "allowCollide": [
+          "QuickToolsPanel"
+        ],
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "LayerPanel",
+        "bone": "LayerPanel",
+        "zIndex": 150,
+        "style": {}
+      }
+    ],
+    "grid": []
+  },
+  "positioningWeight": 0.40,
+  "bonesUsedWeight": 0.60
+}

@@ -1,0 +1,394 @@
+{
+  "scenarioInformation": {
+    "ftitle": "developer mode",
+    "title": "Help Users Recognize, Diagnose, and Recover from Errors",
+    "description": "Atomic Clothing has once again been combing through user feedback, and it has been discovered that they were using the default Apache 404 page for their e-commerce website.\n\nThey have tasked you with designing the UI for a 404 page that takes into account heuristic 9 so that users may recover from visiting the wrong web page, or let Atomic that one of their pages is missing.",
+    "nextUrl": "/lessons/10",
+    "exitUrl": "/quiz/9"
+  },
+  "solutionGrids": [
+    [
+      {
+        "id": "AlertIcon",
+        "bone": "AlertIcon",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 560,
+          "top": 207.015625,
+          "rect": {
+            "initial": {
+              "top": 122.015625,
+              "left": 1555,
+              "width": 250,
+              "height": 250,
+              "bottom": 372.015625,
+              "right": 1805
+            },
+            "translated": {
+              "top": 207.015625,
+              "left": 560,
+              "width": 250,
+              "height": 250,
+              "bottom": 457.015625,
+              "right": 810
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "ErrorLabel",
+        "bone": "ErrorLabel",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 509.890625,
+          "top": 462.015625,
+          "rect": {
+            "initial": {
+              "top": 122.015625,
+              "left": 1499.890625,
+              "width": 360.21875,
+              "height": 45,
+              "bottom": 167.015625,
+              "right": 1860.109375
+            },
+            "translated": {
+              "top": 462.015625,
+              "left": 509.890625,
+              "width": 360.21875,
+              "height": 45,
+              "bottom": 507.015625,
+              "right": 870.109375
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "InbodySearchBar",
+        "bone": "InbodySearchBar",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 490,
+          "top": 519.078125,
+          "rect": {
+            "initial": {
+              "top": 124.078125,
+              "left": 1480,
+              "width": 400,
+              "height": 50,
+              "bottom": 174.078125,
+              "right": 1880
+            },
+            "translated": {
+              "top": 519.078125,
+              "left": 490,
+              "width": 400,
+              "height": 50,
+              "bottom": 569.078125,
+              "right": 890
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "MissingPageErrorReporting",
+        "bone": "MissingPageErrorReporting",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 524.890625,
+          "top": 572.9375,
+          "rect": {
+            "initial": {
+              "top": 127.9375,
+              "left": 1514.890625,
+              "width": 330.203125,
+              "height": 30,
+              "bottom": 157.9375,
+              "right": 1845.09375
+            },
+            "translated": {
+              "top": 572.9375,
+              "left": 524.890625,
+              "width": 330.203125,
+              "height": 30,
+              "bottom": 602.9375,
+              "right": 855.09375
+            }
+          },
+          "zIndex": 150
+        }
+      }
+    ]
+  ],
+  "staticWidgets": [
+    {
+      "id": "HeuristicThreeStaticTopBar",
+      "bone": "HeuristicThreeStaticTopBar",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 192.5,
+        "top": 95.625,
+        "rect": {
+          "initial": {
+            "top": 645.625,
+            "left": 1172.5,
+            "width": 1000,
+            "height": 80,
+            "bottom": 725.625,
+            "right": 2172.5
+          },
+          "translated": {
+            "top": 95.625,
+            "left": 192.5,
+            "width": 1000,
+            "height": 80,
+            "bottom": 175.625,
+            "right": 1192.5
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "HeuristicThreeStaticBody",
+      "bone": "HeuristicThreeStaticBody",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 192.5,
+        "top": 175.625,
+        "rect": {
+          "initial": {
+            "top": 645.625,
+            "left": 1172.5,
+            "width": 1000,
+            "height": 600,
+            "bottom": 1245.625,
+            "right": 2172.5
+          },
+          "translated": {
+            "top": 175.625,
+            "left": 192.5,
+            "width": 1000,
+            "height": 600,
+            "bottom": 775.625,
+            "right": 1192.5
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AtomicLogo",
+      "bone": "AtomicLogo",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 197.5,
+        "top": 97.015625,
+        "rect": {
+          "initial": {
+            "top": 557.015625,
+            "left": 1572.5,
+            "width": 200,
+            "height": 73.609375,
+            "bottom": 630.625,
+            "right": 1772.5
+          },
+          "translated": {
+            "top": 97.015625,
+            "left": 197.5,
+            "width": 200,
+            "height": 73.609375,
+            "bottom": 170.625,
+            "right": 397.5
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "HatsDropdown",
+      "bone": "HatsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 405.3125,
+        "top": 117.015625,
+        "rect": {
+          "initial": {
+            "top": 557.015625,
+            "left": 1640.3125,
+            "width": 79.359375,
+            "height": 45,
+            "bottom": 602.015625,
+            "right": 1719.671875
+          },
+          "translated": {
+            "top": 117.015625,
+            "left": 405.3125,
+            "width": 79.359375,
+            "height": 45,
+            "bottom": 162.015625,
+            "right": 484.671875
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "SuitsDropdown",
+      "bone": "SuitsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 493.3125,
+        "top": 117.015625,
+        "rect": {
+          "initial": {
+            "top": 557.015625,
+            "left": 1638.3125,
+            "width": 83.359375,
+            "height": 45,
+            "bottom": 602.015625,
+            "right": 1721.671875
+          },
+          "translated": {
+            "top": 117.015625,
+            "left": 493.3125,
+            "width": 83.359375,
+            "height": 45,
+            "bottom": 162.015625,
+            "right": 576.671875
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "ShoesDropdown",
+      "bone": "ShoesDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 580.96875,
+        "top": 117.015625,
+        "rect": {
+          "initial": {
+            "top": 557.015625,
+            "left": 1630.96875,
+            "width": 98.0625,
+            "height": 45,
+            "bottom": 602.015625,
+            "right": 1729.03125
+          },
+          "translated": {
+            "top": 117.015625,
+            "left": 580.96875,
+            "width": 98.0625,
+            "height": 45,
+            "bottom": 162.015625,
+            "right": 679.03125
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "CartButton",
+      "bone": "CartButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 1067.5,
+        "top": 117.015625,
+        "rect": {
+          "initial": {
+            "top": 557.015625,
+            "left": 1622.5,
+            "width": 115,
+            "height": 45,
+            "bottom": 602.015625,
+            "right": 1737.5
+          },
+          "translated": {
+            "top": 117.015625,
+            "left": 1067.5,
+            "width": 115,
+            "height": 45,
+            "bottom": 162.015625,
+            "right": 1182.5
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "SearchBar",
+      "bone": "SearchBar",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 700,
+        "top": 117.015625,
+        "rect": {
+          "initial": {
+            "top": 557.015625,
+            "left": 1505,
+            "width": 350,
+            "height": 47,
+            "bottom": 604.015625,
+            "right": 1855
+          },
+          "translated": {
+            "top": 117.015625,
+            "left": 700,
+            "width": 350,
+            "height": 47,
+            "bottom": 164.015625,
+            "right": 1050
+          }
+        },
+        "zIndex": 150
+      }
+    }
+  ],
+  "widgetData": {
+    "drawer": [
+      {
+        "id": "AlertIcon",
+        "bone": "AlertIcon",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "ErrorLabel",
+        "bone": "ErrorLabel",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "InbodySearchBar",
+        "bone": "InbodySearchBar",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "MissingPageErrorReporting",
+        "bone": "MissingPageErrorReporting",
+        "zIndex": 150,
+        "style": {}
+      }
+    ],
+    "grid": []
+  },
+  "positioningWeight": 0.40,
+  "bonesUsedWeight": 0.60
+}

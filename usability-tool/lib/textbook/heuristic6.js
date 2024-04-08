@@ -26,7 +26,7 @@ export function Heuristic6Text() {
       </p>
       <p>
         Providing <strong>visual cues</strong> and <strong>icons</strong> can instantly create recognition and instantly convey their meaning causing
-        the user to spend less time memorizing what the icon accomplishes. This will drastically reduce the amount of
+        the user to spend less time memorizing what the icon accomplishes. This will drastically reduce the amount of&nbsp;
         <strong>mental effort</strong>, since users have an easier time recognizing rather than recalling, users will recall less and
         recognize more, the more icons and visual cues that are used. For example the Google Drive sidebar provides icons that
         a user can recognize. Such as a house for home, a computer for computer, and a cloud for cloud storage.
