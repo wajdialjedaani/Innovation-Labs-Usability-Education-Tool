@@ -1,0 +1,1213 @@
+{
+  "scenarioInformation": {
+    "ftitle": "developer mode",
+    "title": "Aesthetic and Minimal Design",
+    "description": "Mondo Media has recently released a competitor to Google Docs, however after receieving user feedback it was decided that their UI's design was too cluttered and prevented too many options to the user at once.\n\nYou have been tasked with designing the UI for their new online document editor. They ask that the design is kept minimal and understandable to users.",
+    "nextUrl": "/lessons/9",
+    "exitUrl": "/quiz/8"
+  },
+  "solutionGrids": [
+    [
+      {
+        "id": "TitleBarGreeting",
+        "bone": "TitleBarGreeting",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 941.953125,
+          "top": 102.015625,
+          "rect": {
+            "initial": {
+              "top": 122.015625,
+              "left": 1606.953125,
+              "width": 146.078125,
+              "height": 45,
+              "bottom": 167.015625,
+              "right": 1753.03125
+            },
+            "translated": {
+              "top": 102.015625,
+              "left": 941.953125,
+              "width": 146.078125,
+              "height": 45,
+              "bottom": 147.015625,
+              "right": 1088.03125
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "DocumentTitle",
+        "bone": "DocumentTitle",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 116.9375,
+          "top": 102.015625,
+          "rect": {
+            "initial": {
+              "top": 122.015625,
+              "left": 1541.9375,
+              "width": 276.109375,
+              "height": 45,
+              "bottom": 167.015625,
+              "right": 1818.046875
+            },
+            "translated": {
+              "top": 102.015625,
+              "left": 116.9375,
+              "width": 276.109375,
+              "height": 45,
+              "bottom": 147.015625,
+              "right": 393.046875
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "SaveButton",
+        "bone": "SaveButton",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 780,
+          "top": 97.015625,
+          "rect": {
+            "initial": {
+              "top": 122.015625,
+              "left": 1605,
+              "width": 150,
+              "height": 50,
+              "bottom": 172.015625,
+              "right": 1755
+            },
+            "translated": {
+              "top": 97.015625,
+              "left": 780,
+              "width": 150,
+              "height": 50,
+              "bottom": 147.015625,
+              "right": 930
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "UndoRedoModule",
+        "bone": "UndoRedoModule",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 106.75,
+          "top": 162.015625,
+          "rect": {
+            "initial": {
+              "top": 122.015625,
+              "left": 1596.75,
+              "width": 166.5,
+              "height": 35,
+              "bottom": 157.015625,
+              "right": 1763.25
+            },
+            "translated": {
+              "top": 162.015625,
+              "left": 106.75,
+              "width": 166.5,
+              "height": 35,
+              "bottom": 197.015625,
+              "right": 273.25
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "FontModule",
+        "bone": "FontModule",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 277.59375,
+          "top": 162.015625,
+          "rect": {
+            "initial": {
+              "top": 122.015625,
+              "left": 1622.59375,
+              "width": 114.8125,
+              "height": 35,
+              "bottom": 157.015625,
+              "right": 1737.40625
+            },
+            "translated": {
+              "top": 162.015625,
+              "left": 277.59375,
+              "width": 114.8125,
+              "height": 35,
+              "bottom": 197.015625,
+              "right": 392.40625
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "FontSizeModule",
+        "bone": "FontSizeModule",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 395.59375,
+          "top": 162.015625,
+          "rect": {
+            "initial": {
+              "top": 162.015625,
+              "left": 390.59375,
+              "width": 108.796875,
+              "height": 35,
+              "bottom": 197.015625,
+              "right": 499.390625
+            },
+            "translated": {
+              "top": 162.015625,
+              "left": 395.59375,
+              "width": 108.796875,
+              "height": 35,
+              "bottom": 197.015625,
+              "right": 504.390625
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "TextDecorationModule",
+        "bone": "TextDecorationModule",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 508,
+          "top": 162.015625,
+          "rect": {
+            "initial": {
+              "top": 162.015625,
+              "left": 503,
+              "width": 144,
+              "height": 35,
+              "bottom": 197.015625,
+              "right": 647
+            },
+            "translated": {
+              "top": 162.015625,
+              "left": 508,
+              "width": 144,
+              "height": 35,
+              "bottom": 197.015625,
+              "right": 652
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "ListModule",
+        "bone": "ListModule",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 660.5,
+          "top": 159.671875,
+          "rect": {
+            "initial": {
+              "top": 159.671875,
+              "left": 655.5,
+              "width": 139,
+              "height": 35,
+              "bottom": 194.671875,
+              "right": 794.5
+            },
+            "translated": {
+              "top": 159.671875,
+              "left": 660.5,
+              "width": 139,
+              "height": 35,
+              "bottom": 194.671875,
+              "right": 799.5
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "AttachmentModule",
+        "bone": "AttachmentModule",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 802.5,
+          "top": 162.640625,
+          "rect": {
+            "initial": {
+              "top": 162.640625,
+              "left": 797.5,
+              "width": 205,
+              "height": 35,
+              "bottom": 197.640625,
+              "right": 1002.5
+            },
+            "translated": {
+              "top": 162.640625,
+              "left": 802.5,
+              "width": 205,
+              "height": 35,
+              "bottom": 197.640625,
+              "right": 1007.5
+            }
+          },
+          "zIndex": 150
+        }
+      }
+    ],
+    [
+      {
+        "id": "TitleBarGreeting",
+        "bone": "TitleBarGreeting",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 936.953125,
+          "top": 102.015625,
+          "rect": {
+            "initial": {
+              "top": 122.015625,
+              "left": 1606.953125,
+              "width": 146.078125,
+              "height": 45,
+              "bottom": 167.015625,
+              "right": 1753.03125
+            },
+            "translated": {
+              "top": 102.015625,
+              "left": 936.953125,
+              "width": 146.078125,
+              "height": 45,
+              "bottom": 147.015625,
+              "right": 1083.03125
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "DocumentTitle",
+        "bone": "DocumentTitle",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 116.9375,
+          "top": 102.015625,
+          "rect": {
+            "initial": {
+              "top": 122.015625,
+              "left": 1541.9375,
+              "width": 276.109375,
+              "height": 45,
+              "bottom": 167.015625,
+              "right": 1818.046875
+            },
+            "translated": {
+              "top": 102.015625,
+              "left": 116.9375,
+              "width": 276.109375,
+              "height": 45,
+              "bottom": 147.015625,
+              "right": 393.046875
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "SaveButton",
+        "bone": "SaveButton",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 775,
+          "top": 97.015625,
+          "rect": {
+            "initial": {
+              "top": 97.015625,
+              "left": 780,
+              "width": 150,
+              "height": 50,
+              "bottom": 147.015625,
+              "right": 930
+            },
+            "translated": {
+              "top": 97.015625,
+              "left": 775,
+              "width": 150,
+              "height": 50,
+              "bottom": 147.015625,
+              "right": 925
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "UndoRedoModule",
+        "bone": "UndoRedoModule",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 106.75,
+          "top": 162.015625,
+          "rect": {
+            "initial": {
+              "top": 122.015625,
+              "left": 1596.75,
+              "width": 166.5,
+              "height": 35,
+              "bottom": 157.015625,
+              "right": 1763.25
+            },
+            "translated": {
+              "top": 162.015625,
+              "left": 106.75,
+              "width": 166.5,
+              "height": 35,
+              "bottom": 197.015625,
+              "right": 273.25
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "FontModule",
+        "bone": "FontModule",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 282.59375,
+          "top": 162.015625,
+          "rect": {
+            "initial": {
+              "top": 122.015625,
+              "left": 1622.59375,
+              "width": 114.8125,
+              "height": 35,
+              "bottom": 157.015625,
+              "right": 1737.40625
+            },
+            "translated": {
+              "top": 162.015625,
+              "left": 282.59375,
+              "width": 114.8125,
+              "height": 35,
+              "bottom": 197.015625,
+              "right": 397.40625
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "FontSizeModule",
+        "bone": "FontSizeModule",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 405.59375,
+          "top": 162.015625,
+          "rect": {
+            "initial": {
+              "top": 162.015625,
+              "left": 400.59375,
+              "width": 108.796875,
+              "height": 35,
+              "bottom": 197.015625,
+              "right": 509.390625
+            },
+            "translated": {
+              "top": 162.015625,
+              "left": 405.59375,
+              "width": 108.796875,
+              "height": 35,
+              "bottom": 197.015625,
+              "right": 514.390625
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "TextDecorationModule",
+        "bone": "TextDecorationModule",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 518,
+          "top": 162.015625,
+          "rect": {
+            "initial": {
+              "top": 162.015625,
+              "left": 513,
+              "width": 144,
+              "height": 35,
+              "bottom": 197.015625,
+              "right": 657
+            },
+            "translated": {
+              "top": 162.015625,
+              "left": 518,
+              "width": 144,
+              "height": 35,
+              "bottom": 197.015625,
+              "right": 662
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "AttachmentModule",
+        "bone": "AttachmentModule",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 672.5,
+          "top": 162.640625,
+          "rect": {
+            "initial": {
+              "top": 162.640625,
+              "left": 822.5,
+              "width": 205,
+              "height": 35,
+              "bottom": 197.640625,
+              "right": 1027.5
+            },
+            "translated": {
+              "top": 162.640625,
+              "left": 672.5,
+              "width": 205,
+              "height": 35,
+              "bottom": 197.640625,
+              "right": 877.5
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "ListModule",
+        "bone": "ListModule",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 895.5,
+          "top": 164.671875,
+          "rect": {
+            "initial": {
+              "top": 224.671875,
+              "left": 945.5,
+              "width": 139,
+              "height": 35,
+              "bottom": 259.671875,
+              "right": 1084.5
+            },
+            "translated": {
+              "top": 164.671875,
+              "left": 895.5,
+              "width": 139,
+              "height": 35,
+              "bottom": 199.671875,
+              "right": 1034.5
+            }
+          },
+          "zIndex": 150
+        }
+      }
+    ],
+    [
+      {
+        "id": "TitleBarGreeting",
+        "bone": "TitleBarGreeting",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 936.953125,
+          "top": 102.015625,
+          "rect": {
+            "initial": {
+              "top": 122.015625,
+              "left": 1606.953125,
+              "width": 146.078125,
+              "height": 45,
+              "bottom": 167.015625,
+              "right": 1753.03125
+            },
+            "translated": {
+              "top": 102.015625,
+              "left": 936.953125,
+              "width": 146.078125,
+              "height": 45,
+              "bottom": 147.015625,
+              "right": 1083.03125
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "DocumentTitle",
+        "bone": "DocumentTitle",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 116.9375,
+          "top": 102.015625,
+          "rect": {
+            "initial": {
+              "top": 122.015625,
+              "left": 1541.9375,
+              "width": 276.109375,
+              "height": 45,
+              "bottom": 167.015625,
+              "right": 1818.046875
+            },
+            "translated": {
+              "top": 102.015625,
+              "left": 116.9375,
+              "width": 276.109375,
+              "height": 45,
+              "bottom": 147.015625,
+              "right": 393.046875
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "SaveButton",
+        "bone": "SaveButton",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 775,
+          "top": 97.015625,
+          "rect": {
+            "initial": {
+              "top": 97.015625,
+              "left": 780,
+              "width": 150,
+              "height": 50,
+              "bottom": 147.015625,
+              "right": 930
+            },
+            "translated": {
+              "top": 97.015625,
+              "left": 775,
+              "width": 150,
+              "height": 50,
+              "bottom": 147.015625,
+              "right": 925
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "UndoRedoModule",
+        "bone": "UndoRedoModule",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 106.75,
+          "top": 162.015625,
+          "rect": {
+            "initial": {
+              "top": 122.015625,
+              "left": 1596.75,
+              "width": 166.5,
+              "height": 35,
+              "bottom": 157.015625,
+              "right": 1763.25
+            },
+            "translated": {
+              "top": 162.015625,
+              "left": 106.75,
+              "width": 166.5,
+              "height": 35,
+              "bottom": 197.015625,
+              "right": 273.25
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "FontModule",
+        "bone": "FontModule",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 282.59375,
+          "top": 162.015625,
+          "rect": {
+            "initial": {
+              "top": 122.015625,
+              "left": 1622.59375,
+              "width": 114.8125,
+              "height": 35,
+              "bottom": 157.015625,
+              "right": 1737.40625
+            },
+            "translated": {
+              "top": 162.015625,
+              "left": 282.59375,
+              "width": 114.8125,
+              "height": 35,
+              "bottom": 197.015625,
+              "right": 397.40625
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "FontSizeModule",
+        "bone": "FontSizeModule",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 405.59375,
+          "top": 162.015625,
+          "rect": {
+            "initial": {
+              "top": 162.015625,
+              "left": 400.59375,
+              "width": 108.796875,
+              "height": 35,
+              "bottom": 197.015625,
+              "right": 509.390625
+            },
+            "translated": {
+              "top": 162.015625,
+              "left": 405.59375,
+              "width": 108.796875,
+              "height": 35,
+              "bottom": 197.015625,
+              "right": 514.390625
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "AttachmentModule",
+        "bone": "AttachmentModule",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 517.5,
+          "top": 162.640625,
+          "rect": {
+            "initial": {
+              "top": 162.640625,
+              "left": 672.5,
+              "width": 205,
+              "height": 35,
+              "bottom": 197.640625,
+              "right": 877.5
+            },
+            "translated": {
+              "top": 162.640625,
+              "left": 517.5,
+              "width": 205,
+              "height": 35,
+              "bottom": 197.640625,
+              "right": 722.5
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "TextDecorationModule",
+        "bone": "TextDecorationModule",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 728,
+          "top": 162.015625,
+          "rect": {
+            "initial": {
+              "top": 257.015625,
+              "left": 728,
+              "width": 144,
+              "height": 35,
+              "bottom": 292.015625,
+              "right": 872
+            },
+            "translated": {
+              "top": 162.015625,
+              "left": 728,
+              "width": 144,
+              "height": 35,
+              "bottom": 197.015625,
+              "right": 872
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "ListModule",
+        "bone": "ListModule",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 890.5,
+          "top": 164.671875,
+          "rect": {
+            "initial": {
+              "top": 164.671875,
+              "left": 895.5,
+              "width": 139,
+              "height": 35,
+              "bottom": 199.671875,
+              "right": 1034.5
+            },
+            "translated": {
+              "top": 164.671875,
+              "left": 890.5,
+              "width": 139,
+              "height": 35,
+              "bottom": 199.671875,
+              "right": 1029.5
+            }
+          },
+          "zIndex": 150
+        }
+      }
+    ],
+    [
+      {
+        "id": "TitleBarGreeting",
+        "bone": "TitleBarGreeting",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 936.953125,
+          "top": 102.015625,
+          "rect": {
+            "initial": {
+              "top": 122.015625,
+              "left": 1606.953125,
+              "width": 146.078125,
+              "height": 45,
+              "bottom": 167.015625,
+              "right": 1753.03125
+            },
+            "translated": {
+              "top": 102.015625,
+              "left": 936.953125,
+              "width": 146.078125,
+              "height": 45,
+              "bottom": 147.015625,
+              "right": 1083.03125
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "DocumentTitle",
+        "bone": "DocumentTitle",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 116.9375,
+          "top": 102.015625,
+          "rect": {
+            "initial": {
+              "top": 122.015625,
+              "left": 1541.9375,
+              "width": 276.109375,
+              "height": 45,
+              "bottom": 167.015625,
+              "right": 1818.046875
+            },
+            "translated": {
+              "top": 102.015625,
+              "left": 116.9375,
+              "width": 276.109375,
+              "height": 45,
+              "bottom": 147.015625,
+              "right": 393.046875
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "SaveButton",
+        "bone": "SaveButton",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 775,
+          "top": 97.015625,
+          "rect": {
+            "initial": {
+              "top": 97.015625,
+              "left": 780,
+              "width": 150,
+              "height": 50,
+              "bottom": 147.015625,
+              "right": 930
+            },
+            "translated": {
+              "top": 97.015625,
+              "left": 775,
+              "width": 150,
+              "height": 50,
+              "bottom": 147.015625,
+              "right": 925
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "UndoRedoModule",
+        "bone": "UndoRedoModule",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 106.75,
+          "top": 162.015625,
+          "rect": {
+            "initial": {
+              "top": 122.015625,
+              "left": 1596.75,
+              "width": 166.5,
+              "height": 35,
+              "bottom": 157.015625,
+              "right": 1763.25
+            },
+            "translated": {
+              "top": 162.015625,
+              "left": 106.75,
+              "width": 166.5,
+              "height": 35,
+              "bottom": 197.015625,
+              "right": 273.25
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "FontModule",
+        "bone": "FontModule",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 282.59375,
+          "top": 162.015625,
+          "rect": {
+            "initial": {
+              "top": 122.015625,
+              "left": 1622.59375,
+              "width": 114.8125,
+              "height": 35,
+              "bottom": 157.015625,
+              "right": 1737.40625
+            },
+            "translated": {
+              "top": 162.015625,
+              "left": 282.59375,
+              "width": 114.8125,
+              "height": 35,
+              "bottom": 197.015625,
+              "right": 397.40625
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "FontSizeModule",
+        "bone": "FontSizeModule",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 405.59375,
+          "top": 162.015625,
+          "rect": {
+            "initial": {
+              "top": 162.015625,
+              "left": 400.59375,
+              "width": 108.796875,
+              "height": 35,
+              "bottom": 197.015625,
+              "right": 509.390625
+            },
+            "translated": {
+              "top": 162.015625,
+              "left": 405.59375,
+              "width": 108.796875,
+              "height": 35,
+              "bottom": 197.015625,
+              "right": 514.390625
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "ListModule",
+        "bone": "ListModule",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 520.5,
+          "top": 159.671875,
+          "rect": {
+            "initial": {
+              "top": 164.671875,
+              "left": 890.5,
+              "width": 139,
+              "height": 35,
+              "bottom": 199.671875,
+              "right": 1029.5
+            },
+            "translated": {
+              "top": 159.671875,
+              "left": 520.5,
+              "width": 139,
+              "height": 35,
+              "bottom": 194.671875,
+              "right": 659.5
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "TextDecorationModule",
+        "bone": "TextDecorationModule",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 663,
+          "top": 162.015625,
+          "rect": {
+            "initial": {
+              "top": 162.015625,
+              "left": 728,
+              "width": 144,
+              "height": 35,
+              "bottom": 197.015625,
+              "right": 872
+            },
+            "translated": {
+              "top": 162.015625,
+              "left": 663,
+              "width": 144,
+              "height": 35,
+              "bottom": 197.015625,
+              "right": 807
+            }
+          },
+          "zIndex": 150
+        }
+      },
+      {
+        "id": "AttachmentModule",
+        "bone": "AttachmentModule",
+        "zIndex": 150,
+        "style": {
+          "position": "absolute",
+          "left": 812.5,
+          "top": 162.640625,
+          "rect": {
+            "initial": {
+              "top": 262.640625,
+              "left": 857.5,
+              "width": 205,
+              "height": 35,
+              "bottom": 297.640625,
+              "right": 1062.5
+            },
+            "translated": {
+              "top": 162.640625,
+              "left": 812.5,
+              "width": 205,
+              "height": 35,
+              "bottom": 197.640625,
+              "right": 1017.5
+            }
+          },
+          "zIndex": 150
+        }
+      }
+    ]
+  ],
+  "staticWidgets": [
+    {
+      "id": "TitleBar",
+      "bone": "TitleBar",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 102.5,
+        "top": 92.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1172.5,
+            "width": 1000,
+            "height": 65,
+            "bottom": 187.015625,
+            "right": 2172.5
+          },
+          "translated": {
+            "top": 92.015625,
+            "left": 102.5,
+            "width": 1000,
+            "height": 65,
+            "bottom": 157.015625,
+            "right": 1102.5
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "FormatBar",
+      "bone": "FormatBar",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 102.5,
+        "top": 157.015625,
+        "rect": {
+          "initial": {
+            "top": 307.015625,
+            "left": 1172.5,
+            "width": 1000,
+            "height": 40,
+            "bottom": 347.015625,
+            "right": 2172.5
+          },
+          "translated": {
+            "top": 157.015625,
+            "left": 102.5,
+            "width": 1000,
+            "height": 40,
+            "bottom": 197.015625,
+            "right": 1102.5
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "DocumentCanvas",
+      "bone": "DocumentCanvas",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 102.5,
+        "top": 197.015625,
+        "rect": {
+          "initial": {
+            "top": 607.015625,
+            "left": 1172.5,
+            "width": 1000,
+            "height": 600,
+            "bottom": 1207.015625,
+            "right": 2172.5
+          },
+          "translated": {
+            "top": 197.015625,
+            "left": 102.5,
+            "width": 1000,
+            "height": 600,
+            "bottom": 797.015625,
+            "right": 1102.5
+          }
+        },
+        "zIndex": 150
+      }
+    }
+  ],
+  "widgetData": {
+    "drawer": [
+      {
+        "id": "TitleBarGreeting",
+        "bone": "TitleBarGreeting",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "DocumentTitle",
+        "bone": "DocumentTitle",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "SaveButton",
+        "bone": "SaveButton",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "UndoRedoModule",
+        "bone": "UndoRedoModule",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "FontModule",
+        "bone": "FontModule",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "FontSizeModule",
+        "bone": "FontSizeModule",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "TextDecorationModule",
+        "bone": "TextDecorationModule",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "ListModule",
+        "bone": "ListModule",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "AttachmentModule",
+        "bone": "AttachmentModule",
+        "zIndex": 150,
+        "style": {}
+      }
+    ],
+    "grid": []
+  },
+  "positioningWeight": 0.40,
+  "bonesUsedWeight": 0.60
+}

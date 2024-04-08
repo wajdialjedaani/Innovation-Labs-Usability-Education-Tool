@@ -36,14 +36,16 @@ import TagIcon from "./bones/Heuristic2/Tag";
 import MagicWand from "./bones/Heuristic2/MagicWand";
 
 // wow i did it better here haha
-import { CartButton, ShoesQuickButton, SuitsQuickButton, HatQuickButton, BannerAd, SuitsDropdown, ShoesDropdown, HatsDropdown, AtomicLogo, HeuristicThreeStaticTopBar, HeuristicThreeStaticBody} from "@/components/ui-builder/bones/Heuristic3";
+import { CartButton, ShoesQuickButton, SuitsQuickButton, HatQuickButton, BannerAd, SuitsDropdown, ShoesDropdown, HatsDropdown, AtomicLogo, HeuristicThreeStaticTopBar, HeuristicThreeStaticBody } from "@/components/ui-builder/bones/Heuristic3";
 import { HeuristicFourStaticBody, LogOutEverywhereWarning, DeleteAccountWarning, LogOutEverywhereButton, DeleteAccountButton, ChangeUsernameButton, ChangePasswordButton, NewPasswordInputHeader, ConfirmNewPasswordInputHeader, CurrentPasswordInputHeader, SecuritySubHeader, PasswordSubHeader, InputBox, AccountSettingsHeader, UsernameSubHeader } from "@/components/ui-builder/bones/Heuristic4"
+import { TransferButton, CancelButton, AmountInputBox, AmountSubheader, AccountTransferDropdownTwo, AccountTransferDropdownOne, TransferToSubHeader, TransferFromSubHeader, AccountTransferHeader, TopBarGreeting, TransfersDropdown, SettingsDropdown, AccountsDropdown, NeutronLogo, HeuristicThreeTwoStaticTopBar, HeuristicThreeTwoStaticBody } from "@/components/ui-builder/bones/Heuristic3-2"
+import { SizeFilters, ColorFilters, TypeFilters, TheBaseballer, TheSnapback, TheChickenHat, FilterBar, TheRedditor, TheCowboy, TheEugene } from "@/components/ui-builder/bones/heuristic6";
+import { Heuristic7Static, ColorSelector, QuickToolsPanel, QuickToolsOptions, LayerPanel, } from "./bones/Heuristic7";
+import { DocumentCanvas, TextDecorationModule, FontSizeModule, FontModule, UndoRedoModule, FormatBar, SaveButton, TitleBar, TitleBarGreeting, DocumentTitle, ListModule, AttachmentModule } from "@/components/ui-builder/bones/Heuristic8";
+import { MissingPageErrorReporting, AlertIcon, ErrorLabel, InbodySearchBar } from "@/components/ui-builder/bones/Heuristic9";
+import { FeedbackRequest, ChatBox, OrderSummary, ShiptoSubheader, OrderSummaryHeader, BillToSubheader, BillingInfo, ShippingAddress, ShippingEstimate } from "@/components/ui-builder/bones/Heuristic10";
 
-
-
-// god this is so terrible
-
-export default function BoneSelector({type, drawerMode}){
+export default function BoneSelector({ type, drawerMode }) {
 
   let BoneComponent;
 
@@ -82,9 +84,9 @@ export default function BoneSelector({type, drawerMode}){
       break;
     case "PlaybackBump":
       BoneComponent = <PlaybackBump />
-      break;  
-    
-      // heuristic 2 bones //////////////////////////////////////////////
+      break;
+
+    // heuristic 2 bones //////////////////////////////////////////////
     case "HeuristicTwoStatic":
       BoneComponent = <Heuristic2Static />
       break;
@@ -136,8 +138,8 @@ export default function BoneSelector({type, drawerMode}){
     case "MagicWand":
       BoneComponent = <MagicWand />
       break;
-    
-    // heuristic 3 bones
+
+    // heuristic 4 bones
     case "AtomicLogo":
       BoneComponent = <AtomicLogo />
       break;
@@ -172,7 +174,7 @@ export default function BoneSelector({type, drawerMode}){
       BoneComponent = <CartButton />
       break;
 
-    // heuristic 4 bonez
+    // heuristic 5 bonez
     case "AccountSettingsHeader":
       BoneComponent = <AccountSettingsHeader />
       break;
@@ -181,7 +183,7 @@ export default function BoneSelector({type, drawerMode}){
       break;
     case "UsernameSubHeader":
       BoneComponent = <UsernameSubHeader />
-      break;   
+      break;
     case "PasswordSubHeader":
       BoneComponent = <PasswordSubHeader />
       break;
@@ -214,15 +216,192 @@ export default function BoneSelector({type, drawerMode}){
       break;
     case "LogOutEverywhereWarning":
       BoneComponent = <LogOutEverywhereWarning />
-      break;      
+      break;
     case "HeuristicFourStaticBody":
       BoneComponent = <HeuristicFourStaticBody />
-      break;      
+      break;
+
+    // heuristic 3 
+
+    case "HeuristicThreeTwoStaticTopBar":
+      BoneComponent = <HeuristicThreeTwoStaticTopBar />
+      break;
+    case "HeuristicThreeTwoStaticBody":
+      BoneComponent = <HeuristicThreeTwoStaticBody />
+      break;
+    case "NeutronLogo":
+      BoneComponent = <NeutronLogo />
+      break;
+    case "AccountsDropdown":
+      BoneComponent = <AccountsDropdown />
+      break;
+    case "TransfersDropdown":
+      BoneComponent = <TransfersDropdown />
+      break;
+    case "SettingsDropdown":
+      BoneComponent = <SettingsDropdown />
+      break;
+    case "TopBarGreeting":
+      BoneComponent = <TopBarGreeting />
+      break;
+    case "AccountTransferHeader":
+      BoneComponent = <AccountTransferHeader />
+      break;
+    case "TransferFromSubHeader":
+      BoneComponent = <TransferFromSubHeader />
+      break;
+    case "TransferToSubHeader":
+      BoneComponent = <TransferToSubHeader />
+      break;
+    case "AccountTransferDropdownOne":
+      BoneComponent = <AccountTransferDropdownOne />
+      break;
+    case "AccountTransferDropdownTwo":
+      BoneComponent = <AccountTransferDropdownTwo />
+      break;
+    case "AmountSubheader":
+      BoneComponent = <AmountSubheader />
+      break;
+    case "AmountInputBox":
+      BoneComponent = <AmountInputBox />
+      break;
+    case "CancelButton":
+      BoneComponent = <CancelButton />
+      break;
+    case "TransferButton":
+      BoneComponent = <TransferButton />
+      break;
+
+    case "FilterBar":
+      BoneComponent = <FilterBar />
+      break;
+    case "TheRedditor":
+      BoneComponent = <TheRedditor />
+      break;
+    case "TheCowboy":
+      BoneComponent = <TheCowboy />
+      break;
+    case "TheEugene":
+      BoneComponent = <TheEugene />
+      break;
+    case "TheChickenHat":
+      BoneComponent = <TheChickenHat />
+      break;
+    case "TheSnapback":
+      BoneComponent = <TheSnapback />
+      break;
+    case "TheBaseballer":
+      BoneComponent = <TheBaseballer />
+      break;
+    case "ColorFilters":
+      BoneComponent = <ColorFilters />
+      break;
+    case "TypeFilters":
+      BoneComponent = <TypeFilters />
+      break;
+    case "SizeFilters":
+      BoneComponent = <SizeFilters />
+      break;
+
+    case "Heuristic7Static":
+      BoneComponent = <Heuristic7Static />
+      break;
+    case "ColorSelector":
+      BoneComponent = <ColorSelector />
+      break;
+    case "QuickToolsPanel":
+      BoneComponent = <QuickToolsPanel />
+      break;
+    case "QuickToolsOptions":
+      BoneComponent = <QuickToolsOptions />
+      break;
+    case "LayerPanel":
+      BoneComponent = <LayerPanel />
+      break;
+
+    case "TitleBar":
+      BoneComponent = <TitleBar />
+      break;
+    case "TitleBarGreeting":
+      BoneComponent = <TitleBarGreeting />
+      break;
+    case "DocumentTitle":
+      BoneComponent = <DocumentTitle />
+      break;
+    case "SaveButton":
+      BoneComponent = <SaveButton />
+      break;
+    case "FormatBar":
+      BoneComponent = <FormatBar />
+      break;
+    case "UndoRedoModule":
+      BoneComponent = <UndoRedoModule />
+      break;
+    case "FontModule":
+      BoneComponent = <FontModule />
+      break;
+    case "FontSizeModule":
+      BoneComponent = <FontSizeModule />
+      break;
+    case "TextDecorationModule":
+      BoneComponent = <TextDecorationModule />
+      break;
+    case "ListModule":
+      BoneComponent = <ListModule />
+      break;
+    case "AttachmentModule":
+      BoneComponent = <AttachmentModule />
+      break;
+    case "DocumentCanvas":
+      BoneComponent = <DocumentCanvas />
+      break;
+
+    case "AlertIcon":
+      BoneComponent = <AlertIcon />
+      break;
+    case "ErrorLabel":
+      BoneComponent = <ErrorLabel />
+      break;
+    case "InbodySearchBar":
+      BoneComponent = <InbodySearchBar />
+      break;
+    case "MissingPageErrorReporting":
+      BoneComponent = <MissingPageErrorReporting />
+      break;
+
+    case "OrderSummaryHeader":
+      BoneComponent = <OrderSummaryHeader />
+      break;
+    case "ShiptoSubheader":
+      BoneComponent = <ShiptoSubheader />
+      break;
+    case "BillToSubheader":
+      BoneComponent = <BillToSubheader />
+      break;
+    case "BillingInfo":
+      BoneComponent = <BillingInfo />
+      break;
+    case "ShippingAddress":
+      BoneComponent = <ShippingAddress />
+      break;
+    case "ShippingEstimate":
+      BoneComponent = <ShippingEstimate />
+      break;
+    case "OrderSummary":
+      BoneComponent = <OrderSummary />
+      break;
+    case "ChatBox":
+      BoneComponent = <ChatBox />
+      break;
+    case "FeedbackRequest":
+      BoneComponent = <FeedbackRequest />
+      break;
+
     default:
       BoneComponent = null;
   }
 
-  if (drawerMode){
+  if (drawerMode) {
     return (
       <div className={styles.thumbnailWrapper}>
         {BoneComponent}

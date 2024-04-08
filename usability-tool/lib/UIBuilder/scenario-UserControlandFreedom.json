@@ -1,0 +1,5857 @@
+{
+  "scenarioInformation": {
+    "ftitle": "developer mode",
+    "title": "User Control and Freedom",
+    "description": "One of the key corner stones of user control and freedom is implementing methods for the user to control and back out of critical actions in software.\n\nNeutron Financial, a bank, is currently looking to redesign their e-banking website. They have tasked you with coming up for the design of their account transfer tool. Remember to implement control over the transfer, and to provide a way for the user to escape from the action.",
+    "nextUrl": "/lessons/4",
+    "exitUrl": "/quiz/3"
+  },
+  "solutionGrids": [
+    [
+    {
+      "id": "AccountsDropdown",
+      "bone": "AccountsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 455.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1615.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1744.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 455.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 584.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TopBarGreeting",
+      "bone": "TopBarGreeting",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 1036.953125,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1606.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1753.03125
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 1036.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 1183.03125
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferHeader",
+      "bone": "AccountTransferHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 212.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 161.515625,
+            "right": 2430
+          },
+          "translated": {
+            "top": 212.015625,
+            "left": 280,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 251.515625,
+            "right": 1130
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferFromSubHeader",
+      "bone": "TransferFromSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 262.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 262.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 293.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownOne",
+      "bone": "AccountTransferDropdownOne",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 308.015625,
+        "rect": {
+          "initial": {
+            "top": 178.015625,
+            "left": 1480,
+            "width": 400,
+            "height": 45,
+            "bottom": 223.015625,
+            "right": 1880
+          },
+          "translated": {
+            "top": 308.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 353.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferToSubHeader",
+      "bone": "TransferToSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 372.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 372.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 403.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownTwo",
+      "bone": "AccountTransferDropdownTwo",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 422.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1480,
+            "width": 400,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1880
+          },
+          "translated": {
+            "top": 422.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 467.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountSubheader",
+      "bone": "AmountSubheader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 482.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 482.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 513.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountInputBox",
+      "bone": "AmountInputBox",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 527.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1480,
+            "width": 400,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1880
+          },
+          "translated": {
+            "top": 527.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 572.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferButton",
+      "bone": "TransferButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 1075,
+        "top": 748,
+        "rect": {
+          "initial": {
+            "top": 893,
+            "left": 1060,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 934,
+            "right": 1169.984375
+          },
+          "translated": {
+            "top": 748,
+            "left": 1075,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 789,
+            "right": 1184.984375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "CancelButton",
+      "bone": "CancelButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 964.59375,
+        "top": 748,
+        "rect": {
+          "initial": {
+            "top": 748,
+            "left": 1004.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 789,
+            "right": 1105.40625
+          },
+          "translated": {
+            "top": 748,
+            "left": 964.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 789,
+            "right": 1065.40625
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransfersDropdown",
+      "bone": "TransfersDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 594.765625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 147.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 192.015625,
+            "right": 725.234375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 725.234375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "SettingsDropdown",
+      "bone": "SettingsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 736.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 142.015625,
+            "left": 731.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 848.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 736.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 853.359375
+          }
+        },
+        "zIndex": 150
+      }
+    }
+    ],[
+    {
+      "id": "AccountsDropdown",
+      "bone": "AccountsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 455.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1615.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1744.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 455.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 584.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TopBarGreeting",
+      "bone": "TopBarGreeting",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 1036.953125,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1606.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1753.03125
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 1036.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 1183.03125
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferHeader",
+      "bone": "AccountTransferHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 212.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 161.515625,
+            "right": 2430
+          },
+          "translated": {
+            "top": 212.015625,
+            "left": 280,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 251.515625,
+            "right": 1130
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferFromSubHeader",
+      "bone": "TransferFromSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 262.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 262.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 293.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownOne",
+      "bone": "AccountTransferDropdownOne",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 308.015625,
+        "rect": {
+          "initial": {
+            "top": 178.015625,
+            "left": 1480,
+            "width": 400,
+            "height": 45,
+            "bottom": 223.015625,
+            "right": 1880
+          },
+          "translated": {
+            "top": 308.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 353.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferToSubHeader",
+      "bone": "TransferToSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 372.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 372.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 403.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountSubheader",
+      "bone": "AmountSubheader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 482.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 482.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 513.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountInputBox",
+      "bone": "AmountInputBox",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 527.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1480,
+            "width": 400,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1880
+          },
+          "translated": {
+            "top": 527.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 572.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransfersDropdown",
+      "bone": "TransfersDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 594.765625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 147.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 192.015625,
+            "right": 725.234375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 725.234375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "SettingsDropdown",
+      "bone": "SettingsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 736.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 142.015625,
+            "left": 731.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 848.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 736.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 853.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownTwo",
+      "bone": "AccountTransferDropdownTwo",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 422.015625,
+        "rect": {
+          "initial": {
+            "top": 422.015625,
+            "left": 290,
+            "width": 400,
+            "height": 45,
+            "bottom": 467.015625,
+            "right": 690
+          },
+          "translated": {
+            "top": 422.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 467.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "CancelButton",
+      "bone": "CancelButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 1079.59375,
+        "top": 748,
+        "rect": {
+          "initial": {
+            "top": 748,
+            "left": 964.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 789,
+            "right": 1065.40625
+          },
+          "translated": {
+            "top": 748,
+            "left": 1079.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 789,
+            "right": 1180.40625
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferButton",
+      "bone": "TransferButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 960,
+        "top": 748,
+        "rect": {
+          "initial": {
+            "top": 738,
+            "left": 850,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 779,
+            "right": 959.984375
+          },
+          "translated": {
+            "top": 748,
+            "left": 960,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 789,
+            "right": 1069.984375
+          }
+        },
+        "zIndex": 150
+      }
+    }
+  ],[
+    {
+      "id": "AccountsDropdown",
+      "bone": "AccountsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 455.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1615.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1744.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 455.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 584.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TopBarGreeting",
+      "bone": "TopBarGreeting",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 1036.953125,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1606.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1753.03125
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 1036.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 1183.03125
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferHeader",
+      "bone": "AccountTransferHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 212.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 161.515625,
+            "right": 2430
+          },
+          "translated": {
+            "top": 212.015625,
+            "left": 280,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 251.515625,
+            "right": 1130
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferFromSubHeader",
+      "bone": "TransferFromSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 262.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 262.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 293.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownOne",
+      "bone": "AccountTransferDropdownOne",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 308.015625,
+        "rect": {
+          "initial": {
+            "top": 178.015625,
+            "left": 1480,
+            "width": 400,
+            "height": 45,
+            "bottom": 223.015625,
+            "right": 1880
+          },
+          "translated": {
+            "top": 308.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 353.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferToSubHeader",
+      "bone": "TransferToSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 372.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 372.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 403.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountSubheader",
+      "bone": "AmountSubheader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 482.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 482.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 513.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountInputBox",
+      "bone": "AmountInputBox",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 527.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1480,
+            "width": 400,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1880
+          },
+          "translated": {
+            "top": 527.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 572.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransfersDropdown",
+      "bone": "TransfersDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 594.765625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 147.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 192.015625,
+            "right": 725.234375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 725.234375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "SettingsDropdown",
+      "bone": "SettingsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 736.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 142.015625,
+            "left": 731.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 848.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 736.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 853.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownTwo",
+      "bone": "AccountTransferDropdownTwo",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 422.015625,
+        "rect": {
+          "initial": {
+            "top": 422.015625,
+            "left": 290,
+            "width": 400,
+            "height": 45,
+            "bottom": 467.015625,
+            "right": 690
+          },
+          "translated": {
+            "top": 422.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 467.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferButton",
+      "bone": "TransferButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 825,
+        "top": 628,
+        "rect": {
+          "initial": {
+            "top": 638,
+            "left": 730,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 679,
+            "right": 839.984375
+          },
+          "translated": {
+            "top": 628,
+            "left": 825,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 669,
+            "right": 934.984375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "CancelButton",
+      "bone": "CancelButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 714.59375,
+        "top": 628,
+        "rect": {
+          "initial": {
+            "top": 628,
+            "left": 689.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 669,
+            "right": 790.40625
+          },
+          "translated": {
+            "top": 628,
+            "left": 714.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 669,
+            "right": 815.40625
+          }
+        },
+        "zIndex": 150
+      }
+    }
+  ],[
+    {
+      "id": "AccountsDropdown",
+      "bone": "AccountsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 455.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1615.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1744.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 455.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 584.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TopBarGreeting",
+      "bone": "TopBarGreeting",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 1036.953125,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1606.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1753.03125
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 1036.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 1183.03125
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferHeader",
+      "bone": "AccountTransferHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 212.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 161.515625,
+            "right": 2430
+          },
+          "translated": {
+            "top": 212.015625,
+            "left": 280,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 251.515625,
+            "right": 1130
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferFromSubHeader",
+      "bone": "TransferFromSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 262.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 262.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 293.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownOne",
+      "bone": "AccountTransferDropdownOne",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 308.015625,
+        "rect": {
+          "initial": {
+            "top": 178.015625,
+            "left": 1480,
+            "width": 400,
+            "height": 45,
+            "bottom": 223.015625,
+            "right": 1880
+          },
+          "translated": {
+            "top": 308.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 353.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferToSubHeader",
+      "bone": "TransferToSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 372.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 372.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 403.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountSubheader",
+      "bone": "AmountSubheader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 482.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 482.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 513.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountInputBox",
+      "bone": "AmountInputBox",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 527.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1480,
+            "width": 400,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1880
+          },
+          "translated": {
+            "top": 527.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 572.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransfersDropdown",
+      "bone": "TransfersDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 594.765625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 147.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 192.015625,
+            "right": 725.234375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 725.234375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "SettingsDropdown",
+      "bone": "SettingsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 736.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 142.015625,
+            "left": 731.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 848.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 736.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 853.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownTwo",
+      "bone": "AccountTransferDropdownTwo",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 422.015625,
+        "rect": {
+          "initial": {
+            "top": 422.015625,
+            "left": 290,
+            "width": 400,
+            "height": 45,
+            "bottom": 467.015625,
+            "right": 690
+          },
+          "translated": {
+            "top": 422.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 467.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "CancelButton",
+      "bone": "CancelButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 834.59375,
+        "top": 628,
+        "rect": {
+          "initial": {
+            "top": 628,
+            "left": 714.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 669,
+            "right": 815.40625
+          },
+          "translated": {
+            "top": 628,
+            "left": 834.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 669,
+            "right": 935.40625
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferButton",
+      "bone": "TransferButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 715,
+        "top": 628,
+        "rect": {
+          "initial": {
+            "top": 628,
+            "left": 825,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 669,
+            "right": 934.984375
+          },
+          "translated": {
+            "top": 628,
+            "left": 715,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 669,
+            "right": 824.984375
+          }
+        },
+        "zIndex": 150
+      }
+    }
+  ],[
+    {
+      "id": "AccountsDropdown",
+      "bone": "AccountsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 455.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1615.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1744.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 455.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 584.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TopBarGreeting",
+      "bone": "TopBarGreeting",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 1036.953125,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1606.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1753.03125
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 1036.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 1183.03125
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferHeader",
+      "bone": "AccountTransferHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 212.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 161.515625,
+            "right": 2430
+          },
+          "translated": {
+            "top": 212.015625,
+            "left": 280,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 251.515625,
+            "right": 1130
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferFromSubHeader",
+      "bone": "TransferFromSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 262.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 262.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 293.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferToSubHeader",
+      "bone": "TransferToSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 372.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 372.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 403.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountSubheader",
+      "bone": "AmountSubheader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 482.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 482.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 513.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountInputBox",
+      "bone": "AmountInputBox",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 527.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1480,
+            "width": 400,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1880
+          },
+          "translated": {
+            "top": 527.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 572.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransfersDropdown",
+      "bone": "TransfersDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 594.765625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 147.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 192.015625,
+            "right": 725.234375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 725.234375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "SettingsDropdown",
+      "bone": "SettingsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 736.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 142.015625,
+            "left": 731.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 848.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 736.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 853.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "CancelButton",
+      "bone": "CancelButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 834.59375,
+        "top": 628,
+        "rect": {
+          "initial": {
+            "top": 628,
+            "left": 714.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 669,
+            "right": 815.40625
+          },
+          "translated": {
+            "top": 628,
+            "left": 834.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 669,
+            "right": 935.40625
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferButton",
+      "bone": "TransferButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 715,
+        "top": 628,
+        "rect": {
+          "initial": {
+            "top": 628,
+            "left": 825,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 669,
+            "right": 934.984375
+          },
+          "translated": {
+            "top": 628,
+            "left": 715,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 669,
+            "right": 824.984375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownTwo",
+      "bone": "AccountTransferDropdownTwo",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 312.015625,
+        "rect": {
+          "initial": {
+            "top": 422.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 467.015625,
+            "right": 680
+          },
+          "translated": {
+            "top": 312.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 357.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownOne",
+      "bone": "AccountTransferDropdownOne",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 423.015625,
+        "rect": {
+          "initial": {
+            "top": 518.015625,
+            "left": 285,
+            "width": 400,
+            "height": 45,
+            "bottom": 563.015625,
+            "right": 685
+          },
+          "translated": {
+            "top": 423.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 468.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    }
+  ],
+  [
+    {
+      "id": "AccountsDropdown",
+      "bone": "AccountsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 455.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1615.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1744.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 455.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 584.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TopBarGreeting",
+      "bone": "TopBarGreeting",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 1036.953125,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1606.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1753.03125
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 1036.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 1183.03125
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferHeader",
+      "bone": "AccountTransferHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 212.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 161.515625,
+            "right": 2430
+          },
+          "translated": {
+            "top": 212.015625,
+            "left": 280,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 251.515625,
+            "right": 1130
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferFromSubHeader",
+      "bone": "TransferFromSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 262.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 262.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 293.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferToSubHeader",
+      "bone": "TransferToSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 372.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 372.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 403.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountSubheader",
+      "bone": "AmountSubheader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 482.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 482.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 513.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountInputBox",
+      "bone": "AmountInputBox",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 527.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1480,
+            "width": 400,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1880
+          },
+          "translated": {
+            "top": 527.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 572.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransfersDropdown",
+      "bone": "TransfersDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 594.765625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 147.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 192.015625,
+            "right": 725.234375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 725.234375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "SettingsDropdown",
+      "bone": "SettingsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 736.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 142.015625,
+            "left": 731.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 848.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 736.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 853.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownTwo",
+      "bone": "AccountTransferDropdownTwo",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 312.015625,
+        "rect": {
+          "initial": {
+            "top": 422.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 467.015625,
+            "right": 680
+          },
+          "translated": {
+            "top": 312.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 357.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownOne",
+      "bone": "AccountTransferDropdownOne",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 423.015625,
+        "rect": {
+          "initial": {
+            "top": 518.015625,
+            "left": 285,
+            "width": 400,
+            "height": 45,
+            "bottom": 563.015625,
+            "right": 685
+          },
+          "translated": {
+            "top": 423.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 468.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferButton",
+      "bone": "TransferButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 825,
+        "top": 633,
+        "rect": {
+          "initial": {
+            "top": 633,
+            "left": 870,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 674,
+            "right": 979.984375
+          },
+          "translated": {
+            "top": 633,
+            "left": 825,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 674,
+            "right": 934.984375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "CancelButton",
+      "bone": "CancelButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 714.59375,
+        "top": 633,
+        "rect": {
+          "initial": {
+            "top": 633,
+            "left": 734.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 674,
+            "right": 835.40625
+          },
+          "translated": {
+            "top": 633,
+            "left": 714.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 674,
+            "right": 815.40625
+          }
+        },
+        "zIndex": 150
+      }
+    }
+  ],[
+    {
+      "id": "AccountsDropdown",
+      "bone": "AccountsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 455.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1615.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1744.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 455.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 584.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TopBarGreeting",
+      "bone": "TopBarGreeting",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 1036.953125,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1606.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1753.03125
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 1036.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 1183.03125
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferHeader",
+      "bone": "AccountTransferHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 212.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 161.515625,
+            "right": 2430
+          },
+          "translated": {
+            "top": 212.015625,
+            "left": 280,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 251.515625,
+            "right": 1130
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferFromSubHeader",
+      "bone": "TransferFromSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 262.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 262.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 293.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferToSubHeader",
+      "bone": "TransferToSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 372.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 372.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 403.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountSubheader",
+      "bone": "AmountSubheader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 482.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 482.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 513.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountInputBox",
+      "bone": "AmountInputBox",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 527.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1480,
+            "width": 400,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1880
+          },
+          "translated": {
+            "top": 527.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 572.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransfersDropdown",
+      "bone": "TransfersDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 594.765625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 147.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 192.015625,
+            "right": 725.234375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 725.234375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "SettingsDropdown",
+      "bone": "SettingsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 736.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 142.015625,
+            "left": 731.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 848.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 736.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 853.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownTwo",
+      "bone": "AccountTransferDropdownTwo",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 312.015625,
+        "rect": {
+          "initial": {
+            "top": 422.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 467.015625,
+            "right": 680
+          },
+          "translated": {
+            "top": 312.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 357.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownOne",
+      "bone": "AccountTransferDropdownOne",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 423.015625,
+        "rect": {
+          "initial": {
+            "top": 518.015625,
+            "left": 285,
+            "width": 400,
+            "height": 45,
+            "bottom": 563.015625,
+            "right": 685
+          },
+          "translated": {
+            "top": 423.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 468.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferButton",
+      "bone": "TransferButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 1070,
+        "top": 743,
+        "rect": {
+          "initial": {
+            "top": 633,
+            "left": 825,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 674,
+            "right": 934.984375
+          },
+          "translated": {
+            "top": 743,
+            "left": 1070,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 784,
+            "right": 1179.984375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "CancelButton",
+      "bone": "CancelButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 964.59375,
+        "top": 743,
+        "rect": {
+          "initial": {
+            "top": 748,
+            "left": 964.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 789,
+            "right": 1065.40625
+          },
+          "translated": {
+            "top": 743,
+            "left": 964.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 784,
+            "right": 1065.40625
+          }
+        },
+        "zIndex": 150
+      }
+    }
+  ],[
+    {
+      "id": "AccountsDropdown",
+      "bone": "AccountsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 455.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1615.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1744.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 455.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 584.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TopBarGreeting",
+      "bone": "TopBarGreeting",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 1036.953125,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1606.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1753.03125
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 1036.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 1183.03125
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferHeader",
+      "bone": "AccountTransferHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 212.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 161.515625,
+            "right": 2430
+          },
+          "translated": {
+            "top": 212.015625,
+            "left": 280,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 251.515625,
+            "right": 1130
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferFromSubHeader",
+      "bone": "TransferFromSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 262.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 262.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 293.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferToSubHeader",
+      "bone": "TransferToSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 372.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 372.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 403.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountSubheader",
+      "bone": "AmountSubheader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 482.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 482.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 513.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountInputBox",
+      "bone": "AmountInputBox",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 527.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1480,
+            "width": 400,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1880
+          },
+          "translated": {
+            "top": 527.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 572.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransfersDropdown",
+      "bone": "TransfersDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 594.765625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 147.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 192.015625,
+            "right": 725.234375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 725.234375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "SettingsDropdown",
+      "bone": "SettingsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 736.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 142.015625,
+            "left": 731.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 848.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 736.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 853.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownTwo",
+      "bone": "AccountTransferDropdownTwo",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 312.015625,
+        "rect": {
+          "initial": {
+            "top": 422.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 467.015625,
+            "right": 680
+          },
+          "translated": {
+            "top": 312.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 357.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownOne",
+      "bone": "AccountTransferDropdownOne",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 423.015625,
+        "rect": {
+          "initial": {
+            "top": 518.015625,
+            "left": 285,
+            "width": 400,
+            "height": 45,
+            "bottom": 563.015625,
+            "right": 685
+          },
+          "translated": {
+            "top": 423.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 468.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "CancelButton",
+      "bone": "CancelButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 1084.59375,
+        "top": 748,
+        "rect": {
+          "initial": {
+            "top": 743,
+            "left": 964.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 784,
+            "right": 1065.40625
+          },
+          "translated": {
+            "top": 748,
+            "left": 1084.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 789,
+            "right": 1185.40625
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferButton",
+      "bone": "TransferButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 965,
+        "top": 748,
+        "rect": {
+          "initial": {
+            "top": 733,
+            "left": 870,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 774,
+            "right": 979.984375
+          },
+          "translated": {
+            "top": 748,
+            "left": 965,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 789,
+            "right": 1074.984375
+          }
+        },
+        "zIndex": 150
+      }
+    }
+  ],[
+    {
+      "id": "AccountsDropdown",
+      "bone": "AccountsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 455.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1615.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1744.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 455.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 584.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TopBarGreeting",
+      "bone": "TopBarGreeting",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 1036.953125,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1606.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1753.03125
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 1036.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 1183.03125
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferHeader",
+      "bone": "AccountTransferHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 212.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 161.515625,
+            "right": 2430
+          },
+          "translated": {
+            "top": 212.015625,
+            "left": 280,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 251.515625,
+            "right": 1130
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountSubheader",
+      "bone": "AmountSubheader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 482.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 482.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 513.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountInputBox",
+      "bone": "AmountInputBox",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 527.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1480,
+            "width": 400,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1880
+          },
+          "translated": {
+            "top": 527.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 572.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransfersDropdown",
+      "bone": "TransfersDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 594.765625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 147.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 192.015625,
+            "right": 725.234375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 725.234375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "SettingsDropdown",
+      "bone": "SettingsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 736.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 142.015625,
+            "left": 731.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 848.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 736.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 853.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownTwo",
+      "bone": "AccountTransferDropdownTwo",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 312.015625,
+        "rect": {
+          "initial": {
+            "top": 422.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 467.015625,
+            "right": 680
+          },
+          "translated": {
+            "top": 312.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 357.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownOne",
+      "bone": "AccountTransferDropdownOne",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 423.015625,
+        "rect": {
+          "initial": {
+            "top": 518.015625,
+            "left": 285,
+            "width": 400,
+            "height": 45,
+            "bottom": 563.015625,
+            "right": 685
+          },
+          "translated": {
+            "top": 423.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 468.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "CancelButton",
+      "bone": "CancelButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 1084.59375,
+        "top": 748,
+        "rect": {
+          "initial": {
+            "top": 743,
+            "left": 964.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 784,
+            "right": 1065.40625
+          },
+          "translated": {
+            "top": 748,
+            "left": 1084.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 789,
+            "right": 1185.40625
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferButton",
+      "bone": "TransferButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 965,
+        "top": 748,
+        "rect": {
+          "initial": {
+            "top": 733,
+            "left": 870,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 774,
+            "right": 979.984375
+          },
+          "translated": {
+            "top": 748,
+            "left": 965,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 789,
+            "right": 1074.984375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferFromSubHeader",
+      "bone": "TransferFromSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 377.015625,
+        "rect": {
+          "initial": {
+            "top": 262.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 293.015625,
+            "right": 930
+          },
+          "translated": {
+            "top": 377.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 408.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferToSubHeader",
+      "bone": "TransferToSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 262.015625,
+        "rect": {
+          "initial": {
+            "top": 247.015625,
+            "left": 380,
+            "width": 650,
+            "height": 31,
+            "bottom": 278.015625,
+            "right": 1030
+          },
+          "translated": {
+            "top": 262.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 293.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    }
+  ],[
+    {
+      "id": "AccountsDropdown",
+      "bone": "AccountsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 455.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1615.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1744.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 455.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 584.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TopBarGreeting",
+      "bone": "TopBarGreeting",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 1036.953125,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1606.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1753.03125
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 1036.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 1183.03125
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferHeader",
+      "bone": "AccountTransferHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 212.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 161.515625,
+            "right": 2430
+          },
+          "translated": {
+            "top": 212.015625,
+            "left": 280,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 251.515625,
+            "right": 1130
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountSubheader",
+      "bone": "AmountSubheader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 482.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 482.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 513.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountInputBox",
+      "bone": "AmountInputBox",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 527.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1480,
+            "width": 400,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1880
+          },
+          "translated": {
+            "top": 527.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 572.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransfersDropdown",
+      "bone": "TransfersDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 594.765625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 147.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 192.015625,
+            "right": 725.234375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 725.234375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "SettingsDropdown",
+      "bone": "SettingsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 736.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 142.015625,
+            "left": 731.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 848.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 736.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 853.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownTwo",
+      "bone": "AccountTransferDropdownTwo",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 312.015625,
+        "rect": {
+          "initial": {
+            "top": 422.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 467.015625,
+            "right": 680
+          },
+          "translated": {
+            "top": 312.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 357.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownOne",
+      "bone": "AccountTransferDropdownOne",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 423.015625,
+        "rect": {
+          "initial": {
+            "top": 518.015625,
+            "left": 285,
+            "width": 400,
+            "height": 45,
+            "bottom": 563.015625,
+            "right": 685
+          },
+          "translated": {
+            "top": 423.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 468.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferFromSubHeader",
+      "bone": "TransferFromSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 377.015625,
+        "rect": {
+          "initial": {
+            "top": 262.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 293.015625,
+            "right": 930
+          },
+          "translated": {
+            "top": 377.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 408.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferToSubHeader",
+      "bone": "TransferToSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 262.015625,
+        "rect": {
+          "initial": {
+            "top": 247.015625,
+            "left": 380,
+            "width": 650,
+            "height": 31,
+            "bottom": 278.015625,
+            "right": 1030
+          },
+          "translated": {
+            "top": 262.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 293.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferButton",
+      "bone": "TransferButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 1075,
+        "top": 748,
+        "rect": {
+          "initial": {
+            "top": 718,
+            "left": 1140,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 759,
+            "right": 1249.984375
+          },
+          "translated": {
+            "top": 748,
+            "left": 1075,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 789,
+            "right": 1184.984375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "CancelButton",
+      "bone": "CancelButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 964.59375,
+        "top": 748,
+        "rect": {
+          "initial": {
+            "top": 748,
+            "left": 999.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 789,
+            "right": 1100.40625
+          },
+          "translated": {
+            "top": 748,
+            "left": 964.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 789,
+            "right": 1065.40625
+          }
+        },
+        "zIndex": 150
+      }
+    }
+  ],[
+    {
+      "id": "AccountsDropdown",
+      "bone": "AccountsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 455.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1615.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1744.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 455.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 584.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TopBarGreeting",
+      "bone": "TopBarGreeting",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 1036.953125,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1606.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1753.03125
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 1036.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 1183.03125
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferHeader",
+      "bone": "AccountTransferHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 212.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 161.515625,
+            "right": 2430
+          },
+          "translated": {
+            "top": 212.015625,
+            "left": 280,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 251.515625,
+            "right": 1130
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountSubheader",
+      "bone": "AmountSubheader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 482.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 482.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 513.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountInputBox",
+      "bone": "AmountInputBox",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 527.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1480,
+            "width": 400,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1880
+          },
+          "translated": {
+            "top": 527.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 572.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransfersDropdown",
+      "bone": "TransfersDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 594.765625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 147.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 192.015625,
+            "right": 725.234375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 725.234375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "SettingsDropdown",
+      "bone": "SettingsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 736.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 142.015625,
+            "left": 731.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 848.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 736.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 853.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownTwo",
+      "bone": "AccountTransferDropdownTwo",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 312.015625,
+        "rect": {
+          "initial": {
+            "top": 422.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 467.015625,
+            "right": 680
+          },
+          "translated": {
+            "top": 312.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 357.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownOne",
+      "bone": "AccountTransferDropdownOne",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 423.015625,
+        "rect": {
+          "initial": {
+            "top": 518.015625,
+            "left": 285,
+            "width": 400,
+            "height": 45,
+            "bottom": 563.015625,
+            "right": 685
+          },
+          "translated": {
+            "top": 423.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 468.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferFromSubHeader",
+      "bone": "TransferFromSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 377.015625,
+        "rect": {
+          "initial": {
+            "top": 262.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 293.015625,
+            "right": 930
+          },
+          "translated": {
+            "top": 377.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 408.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferToSubHeader",
+      "bone": "TransferToSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 262.015625,
+        "rect": {
+          "initial": {
+            "top": 247.015625,
+            "left": 380,
+            "width": 650,
+            "height": 31,
+            "bottom": 278.015625,
+            "right": 1030
+          },
+          "translated": {
+            "top": 262.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 293.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferButton",
+      "bone": "TransferButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 820,
+        "top": 613,
+        "rect": {
+          "initial": {
+            "top": 748,
+            "left": 1075,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 789,
+            "right": 1184.984375
+          },
+          "translated": {
+            "top": 613,
+            "left": 820,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 654,
+            "right": 929.984375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "CancelButton",
+      "bone": "CancelButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 709.59375,
+        "top": 613,
+        "rect": {
+          "initial": {
+            "top": 613,
+            "left": 679.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 654,
+            "right": 780.40625
+          },
+          "translated": {
+            "top": 613,
+            "left": 709.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 654,
+            "right": 810.40625
+          }
+        },
+        "zIndex": 150
+      }
+    }
+  ],[
+    {
+      "id": "AccountsDropdown",
+      "bone": "AccountsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 455.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1615.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1744.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 455.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 584.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TopBarGreeting",
+      "bone": "TopBarGreeting",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 1036.953125,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1606.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1753.03125
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 1036.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 1183.03125
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferHeader",
+      "bone": "AccountTransferHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 212.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 161.515625,
+            "right": 2430
+          },
+          "translated": {
+            "top": 212.015625,
+            "left": 280,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 251.515625,
+            "right": 1130
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountSubheader",
+      "bone": "AmountSubheader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 482.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 482.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 513.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountInputBox",
+      "bone": "AmountInputBox",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 527.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1480,
+            "width": 400,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1880
+          },
+          "translated": {
+            "top": 527.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 572.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransfersDropdown",
+      "bone": "TransfersDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 594.765625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 147.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 192.015625,
+            "right": 725.234375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 725.234375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "SettingsDropdown",
+      "bone": "SettingsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 736.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 142.015625,
+            "left": 731.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 848.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 736.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 853.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferFromSubHeader",
+      "bone": "TransferFromSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 377.015625,
+        "rect": {
+          "initial": {
+            "top": 262.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 293.015625,
+            "right": 930
+          },
+          "translated": {
+            "top": 377.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 408.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferToSubHeader",
+      "bone": "TransferToSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 262.015625,
+        "rect": {
+          "initial": {
+            "top": 247.015625,
+            "left": 380,
+            "width": 650,
+            "height": 31,
+            "bottom": 278.015625,
+            "right": 1030
+          },
+          "translated": {
+            "top": 262.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 293.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferButton",
+      "bone": "TransferButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 820,
+        "top": 613,
+        "rect": {
+          "initial": {
+            "top": 748,
+            "left": 1075,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 789,
+            "right": 1184.984375
+          },
+          "translated": {
+            "top": 613,
+            "left": 820,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 654,
+            "right": 929.984375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "CancelButton",
+      "bone": "CancelButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 709.59375,
+        "top": 613,
+        "rect": {
+          "initial": {
+            "top": 613,
+            "left": 679.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 654,
+            "right": 780.40625
+          },
+          "translated": {
+            "top": 613,
+            "left": 709.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 654,
+            "right": 810.40625
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownOne",
+      "bone": "AccountTransferDropdownOne",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 313.015625,
+        "rect": {
+          "initial": {
+            "top": 423.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 468.015625,
+            "right": 680
+          },
+          "translated": {
+            "top": 313.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 358.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownTwo",
+      "bone": "AccountTransferDropdownTwo",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 427.015625,
+        "rect": {
+          "initial": {
+            "top": 477.015625,
+            "left": 260,
+            "width": 400,
+            "height": 45,
+            "bottom": 522.015625,
+            "right": 660
+          },
+          "translated": {
+            "top": 427.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 472.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    }
+  ],[
+    {
+      "id": "AccountsDropdown",
+      "bone": "AccountsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 455.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1615.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1744.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 455.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 584.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TopBarGreeting",
+      "bone": "TopBarGreeting",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 1036.953125,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1606.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1753.03125
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 1036.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 1183.03125
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferHeader",
+      "bone": "AccountTransferHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 212.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 161.515625,
+            "right": 2430
+          },
+          "translated": {
+            "top": 212.015625,
+            "left": 280,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 251.515625,
+            "right": 1130
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountSubheader",
+      "bone": "AmountSubheader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 482.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 482.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 513.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountInputBox",
+      "bone": "AmountInputBox",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 527.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1480,
+            "width": 400,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1880
+          },
+          "translated": {
+            "top": 527.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 572.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransfersDropdown",
+      "bone": "TransfersDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 594.765625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 147.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 192.015625,
+            "right": 725.234375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 725.234375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "SettingsDropdown",
+      "bone": "SettingsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 736.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 142.015625,
+            "left": 731.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 848.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 736.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 853.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferFromSubHeader",
+      "bone": "TransferFromSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 377.015625,
+        "rect": {
+          "initial": {
+            "top": 262.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 293.015625,
+            "right": 930
+          },
+          "translated": {
+            "top": 377.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 408.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferToSubHeader",
+      "bone": "TransferToSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 262.015625,
+        "rect": {
+          "initial": {
+            "top": 247.015625,
+            "left": 380,
+            "width": 650,
+            "height": 31,
+            "bottom": 278.015625,
+            "right": 1030
+          },
+          "translated": {
+            "top": 262.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 293.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownOne",
+      "bone": "AccountTransferDropdownOne",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 313.015625,
+        "rect": {
+          "initial": {
+            "top": 423.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 468.015625,
+            "right": 680
+          },
+          "translated": {
+            "top": 313.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 358.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownTwo",
+      "bone": "AccountTransferDropdownTwo",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 427.015625,
+        "rect": {
+          "initial": {
+            "top": 477.015625,
+            "left": 260,
+            "width": 400,
+            "height": 45,
+            "bottom": 522.015625,
+            "right": 660
+          },
+          "translated": {
+            "top": 427.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 472.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "CancelButton",
+      "bone": "CancelButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 829.59375,
+        "top": 613,
+        "rect": {
+          "initial": {
+            "top": 613,
+            "left": 709.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 654,
+            "right": 810.40625
+          },
+          "translated": {
+            "top": 613,
+            "left": 829.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 654,
+            "right": 930.40625
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferButton",
+      "bone": "TransferButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 710,
+        "top": 613,
+        "rect": {
+          "initial": {
+            "top": 618,
+            "left": 645,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 659,
+            "right": 754.984375
+          },
+          "translated": {
+            "top": 613,
+            "left": 710,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 654,
+            "right": 819.984375
+          }
+        },
+        "zIndex": 150
+      }
+    }
+  ],[
+    {
+      "id": "AccountsDropdown",
+      "bone": "AccountsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 455.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1615.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1744.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 455.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 584.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TopBarGreeting",
+      "bone": "TopBarGreeting",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 1036.953125,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1606.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1753.03125
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 1036.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 1183.03125
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferHeader",
+      "bone": "AccountTransferHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 212.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 161.515625,
+            "right": 2430
+          },
+          "translated": {
+            "top": 212.015625,
+            "left": 280,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 251.515625,
+            "right": 1130
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountSubheader",
+      "bone": "AmountSubheader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 482.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 482.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 513.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountInputBox",
+      "bone": "AmountInputBox",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 527.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1480,
+            "width": 400,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1880
+          },
+          "translated": {
+            "top": 527.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 572.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransfersDropdown",
+      "bone": "TransfersDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 594.765625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 147.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 192.015625,
+            "right": 725.234375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 725.234375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "SettingsDropdown",
+      "bone": "SettingsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 736.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 142.015625,
+            "left": 731.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 848.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 736.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 853.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferFromSubHeader",
+      "bone": "TransferFromSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 377.015625,
+        "rect": {
+          "initial": {
+            "top": 262.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 293.015625,
+            "right": 930
+          },
+          "translated": {
+            "top": 377.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 408.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferToSubHeader",
+      "bone": "TransferToSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 262.015625,
+        "rect": {
+          "initial": {
+            "top": 247.015625,
+            "left": 380,
+            "width": 650,
+            "height": 31,
+            "bottom": 278.015625,
+            "right": 1030
+          },
+          "translated": {
+            "top": 262.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 293.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownOne",
+      "bone": "AccountTransferDropdownOne",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 313.015625,
+        "rect": {
+          "initial": {
+            "top": 423.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 468.015625,
+            "right": 680
+          },
+          "translated": {
+            "top": 313.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 358.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownTwo",
+      "bone": "AccountTransferDropdownTwo",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 427.015625,
+        "rect": {
+          "initial": {
+            "top": 477.015625,
+            "left": 260,
+            "width": 400,
+            "height": 45,
+            "bottom": 522.015625,
+            "right": 660
+          },
+          "translated": {
+            "top": 427.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 472.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "CancelButton",
+      "bone": "CancelButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 1084.59375,
+        "top": 753,
+        "rect": {
+          "initial": {
+            "top": 613,
+            "left": 829.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 654,
+            "right": 930.40625
+          },
+          "translated": {
+            "top": 753,
+            "left": 1084.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 794,
+            "right": 1185.40625
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferButton",
+      "bone": "TransferButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 970,
+        "top": 753,
+        "rect": {
+          "initial": {
+            "top": 613,
+            "left": 710,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 654,
+            "right": 819.984375
+          },
+          "translated": {
+            "top": 753,
+            "left": 970,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 794,
+            "right": 1079.984375
+          }
+        },
+        "zIndex": 150
+      }
+    }
+  ],[
+    {
+      "id": "AccountsDropdown",
+      "bone": "AccountsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 455.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1615.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1744.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 455.640625,
+            "width": 128.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 584.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TopBarGreeting",
+      "bone": "TopBarGreeting",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 1036.953125,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1606.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1753.03125
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 1036.953125,
+            "width": 146.078125,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 1183.03125
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferHeader",
+      "bone": "AccountTransferHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 212.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 161.515625,
+            "right": 2430
+          },
+          "translated": {
+            "top": 212.015625,
+            "left": 280,
+            "width": 850,
+            "height": 39.5,
+            "bottom": 251.515625,
+            "right": 1130
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountSubheader",
+      "bone": "AmountSubheader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 482.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1580,
+            "width": 650,
+            "height": 31,
+            "bottom": 153.015625,
+            "right": 2230
+          },
+          "translated": {
+            "top": 482.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 513.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AmountInputBox",
+      "bone": "AmountInputBox",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 527.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1480,
+            "width": 400,
+            "height": 45,
+            "bottom": 167.015625,
+            "right": 1880
+          },
+          "translated": {
+            "top": 527.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 572.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransfersDropdown",
+      "bone": "TransfersDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 594.765625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 147.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 192.015625,
+            "right": 725.234375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 594.765625,
+            "width": 130.46875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 725.234375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "SettingsDropdown",
+      "bone": "SettingsDropdown",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 736.640625,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 142.015625,
+            "left": 731.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 848.359375
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 736.640625,
+            "width": 116.71875,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 853.359375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferFromSubHeader",
+      "bone": "TransferFromSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 377.015625,
+        "rect": {
+          "initial": {
+            "top": 262.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 293.015625,
+            "right": 930
+          },
+          "translated": {
+            "top": 377.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 408.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferToSubHeader",
+      "bone": "TransferToSubHeader",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 262.015625,
+        "rect": {
+          "initial": {
+            "top": 247.015625,
+            "left": 380,
+            "width": 650,
+            "height": 31,
+            "bottom": 278.015625,
+            "right": 1030
+          },
+          "translated": {
+            "top": 262.015625,
+            "left": 280,
+            "width": 650,
+            "height": 31,
+            "bottom": 293.015625,
+            "right": 930
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownOne",
+      "bone": "AccountTransferDropdownOne",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 313.015625,
+        "rect": {
+          "initial": {
+            "top": 423.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 468.015625,
+            "right": 680
+          },
+          "translated": {
+            "top": 313.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 358.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "AccountTransferDropdownTwo",
+      "bone": "AccountTransferDropdownTwo",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 280,
+        "top": 427.015625,
+        "rect": {
+          "initial": {
+            "top": 477.015625,
+            "left": 260,
+            "width": 400,
+            "height": 45,
+            "bottom": 522.015625,
+            "right": 660
+          },
+          "translated": {
+            "top": 427.015625,
+            "left": 280,
+            "width": 400,
+            "height": 45,
+            "bottom": 472.015625,
+            "right": 680
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "TransferButton",
+      "bone": "TransferButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 1075,
+        "top": 748,
+        "rect": {
+          "initial": {
+            "top": 753,
+            "left": 970,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 794,
+            "right": 1079.984375
+          },
+          "translated": {
+            "top": 748,
+            "left": 1075,
+            "width": 109.984375,
+            "height": 41,
+            "bottom": 789,
+            "right": 1184.984375
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "CancelButton",
+      "bone": "CancelButton",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 964.59375,
+        "top": 748,
+        "rect": {
+          "initial": {
+            "top": 733,
+            "left": 874.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 774,
+            "right": 975.40625
+          },
+          "translated": {
+            "top": 748,
+            "left": 964.59375,
+            "width": 100.8125,
+            "height": 41,
+            "bottom": 789,
+            "right": 1065.40625
+          }
+        },
+        "zIndex": 150
+      }
+    }
+  ]
+  ],
+  "staticWidgets": [
+    {
+      "id": "HeuristicThreeTwoStaticTopBar",
+      "bone": "HeuristicThreeTwoStaticTopBar",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 197.5,
+        "top": 122.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1172.5,
+            "width": 1000,
+            "height": 80,
+            "bottom": 202.015625,
+            "right": 2172.5
+          },
+          "translated": {
+            "top": 122.015625,
+            "left": 197.5,
+            "width": 1000,
+            "height": 80,
+            "bottom": 202.015625,
+            "right": 1197.5
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "HeuristicThreeTwoStaticBody",
+      "bone": "HeuristicThreeTwoStaticBody",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 197.5,
+        "top": 202.015625,
+        "rect": {
+          "initial": {
+            "top": 122.015625,
+            "left": 1172.5,
+            "width": 1000,
+            "height": 600,
+            "bottom": 722.015625,
+            "right": 2172.5
+          },
+          "translated": {
+            "top": 202.015625,
+            "left": 197.5,
+            "width": 1000,
+            "height": 600,
+            "bottom": 802.015625,
+            "right": 1197.5
+          }
+        },
+        "zIndex": 150
+      }
+    },
+    {
+      "id": "NeutronLogo",
+      "bone": "NeutronLogo",
+      "zIndex": 150,
+      "style": {
+        "position": "absolute",
+        "left": 215,
+        "top": 142.015625,
+        "rect": {
+          "initial": {
+            "top": 142.015625,
+            "left": 220,
+            "width": 225,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 445
+          },
+          "translated": {
+            "top": 142.015625,
+            "left": 215,
+            "width": 225,
+            "height": 45,
+            "bottom": 187.015625,
+            "right": 440
+          }
+        },
+        "zIndex": 150
+      }
+    }
+  ],
+  "widgetData": {
+    "drawer": [
+      {
+        "id": "AccountsDropdown",
+        "bone": "AccountsDropdown",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "TransfersDropdown",
+        "bone": "TransfersDropdown",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "SettingsDropdown",
+        "bone": "SettingsDropdown",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "TopBarGreeting",
+        "bone": "TopBarGreeting",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "AccountTransferHeader",
+        "bone": "AccountTransferHeader",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "TransferFromSubHeader",
+        "bone": "TransferFromSubHeader",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "TransferToSubHeader",
+        "bone": "TransferToSubHeader",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "AccountTransferDropdownOne",
+        "bone": "AccountTransferDropdownOne",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "AccountTransferDropdownTwo",
+        "bone": "AccountTransferDropdownTwo",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "AmountSubheader",
+        "bone": "AmountSubheader",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "AmountInputBox",
+        "bone": "AmountInputBox",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "CancelButton",
+        "bone": "CancelButton",
+        "zIndex": 150,
+        "style": {}
+      },
+      {
+        "id": "TransferButton",
+        "bone": "TransferButton",
+        "zIndex": 150,
+        "style": {}
+      }
+    ],
+    "grid": []
+  },
+  "positioningWeight": 0.55,
+  "bonesUsedWeight": 0.45
+}
