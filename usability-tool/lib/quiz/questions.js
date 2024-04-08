@@ -926,6 +926,128 @@ export const heuristic6Questions = [
     correctAnswerIndex: 1,
     selectedAnswer: null,
   },
+  {
+    question:
+      "How does this image demonstrate Recognition over Recall?",
+    image: "/quiz/quiz6-graphics/quiz6_google.png",
+    answers: [
+      "By using familiar icons.",
+      "By using industry standard icons.",
+      "By highlighting what the user has currently selected.",
+      "All of the above."
+    ],
+    correctAnswerIndex: 3,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Why is this a good example of Recognition rather than Recall?",
+    image: "/quiz/quiz6-graphics/quiz6_captcha.jpg",
+    answers: [
+      "The user recognizes the action they are supposed to take from the text.",
+      "The user recognizes the skip button to skip ones that are too hard.",
+      "The user recognizes the objects that they are tasked to recognize.",
+      "None of the above."
+    ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Why is an album cover a good example of recognition?",
+    image: "/quiz/quiz6-graphics/quiz6_album.png",
+    answers: [
+      "The listener recognizes the color of the cover.",
+      "The listener recognizes the image on the cover.",
+      "The user recognizes the album name.",
+      "Only the first two answers are correct."
+    ],
+    correctAnswerIndex: 3,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Why is this a bad example of recognition?",
+    image: "/quiz/quiz6-graphics/quiz6_steam.png",
+    answers: [
+      "The font sizes make it hard for recognition.",
+      "There is a lack of icons and mostly text.",
+      "The small text is hard to read.",
+      "The differing colors are bad for recognition."
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "The reason a stop sign is a good example of recognition is because of its shape and color not its text.",
+    image: "/quiz/quiz6-graphics/quiz6_stopsign.jpg",
+    answers: [
+      "True.",
+      "False."
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "The color-coded tags are a good example of recognition over recall.",
+    image: "/quiz/quiz6-graphics/quiz6_github.png",
+    answers: [
+      "True.",
+      "False."
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "This webpage is a good example of recognition over recall.",
+    image: "/quiz/quiz6-graphics/quiz6_craigslist.png",
+    answers: [
+      "True.",
+      "False."
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "What is one way this UI could be improved for recognition?",
+    image: "/quiz/quiz6-graphics/quiz6_oldui.jpg",
+    answers: [
+      "Adding color to the check boxes.",
+      "Changing the background color.",
+      "Color coding each region for separation.",
+      "None of the above."
+    ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "What is the problem with this prompt in regards to recognition?",
+    image: "/quiz/quiz6-graphics/quiz6_prompt.png",
+    answers: [
+      "The background color is too dark.",
+      "The text is too large.",
+      "The icons are swapped.",
+      "None of the above."
+    ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Adding icons to the tabs would improve this UI for recognition.",
+    image: "/quiz/quiz6-graphics/quiz6_badui.png",
+    answers: [
+      "True.",
+      "False."
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
 ]
 
 // HEURISTIC 7 QUESTIONS
@@ -1041,6 +1163,122 @@ export const heuristic7Questions = [
       "False",
     ],
     correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "What aspects of this website utilize flexibility and efficiency of use?",
+    image: "/quiz/quiz7-graphics/quiz7_ebay.png",
+    answers: [
+      "The saved tab increases efficiency of use.",
+      "The search tab gives users flexibility.",
+      "The shop now buttons allow the user to efficiently navigate to the advertised item.",
+      "All of the above."
+    ],
+    correctAnswerIndex: 3,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Computer shortcuts follow heuristic 7’s guidelines.",
+    image: "/quiz/quiz7-graphics/quiz7_sc.jpg",
+    answers: [
+      "True.",
+      "False.",
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Extensions, plugins, and themes increase flexibility.",
+    image: "/quiz/quiz7-graphics/quiz7_extensions.png",
+    answers: [
+      "True.",
+      "False.",
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Start and skip buttons increase user flexibility.",
+    image: "/quiz/quiz7-graphics/quiz7_spotify.png",
+    answers: [
+      "True.",
+      "False.",
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Having search tags does not increase user flexibility.",
+    image: "/quiz/quiz7-graphics/quiz7_steam.png",
+    answers: [
+      "True.",
+      "False.",
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Personalization settings increase user flexibility.",
+    image: "/quiz/quiz7-graphics/quiz7_personalization.png",
+    answers: [
+      "True.",
+      "False.",
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "These settings demonstrate good flexibility.",
+    image: "/quiz/quiz7-graphics/quiz7_ddg.png",
+    answers: [
+      "True.",
+      "False.",
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Pinned messages help with user efficiency.",
+    image: "/quiz/quiz7-graphics/quiz7_discord.png",
+    answers: [
+      "True.",
+      "False.",
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "How does search history help a user’s efficiency?",
+    image: "/quiz/quiz7-graphics/quiz7_history.png",
+    answers: [
+      "By providing icons of the websites the user visited.",
+      "By allowing the user to see what website they visited on a date.",
+      "By remembering the sites a user visited and auto filling the URL bar for faster access.",
+      "None of the above."
+    ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "How does this demonstrate user efficiency?",
+    image: "/quiz/quiz7-graphics/quiz7_windows.png",
+    answers: [
+      "By providing quick links to the most used files.",
+      "By having easy to read icons.",
+      "By having an aesthetic.",
+      "None of the above."
+    ],
+    correctAnswerIndex: 0,
     selectedAnswer: null,
   },
 ]
