@@ -1,9 +1,10 @@
 "use client";
 // Quiz.js - The root renderer of the Usability Tool quiz engine
+import { useRouter } from "next/navigation";
+
 import { useRef, useState, useContext, createContext } from "react";
 import { IconContext } from "react-icons";
 import { FaCircleCheck, FaCircleXmark } from "react-icons/fa6";
-import { IoMdCloseCircle } from "react-icons/io";
 import QuizContextProvider, { getQuizSuite } from "./QuizContextProvider";
 import NavFooter from "../nav/NavFooter";
 
@@ -43,6 +44,8 @@ function QuizBody({ quizNumber }) {
   //Get the start time
   const startTime = useRef(Math.floor(Date.now() / 1000));
 
+  let scoreModal = useRef();
+
   function renderModal(component, heading) {
     setModal(
       <Modal toggleFunction={() => setModal(null)} heading={heading}>
@@ -69,6 +72,8 @@ function QuizBody({ quizNumber }) {
     });
     //Update Metadata
     if (score >= 7) {
+      console.log("Good Job!");
+
       const newMetaData = { ...metaData };
       newMetaData.completedHeuristics[quizNumber] = Math.max(
         newMetaData.completedHeuristics[quizNumber],
@@ -76,13 +81,13 @@ function QuizBody({ quizNumber }) {
       );
       updateMetaData(newMetaData);
     }
-    renderModal(
+    scoreModal.current = (
       <div>
         <h3 role="header" className={borrowed.gradingPanelHeader}>
           You have {score >= 7 ? "passed!" : "failed."}
         </h3>
 
-        <div className={borrowed.gradingPanelProgressBarContainer}>
+        <div className={`mb-3 ${borrowed.gradingPanelProgressBarContainer}`}>
           <div
             className={borrowed.gradingPanelProgressBar}
             style={{ width: `${score}0%` }}
@@ -91,9 +96,17 @@ function QuizBody({ quizNumber }) {
             {score}/{quizObj.length}
           </p>
         </div>
-      </div>,
-      "Score"
+        <div className="d-flex justify-content-center gap-3">
+          <button className="btn btn-light" onClick={() => location.reload()}>
+            Retry
+          </button>
+          <button className="btn btn-light" onClick={() => setModal(null)}>
+            View Answers
+          </button>
+        </div>
+      </div>
     );
+    renderModal(scoreModal.current, "Score");
   }
 
   async function writeToDB(data) {
@@ -128,8 +141,15 @@ function QuizBody({ quizNumber }) {
           >
             Submit
           </button>
-        ) : //Don't show the button after it's clicked
-        null}
+        ) : (
+          //Don't show the button after it's clicked
+          <button
+            className={styles.submitButton}
+            onClick={() => renderModal(scoreModal.current, "Score")}
+          >
+            View Result
+          </button>
+        )}
       </div>
     </SubmitContext.Provider>
   );

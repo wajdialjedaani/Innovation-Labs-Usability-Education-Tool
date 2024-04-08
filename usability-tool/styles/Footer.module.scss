@@ -60,11 +60,15 @@
 }
 
 .locked {
+  cursor: not-allowed;
   background-color: #747577;
 }
 
+.locked:active {
+  pointer-events: none;
+}
+
 .locked:hover {
-  cursor: not-allowed;
   background-color: #747577;
   box-shadow: none;
 }

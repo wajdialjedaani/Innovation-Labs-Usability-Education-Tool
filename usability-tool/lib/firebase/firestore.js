@@ -153,12 +153,13 @@ export async function readAllData(userID) {
   return allData;
 }
 
-export async function getMetadata(userID) {
+export async function getMetaDataFromDB(userID) {
   let result, data;
   result = data = null;
   const docRef = doc(db, "users", userID);
   try {
     result = await getDoc(docRef);
+
     data = result.data() || {
       completedHeuristics: new Array(10).fill(0), //0 means havent started. 1 means you're on the quiz. 2 Means you're on the UI builder. 3 Means you've done everything
       lastHeuristic: 0,
@@ -169,7 +170,7 @@ export async function getMetadata(userID) {
   return data;
 }
 
-export async function updateMetadata(userID, newMetadata) {
+export async function setMetaDataFromDB(userID, newMetadata) {
   let result = null;
   const docRef = doc(db, "users", userID);
   try {

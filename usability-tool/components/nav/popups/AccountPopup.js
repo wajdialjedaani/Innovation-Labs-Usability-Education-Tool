@@ -1,11 +1,9 @@
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { logOut } from "@/lib/firebase/auth";
 import styles from "@/styles/nav.module.scss";
 import { getAuthContext } from "@/app/(main)/components/AuthContextProvider";
 
 export default function Accountpopup() {
-  const router = useRouter();
   const { user } = getAuthContext();
 
   async function handleSignout() {
@@ -37,7 +35,7 @@ export default function Accountpopup() {
           <hr className="dropdown-divider" />
         </li>
         <li>
-          <Link className={`dropdown-item`} href="/statistics">
+          <Link className={`dropdown-item `} href="/statistics">
             Statistics
           </Link>
         </li>

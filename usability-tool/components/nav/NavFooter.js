@@ -4,56 +4,44 @@ import styles from "@/styles/Footer.module.scss";
 import { Fragment } from "react";
 import Link from "next/link";
 
-export default function NavFooter({options}){
+export default function NavFooter({ options }) {
   return (
     <Fragment>
-
-      {options.prev && (
-        <Button 
-          side="left"
-          lock={false}
-          obj={options.prev}
-        />
-      )}
+      {options.prev && <Button side="left" lock={false} obj={options.prev} />}
 
       {options.next && (
-        <Button 
-          side="right"
-          lock={options.nextLock}
-          obj={options.next}
-        />
+        <Button side="right" lock={options.nextLock} obj={options.next} />
       )}
     </Fragment>
-  )
+  );
 }
 
-function Button({side, lock, obj}){
+function Button({ side, lock, obj }) {
   // default class
   let className = `${styles.navContainer}`;
 
   // take side into account
-  if (side == "left"){
+  if (side == "left") {
     className += ` ${styles.left}`;
   } else {
     className += ` ${styles.right}`;
   }
 
-  if (lock){
+  if (lock) {
     className += ` ${styles.locked}`;
   }
-
 
   return (
     <Link href={obj.href}>
       <div className={className}>
-        {side == "left" && <img src="/icons/chevron-left.svg"/>}
-  
+        {side == "left" && <img src="/icons/chevron-left.svg" />}
+
         <div className={styles.contentTitle}>
-          {obj.title} {lock && <img src="/icons/lock.svg"/>}
+          {obj.title} {lock && <img src="/icons/lock.svg" />}
         </div>
 
-        {side == "right" && <img src="/icons/chevron-right.svg"/>}
+        {side == "right" && <img src="/icons/chevron-right.svg" />}
       </div>
     </Link>
-  )
+  );
 }

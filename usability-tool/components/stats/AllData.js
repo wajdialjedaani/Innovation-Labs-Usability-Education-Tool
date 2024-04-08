@@ -21,7 +21,6 @@ export default function AllData({ data }) {
   }
 
   function getDataList(dataObject) {
-    const listObj = [];
     const worst = getWorst(dataObject);
     return dataObject.map((val, i) => {
       return (

@@ -2,7 +2,7 @@
 import { useState, createContext, useContext, useEffect } from "react";
 import { onAuthStateChanged } from "@/lib/firebase/auth";
 import { useRouter } from "next/navigation";
-import { getMetadata, updateMetadata } from "@/lib/firebase/firestore";
+import { getMetaDataFromDB, setMetaDataFromDB } from "@/lib/firebase/firestore";
 const AuthContext = createContext({});
 
 export function getAuthContext() {
@@ -27,7 +27,7 @@ export function AuthContextProvider({ children }) {
     const fetchMetaData = async (user) => {
       try {
         setMetaDataFetched(false);
-        const data = await getMetadata(user);
+        const data = await getMetaDataFromDB(user);
         setMetaData(data);
       } catch (e) {
         console.error(e);
@@ -54,7 +54,7 @@ export function AuthContextProvider({ children }) {
     const update = async () => {
       console.log("Updating metadata: ", metaData);
       try {
-        await updateMetadata(user.uid, metaData);
+        await setMetaDataFromDB(user.uid, metaData);
       } catch (e) {
         console.error(e);
       }
