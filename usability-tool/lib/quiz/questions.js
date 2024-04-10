@@ -170,6 +170,97 @@ export const heuristic1Questions = [
     correctAnswerIndex: 1,
     selectedAnswer: null,
   },
+  {
+    question:
+      "This washing machine display shows the selected cycle and the estimated time remaining. How does this exemplify the visibility of system status?",
+    image: "/quiz/quiz1-graphics/quiz1_washing_machine.jpg",
+    answers: [
+      "It displays all possible washing machine cycles.",
+      "The washing machine is visually appealing.",
+      "It allows the user to confirm their selection and gauge progress.",
+      "None of the above.",
+    ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "A music player shows the paused button and the elapsed time on the progress bar. How does this VIOLATE the visibility of system status?",
+    image: "/quiz/quiz1-graphics/quiz1_music_player.jpg",
+    answers: [
+      "It clearly shows the music player is on.",
+      "It informs the user that the song is paused and the playback position.",
+      "The music player interface is outdated.",
+      "There is no indication of the song's total duration.",
+    ],
+    correctAnswerIndex: 3,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "A microwave displays the chosen cooking time and the remaining time until completion. Does this information directly relate to the visibility of system status?",
+    image: "/quiz/quiz1-graphics/quiz1_microwave.jpg",
+    answers: [
+      "Yes, it keeps the user informed about the cooking progress.",
+      "Yes, but only if the microwave is not running.",
+      "No, the user should be able to smell the food to know its progress.",
+      "No, this information is only relevant for advanced users.",
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "A printer has a light blinking red and a message on the screen that says \"Low Ink.\" How does this address the visibility of system status?",
+    image: "/quiz/quiz1-graphics/quiz1_printer.png",
+    answers: [
+      "It visually warns the user about a potential problem with the printer.",
+      "It only displays an error message but doesn't provide a solution.",
+      "The blinking light might be distracting for some users.",
+      "None of the above.",
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "An online form has a red asterisk next to a required field that the user hasn't filled out. How does this element impact the visibility of system status?",
+    image: "/quiz/quiz1-graphics/quiz1_form.png",
+    answers: [
+      "The user might not understand the meaning of the red asterisk.",
+      "It completely blocks the user from submitting the form.",
+      "It subtly highlights a potential error without being too intrusive.",
+      "None of the above.",
+    ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "A progress bar shows 75% completion. Is this an effective way to communicate the visibility of system status?",
+    image: "/quiz/quiz1-graphics/quiz1_progress.png",
+    answers: [
+      "No, it should only display the remaining time instead.",
+      "The progress bar should be animated to be more engaging.",
+      "Yes, it provides a clear visual representation of the progress.",
+      "None of the above.",
+    ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "A calculator displays an error message \"Cannot divide by zero\" after the user enters an invalid equation. Does this benefit the visibility of system status?",
+    image: "/quiz/quiz1-graphics/quiz1_calculator.png",
+    answers: [
+      "The error message should be more specific about the equation.",
+      "Yes, it informs the user about the mistake and helps them correct it.",
+      "No, the user should already know division by zero is not possible.",
+      "None of the above.",
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
 ];
 
 // HEURISTIC 2
@@ -321,6 +412,66 @@ export const heuristic2Questions = [
       "True or False. The calculator app on the right sufficiently captures most functionalities of the real world calculator on the left",
     image: "/quiz/quiz2-graphics/quiz2_calculators.png",
     answers: ["True", "False"],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "True or False. The following image effectively represents a microphone icon for voice search functionality.",
+    image: "/quiz/quiz2-graphics/quiz2_headphones.jpg",
+    answers: ["True", "False"],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "This icon uses a realistic image of a camera. Does this approach necessarily make it a better representation for a camera function in an app?",
+    image: "/quiz/quiz2-graphics/quiz2_camera.jpg",
+    answers: [
+      "Yes, a realistic image is universally understood as a camera function.",
+      "Not necessarily, a simpler and more abstract icon could be clearer.",
+      "It depends on the target audience's familiarity with traditional cameras.",
+      "None of the above.",
+      ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "This settings icon uses gears as its visual representation. Is this an effective example of matching the system with the real world?",
+    image: "/quiz/quiz2-graphics/quiz2_settings.jpg",
+    answers: [
+      "Yes, gears are a universally recognized symbol for settings and adjustments.",
+      "No, gears are a mechanical concept and might not translate well digitally.",
+      "It depends on the technical background of the target audience.",
+      "None of the above.",
+      ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Many digital calendars display weeks starting on Sunday. Does this necessarily align with the way people perceive weeks in the real world?",
+    image: "/quiz/quiz2-graphics/quiz2_calendar.png",
+    answers: [
+      "Yes, Sunday is the traditional start of the week in most cultures.",
+      "No, the week should always begin on Monday as that's the standard work week.",
+      "It depends on the user's cultural background and work schedule.",
+      "None of the above.",
+      ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "This volume control uses a speaker icon. How does this design element match the system with the real-world concept of volume adjustment?",
+    image: "/quiz/quiz2-graphics/quiz2_volume.png",
+    answers: [
+      "It leverages a universally recognized slider for increasing and decreasing volume.",
+      "It relies on icons which might not be intuitive for everyone.",
+      "The icons are not necessary for understanding volume control.",
+      "None of the above.",
+      ],
     correctAnswerIndex: 0,
     selectedAnswer: null,
   },
@@ -495,6 +646,71 @@ export const heuristic3Questions = [
     correctAnswerIndex: 1,
     selectedAnswer: null,
   },
+  {
+    question:
+      "This dropdown menu allows users to sort a list by different criteria. How does this element provide users with control and freedom?",
+    image: "/quiz/quiz3-graphics/quiz3_options.png",
+    answers: [
+      "It keeps the interface clean by hiding sorting options until needed.",
+      "Users can choose the sorting method that best suits their needs.",
+      "The dropdown menu might be confusing for some users.",
+      "None of the above.",
+      ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "A web browser allows users to open and switch between multiple tabs. In what way does this feature promote user control and freedom?",
+    image: "/quiz/quiz3-graphics/quiz3_tabs.jpg",
+    answers: [
+      "Users can access multiple websites simultaneously without opening separate windows.",
+      "It allows users to easily revisit previously viewed websites.",
+      "Users have the control to decide how many tabs to open and manage them freely.",
+      "All of the above.",
+      ],
+    correctAnswerIndex: 3,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "A document viewer offers zoom in and zoom out buttons. How do these buttons empower users with control?",
+    image: "/quiz/quiz3-graphics/quiz3_zoom.png",
+    answers: [
+      "Users can adjust the document's size to their preferred viewing experience.",
+      "The buttons are clearly labeled for easy identification.",
+      "It reduces efficiency when scrolling through long documents.",
+      "All of the above.",
+      ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "A carousel displays multiple images and offers navigation arrows. How do these arrows contribute to user control?",
+    image: "/quiz/quiz3-graphics/quiz3_carousel.jpg",
+    answers: [
+      "The carousel automatically rotates after a set time.",
+      "Users can only view the image currently displayed.",
+      "They allow users to browse the images at their own pace.",
+      "None of the above.",
+      ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "A text editor offers formatting options like bold, italics, and underline. How does this benefit user control?",
+    image: "/quiz/quiz3-graphics/quiz3_editor.png",
+    answers: [
+      "The editor automatically applies these formats to all text.",
+      "Users can customize the appearance of their text according to their preferences.",
+      "It might overwhelm users with too many options.",
+      "None of the above.",
+      ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
   ];
 
 // HEURISTIC 4
@@ -653,6 +869,58 @@ export const heuristic4Questions = [
     correctAnswerIndex: 0,
     selectedAnswer: null,
   },
+  {
+    question:
+      "How do the consistent navigation bars on word and excel benefit users according to Heuristic 4?",
+    image: "/quiz/quiz4-graphics/quiz4_navigation_bars.png",
+    answers: [
+      "They create a sense of mystery and encourage exploration.",
+      "They force users to learn the location of specific features on each program.",
+      "They eliminate the need for any user training or documentation.",
+      "They allow users to find familiar tools and functions quickly and easily.",
+      ],
+    correctAnswerIndex: 3,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "How do the different navigation bars violate Heuristic 4?",
+    image: "/quiz/quiz4-graphics/quiz4_nav_bar.jpg",
+    answers: [
+      "It creates confusion for users who expect consistent placement.",
+      "It might introduce new vocabulary for some users.",
+      "It depends on the target audience's familiarity with technology.",
+      "None of the above.",
+      ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "This software displays different error messages for the same type of error. How does this affect Heuristic 4?",
+    image: "/quiz/quiz4-graphics/quiz4_error.png",
+    answers: [
+      "It allows for more creative messaging for each error.",
+      "The severity of the error message should match the error itself.",
+      "Users might get confused by the variation in error messages.",
+      "None of the above.",
+      ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "This mobile app has a different layout on iOS and Android phones. While some variation might be necessary, what are the most important action according to Heuristic 4?",
+    image: "/quiz/quiz4-graphics/quiz4_mobile_desktop.jpg",
+    answers: [
+      "Maintain a core set of functionalities and user flows consistently acsross platforms.",
+      "Completely redesign the app to have the same layout on both platforms.",
+      "Focus on making the app visually appealing on each platform.",
+      "None of the above.",
+      ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
   ];
 
 // HEURISTIC 5
@@ -798,6 +1066,45 @@ export const heuristic5Questions = [
       "True or False. This pop-up properly conveys the irreversability and permanence of the action they are about to perform.",
     image: "/quiz/quiz5-graphics/quiz5_messages.jpg",
     answers: ["True", "False"],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "This confirmation dialog has \"Yes\" selected by default. Could this potentially lead to accidental data loss?",
+    image: "/quiz/quiz5-graphics/quiz5_confirmation_dialog.png",
+    answers: [
+      "No, as long as the confirmation message is clear.",
+      "Yes, users might accidentally confirm the action without reading the message.",
+      "It depends on the severity of the action being confirmed.",
+      "Try again.",
+      ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "When creating a password, this interface displays a weak password indicator. How does this prevent errors?",
+    image: "/quiz/quiz5-graphics/quiz5_password_strength.png",
+    answers: [
+      "It discourages users from setting weak passwords that are easily compromised.",
+      "It forces users to create complex passwords they might forget.",
+      "It wastes time for users who already know how to create strong passwords.",
+      "Try again.",
+      ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "A text field offers autocorrect suggestions as the user types. In what way does this prevent errors?",
+    image: "/quiz/quiz5-graphics/quiz5_autocorrect.png",
+    answers: [
+      "It automatically corrects all typos without user input.",
+      "It suggests potential corrections for misspelled words, aiding users in avoiding errors.",
+      "It can be distracting for users who type quickly and accurately.",
+      "None of the above.",
+      ],
     correctAnswerIndex: 0,
     selectedAnswer: null,
   },
