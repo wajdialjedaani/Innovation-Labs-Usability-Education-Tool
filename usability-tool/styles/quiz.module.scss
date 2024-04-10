@@ -94,7 +94,7 @@
 
   cursor: pointer;
 
-  background-color: #324a5f;
+  background-color: #{$top};
   border-radius: 5px;
   color: #ffffff;
   font-size: 1.3em;
@@ -107,7 +107,9 @@
 }
 
 .selectedAnswer {
-  background-color: #638cae !important;
+  // background-color: #638cae !important;
+  background-color: #{$dark} !important;
+  border-color: #{$white};
 }
 
 .correctAnswer {
@@ -127,6 +129,7 @@
 }
 
 .submitButton {
+  width: 1fr;
   background-color: #324a5f;
   color: white;
   box-sizing: border-box;
@@ -177,8 +180,9 @@
 }
 
 .questionImage {
-  max-width: 75%;
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 600px;
   align-self: center;
   margin-bottom: 1em;
-  // width: 100%;
 }

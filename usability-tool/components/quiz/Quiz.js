@@ -96,14 +96,14 @@ function QuizBody({ quizNumber }) {
             {score}/{quizObj.length}
           </p>
         </div>
-        <div className="d-flex justify-content-center gap-3">
+        {/* <div className="d-flex justify-content-center gap-3">
           <button className="btn btn-light" onClick={() => location.reload()}>
             Retry
           </button>
           <button className="btn btn-light" onClick={() => setModal(null)}>
             View Answers
           </button>
-        </div>
+        </div> */}
       </div>
     );
     renderModal(scoreModal.current, "Score");
@@ -143,12 +143,20 @@ function QuizBody({ quizNumber }) {
           </button>
         ) : (
           //Don't show the button after it's clicked
-          <button
-            className={styles.submitButton}
-            onClick={() => renderModal(scoreModal.current, "Score")}
-          >
-            View Result
-          </button>
+          <div className="d-flex gap-3 ">
+            <button
+              className={styles.submitButton}
+              onClick={() => renderModal(scoreModal.current, "Score")}
+            >
+              View Result
+            </button>
+            <button
+              className={styles.submitButton}
+              onClick={() => location.reload()}
+            >
+              Retry
+            </button>
+          </div>
         )}
       </div>
     </SubmitContext.Provider>

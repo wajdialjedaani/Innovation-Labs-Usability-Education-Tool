@@ -5,7 +5,7 @@
 
 .accordion {
   --bs-accordion-bg: #132634 !important;
-  --bs-accordion-active-bg: #0c1821 !important;
+  --bs-accordion-active-bg: black !important;
   --bs-body-color: white !important;
   --bs-accordion-active-color: white !important;
   --bs-accordion-btn-focus-box-shadow: none !important;
@@ -23,9 +23,9 @@
 }
 
 .listGroup {
-  --bs-list-group-bg: #324a5f !important;
-  --bs-list-group-action-hover-bg: #1b2a41 !important;
-  --bs-list-group-action-active-bg: #1b2a41 !important;
+  --bs-list-group-bg: #{$top} !important;
+  --bs-list-group-action-hover-bg: #{$dark} !important;
+  --bs-list-group-action-active-bg: #{$dark} !important;
   --bs-list-group-action-hover-color: white !important;
   --bs-list-group-disabled-bg: rgba(50, 74, 95, 0.5) !important;
   --bs-list-group-disabled-color: rgba(255, 255, 255, 0.5) !important;
