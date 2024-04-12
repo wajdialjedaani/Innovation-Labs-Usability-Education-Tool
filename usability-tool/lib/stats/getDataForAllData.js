@@ -1,6 +1,5 @@
 export default function getDataForAllData(data) {
   const totalData = [];
-  console.log("?");
   data.forEach((curData, i) => {
     const currSum = {
       attempts: curData["attemptCount"],

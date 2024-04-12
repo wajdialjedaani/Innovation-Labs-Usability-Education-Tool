@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import BarGraph from "./BarGraph";
 import styles from "@/styles/stats.module.scss";
 import getDataForAllData from "@/lib/stats/getDataForAllData";
@@ -6,8 +6,14 @@ export default function AllData({ data }) {
   if (!data) {
     return;
   }
-  const allQuizData = getDataForAllData(data["HeuristicData"]);
-  const allUIData = getDataForAllData(data["UIBuilderData"]);
+  const allQuizData = useMemo(
+    () => getDataForAllData(data["HeuristicData"]),
+    [data["HeuristicData"]]
+  );
+  const allUIData = useMemo(
+    () => getDataForAllData(data["UIBuilderData"]),
+    [data["UIBuilderData"]]
+  );
 
   const [quizChartSortBy, setQuizChartSortBy] = useState("correct");
   const [quizChartData, setQuizChartData] = useState([]);
@@ -34,7 +40,7 @@ export default function AllData({ data }) {
       return (
         <div
           key={i}
-          className={`border border-top-0 col-12  list-group-item d-flex justify-content-between align-items-start ${styles.listGroupItem} `}
+          className={`border border-top-0 col-12 col-lg-6  list-group-item d-flex justify-content-between align-items-start ${styles.listGroupItem} `}
         >
           <div className="me-auto">
             <div className="fw-bold">Heuristic {i + 1}</div>
@@ -87,36 +93,6 @@ export default function AllData({ data }) {
       <h2 className={`h2 ${styles.graphTitle}`}>View All Data</h2>
 
       <article className="row">
-        {
-          //All Quiz
-        }
-        {/* <section
-          className={`col-12 col-lg-3 list-group list-group-flush ${styles.listGroup}`}
-        >
-          <h3 className={`h3 m-0 list-group-item ${styles.graphTitle}`}>
-            Quizzes
-          </h3>
-          <div
-            className={` list-group list-group-flush d-flex flex-row flex-wrap p-0 ${styles.listGroup}`}
-          >
-            {getDataList(allQuizData)}
-          </div>
-        </section> */}
-        {
-          //All UI Builder
-        }
-        {/* <section
-          className={`col-12 col-lg-3 list-group list-group-flush ${styles.listGroup}`}
-        >
-          <h3 className={`h3 m-0 list-group-item ${styles.graphTitle}`}>
-            UI Builders
-          </h3>
-          <div
-            className={` list-group list-group-flush d-flex flex-row flex-wrap p-0 ${styles.listGroup}`}
-          >
-            {getDataList(allUIData)}
-          </div>
-        </section> */}
         {
           //Graph representation
         }
@@ -197,6 +173,36 @@ export default function AllData({ data }) {
                 UIChartSortBy.charAt(0).toUpperCase() + UIChartSortBy.slice(1)
               } ${UIChartSortBy === "time" ? "" : "Answers"}`}
             />
+          </div>
+        </section>
+        {
+          //All Quiz
+        }
+        <section
+          className={`col-12 col-lg-6 list-group list-group-flush ${styles.listGroup}`}
+        >
+          <h3 className={`h3 m-0 list-group-item ${styles.graphTitle}`}>
+            Quizzes
+          </h3>
+          <div
+            className={` list-group list-group-flush d-flex flex-row flex-wrap p-0 ${styles.listGroup}`}
+          >
+            {getDataList(allQuizData)}
+          </div>
+        </section>
+        {
+          //All UI Builder
+        }
+        <section
+          className={`col-12 col-lg-6 list-group list-group-flush ${styles.listGroup}`}
+        >
+          <h3 className={`h3 m-0 list-group-item ${styles.graphTitle}`}>
+            UI Builders
+          </h3>
+          <div
+            className={` list-group list-group-flush d-flex flex-row flex-wrap p-0 ${styles.listGroup}`}
+          >
+            {getDataList(allUIData)}
           </div>
         </section>
       </article>
