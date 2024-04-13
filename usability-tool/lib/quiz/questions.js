@@ -1947,7 +1947,7 @@ export const heuristic9Questions = [
   {
     question:
       "This is a great example of the heuristic because:",
-    image: "/quiz/quiz9-graphics/quiz9_1.jpg",
+    image: "/quiz/quiz9-graphics/quiz9_1.png",
     answers: [
       "It displays the company logo.",
       "It has graphics.",
