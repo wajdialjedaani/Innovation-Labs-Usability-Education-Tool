@@ -1707,6 +1707,124 @@ export const heuristic8Questions = [
     correctAnswerIndex: 0,
     selectedAnswer: null,
   },
+  {
+    question:
+      "This webpage has a minimalistic structure.",
+    image: "/quiz/quiz8-graphics/quiz8_1.png",
+    answers: [
+      "True.",
+      "False."
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "This page is a good example of minimalist design.",
+    image: "/quiz/quiz8-graphics/quiz8_2.png",
+    answers: [
+      "True.",
+      "False."
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Is this a good example of a minimalist design?",
+    image: "/quiz/quiz8-graphics/quiz8_3.jpg",
+    answers: [
+      "Yes, there is plenty of color and text.",
+      "Yes, there is only as much information as necessary for the user.",
+      "No, there is too much information and a confusing layout.",
+      "No, there is not enough information and needs more."
+    ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Is this webpage a good example of an aesthetic design?",
+    image: "/quiz/quiz8-graphics/quiz8_4.jpg",
+    answers: [
+      "Yes, the webpage has a clear aesthetic.",
+      "No, the webpage does not have a clear aesthetic."
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "This page has a clear and defined aesthetic.",
+    image: "/quiz/quiz8-graphics/quiz8_5.jpg",
+    answers: [
+      "True.",
+      "False."
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "This page is a good example of minimalist design.",
+    image: "/quiz/quiz8-graphics/quiz8_6.jpg",
+    answers: [
+      "True.",
+      "False."
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "How could this webpage be improved to be more minimalist?",
+    image: "/quiz/quiz8-graphics/quiz8_7.jpg",
+    answers: [
+      "By adding more items to the page.",
+      "By removing all images and only having the navigation.",
+      "By removing the unnecessary items and only keeping what is necessary for the user.",
+      "None of the above."
+    ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "What could improve this webpage?",
+    image: "/quiz/quiz8-graphics/quiz8_8.png",
+    answers: [
+      "Changing the background color to fit within an aesthetic design.",
+      "Removing excess text and trimming down the amount of reading.",
+      "Make the mountain image fit in with the rest of the page rather than float on top.",
+      "All of the above."
+    ],
+    correctAnswerIndex: 3,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "The sale advert fits in within the aesthetic of the webpage.",
+    image: "/quiz/quiz8-graphics/quiz8_9.jpg",
+    answers: [
+      "True.",
+      "False."
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Is this webpage a good example of minimalist design?",
+    image: "/quiz/quiz8-graphics/quiz8_10.jpg",
+    answers: [
+      "Yes, the webpage has lots of color and text placed all over.",
+      "Yes, the webpage has a clear design and only contains important information.",
+      "No, the webpage does not display enough information.",
+      "No, the webpage has too little color and text."
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
 ]
 
 // HEURISTIC 9 QUESTIONS
@@ -1822,6 +1940,124 @@ export const heuristic9Questions = [
       "The error code.",
       "Terms in relation to the program.",
       "All of the above.",
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "This is a great example of the heuristic because:",
+    image: "/quiz/quiz9-graphics/quiz9_1.jpg",
+    answers: [
+      "It displays the company logo.",
+      "It has graphics.",
+      "It displays the error code and what caused it.",
+      "None of the above."
+    ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "This gives proper information to the user on why they are receiving an error.",
+    image: "/quiz/quiz9-graphics/quiz9_2.png",
+    answers: [
+      "True.",
+      "False."
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "This is a bad example of this heuristic because:",
+    image: "/quiz/quiz9-graphics/quiz9_3.png",
+    answers: [
+      "It allows the user to return to the homepage.",
+      "The page needs graphics.",
+      "There is no explanation to the error.",
+      "None of the above."
+    ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "How does this allow users to recover from the error?",
+    image: "/quiz/quiz9-graphics/quiz9_4.jpg",
+    answers: [
+      "Blocks the user from accessing the page.",
+      "Allows the user to reload the page and reattempt a connection.",
+      "Has a learn more link.",
+      "Displays why the page was blocked."
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Why are printing out console errors to the user bad?",
+    image: "/quiz/quiz9-graphics/quiz9_5.png",
+    answers: [
+      "They are good and provide good information to the user.",
+      "They provide information that is only relevant to developers."
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "This is a good example of the heuristic.",
+    image: "/quiz/quiz9-graphics/quiz9_6.png",
+    answers: [
+      "True.",
+      "False."
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "This is a good example of the heuristic.",
+    image: "/quiz/quiz9-graphics/quiz9_7.png",
+    answers: [
+      "True.",
+      "False."
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "How could this error be improved according to the heuristic?",
+    image: "/quiz/quiz9-graphics/quiz9_8.png",
+    answers: [
+      "By adding more graphics.",
+      "By making the close button centered.",
+      "By providing the user with an explanation for the error.",
+      "All of the above."
+    ],
+    correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "This is a bad example of the heuristic.",
+    image: "/quiz/quiz9-graphics/quiz9_9.jpg",
+    answers: [
+      "True.",
+      "False."
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Would shortening the amount of information improve this error?",
+    image: "/quiz/quiz9-graphics/quiz9_10.jpg",
+    answers: [
+      "Yes, this would help users not be confused by the terms they don’t understand.",
+      "No, this would remove the detail in the error message.",
     ],
     correctAnswerIndex: 0,
     selectedAnswer: null,
@@ -1943,6 +2179,122 @@ export const heuristic10Questions = [
       "Provide information that is difficult to understand.",
     ],
     correctAnswerIndex: 2,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Contact links are important to include into help pages.",
+    image: "/quiz/quiz10-graphics/quiz10_1.png",
+    answers: [
+      "True",
+      "False"
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Having an FAQ is bad for help pages as they cause too much confusion.",
+    image: "/quiz/quiz10-graphics/quiz10_2.png",
+    answers: [
+      "True",
+      "False"
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "How does the popular tab help users in a documentation page?",
+    image: "/quiz/quiz10-graphics/quiz10_3.png",
+    answers: [
+      "It gives them more information to look at.",
+      "It is just there for looks.",
+      "It is pointless and should be removed.",
+      "It presents the most searched problems and helps a user find them."
+    ],
+    correctAnswerIndex: 3,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "How can this documentation be improved?",
+    image: "/quiz/quiz10-graphics/quiz10_4.jpg",
+    answers: [
+      "Changing the layout to be more readable can help.",
+      "Removing information.",
+      "Changing the colors to give a better look and feel.",
+      "None of the above."
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Giving users quick options to click on help pages decreases user productivity.",
+    image: "/quiz/quiz10-graphics/quiz10_5.png",
+    answers: [
+      "True",
+      "False"
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Search bars are essential for documentation.",
+    image: "/quiz/quiz10-graphics/quiz10_6.png",
+    answers: [
+      "Yes, they allow the user to find what they are looking for.",
+      "No, they give the user no guidance for what they are looking for."
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "This is a good example of a documentation page.",
+    image: "/quiz/quiz10-graphics/quiz10_7.jpg",
+    answers: [
+      "True",
+      "False"
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Why is including a, Problems we’re fixing, tab important.",
+    image: "/quiz/quiz10-graphics/quiz10_8.jpg",
+    answers: [
+      "It is not important and is unnecessary.",
+      "It lets users know an issue is being worked on."
+    ],
+    correctAnswerIndex: 1,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "Why is this help page confusing?",
+    image: "/quiz/quiz10-graphics/quiz10_9.png",
+    answers: [
+      "There are too many tabs the user will get lost searching.",
+      "There are not enough words describing each article.",
+      "The user will never get lost.",
+      "None of the above."
+    ],
+    correctAnswerIndex: 0,
+    selectedAnswer: null,
+  },
+  {
+    question:
+      "This is a good example of the heuristic.",
+    image: "/quiz/quiz10-graphics/quiz10_10.png",
+    answers: [
+      "True",
+      "False"
+    ],
+    correctAnswerIndex: 0,
     selectedAnswer: null,
   },
 ]
