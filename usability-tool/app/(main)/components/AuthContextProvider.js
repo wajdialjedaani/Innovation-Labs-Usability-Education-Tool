@@ -37,6 +37,7 @@ export function AuthContextProvider({ children }) {
       }
     };
     const unsub = onAuthStateChanged((user) => {
+      setLoading(true);
       if (user) {
         setUser(user);
         fetchMetaData(user.uid);
@@ -53,6 +54,7 @@ export function AuthContextProvider({ children }) {
   useEffect(() => {
     const update = async () => {
       console.log("Updating metadata: ", metaData);
+
       try {
         await setMetaDataFromDB(user.uid, metaData);
       } catch (e) {

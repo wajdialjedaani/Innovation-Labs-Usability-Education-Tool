@@ -16,15 +16,22 @@ import { getAuthContext } from "@/app/(main)/components/AuthContextProvider";
 
 export default function Quiz1({ params }) {
   const {
+    user,
     metaDataSuite: {
       metaData: { completedHeuristics },
     },
   } = getAuthContext();
 
+  // if (!user) {
+  //   return;
+  // }
+
   //Redirect if the quiz isn't valid
   const quizId = Number(params.quiz);
   if (!quizId || quizId < 0) redirect("1");
   else if (quizId > 10) redirect("10");
+
+  console.log(user);
 
   const currHeuristicMetaData = completedHeuristics[Number(params.quiz) - 1];
   //redirect them if they haven't read the textbook yet.

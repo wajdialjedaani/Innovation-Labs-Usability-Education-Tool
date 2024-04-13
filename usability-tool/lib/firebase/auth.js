@@ -9,11 +9,12 @@ import {
   updateProfile,
   setPersistence,
   browserSessionPersistence,
+  browserLocalPersistence,
 } from "firebase/auth";
 import { auth } from "./firebase";
 import errCodeToMessage from "../tools/errCodeToMsg";
 
-setPersistence(auth, browserSessionPersistence);
+setPersistence(auth, browserLocalPersistence);
 
 export function onAuthStateChanged(callback = () => {}) {
   return _onAuthStateChanged(auth, callback);
