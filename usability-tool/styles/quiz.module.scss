@@ -108,8 +108,9 @@
 
 .selectedAnswer {
   // background-color: #638cae !important;
-  background-color: #{$dark} !important;
-  border-color: #{$white};
+  background-color: #{$white} !important;
+  border-color: #{$dark};
+  color: black;
 }
 
 .correctAnswer {
