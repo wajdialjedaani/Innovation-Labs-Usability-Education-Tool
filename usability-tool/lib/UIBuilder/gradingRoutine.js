@@ -112,7 +112,7 @@ function getBonesUsedScore(solutionGrid, userGrid) {
     }
   });
 
-  const penaltySubtract = Math.pow(penalty, 5);
+  const penaltySubtract = 20 * penalty;
 
   if (penaltySubtract > ((userBoneMatches / solutionBoneCount) * 100)) {
     return {
