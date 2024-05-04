@@ -21,7 +21,7 @@ export default function Navbar() {
           className={`fs-4 navbar-brand mx-auto ${styles.navbarBrand}`}
           href="/home"
         >
-          Usability Education Tool
+          <img src="/logo.svg" alt="logo" className="logo" />
         </Link>
         {user && <Accountpopup />}
       </div>
