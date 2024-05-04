@@ -8,9 +8,10 @@ import {
   sendPasswordResetEmail as _sendPasswordResetEmail,
   updateProfile,
   setPersistence,
-  browserSessionPersistence,
   browserLocalPersistence,
 } from "firebase/auth";
+
+import { setDisplayNameInDB } from "./firestore";
 import { auth } from "./firebase";
 import errCodeToMessage from "../tools/errCodeToMsg";
 
@@ -39,6 +40,11 @@ export async function createAccount(email, password, firstname, lastname) {
     updateProfile(auth.currentUser, {
       displayName: `${firstname} ${lastname}`,
     });
+
+    result = await setDisplayNameInDB(
+      auth.currentUser.uid,
+      `${firstname} ${lastname}`
+    );
   } catch (e) {
     console.log(e);
     throw errCodeToMessage(e.code);

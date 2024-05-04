@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import BarGraph from "./BarGraph";
 import styles from "@/styles/stats.module.scss";
-import getDataForAllData from "@/lib/stats/getDataForAllData";
+import { getDataForAllData } from "@/lib/stats/getDataForAllData";
 export default function AllData({ data }) {
   if (!data) {
     return;

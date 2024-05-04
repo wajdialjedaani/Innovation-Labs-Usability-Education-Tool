@@ -40,6 +40,11 @@ export default function Accountpopup() {
           </Link>
         </li>
         <li>
+          <Link className={`dropdown-item `} href="/leaderboard">
+            Leaderboard
+          </Link>
+        </li>
+        <li>
           <button className={`dropdown-item`} onClick={() => handleSignout()}>
             Sign out
           </button>

@@ -1,0 +1,19 @@
+@use "./mixins/colorscheme.scss" as *;
+.table {
+  --bs-table-color: white;
+  --bs-table-striped-color: white;
+  --bs-table-bg: #{$dark};
+  --bs-table-striped-bg: #{$top};
+}
+
+.tableButton {
+  color: white;
+  background: none;
+  border: none;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+  &:hover {
+    color: darkgray;
+  }
+}

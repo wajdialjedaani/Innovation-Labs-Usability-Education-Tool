@@ -3,17 +3,15 @@ import {
   doc,
   setDoc,
   getDoc,
-  initializeFirestore,
-  persistentLocalCache,
   getDocs,
   collection,
-  updateDoc,
-  increment,
-  getDocFromCache,
-  getDocsFromCache,
-  arrayUnion,
   runTransaction,
+  initializeFirestore,
+  persistentLocalCache,
 } from "firebase/firestore";
+
+import { formatDataForLeaderboard } from "../stats/getDataForAllData";
+
 import errCodeToMessage from "../tools/errCodeToMsg";
 const db = initializeFirestore(app, { localCache: persistentLocalCache() });
 
@@ -160,10 +158,20 @@ export async function getMetaDataFromDB(userID) {
   try {
     result = await getDoc(docRef);
 
-    data = result.data() || {
-      completedHeuristics: new Array(10).fill(0), //0 means havent started. 1 means you're on the quiz. 2 Means you're on the UI builder. 3 Means you've done everything
-      lastHeuristic: 0,
-    };
+    console.log(result.data());
+
+    if (!result.data().completedHeuristics) {
+      data = {
+        completedHeuristics: new Array(10).fill(0), //0 means havent started. 1 means you're on the quiz. 2 Means you're on the UI builder. 3 Means you've done everything
+        lastHeuristic: 0,
+      };
+    } else {
+      data = result.data();
+    }
+    // data = result.data() || {
+    //   completedHeuristics: new Array(10).fill(0), //0 means havent started. 1 means you're on the quiz. 2 Means you're on the UI builder. 3 Means you've done everything
+    //   lastHeuristic: 0,
+    // };
   } catch (e) {
     throw errCodeToMessage(e.code);
   }
@@ -179,4 +187,43 @@ export async function setMetaDataFromDB(userID, newMetadata) {
     throw e.errCodeToMessage;
   }
   return result;
+}
+
+export async function setDisplayNameInDB(userID, name) {
+  let result = null;
+  const docRef = doc(db, "users", userID);
+  try {
+    result = await setDoc(docRef, { displayName: name }, { merge: true });
+  } catch (e) {
+    throw e.errCodeToMessage;
+  }
+
+  return result;
+}
+
+export async function getDataForLeaderboard() {
+  let result = null;
+  let usersData;
+  try {
+    const users = await getDocs(collection(db, "users"));
+    usersData = await Promise.all(
+      users.docs.map(async (user) => {
+        const userID = user.id;
+
+        const data = await readAllData(userID);
+
+        const formattedData = formatDataForLeaderboard(data);
+
+        const userData = {
+          displayName: user.data().displayName,
+          ...formattedData,
+        };
+
+        return userData;
+      })
+    );
+  } catch (e) {
+    throw errCodeToMessage(e.code);
+  }
+  return usersData;
 }

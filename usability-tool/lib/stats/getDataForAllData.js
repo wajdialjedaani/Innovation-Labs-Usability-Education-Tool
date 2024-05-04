@@ -1,4 +1,4 @@
-export default function getDataForAllData(data) {
+function getDataForAllData(data) {
   const totalData = [];
   data.forEach((curData, i) => {
     const currSum = {
@@ -17,3 +17,28 @@ export default function getDataForAllData(data) {
 
   return totalData;
 }
+
+//Pass in the entire data object (not just data["heuristic"])
+//Basically data is gotten by adding correct answers and subtracting incorrect ones
+function formatDataForLeaderboard(data) {
+  const score = {
+    quizScore: 0,
+    UIScore: 0,
+  };
+  const quizData = getDataForAllData(data["HeuristicData"]);
+  const UIdata = getDataForAllData(data["UIBuilderData"]);
+
+  quizData.forEach(({ incorrect, correct }) => {
+    score.quizScore -= incorrect;
+    score.quizScore += correct;
+  });
+
+  UIdata.forEach(({ incorrect, correct }) => {
+    score.UIScore -= incorrect;
+    score.UIScore += correct;
+  });
+
+  return score;
+}
+
+export { getDataForAllData, formatDataForLeaderboard };
