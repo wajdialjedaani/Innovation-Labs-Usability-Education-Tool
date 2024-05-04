@@ -158,8 +158,6 @@ export async function getMetaDataFromDB(userID) {
   try {
     result = await getDoc(docRef);
 
-    console.log(result.data());
-
     if (!result.data().completedHeuristics) {
       data = {
         completedHeuristics: new Array(10).fill(0), //0 means havent started. 1 means you're on the quiz. 2 Means you're on the UI builder. 3 Means you've done everything
@@ -222,6 +220,8 @@ export async function getDataForLeaderboard() {
         return userData;
       })
     );
+
+    console.log(usersData);
   } catch (e) {
     throw errCodeToMessage(e.code);
   }

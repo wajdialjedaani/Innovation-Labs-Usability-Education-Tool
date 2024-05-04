@@ -4,26 +4,60 @@ import { useEffect, useState, useMemo } from "react";
 
 import styles from "@/styles/leaderboard.module.scss";
 
+const limitOptions = [10, 20, 50, "None"];
+
 export default function Leaderboard() {
+  const [allTableData, setAllTableData] = useState();
+
   const [tableData, setTableData] = useState([]);
 
   const [loading, setLoading] = useState(true);
 
+  //What is the data sorted by
   const [dataSort, setDataSort] = useState();
+
+  const [limit, setLimit] = useState();
+
+  const [heuristic, setHeuristic] = useState();
 
   useEffect(() => {
     async function fetchData() {
       try {
         const data = await getDataForLeaderboard();
-        setTableData(data);
+        setAllTableData(data);
       } catch (e) {
         console.error(e);
       } finally {
+        setHeuristic(0);
         setLoading(false);
       }
     }
     fetchData();
   }, []);
+
+  useEffect(() => {
+    if (!allTableData) return;
+    const heuristicData = [];
+    allTableData.forEach((data) => {
+      heuristicData.push({
+        ...data[heuristic],
+        displayName: data.displayName,
+      });
+    });
+    /*
+                  For Testing
+    
+    for (let i = 0; i < 100; i++) {
+      heuristicData.push({
+        quizScore: Math.floor(Math.random() * (500 - -500 + 1)) + -500,
+        UIScore: Math.floor(Math.random() * (500 - -500 + 1)) + -500,
+        displayName: `Test ${i}`,
+      });
+    }
+    
+    */
+    setTableData(heuristicData);
+  }, [heuristic]);
 
   const dataSortedByQuiz = useMemo(() => {
     return [...tableData].sort((a, b) => b.quizScore - a.quizScore);
@@ -36,9 +70,13 @@ export default function Leaderboard() {
   const displayData =
     dataSort == "Quiz"
       ? dataSortedByQuiz
-      : "UI Builder"
+      : dataSort == "UI Builder"
       ? dataSortedByUIBuilder
       : tableData;
+
+  const displayLimit = limit
+    ? Math.min(limit, tableData.length)
+    : tableData.length;
 
   if (loading) {
     return (
@@ -52,6 +90,59 @@ export default function Leaderboard() {
 
   return (
     <main className="col-md-8 mx-auto mt-4">
+      <div className="d-flex justify-content-center gap-4">
+        <div className="dropdown mb-3 text-center">
+          <button
+            className={`dropdown-toggle ${styles.dropDownBtn}`}
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Select Heuristic {` - ${heuristic + 1}`}
+          </button>
+          <ul className={`dropdown-menu ${styles.dropDownMenu}`}>
+            {Array(10)
+              .fill(0)
+              .map((_, i) => (
+                <li key={i}>
+                  <button
+                    type="button"
+                    className={`btn h-100 text-center dropdown-item`}
+                    onClick={() => setHeuristic(i)}
+                  >
+                    Heuristic {i + 1}
+                  </button>
+                </li>
+              ))}
+          </ul>
+        </div>
+        <div className="dropdown mb-3 text-center">
+          <button
+            className={`dropdown-toggle ${styles.dropDownBtn}`}
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Select Limit {limit ? ` - ${limit}` : ""}
+          </button>
+          <ul className={`dropdown-menu ${styles.dropDownMenu}`}>
+            {limitOptions.map((option, i) => (
+              <li key={i}>
+                <button
+                  type="button"
+                  className={`btn h-100 text-center dropdown-item`}
+                  onClick={() =>
+                    setLimit(option != "None" ? option : undefined)
+                  }
+                >
+                  {option}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
       <table className={`table table-striped ${styles.table} `}>
         <thead>
           <tr>
@@ -98,7 +189,7 @@ export default function Leaderboard() {
           </tr>
         </thead>
         <tbody>
-          {displayData.map((data, i) => (
+          {displayData.slice(0, displayLimit).map((data, i) => (
             <tr>
               <th scope="row">{i + 1}</th>
               <td>{data.displayName}</td>
