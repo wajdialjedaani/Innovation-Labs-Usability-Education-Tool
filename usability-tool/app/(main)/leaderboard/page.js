@@ -157,7 +157,7 @@ export default function Leaderboard() {
                   )
                 }
               >
-                Quiz
+                Quiz Score
                 <i
                   className={
                     dataSort == "Quiz"
