@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "@/styles/globals.scss";
-import Navbar from "/app/(main)/components/Navbar";
+import Navbar from "../(main)/components/Navbar";
 
 //import { ContextProvider } from "./components/ContextProvider";
 

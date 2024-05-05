@@ -1,7 +1,7 @@
 "use client";
 import { redirect } from "next/navigation";
 import UIBuilder from "@/components/ui-builder/UIBuilder";
-import { getAuthContext } from "@/app/(main)/components/AuthContextProvider";
+import { getAuthContext } from "@/app/(heurisitcbuilder)/(main)/components/AuthContextProvider";
 export default function UIBuilderActivity({ params }) {
   const {
     metaDataSuite: {

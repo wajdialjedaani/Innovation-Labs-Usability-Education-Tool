@@ -2,7 +2,7 @@
 import Quiz from "@/components/quiz/Quiz";
 import * as allHeuristicQuestions from "@/lib/quiz/questions";
 import { redirect } from "next/navigation";
-import { getAuthContext } from "@/app/(main)/components/AuthContextProvider";
+import { getAuthContext } from "@/app/(heurisitcbuilder)/(main)/components/AuthContextProvider";
 // meta and quizObj should probably be combined into one js object later so that quizzes can be modularly imported from one file
 // also, this would help for lockstate controlled by the QuizContextProvider
 

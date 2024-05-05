@@ -1,7 +1,7 @@
 "use client";
 import Textbook from "@/components/textbook/Textbook";
 import heuristicSelector from "@/lib/textbook/hueristicSelector";
-import { getAuthContext } from "@/app/(main)/components/AuthContextProvider";
+import { getAuthContext } from "@/app/(heurisitcbuilder)/(main)/components/AuthContextProvider";
 import { redirect } from "next/navigation";
 
 export default function Lesson({ params }) {

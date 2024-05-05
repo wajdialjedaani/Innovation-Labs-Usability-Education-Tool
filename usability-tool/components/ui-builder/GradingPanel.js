@@ -8,19 +8,19 @@ import ReactHowler from "react-howler";
 
 // util imports
 import { getContextSuite } from "./UIBuilderContextProvider";
-import { getAuthContext } from "@/app/(main)/components/AuthContextProvider";
+import { getAuthContext } from "@/app/(heurisitcbuilder)/(main)/components/AuthContextProvider";
 import { useEffect, useState } from "react";
 
 import { useRouter } from "next/navigation";
 
 import { addUIData } from "@/lib/firebase/firestore";
-  
+
 export default function GradingPanel({ toggleFunction }) {
   const {
     user,
     metaDataSuite: { metaData, updateMetaData },
   } = getAuthContext();
-  
+
   const { startGrading, heuristic, startTime, toggleSolutionView, setSolutionIndex, scenarioInformation } = getContextSuite();
 
   const [scoreObj, setScoreObj] = useState({});
@@ -37,7 +37,7 @@ export default function GradingPanel({ toggleFunction }) {
 
   const router = useRouter();
 
-  function handleContinue(){
+  function handleContinue() {
     router.push(scenarioInformation.nextUrl);
   }
 
@@ -114,10 +114,10 @@ function ScoreBreakdown({ scoreObj }) {
       </span>
       <br />
       {
-        scoreObj.collisions && scoreObj.collisions.length > 0 && 
-        
+        scoreObj.collisions && scoreObj.collisions.length > 0 &&
+
         <div>
-          <i>Components should not collide!</i><br/>
+          <i>Components should not collide!</i><br />
           <i>Detected Collisions:</i>
           <ul className={styles.collisionList}>
             {scoreObj.collisions.map((obj, index) => {

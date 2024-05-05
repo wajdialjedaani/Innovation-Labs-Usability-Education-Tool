@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { logOut } from "@/lib/firebase/auth";
 import styles from "@/styles/nav.module.scss";
-import { getAuthContext } from "@/app/(main)/components/AuthContextProvider";
+import { getAuthContext } from "@/app/(heurisitcbuilder)/(main)/components/AuthContextProvider";
 
 export default function Accountpopup() {
   const { user } = getAuthContext();

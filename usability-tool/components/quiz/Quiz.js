@@ -10,7 +10,7 @@ import NavFooter from "../nav/NavFooter";
 
 import Modal from "../Modal";
 
-import { getAuthContext } from "@/app/(main)/components/AuthContextProvider";
+import { getAuthContext } from "@/app/(heurisitcbuilder)/(main)/components/AuthContextProvider";
 
 import { addHeuristicData } from "@/lib/firebase/firestore";
 

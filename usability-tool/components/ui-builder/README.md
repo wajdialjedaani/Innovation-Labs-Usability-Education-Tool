@@ -7,7 +7,8 @@ and grading weights for each UI Builder activities.
 
 ### Instructions
 
-Each Scenario has instructions/scenarios for the user to follow to create a UI for the assigned scenario. One was created for each of the heuristics.
+Each Scenario has instructions/scenarios for the user to follow to create a UI for 
+the assigned scenario. One was created for each of the heuristic scenarios.
 
 ### Grading
 
