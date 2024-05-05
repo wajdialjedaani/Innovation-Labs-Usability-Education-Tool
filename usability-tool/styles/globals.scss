@@ -1,9 +1,14 @@
 @use "./mixins/colorscheme.scss" as *;
+
 html,
 body {
   margin: 0;
   height: 100%;
   box-sizing: border-box;
+}
+
+.filterwhite {
+  filter: invert(1);
 }
 
 .global {
