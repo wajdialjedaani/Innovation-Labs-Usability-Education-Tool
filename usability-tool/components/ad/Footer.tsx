@@ -13,14 +13,14 @@ export default function Footer() {
   }
 
   return (
-    <div className="bg-zinc-900">
+    <div className="bg-usability-800">
       <HorizontalPadding>
-        <div className="flex flex-row h-25 p-5 items-center justify-between">
+        <div className="flex flex-col gap-8 sm:gap-0 sm:flex-row h-25 p-5 items-center justify-between">
           <div>
             <img className="h-14 w-auto" src="logo.svg" alt="logo" />
           </div>
 
-          <div className="flex flex-col text-lg">
+          <div className="flex flex-col text-lg gap-2">
             <Link href="signin" className="flex gap-5 items-center"> <img className="filterwhite" src="/icons/log-in.svg" />Log in</Link>
             <a className="flex gap-5 items-center" target="_blank" href="https://github.com/wajdialjedaani/Innovation-Labs-Usability-Education-Tool"> <img className="filterwhite" src="/icons/github.svg" />Source Code</a>
             <button onClick={toggleFunction} className="flex gap-5 items-center"> <img className="filterwhite" src="/icons/book.svg" />Attributions</button>
