@@ -21,9 +21,31 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col text-lg gap-2">
-            <Link href="signin" className="flex gap-5 items-center"> <img className="filterwhite" src="/icons/log-in.svg" />Log in</Link>
-            <a className="flex gap-5 items-center" target="_blank" href="https://github.com/wajdialjedaani/Innovation-Labs-Usability-Education-Tool"> <img className="filterwhite" src="/icons/github.svg" />Source Code</a>
-            <button onClick={toggleFunction} className="flex gap-5 items-center"> <img className="filterwhite" src="/icons/book.svg" />Attributions</button>
+            <Link href="signin" className="flex gap-5 items-center hover:text-usability-650-hover transition">
+              <img className="filterwhite" src="/icons/log-in.svg" />
+              Log in
+            </Link>
+            <a
+              className="flex gap-5 items-center hover:text-usability-650-hover transition"
+              target="_blank"
+              href="https://github.com/wajdialjedaani/Innovation-Labs-Usability-Education-Tool"
+            >
+              <img
+                className="filterwhite"
+                src="/icons/github.svg"
+              />
+              Source Code
+            </a>
+            <button
+              onClick={toggleFunction}
+              className="flex gap-5 items-center hover:text-usability-650-hover transition"
+            >
+              <img
+                className="filterwhite"
+                src="/icons/book.svg"
+              />
+              Attributions
+            </button>
           </div>
         </div>
         <div className="p-5 text-zinc-500">

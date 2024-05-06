@@ -11,6 +11,8 @@ module.exports = {
         "usability-900": "#0C1821",
         "usability-800": "#1B2A41",
         "usability-700": "#324A5F",
+        "usability-650": "#6487a6",
+        "usability-650-hover": "#85b2da",
         "usability-600": "#CCC9DC",
       }
     },

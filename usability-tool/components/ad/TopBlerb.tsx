@@ -18,7 +18,7 @@ export default function TopBlerb() {
       </div>
 
       <div className="flex sm:hidden w-full justify-center">
-        <Link href="/home" className="flex sm:hidden bg-sky-600 h-14 w-48 border border-black items-center justify-center text-2xl rounded-xl transition-all hover:shadow-lg hover:-translate-y-1 hover:bg-sky-500">
+        <Link href="/home" className="flex sm:hidden bg-usability-650 h-14 w-48 border border-white items-center justify-center text-2xl rounded-xl transition-all hover:shadow-lg hover:-translate-y-1 hover:bg-usability-650-hover">
           <div className="select-none">Get Started</div>
         </Link>
       </div>

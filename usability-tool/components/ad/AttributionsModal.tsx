@@ -2,7 +2,7 @@ export default function AttributionsModal({ toggleFunction }: { toggleFunction: 
   return (
     <div className="flex items-center justify-center fixed p-0 m-0 left-0 right-0 top-0 bottom-0 bg-black bg-opacity-40">
       <div>
-        <div className="bg-zinc-900 p-5 rounded-lg">
+        <div className=" bg-usability-800 border border-white shadow-2xl transition-transform p-5 rounded-lg">
           <div className="flex justify-between">
             <div className="text-2xl">Attributions</div>
             <button onClick={() => toggleFunction()} className="text-2xl select-none transition-all hover:text-zinc-300">&#215;</button>
