@@ -25,7 +25,7 @@ export default function Footer() {
               <img className="filterwhite" src="/icons/log-in.svg" />
               Log in
             </Link>
-            <a
+            {/* <a
               className="flex gap-5 items-center hover:text-usability-650-hover transition"
               target="_blank"
               href="https://github.com/wajdialjedaani/Innovation-Labs-Usability-Education-Tool"
@@ -35,7 +35,7 @@ export default function Footer() {
                 src="/icons/github.svg"
               />
               Source Code
-            </a>
+            </a> */}
             <button
               onClick={toggleFunction}
               className="flex gap-5 items-center hover:text-usability-650-hover transition"
